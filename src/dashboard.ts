@@ -92,7 +92,7 @@ const find = (list: Quote[] | undefined, label: string): Quote | undefined =>
  *   ---
  *   미10년물 / 달러인덱스 / 원달러
  *   ---
- *   코스피 / 코스닥 / 외국인 / 기관
+ *   코스피 / 코스닥 / 외국인 / 기관 / 개인
  */
 export function buildStockDashboard(
   market: MarketData | undefined,
@@ -122,6 +122,7 @@ export function buildStockDashboard(
         quoteCell("코스닥", find(market?.kr, "코스닥"), 2),
         flowCell("외국인", kospiFlow?.foreign),
         flowCell("기관", kospiFlow?.institution),
+        flowCell("개인", kospiFlow?.individual),
       ],
     },
   ];

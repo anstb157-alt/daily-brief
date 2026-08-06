@@ -16,7 +16,8 @@ import type { MarketData } from "../collectors/market.js";
 import { buildStockDashboard } from "../dashboard.js";
 import { kstDateString, lastUsTradingDate } from "../date.js";
 import { DOMAINS } from "../domains.js";
-import { buildText } from "../notify.js";
+import { buildMessages, textLength } from "../notify.js";
+import { httpConfig } from "../config.js";
 import { renderHtml } from "../render.js";
 import { summarize } from "../summarize.js";
 import { loadThread, saveThread } from "../threads.js";
@@ -51,37 +52,42 @@ const openThread = await loadThread("stock");
 console.log(`[thread] 전일: ${openThread ? openThread.question : "없음"}`);
 
 const summary = await summarize(domain, collected, openThread);
+const date = kstDateString();
+const dashboard = buildStockDashboard(
+  collected["market"] as MarketData | undefined,
+  collected["flows"] as FlowsData | undefined,
+);
+
 if (summary.kind === "structured") {
   const b = summary.brief;
   console.log(`[summarize] 이슈 ${b.issues.length}개`);
-  console.log(`  한 줄: ${b.oneLiner}`);
-  b.headlines.forEach((h) => console.log(`  · ${h}`));
-  console.log(`  코멘트: ${b.dashboardComment || "(없음)"}`);
-  console.log(`  스레드 후속: ${b.threadFollowup || "(생략)"}`);
-  console.log(`  마무리 질문: ${b.closingQuestion}`);
-  await saveThread("stock", { askedOn: kstDateString(), question: b.closingQuestion });
-
-  const built = buildText({
-    heading: `${domain.emoji} 8/6 ${domain.label}`,
-    summary: b.oneLiner,
-    headlines: b.headlines,
-    link: "https://anstb157-alt.github.io/daily-brief/stock/2026-08-06.html",
-  });
-  console.log(
-    `[notify:dry] ${built.length}/200자, 헤드라인 ${built.droppedHeadlines}개 제거, 요약축약 ${built.summaryTruncated}`,
-  );
+  await saveThread("stock", { askedOn: date, question: b.closingQuestion });
 } else {
   console.log("[summarize] 원문 폴백");
 }
 
-const date = kstDateString();
+// 실제 발송 없이 카톡 본문만 조립해 확인한다
+const messages = buildMessages(
+  {
+    heading: `${domain.emoji} 8/6 ${domain.label}`,
+    brief: summary.kind === "structured" ? summary.brief : null,
+    fallbackSummary: "요약 구조화에 실패했습니다.",
+    dashboard,
+    link: `https://anstb157-alt.github.io/daily-brief/stock/${date}.html`,
+  },
+  httpConfig().KAKAO_MAX_MESSAGES,
+);
+console.log(
+  `\n[notify:dry] ${messages.length}통, 총 ${messages.reduce((a, m) => a + textLength(m), 0)}자`,
+);
+messages.forEach((m, i) => {
+  console.log(`\n─── ${i + 1}통 (${textLength(m)}/200자) ───\n${m}`);
+});
+
 const html = renderHtml({
   domain,
   date,
-  dashboard: buildStockDashboard(
-    collected["market"] as MarketData | undefined,
-    collected["flows"] as FlowsData | undefined,
-  ),
+  dashboard,
   summary,
   failedSources,
   generatedAt: new Date().toISOString(),

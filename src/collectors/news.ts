@@ -19,7 +19,15 @@ import { type Collector, type CollectResult, toResult } from "./types.js";
 /** 종목과 무관하게 매일 보는 시장 전반 키워드 */
 const MARKET_QUERIES = ["증시", "코스피", "미국증시 마감"] as const;
 /** 쿼리당 가져올 기사 수. 요약 입력이 너무 길어지지 않게 제한한다 */
-const PER_QUERY = 5;
+const PER_QUERY = 8;
+/**
+ * 브리핑은 "오늘 아침 기준 최신"이어야 한다.
+ * 이 시간을 넘긴 기사는 버린다. 단 전부 걸러지면 필터를 풀어
+ * 조용한 날에 뉴스가 0건이 되는 상황을 막는다.
+ */
+const FRESH_WINDOW_HOURS = 30;
+/** 최신 필터 후 이 건수 미만이면 필터를 해제한다 */
+const MIN_ITEMS = 5;
 
 const watchlistSchema = z.object({
   stocks: z.array(z.object({ ticker: z.string(), nameKo: z.string() })),
@@ -29,6 +37,11 @@ export interface NewsItem {
   /** 어떤 키워드로 찾았는지 — 워치리스트 매핑에 쓴다 */
   query: string;
   title: string;
+  /**
+   * 기사 요약. 제목만으로는 "실적은 호조인데 가이던스가 문제" 같은
+   * 인과가 넘어가지 않아 요약 단계가 잘못 판단한다 (2026-08-06 샌디스크 사례).
+   */
+  summary: string;
   source: string;
   publishedAt: string;
   link: string;
@@ -58,9 +71,10 @@ function tagText(block: string, tag: string): string {
 }
 
 async function fetchGoogleNews(query: string): Promise<NewsItem[]> {
+  // when:1d — 구글뉴스 검색 연산자. 최근 24시간 기사로 제한한다.
   const url =
     "https://news.google.com/rss/search?q=" +
-    `${encodeURIComponent(query)}&hl=ko&gl=KR&ceid=KR:ko`;
+    `${encodeURIComponent(`${query} when:1d`)}&hl=ko&gl=KR&ceid=KR:ko`;
   const res = await fetchWithRetry(
     url,
     { headers: { "User-Agent": BROWSER_UA } },
@@ -77,6 +91,9 @@ async function fetchGoogleNews(query: string): Promise<NewsItem[]> {
         query,
         // 구글뉴스 제목은 "제목 - 언론사" 형태다. 언론사는 source 태그가 더 정확하다.
         title: title.replace(/ - [^-]+$/, ""),
+        // 구글뉴스 description은 관련 기사 목록 HTML이라 본문 요약이 아니다.
+        // 태그를 걷어내고 앞부분만 남긴다.
+        summary: stripTags(tagText(block, "description")).slice(0, 200),
         source: tagText(block, "source"),
         publishedAt: tagText(block, "pubDate"),
         link: tagText(block, "link"),
@@ -91,6 +108,8 @@ const naverNewsSchema = z.object({
   items: z.array(
     z.object({
       title: z.string(),
+      /** 기사 앞부분 요약. 인과를 파악하는 데 제목보다 훨씬 유용하다 */
+      description: z.string(),
       originallink: z.string(),
       link: z.string(),
       pubDate: z.string(),
@@ -130,6 +149,7 @@ async function fetchNaverNews(query: string): Promise<NewsItem[]> {
   return raw.items.map((i) => ({
     query,
     title: stripTags(i.title),
+    summary: stripTags(i.description),
     source: "네이버뉴스",
     publishedAt: i.pubDate,
     link: i.originallink || i.link,
@@ -147,6 +167,26 @@ function dedupe(items: NewsItem[]): NewsItem[] {
     seen.add(key);
     return true;
   });
+}
+
+/** 파싱 불가한 날짜는 0으로 — 정렬에서 뒤로 밀린다 */
+function publishedMs(item: NewsItem): number {
+  const t = Date.parse(item.publishedAt);
+  return Number.isNaN(t) ? 0 : t;
+}
+
+/**
+ * 최신순 정렬 후 오래된 기사를 버린다.
+ * 소스마다 정렬 기준이 달라(구글=관련도, 네이버=날짜) 여기서 한 번에 맞춘다.
+ */
+function freshest(items: NewsItem[]): { items: NewsItem[]; filtered: boolean } {
+  const sorted = [...items].sort((a, b) => publishedMs(b) - publishedMs(a));
+  const cutoff = Date.now() - FRESH_WINDOW_HOURS * 3_600_000;
+  const fresh = sorted.filter((i) => publishedMs(i) >= cutoff);
+  // 너무 많이 걸러지면 최신성보다 정보 있음이 낫다
+  return fresh.length >= MIN_ITEMS
+    ? { items: fresh, filtered: true }
+    : { items: sorted, filtered: false };
 }
 
 export const newsCollector: Collector<NewsData> = {
@@ -195,11 +235,18 @@ export const newsCollector: Collector<NewsData> = {
       if (deduped.length === 0) {
         throw new Error(`기사 0건. ${skipped.join(" / ")}`);
       }
+      const { items: fresh, filtered } = freshest(deduped);
+      if (!filtered) {
+        skipped.push(
+          `${FRESH_WINDOW_HOURS}시간 이내 기사가 ${MIN_ITEMS}건 미만이라 최신 필터 해제`,
+        );
+      }
       console.log(
-        `[news] ${deduped.length}건 (중복 제거 전 ${items.length})` +
+        `[news] ${fresh.length}건 (중복 제거 전 ${items.length}, 최신순 정렬` +
+          `${filtered ? `, ${FRESH_WINDOW_HOURS}h 이내만` : ""})` +
           (skipped.length > 0 ? ` — 건너뜀: ${skipped.join(" / ")}` : ""),
       );
-      return { items: deduped, skipped };
+      return { items: fresh, skipped };
     });
   },
 };

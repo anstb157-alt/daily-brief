@@ -205,7 +205,10 @@ export function createEarningsCollector(isoDate: string): Collector<EarningsData
           date: isoDate,
           totalCount: rows.length,
           items,
-          note: "가이던스·컨콜 발언은 이 소스에 없다. 뉴스 기사에서만 근거를 찾을 것.",
+          note:
+            "epsForecast는 다음 분기 컨센서스 전망치다(발표치가 아니다). " +
+            "epsActual은 발표 다음 날에야 채워지므로 null이 정상이다. " +
+            "실제 발표 결과·가이던스·컨콜 발언은 news에서 근거를 찾을 것.",
         };
       });
     },

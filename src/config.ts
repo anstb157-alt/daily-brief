@@ -126,6 +126,13 @@ export const httpConfig = () =>
     GEMINI_CALL_GAP_MS: z.coerce.number().int().min(0).default(30_000),
     /** LLM 생성은 일반 API보다 오래 걸린다 (긴 수집데이터일수록 증가) */
     GEMINI_TIMEOUT_MS: z.coerce.number().int().positive().default(120_000),
+    /**
+     * 카톡 분할 발송 통수. 템플릿 1통이 200자라 4통이면 최대 800자다.
+     * 내용이 모자라면 그만큼만 보낸다 — 800자를 채우려고 늘려 쓰지 않는다.
+     * 카카오 쿼터는 발신자/수신자 pair당 일 20건이므로
+     * 주식 4 + 부동산 4 = 8건, 상한의 40%다. 재실행 여유를 남긴 값이다.
+     */
+    KAKAO_MAX_MESSAGES: z.coerce.number().int().min(1).max(8).default(4),
   });
 
 // ─── 검증 전용 CLI ─────────────────────────────────────────────

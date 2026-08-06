@@ -17,7 +17,7 @@ import { flowsCollector } from "./collectors/flows.js";
 import { marketCollector } from "./collectors/market.js";
 import { newsCollector } from "./collectors/news.js";
 import type { Collector } from "./collectors/types.js";
-import { siteConfig } from "./config.js";
+import { httpConfig, siteConfig } from "./config.js";
 import {
   buildRealestateDashboard,
   buildStockDashboard,
@@ -25,7 +25,7 @@ import {
 } from "./dashboard.js";
 import { kstDateString, kstShortDate, lastUsTradingDate } from "./date.js";
 import { DOMAINS, type DomainId } from "./domains.js";
-import { sendToMe } from "./notify.js";
+import { sendBrief } from "./notify.js";
 import { renderHtml } from "./render.js";
 import { summarize } from "./summarize.js";
 import { loadThread, saveThread } from "./threads.js";
@@ -129,10 +129,11 @@ export async function runPipeline(domainId: DomainId): Promise<PipelineResult> {
   const summary = await summarize(domain, collected, openThread);
 
   // ── 렌더 ──
+  const dashboard = dashboardFor(domainId, collected);
   const html = renderHtml({
     domain,
     date,
-    dashboard: dashboardFor(domainId, collected),
+    dashboard,
     summary,
     failedSources,
     generatedAt: new Date().toISOString(),
@@ -150,17 +151,19 @@ export async function runPipeline(domainId: DomainId): Promise<PipelineResult> {
     });
   }
 
-  // ── 발송 ──
+  // ── 발송 ── 200자 템플릿을 여러 통으로 나눠 보낸다
   const token = await getAccessToken();
-  await sendToMe(token, {
-    heading: `${domain.emoji} ${kstShortDate()} ${domain.label}`,
-    summary:
-      summary.kind === "structured"
-        ? summary.brief.oneLiner
-        : "요약 구조화에 실패했습니다. 본문을 확인하세요.",
-    headlines: summary.kind === "structured" ? summary.brief.headlines : [],
-    link: pageUrl,
-  });
+  await sendBrief(
+    token,
+    {
+      heading: `${domain.emoji} ${kstShortDate()} ${domain.label}`,
+      brief: summary.kind === "structured" ? summary.brief : null,
+      fallbackSummary: "요약 구조화에 실패했습니다. 본문 링크를 확인하세요.",
+      dashboard,
+      link: pageUrl,
+    },
+    httpConfig().KAKAO_MAX_MESSAGES,
+  );
 
   return { sent: true, pageUrl };
 }
