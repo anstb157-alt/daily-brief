@@ -45,6 +45,16 @@ ETF를 지수 대용으로 쓰면 "수집데이터에 없는 숫자를 만들지
 탐색으로 확정: 미10년물 `bond` / `US10YT=RR`, 달러인덱스 `exchange` / `.DXY`, 원/달러 `exchange` / `FX_USDKRW`.
 지수와 달리 변동폭 필드명이 `fluctuations`다 (지수는 `compareToPreviousClosePrice`).
 
+### 10. Reddit 커뮤니티 수집 보류 (2026-08-06)
+사용자에게 Reddit 계정이 없어 script 앱을 만들 수 없다.
+`community.ts`는 만들지 않고, 브리핑의 [커뮤니티] 항목은 "데이터 없음"으로 나간다.
+계정이 생기면 #4의 설계 그대로 추가하면 된다 (config의 redditConfig는 이미 있음).
+
+### 11. Gemini 모델은 gemini-3.6-flash (2026-08-06)
+`gemini-2.5-flash`·`gemini-2.5-flash-lite`는 "no longer available to new users"로 404,
+`gemini-2.0-flash`는 429(무료 쿼터 없음). 실측으로 동작을 확인한 최신 flash 계열을 쓴다.
+모델명은 env(`GEMINI_MODEL`) 주입이라 코드 변경 없이 교체 가능하다.
+
 ### 4. Reddit은 OAuth script 앱으로 접근
 2026-05부로 비인증 `.json` 엔드포인트가 차단됨(403, 실측 확인).
 무료 script 앱 OAuth로 전환. 인증해도 Actions 공유 IP가 차단될 가능성이 있어
