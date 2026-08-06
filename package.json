@@ -13,7 +13,8 @@
     "kakao:scopes": "tsx --env-file-if-exists=.env src/scripts/check-scopes.ts",
     "collect:test": "tsx --env-file-if-exists=.env src/scripts/collect-test.ts",
     "brief:dry": "tsx --env-file-if-exists=.env src/scripts/summarize-test.ts",
-    "brief": "tsx --env-file-if-exists=.env src/main.ts"
+    "brief": "tsx --env-file-if-exists=.env src/main.ts",
+    "notify:link": "tsx --env-file-if-exists=.env src/scripts/send-link.ts"
   },
   "dependencies": {
     "libsodium-wrappers": "^0.7.15",

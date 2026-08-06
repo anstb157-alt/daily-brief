@@ -38,7 +38,7 @@ export const DOMAINS: Record<DomainId, DomainConfig> = {
   chungyak: {
     id: "chungyak",
     label: "청약",
-    emoji: "📋",
+    emoji: "📒",
     promptPath: "prompts/chungyak.md",
     outputDir: "chungyak",
   },

@@ -92,7 +92,11 @@ const splitText = (s: string): string[] =>
 
 /**
  * 블록 순서: 요약 → 지표 → 오늘 일정 → 어제 스레드 → 이슈 → 내일 질문.
- * 링크는 본문에 넣지 않는다 — 마지막 통의 버튼이 대신한다.
+ * 마지막에 링크 한 줄을 붙인다.
+ *
+ * 버튼만 믿으면 안 된다: 카카오는 앱에 등록된 웹 도메인의 링크만 템플릿에서 살린다.
+ * 미등록 도메인이면 link·button_title이 통째로 사라져 링크가 아예 안 온다
+ * (2026-08-06 실측). 본문 URL은 등록 여부와 무관하게 항상 전달된다.
  */
 function buildBlocks(p: BriefPayload): Block[] {
   if (!p.brief) return [{ lines: [p.fallbackSummary], atomic: false }];
@@ -244,6 +248,15 @@ export function buildMessages(p: BriefPayload, maxMessages: number): string[] {
 
   const kept = chunks.slice(0, maxMessages);
   if (kept.length === 0) kept.push([p.fallbackSummary]);
+
+  // 마지막 통에 링크 한 줄을 넣는다. 자리가 없으면 본문 줄을 덜어낸다 —
+  // 링크는 절대 자르지 않는다. 도메인 미등록 시 버튼이 사라지므로 이게 유일한 통로다.
+  const linkLine = `→ ${p.link}`;
+  const last = kept[kept.length - 1];
+  if (last) {
+    while (last.length > 0 && size([...last, linkLine]) > budget) last.pop();
+    last.push(linkLine);
+  }
 
   // 1통은 머리글이 길어 예산을 넘을 수 있다. 넘치는 줄은 2통 앞으로 넘긴다.
   const firstBudget =
