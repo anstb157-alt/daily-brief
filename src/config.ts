@@ -34,15 +34,28 @@ const requiredString = (desc: string) =>
 
 // ─── 그룹별 설정 ───────────────────────────────────────────────
 
-/** 카카오 나에게 보내기 + 토큰 갱신 (notify.ts, auth/kakao.ts) */
+/** 카카오 앱 자격증명 (notify.ts, auth/kakao.ts, auth/issue-token.ts) */
 export const kakaoConfig = () =>
   loadGroup("kakao", {
     KAKAO_REST_API_KEY: requiredString("카카오 앱 REST API 키"),
     KAKAO_CLIENT_SECRET: requiredString(
       "카카오 앱 보안 > Client Secret (활성화 상태 기준)",
     ),
+    /** 최초 발급 시 콘솔에 등록한 Redirect URI와 일치해야 한다 */
+    KAKAO_AUTH_REDIRECT_URI: z
+      .string()
+      .url()
+      .default("http://localhost:3000/callback"),
+  });
+
+/**
+ * refresh token은 앱 자격증명과 분리 — 최초 발급 스크립트(issue-token.ts)는
+ * 이 값이 없는 상태에서 돌아야 하기 때문이다.
+ */
+export const kakaoTokenConfig = () =>
+  loadGroup("kakaoToken", {
     KAKAO_REFRESH_TOKEN: requiredString(
-      "최초 수동 발급한 refresh token. 이후 회전은 auth/kakao.ts가 담당",
+      "최초 1회 `npm run auth:issue`로 발급. 이후 회전은 auth/kakao.ts가 담당",
     ),
   });
 
@@ -123,6 +136,7 @@ const isDirectRun =
 if (isDirectRun) {
   const groups: Record<string, () => unknown> = {
     kakao: kakaoConfig,
+    kakaoToken: kakaoTokenConfig,
     gemini: geminiConfig,
     naver: naverConfig,
     reddit: redditConfig,

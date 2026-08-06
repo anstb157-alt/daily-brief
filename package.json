@@ -8,12 +8,16 @@
   },
   "scripts": {
     "typecheck": "tsc --noEmit",
-    "config:check": "tsx src/config.ts"
+    "config:check": "tsx --env-file-if-exists=.env src/config.ts",
+    "auth:issue": "tsx --env-file-if-exists=.env src/auth/issue-token.ts",
+    "notify:test": "tsx --env-file-if-exists=.env src/scripts/test-notify.ts"
   },
   "dependencies": {
+    "libsodium-wrappers": "^0.7.15",
     "zod": "^3.23.8"
   },
   "devDependencies": {
+    "@types/libsodium-wrappers": "^0.7.14",
     "@types/node": "^20",
     "tsx": "^4.19.0",
     "typescript": "^5.5.0"
