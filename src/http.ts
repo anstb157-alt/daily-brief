@@ -40,8 +40,11 @@ export async function fetchWithRetry(
   url: string,
   init: RequestInit = {},
   label = url,
+  /** 기본 타임아웃보다 오래 걸리는 호출(LLM 생성 등)에서만 넘긴다 */
+  timeoutMs?: number,
 ): Promise<Response> {
   const { HTTP_TIMEOUT_MS, HTTP_RETRY_MAX, HTTP_RETRY_BASE_MS } = httpConfig();
+  const timeout = timeoutMs ?? HTTP_TIMEOUT_MS;
   let lastError: unknown;
 
   // 최초 시도 1회 + 재시도 HTTP_RETRY_MAX회
@@ -57,7 +60,7 @@ export async function fetchWithRetry(
     try {
       const res = await fetch(url, {
         ...init,
-        signal: AbortSignal.timeout(HTTP_TIMEOUT_MS),
+        signal: AbortSignal.timeout(timeout),
       });
       if (res.ok) return res;
 
@@ -82,7 +85,8 @@ export async function fetchJson(
   url: string,
   init: RequestInit = {},
   label = url,
+  timeoutMs?: number,
 ): Promise<unknown> {
-  const res = await fetchWithRetry(url, init, label);
+  const res = await fetchWithRetry(url, init, label, timeoutMs);
   return res.json();
 }

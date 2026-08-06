@@ -124,6 +124,8 @@ export const httpConfig = () =>
     HTTP_RETRY_BASE_MS: z.coerce.number().int().positive().default(1_000),
     /** Gemini 무료 티어 RPM 보호용 — 주식/부동산 호출 사이 최소 간격 */
     GEMINI_CALL_GAP_MS: z.coerce.number().int().min(0).default(30_000),
+    /** LLM 생성은 일반 API보다 오래 걸린다 (긴 수집데이터일수록 증가) */
+    GEMINI_TIMEOUT_MS: z.coerce.number().int().positive().default(120_000),
   });
 
 // ─── 검증 전용 CLI ─────────────────────────────────────────────

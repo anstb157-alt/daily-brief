@@ -12,7 +12,8 @@
     "auth:issue": "tsx --env-file-if-exists=.env src/auth/issue-token.ts",
     "notify:test": "tsx --env-file-if-exists=.env src/scripts/test-notify.ts",
     "kakao:scopes": "tsx --env-file-if-exists=.env src/scripts/check-scopes.ts",
-    "collect:test": "tsx --env-file-if-exists=.env src/scripts/collect-test.ts"
+    "collect:test": "tsx --env-file-if-exists=.env src/scripts/collect-test.ts",
+    "summarize:test": "tsx --env-file-if-exists=.env src/scripts/summarize-test.ts"
   },
   "dependencies": {
     "libsodium-wrappers": "^0.7.15",
