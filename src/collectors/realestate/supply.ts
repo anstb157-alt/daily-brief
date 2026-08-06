@@ -16,14 +16,33 @@ import { type Collector, type CollectResult, toResult } from "../types.js";
 
 const BASE = "https://www.reb.or.kr/r-one/openapi/SttsApiTblData.do";
 
+/**
+ * 전국 합계를 가리키는 이름이 표마다 다르다 (2026-08-06 실측).
+ *   신규 분양세대수 → "전국"
+ *   주택준공실적    → "총계"
+ *   미분양주택현황  → "계"
+ * 같은 이름이 여러 행에 반복되므로 그중 가장 큰 값을 전국 합계로 본다.
+ */
 const TABLES = [
-  { key: "newSupplyUnits", id: "T244633134461863", label: "신규 분양세대수" },
-  { key: "completedUnits", id: "T237273130004614", label: "주택준공실적" },
-  { key: "unsoldUnits", id: "T237973129847263", label: "미분양주택현황" },
+  {
+    key: "newSupplyUnits",
+    id: "T244633134461863",
+    label: "신규 분양세대수",
+    nationNames: ["전국"],
+  },
+  {
+    key: "completedUnits",
+    id: "T237273130004614",
+    label: "주택준공실적",
+    nationNames: ["총계", "전국"],
+  },
+  {
+    key: "unsoldUnits",
+    id: "T237973129847263",
+    label: "미분양주택현황",
+    nationNames: ["계", "전국", "총계"],
+  },
 ] as const;
-
-/** 전국 값을 대표로 쓴다 */
-const NATION = "전국";
 /** 월간 통계는 발표가 늦다. 이만큼 거슬러 올라가며 찾는다 */
 const LOOKBACK_MONTHS = 6;
 const PAGE_SIZE = 400;
@@ -57,6 +76,7 @@ async function fetchMonth(
   statblId: string,
   month: string,
   label: string,
+  nationNames: readonly string[],
 ): Promise<number | undefined> {
   const url =
     `${BASE}?KEY=${encodeURIComponent(key)}&Type=json&pIndex=1&pSize=${PAGE_SIZE}` +
@@ -68,13 +88,15 @@ async function fetchMonth(
     return Array.isArray(list) ? list : [];
   });
 
+  // 전국 합계 후보 중 최댓값을 고른다 — 지역 소계보다 항상 크다
+  let best: number | undefined;
   for (const r of rows) {
     const parsed = rowSchema.safeParse(r);
-    if (parsed.success && parsed.data.CLS_NM === NATION) {
-      return Math.round(parsed.data.DTA_VAL);
-    }
+    if (!parsed.success) continue;
+    if (!nationNames.includes(parsed.data.CLS_NM)) continue;
+    if (best === undefined || parsed.data.DTA_VAL > best) best = parsed.data.DTA_VAL;
   }
-  return undefined;
+  return best === undefined ? undefined : Math.round(best);
 }
 
 /** 최근 달부터 거슬러 올라가며 값이 있는 첫 달을 반환한다 */
@@ -82,12 +104,13 @@ async function findLatest(
   key: string,
   statblId: string,
   label: string,
+  nationNames: readonly string[],
 ): Promise<{ month: string; value: number } | null> {
   const now = new Date();
   let month = `${now.getUTCFullYear()}${String(now.getUTCMonth() + 1).padStart(2, "0")}`;
 
   for (let i = 0; i < LOOKBACK_MONTHS; i++) {
-    const value = await fetchMonth(key, statblId, month, label);
+    const value = await fetchMonth(key, statblId, month, label, nationNames);
     if (value !== undefined) return { month, value };
     month = prevMonth(month);
   }
@@ -104,7 +127,7 @@ export const supplyCollector: Collector<SupplyData> = {
         TABLES.map(async (t) => ({
           key: t.key,
           label: t.label,
-          hit: await findLatest(RONE_API_KEY, t.id, t.label),
+          hit: await findLatest(RONE_API_KEY, t.id, t.label, t.nationNames),
         })),
       );
 
