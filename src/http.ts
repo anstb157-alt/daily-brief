@@ -6,6 +6,13 @@
  */
 import { httpConfig } from "./config.js";
 
+/**
+ * 비공식 API(네이버 증권 등)는 기본 UA를 거부하거나 다른 응답을 준다.
+ * 스크래핑이 아니라 공개 JSON 엔드포인트 호출이며, 정상 브라우저와 동일한 헤더를 쓴다.
+ */
+export const BROWSER_UA =
+  "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/126.0 Safari/537.36";
+
 export class HttpError extends Error {
   constructor(
     readonly status: number,

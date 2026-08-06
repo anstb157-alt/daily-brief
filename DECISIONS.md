@@ -34,6 +34,17 @@ Pages URL이 약 62자로 200자 한도의 31%를 차지한다.
 네이버(`api.stock.naver.com`, `m.stock.naver.com`)가 미국지수·국내지수·환율을 모두 커버함을 확인.
 비공식이라 예고 없이 깨질 수 있으나 폴백 없이 단일 소스로 가고, 실패 시 "데이터 없음" 처리로 감수한다.
 
+### 8. 러셀2000 제외
+2026-08-06 실측: 네이버는 `.RUT`/`RUT`/`^RUT`/`RUI` 모두 "지원하지 않는 지수"(409),
+stooq CSV는 사용 불가, Yahoo는 429. IWM(ETF)도 네이버 마스터에 없다.
+ETF를 지수 대용으로 쓰면 "수집데이터에 없는 숫자를 만들지 않는다"는 프롬프트 규칙에 어긋나므로
+러셀2000은 수집 항목에서 뺀다. 무료 소스가 확인되면 `US_INDEX_CODES`에 추가만 하면 된다.
+
+### 9. 시장지표 코드 확정 (실측)
+네이버 시장지표는 `marketIndex/productDetail?category=&reutersCode=` 조합이며 코드가 문서화돼 있지 않다.
+탐색으로 확정: 미10년물 `bond` / `US10YT=RR`, 달러인덱스 `exchange` / `.DXY`, 원/달러 `exchange` / `FX_USDKRW`.
+지수와 달리 변동폭 필드명이 `fluctuations`다 (지수는 `compareToPreviousClosePrice`).
+
 ### 4. Reddit은 OAuth script 앱으로 접근
 2026-05부로 비인증 `.json` 엔드포인트가 차단됨(403, 실측 확인).
 무료 script 앱 OAuth로 전환. 인증해도 Actions 공유 IP가 차단될 가능성이 있어
