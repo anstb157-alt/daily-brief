@@ -4,11 +4,12 @@
  * prompts/{domain}.md를 시스템 프롬프트로 쓰고 [수집데이터] 자리에 수집 결과를 주입한다.
  * 프롬프트 텍스트는 코드에 인라인하지 않는다 — 편집은 md 파일에서만.
  *
- * 구조 보장은 코드가, 편집 방침은 md가 담당한다.
- * md는 섹션 구성을 자유롭게 바꿀 수 있고, 코드는 카톡 티저에 반드시 필요한
- * 한 줄 요약·헤드라인만 스키마로 강제한다.
+ * 역할 분담:
+ *   md   = 편집 방침·톤·구성
+ *   코드 = 블록 존재 보장, 금지 어휘 차단
+ * 모델은 지시를 어길 수 있으므로 어겨서는 안 되는 것만 코드로 막는다.
  *
- * 무료 티어: gemini-2.5-flash 기준 10 RPM / 250K TPM / 250~500 RPD (프로젝트별 배정).
+ * 무료 티어: flash 계열 기준 10 RPM / 250K TPM / 수백 RPD (프로젝트별 배정).
  * 하루 도메인당 1~2콜이라 여유가 크지만, 로컬에서 두 도메인을 연속 실행하면
  * RPM에 걸릴 수 있어 호출 간 최소 간격을 둔다.
  */
@@ -17,26 +18,41 @@ import { z } from "zod";
 import { geminiConfig, httpConfig } from "./config.js";
 import { fetchJson } from "./http.js";
 import type { DomainConfig } from "./domains.js";
+import type { OpenThread } from "./threads.js";
 
 /** md 안에서 수집 결과로 치환되는 자리 표시자 */
 const PLACEHOLDER = "{{COLLECTED}}";
+/** 전일 스레드 자리 표시자 (없으면 "없음"이 들어간다) */
+const THREAD_PLACEHOLDER = "{{OPEN_THREAD}}";
+
+/**
+ * 실제 변동폭이 값하지 않는데 쓰이면 신뢰가 깨지는 과장 어휘.
+ * 프롬프트에도 적지만 코드에서 한 번 더 막는다.
+ */
+const BANNED_WORDS = ["폭등", "폭락", "붕괴", "충격", "패닉", "초비상"] as const;
 
 // ─── 출력 스키마 ────────────────────────────────────────────────
 
 const briefSchema = z.object({
-  /** 60자 이내 한 줄 요약 (카톡 티저용) */
+  /** 카톡 티저용 한 줄 요약 (60자 이내) */
   oneLiner: z.string().min(1),
-  /** 카톡 티저에 들어갈 헤드라인 */
+  /** 카톡 티저용 헤드라인. 본문에 실제로 있는 내용만 */
   headlines: z.array(z.string().min(1)).min(1).max(5),
-  /** 본문 섹션. 구성은 프롬프트가 정한다 */
-  sections: z
-    .array(z.object({ title: z.string().min(1), body: z.string() }))
-    .min(1),
+  /** 대시보드 아래 한 줄 코멘트. 해석이 불필요하면 빈 문자열 */
+  dashboardComment: z.string(),
+  /** 2) 어제 스레드 후속. 전일 스레드가 없으면 빈 문자열 */
+  threadFollowup: z.string(),
+  /** 3) 이슈·내러티브. 예상 대비 괴리가 큰 순서 */
+  issues: z.array(z.object({ title: z.string().min(1), body: z.string() })),
+  /** 4) 오늘 일정 (KST) */
+  schedule: z.string(),
+  /** 5) 마무리 질문. 내일 브리핑의 2번 블록이 된다 */
+  closingQuestion: z.string().min(1),
 });
 
 export type Brief = z.infer<typeof briefSchema>;
 
-/** 스키마 검증에 두 번 실패하면 원문 텍스트를 그대로 렌더한다 */
+/** 검증에 두 번 실패하면 원문 텍스트를 그대로 렌더한다 */
 export type SummaryResult =
   | { kind: "structured"; brief: Brief }
   | { kind: "raw"; text: string };
@@ -47,7 +63,9 @@ const RESPONSE_SCHEMA = {
   properties: {
     oneLiner: { type: "STRING" },
     headlines: { type: "ARRAY", items: { type: "STRING" } },
-    sections: {
+    dashboardComment: { type: "STRING" },
+    threadFollowup: { type: "STRING" },
+    issues: {
       type: "ARRAY",
       items: {
         type: "OBJECT",
@@ -55,8 +73,18 @@ const RESPONSE_SCHEMA = {
         required: ["title", "body"],
       },
     },
+    schedule: { type: "STRING" },
+    closingQuestion: { type: "STRING" },
   },
-  required: ["oneLiner", "headlines", "sections"],
+  required: [
+    "oneLiner",
+    "headlines",
+    "dashboardComment",
+    "threadFollowup",
+    "issues",
+    "schedule",
+    "closingQuestion",
+  ],
 } as const;
 
 const geminiResponseSchema = z.object({
@@ -127,17 +155,46 @@ async function callGemini(systemPrompt: string, note: string): Promise<string> {
   return text;
 }
 
-function parseBrief(text: string): Brief {
-  return briefSchema.parse(JSON.parse(text));
+/** 브리핑 전체 텍스트를 한 덩어리로 모은다 (금지 어휘 검사용) */
+function allText(brief: Brief): string {
+  return [
+    brief.oneLiner,
+    ...brief.headlines,
+    brief.dashboardComment,
+    brief.threadFollowup,
+    ...brief.issues.flatMap((i) => [i.title, i.body]),
+    brief.schedule,
+    brief.closingQuestion,
+  ].join("\n");
+}
+
+/** 코드로 강제하는 점검. 통과 못 하면 재작성시킨다. */
+function checkBrief(brief: Brief): string[] {
+  const problems: string[] = [];
+  const text = allText(brief);
+
+  const hit = BANNED_WORDS.filter((w) => text.includes(w));
+  if (hit.length > 0) {
+    problems.push(
+      `금지 어휘 사용: ${hit.join(", ")}. 수치가 스스로 말하게 두고 해당 표현을 제거할 것.`,
+    );
+  }
+  if ([...brief.oneLiner].length > 60) {
+    problems.push(
+      `한 줄 요약이 ${[...brief.oneLiner].length}자다. 60자 이내로 줄일 것.`,
+    );
+  }
+  return problems;
 }
 
 /**
  * 수집 결과를 브리핑으로 요약한다.
- * 스키마 검증 실패 시 1회 재요청하고, 그래도 실패하면 원문 텍스트를 반환한다.
+ * 스키마·점검 실패 시 1회 재요청하고, 그래도 실패하면 원문 텍스트를 반환한다.
  */
 export async function summarize(
   domain: DomainConfig,
   collected: unknown,
+  openThread: OpenThread | null,
 ): Promise<SummaryResult> {
   const { GEMINI_CALL_GAP_MS } = httpConfig();
   const template = await readFile(domain.promptPath, "utf8");
@@ -147,33 +204,46 @@ export async function summarize(
       `[summarize] ${domain.promptPath}에 ${PLACEHOLDER} 자리 표시자가 없다`,
     );
   }
-  const systemPrompt = template.replace(
-    PLACEHOLDER,
-    JSON.stringify(collected, null, 2),
-  );
 
-  let lastText = "";
-  // 최초 1회 + 검증 실패 시 재요청 1회
-  for (let attempt = 1; attempt <= 2; attempt++) {
-    await respectRateLimit(GEMINI_CALL_GAP_MS);
-    lastText = await callGemini(
-      systemPrompt,
-      attempt === 1
-        ? "위 규칙과 [수집데이터]에 근거해 브리핑을 작성하라."
-        : "직전 응답이 요구 스키마를 만족하지 못했다. 스키마를 정확히 지켜 다시 작성하라.",
+  const systemPrompt = template
+    .replace(PLACEHOLDER, JSON.stringify(collected, null, 2))
+    .replace(
+      THREAD_PLACEHOLDER,
+      openThread
+        ? `${openThread.askedOn}에 던진 질문: ${openThread.question}`
+        : "없음 (2번 블록은 빈 문자열로 둘 것)",
     );
 
+  let lastText = "";
+  let feedback = "위 규칙과 [수집데이터]에 근거해 브리핑을 작성하라.";
+
+  // 최초 1회 + 실패 시 재작성 1회
+  for (let attempt = 1; attempt <= 2; attempt++) {
+    await respectRateLimit(GEMINI_CALL_GAP_MS);
+    lastText = await callGemini(systemPrompt, feedback);
+
+    let brief: Brief;
     try {
-      return { kind: "structured", brief: parseBrief(lastText) };
+      brief = briefSchema.parse(JSON.parse(lastText));
     } catch (e) {
       console.warn(
         `[summarize] 스키마 검증 실패 (${attempt}/2): ${
           e instanceof Error ? e.message.slice(0, 200) : String(e)
         }`,
       );
+      feedback =
+        "직전 응답이 요구 스키마를 만족하지 못했다. 스키마를 정확히 지켜 다시 작성하라.";
+      continue;
     }
+
+    const problems = checkBrief(brief);
+    if (problems.length === 0) {
+      return { kind: "structured", brief };
+    }
+    console.warn(`[summarize] 자체 점검 실패 (${attempt}/2): ${problems.join(" ")}`);
+    feedback = `직전 응답에 다음 문제가 있다. 고쳐서 다시 작성하라:\n- ${problems.join("\n- ")}`;
   }
 
-  console.error("[summarize] 스키마 검증 2회 실패 — 원문 텍스트로 렌더한다");
+  console.error("[summarize] 2회 실패 — 원문 텍스트로 렌더한다");
   return { kind: "raw", text: lastText };
 }
