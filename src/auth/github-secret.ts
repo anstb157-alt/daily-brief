@@ -4,13 +4,22 @@
  * Secrets는 레포 공개키로 봉인(sealed box)해서 올려야 한다.
  * Node 내장 crypto에는 sealed box가 없어 libsodium-wrappers(무료·WASM)를 쓴다.
  *
- * 주의: 기본 GITHUB_TOKEN으로는 Secrets 쓰기가 불가하다.
- *       Secrets Read/Write 권한을 준 fine-grained PAT(GH_SECRETS_PAT)이 필요하다.
+ * 주의 1: 기본 GITHUB_TOKEN으로는 Secrets 쓰기가 불가하다.
+ *         Secrets Read/Write 권한을 준 fine-grained PAT(GH_SECRETS_PAT)이 필요하다.
+ * 주의 2: libsodium-wrappers 0.7.15의 ESM 빌드는 깨져 있다
+ *         (dist/modules-esm/libsodium-wrappers.mjs가 옆 패키지 파일을
+ *          "./libsodium.mjs" 상대경로로 import → ERR_MODULE_NOT_FOUND).
+ *         정상 동작하는 CJS 빌드를 createRequire로 불러온다.
  */
-import sodium from "libsodium-wrappers";
+import { createRequire } from "node:module";
+import type sodiumTypes from "libsodium-wrappers";
 import { z } from "zod";
 import { githubConfig } from "../config.js";
 import { fetchJson, fetchWithRetry } from "../http.js";
+
+const sodium = createRequire(import.meta.url)(
+  "libsodium-wrappers",
+) as typeof sodiumTypes;
 
 const publicKeySchema = z.object({
   key_id: z.string(),

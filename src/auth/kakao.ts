@@ -10,7 +10,6 @@
 import { z } from "zod";
 import { kakaoConfig, kakaoTokenConfig } from "../config.js";
 import { fetchJson } from "../http.js";
-import { putRepoSecret } from "./github-secret.js";
 
 const TOKEN_ENDPOINT = "https://kauth.kakao.com/oauth/token";
 const SECRET_NAME = "KAKAO_REFRESH_TOKEN";
@@ -86,6 +85,9 @@ export async function getAccessToken(): Promise<string> {
       `[kakao] 새 refresh token 수신 (잔여 ${remainDays ?? "?"}일) — Secrets 회전 시도`,
     );
     try {
+      // 회전은 두 달에 한 번 있을까 말까 한 경로다.
+      // libsodium(WASM) 로딩과 GH_SECRETS_PAT 검증을 그때만 하도록 지연 import 한다.
+      const { putRepoSecret } = await import("./github-secret.js");
       await putRepoSecret(SECRET_NAME, token.refresh_token);
       console.log(`[kakao] Secrets ${SECRET_NAME} 회전 완료`);
     } catch (e) {
