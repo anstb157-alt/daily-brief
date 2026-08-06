@@ -6,10 +6,19 @@ import { mkdir, writeFile } from "node:fs/promises";
 import { dirname } from "node:path";
 import { marketCollector } from "../collectors/market.js";
 import { calendarCollector } from "../collectors/calendar.js";
-import { kstDateString } from "../date.js";
+import { flowsCollector } from "../collectors/flows.js";
+import { newsCollector } from "../collectors/news.js";
+import { createEarningsCollector } from "../collectors/earnings.js";
+import { kstDateString, lastUsTradingDate } from "../date.js";
 import type { Collector } from "../collectors/types.js";
 
-const collectors: Collector<unknown>[] = [marketCollector, calendarCollector];
+const collectors: Collector<unknown>[] = [
+  marketCollector,
+  calendarCollector,
+  flowsCollector,
+  newsCollector,
+  createEarningsCollector(lastUsTradingDate()),
+];
 
 // 한 수집기가 죽어도 나머지는 계속 — 파이프라인과 동일한 규칙
 const settled = await Promise.allSettled(
