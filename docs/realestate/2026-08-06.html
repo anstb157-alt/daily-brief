@@ -1,0 +1,112 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>2026-08-06 부동산 브리핑</title>
+<style>:root { color-scheme: light dark;
+  --fg:#1a1a1a; --muted:#6b6b6b; --line:#e3e3e3; --card:#f6f6f7;
+  --up:#c0392b; --down:#1565c0; --flat:#6b6b6b; --warn:#b45309; }
+@media (prefers-color-scheme: dark) {
+  :root { --fg:#e8e8e8; --muted:#9a9a9a; --line:#333; --card:#1c1c1e;
+    --up:#ff6b5a; --down:#5aa9ff; --flat:#9a9a9a; --warn:#fbbf24; }
+}
+* { box-sizing:border-box; }
+body { margin:0 auto; padding:1rem .9rem 3rem; max-width:44rem;
+  font:16px/1.65 -apple-system,BlinkMacSystemFont,"Apple SD Gothic Neo","Noto Sans KR",sans-serif;
+  color:var(--fg); word-break:keep-all; overflow-wrap:anywhere; }
+header { display:flex; align-items:baseline; gap:.5rem; margin-bottom:.7rem; }
+h1 { font-size:1.1rem; margin:0; }
+.date { color:var(--muted); font-size:.85rem; }
+
+/* 모바일 2열 고정 */
+.grid { display:grid; grid-template-columns:repeat(2,1fr); gap:.4rem; }
+@media (min-width:34rem) { .grid { grid-template-columns:repeat(4,1fr); } }
+.cell { background:var(--card); border-radius:8px; padding:.5rem .6rem; }
+.cell .k { font-size:.72rem; color:var(--muted); letter-spacing:-.02em; }
+.cell .v { font-size:1.02rem; font-weight:700; font-variant-numeric:tabular-nums; }
+.cell .d { font-size:.8rem; font-variant-numeric:tabular-nums; color:var(--flat); }
+.cell.up .d, .cell.up .v { color:var(--up); }
+.cell.down .d, .cell.down .v { color:var(--down); }
+.sep { border:0; border-top:1px solid var(--line); margin:.5rem 0; }
+.dash { margin-bottom:.8rem; }
+.comment { font-size:.9rem; color:var(--muted); margin:0 0 1.6rem; }
+
+section { margin-bottom:1.6rem; }
+h2 { font-size:1rem; margin:0 0 .5rem; padding-bottom:.25rem; border-bottom:1px solid var(--line); }
+h3 { font-size:.95rem; margin:0 0 .3rem; }
+article { margin-bottom:1rem; }
+p { margin:.4rem 0; }
+ul { margin:.4rem 0; padding-left:1.15rem; }
+li { margin:.25rem 0; }
+pre { white-space:pre-wrap; background:var(--card); padding:1rem; border-radius:6px; font-size:.85rem; }
+.warn { color:var(--warn); font-weight:600; }
+.failures { border:1px solid var(--line); border-radius:6px; padding:.8rem; }
+.failures h2 { border:0; color:var(--warn); }
+.failures li { color:var(--muted); font-size:.85rem; }
+footer { color:var(--muted); font-size:.78rem; border-top:1px solid var(--line); padding-top:.8rem; }</style>
+</head>
+<body>
+<header>
+<h1>🏠 부동산</h1>
+<span class="date">2026-08-06 KST</span>
+</header>
+<section class="dash">
+<div class="grid">
+<div class="cell up">
+<div class="k">매매 서울</div>
+<div class="v">+0.25%</div>
+<div class="d">-</div>
+</div>
+<div class="cell up">
+<div class="k">매매 수도권</div>
+<div class="v">+0.16%</div>
+<div class="d">-</div>
+</div>
+<div class="cell up">
+<div class="k">매매 지방</div>
+<div class="v">+0.01%</div>
+<div class="d">-</div>
+</div>
+<div class="cell up">
+<div class="k">전세 서울</div>
+<div class="v">+0.25%</div>
+<div class="d">-</div>
+</div>
+</div>
+<hr class="sep">
+<div class="grid">
+<div class="cell flat">
+<div class="k">서울 실거래</div>
+<div class="v">-</div>
+<div class="d">-</div>
+</div>
+<div class="cell flat">
+<div class="k">경매 낙찰가율</div>
+<div class="v">-</div>
+<div class="d">-</div>
+</div>
+</div>
+</section>
+<p class="comment">10일 전(7월 27일) 기준 통계야. 서울 매매와 전세 모두 전주 대비 0.25% 올랐어.</p>
+<main>
+<section><h2>오늘 일정</h2>
+<p>2026-08-07 세종 우미린 센터파크 견본주택 개관</p></section>
+<section><h2>예정 일정</h2>
+<p>2026-08-10 세종 우미 린 센터파크·한강 푸르지오 리버프론트·두산위브더제니스 대연 청약 접수 시작</p></section>
+<section><h2>이슈</h2>
+<article><h3>정부 공급 대책 속도전, 7일 대통령 주재 비공개 회의 열린다</h3>
+<p>이재명 대통령이 7일 '2차 부동산 공급 점검회의'를 비공개로 주재해. 청와대는 비상한 각오로 빠른 시일 내에 주택 공급 확대와 대출 합리화 대책을 발표하겠다고 밝혔어. 빈 땅을 찾는 것보다 기존 주거용 전환을 서두르는 방안 등이 대책에 담길지 주목돼. 서울시와 정부는 도심 주택 공급 페달을 밟는 중이야.</p></article>
+<article><h3>세제 개편안 두고 오세훈 시장 비판과 여야 공방 격화</h3>
+<p>정부의 세제 개편안에 대해 오세훈 서울시장이 '양도세를 줄이려 집주인이 실거주하게 되면 결국 전세 서민이 피해를 본다'며 거듭 날을 세웠어. 야당인 조국혁신당도 세입자 박탈감을 지적하며 대책을 촉구했고, 민주당 서울 지역 의원들도 간담회를 열어 영향을 살피기로 했지. 반면 여당은 야당이 왜곡된 공포 마케팅을 한다며 맞서는 상황이야. [커뮤니티]에서는 '세금 올리면 결국 세입자한테 전가되는 것 아니냐'는 걱정과 '다주택자 규제 정상화는 필요하다'는 의견이 엇갈리고 있어.</p></article>
+<article><h3>서울 전세 매물 2년 새 22% 감소, 실거주 규제에 월세화 우려</h3>
+<p>아실에 따르면 5일 기준 서울 아파트 전·월세 매물은 3만 8,760건으로 전년 말보다 13.3% 줄었어. 2년 전과 비교하면 전세 매물이 22%나 감소한 수치야. 실거주 중심의 세제 개편이 전세 시장의 월세화를 부추길 수 있다는 우려가 나와. 한편 대치동 개포우성1·2차와 구로주공 등 서울 주요 정비계획안이 통과되면서 장기전세주택인 '미리내집' 등을 포함한 대규모 공급이 확정되기도 했어.</p></article>
+<article><h3>청약 시장은 1군 브랜드 쏠림과 비규제지역 틈새 찾기</h3>
+<p>올해 상반기 청약 시장에서 1군 브랜드 아파트 평균 경쟁률은 9.85대 1로 비브랜드보다 4배 이상 높았어. 청주 푸르지오 씨엘리체는 완판에 성공했지만 송도그란테르는 완판에 실패하며 온도차가 뚜렷해. 규제지역으로 묶인 동탄, 기흥, 구리와 달리 실거주 의무가 없고 전매가 가능한 오산, 화성 병점 등 비규제지역 단지로 눈을 돌리는 수요도 늘고 있어.</p></article></section>
+<section><h2>내일로 넘기는 질문</h2>
+<p>정부의 공급 대책과 세제 개편안 보완책이 서울 전세 매물 잠김 현상을 풀어낼 수 있을까?</p></section>
+
+</main>
+<footer>생성 2026-08-06T02:38:14.863Z · 자동 생성된 요약이며 투자 권유가 아닙니다.</footer>
+</body>
+</html>

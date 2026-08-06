@@ -18,6 +18,14 @@ import { type Collector, type CollectResult, toResult } from "./types.js";
 
 /** 종목과 무관하게 매일 보는 시장 전반 키워드 */
 const MARKET_QUERIES = ["증시", "코스피", "미국증시 마감"] as const;
+/** 부동산 도메인 키워드 */
+const REALESTATE_QUERIES = [
+  "부동산 정책",
+  "아파트 매매",
+  "청약",
+  "전세",
+  "주택 공급",
+] as const;
 /** 쿼리당 가져올 기사 수. 요약 입력이 너무 길어지지 않게 제한한다 */
 const PER_QUERY = 8;
 /**
@@ -189,17 +197,24 @@ function freshest(items: NewsItem[]): { items: NewsItem[]; filtered: boolean } {
     : { items: sorted, filtered: false };
 }
 
-export const newsCollector: Collector<NewsData> = {
+/**
+ * 도메인별 뉴스 수집기를 만든다.
+ * 주식은 워치리스트 종목명까지 쿼리로 쓰고, 부동산은 고정 키워드만 쓴다.
+ */
+export function createNewsCollector(
+  domain: "stock" | "realestate" = "stock",
+): Collector<NewsData> {
+  return {
   name: "news",
   async collect(): Promise<CollectResult<NewsData>> {
     return toResult(async () => {
       const watchlist = watchlistSchema.parse(
         JSON.parse(await readFile("watchlist.json", "utf8")),
       );
-      const queries = [
-        ...MARKET_QUERIES,
-        ...watchlist.stocks.map((s) => s.nameKo),
-      ];
+      const queries =
+        domain === "stock"
+          ? [...MARKET_QUERIES, ...watchlist.stocks.map((s) => s.nameKo)]
+          : [...REALESTATE_QUERIES];
 
       const skipped: string[] = [];
 
@@ -249,4 +264,8 @@ export const newsCollector: Collector<NewsData> = {
       return { items: fresh, skipped };
     });
   },
-};
+  };
+}
+
+/** 기존 호출부 호환용 (주식) */
+export const newsCollector = createNewsCollector("stock");

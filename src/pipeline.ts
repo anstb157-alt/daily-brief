@@ -15,7 +15,9 @@ import { calendarCollector } from "./collectors/calendar.js";
 import { createEarningsCollector } from "./collectors/earnings.js";
 import { flowsCollector } from "./collectors/flows.js";
 import { marketCollector } from "./collectors/market.js";
-import { newsCollector } from "./collectors/news.js";
+import { createNewsCollector } from "./collectors/news.js";
+import { priceCollector } from "./collectors/realestate/price.js";
+import { chungyakCollector } from "./collectors/realestate/chungyak.js";
 import type { Collector } from "./collectors/types.js";
 import { httpConfig, siteConfig } from "./config.js";
 import {
@@ -31,6 +33,7 @@ import { summarize } from "./summarize.js";
 import { loadThread, saveThread } from "./threads.js";
 import type { MarketData } from "./collectors/market.js";
 import type { FlowsData } from "./collectors/flows.js";
+import type { PriceData } from "./collectors/realestate/price.js";
 
 /** Pages 소스 디렉터리. GitHub Pages를 main 브랜치의 /docs로 설정한다 */
 const PAGES_DIR = "docs";
@@ -41,12 +44,11 @@ function collectorsFor(domain: DomainId): Collector<unknown>[] {
       marketCollector,
       flowsCollector,
       calendarCollector,
-      newsCollector,
+      createNewsCollector("stock"),
       createEarningsCollector(lastUsTradingDate()),
     ];
   }
-  // 부동산 수집기는 6단계에서 붙는다. 그때까지는 빈 목록이라 발송이 스킵된다.
-  return [];
+  return [priceCollector, chungyakCollector, createNewsCollector("realestate")];
 }
 
 function dashboardFor(
@@ -59,7 +61,7 @@ function dashboardFor(
       collected["flows"] as FlowsData | undefined,
     );
   }
-  return buildRealestateDashboard();
+  return buildRealestateDashboard(collected["price"] as PriceData | undefined);
 }
 
 export interface PipelineResult {

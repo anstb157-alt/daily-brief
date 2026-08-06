@@ -10,6 +10,7 @@
  */
 import type { MarketData, Quote } from "./collectors/market.js";
 import type { FlowsData } from "./collectors/flows.js";
+import type { PriceData, WeeklyChange } from "./collectors/realestate/price.js";
 
 /** 값이 없을 때 채우는 자리 표시자 */
 export const EMPTY = "-";
@@ -128,25 +129,42 @@ export function buildStockDashboard(
   ];
 }
 
+/** 주간 변동률 한 칸 */
+function weeklyCell(
+  label: string,
+  change: WeeklyChange | undefined,
+): DashboardCell {
+  if (!change) return emptyCell(label);
+  return {
+    label,
+    value: signed(change.changeRatio, 2, "%"),
+    delta: EMPTY,
+    direction: direction(change.changeRatio),
+  };
+}
+
 /**
- * 부동산 대시보드. 순서 고정.
+ * 부동산 대시보드. 순서 고정 — 절대 변경 금지.
  *   주간 매매 변동률 (서울 / 수도권 / 지방)
  *   주간 전세 변동률 (서울)
  *   ---
  *   서울 아파트 실거래 건수 (주간, 전주 대비)
  *   경매 낙찰가율
  *
- * 6단계에서 수집기가 붙기 전까지는 전부 "-"로 나간다.
- * 자리를 미리 잡아두는 것 자체가 이 대시보드의 요구사항이다.
+ * 실거래 건수·낙찰가율은 아직 무료 소스를 확정하지 못해 "-"로 나간다.
+ * 값이 없어도 자리를 비우지 않는다 — 자리가 밀리면 매일 눈으로 찾아야 한다.
  */
-export function buildRealestateDashboard(): Dashboard {
+export function buildRealestateDashboard(price: PriceData | undefined): Dashboard {
+  const sale = (r: string) => price?.sale.find((x) => x.region === r);
+  const lease = (r: string) => price?.lease.find((x) => x.region === r);
+
   return [
     {
       cells: [
-        emptyCell("매매 서울"),
-        emptyCell("매매 수도권"),
-        emptyCell("매매 지방"),
-        emptyCell("전세 서울"),
+        weeklyCell("매매 서울", sale("서울")),
+        weeklyCell("매매 수도권", sale("수도권")),
+        weeklyCell("매매 지방", sale("지방권")),
+        weeklyCell("전세 서울", lease("서울")),
       ],
     },
     {
