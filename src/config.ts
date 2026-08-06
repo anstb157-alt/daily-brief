@@ -63,8 +63,13 @@ export const kakaoTokenConfig = () =>
 export const geminiConfig = () =>
   loadGroup("gemini", {
     GEMINI_API_KEY: requiredString("Google AI Studio API 키 (무료 티어)"),
+    /**
+     * 모델명. 쉼표로 여러 개를 주면 앞에서부터 시도하고
+     * 무료 일일 한도(429)에 걸리면 다음 모델로 넘어간다.
+     * 모델별 무료 RPD가 제각각이라(3.6-flash는 20건) 폴백이 없으면 그날 브리핑이 통째로 죽는다.
+     */
     GEMINI_MODEL: requiredString(
-      "모델명 (예: gemini-2.5-flash). 코드에 하드코딩하지 않고 env로 주입",
+      "모델명. 쉼표로 폴백 지정 가능 (예: gemini-3.5-flash,gemini-3.5-flash-lite)",
     ),
   });
 

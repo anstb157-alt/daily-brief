@@ -16,7 +16,7 @@
 import { readFile } from "node:fs/promises";
 import { z } from "zod";
 import { geminiConfig, httpConfig } from "./config.js";
-import { fetchJson } from "./http.js";
+import { HttpError, fetchJson } from "./http.js";
 import type { DomainConfig } from "./domains.js";
 import type { OpenThread } from "./threads.js";
 
@@ -123,12 +123,21 @@ async function respectRateLimit(gapMs: number): Promise<void> {
 
 // ─── 호출 ──────────────────────────────────────────────────────
 
-async function callGemini(systemPrompt: string, note: string): Promise<string> {
-  const { GEMINI_API_KEY, GEMINI_MODEL } = geminiConfig();
+/** 무료 일일 한도 소진은 재시도해도 그날 안에 안 풀린다 — 다른 모델로 넘어가야 한다 */
+function isQuotaExhausted(e: unknown): boolean {
+  return e instanceof HttpError && e.status === 429;
+}
+
+async function callOneModel(
+  model: string,
+  systemPrompt: string,
+  note: string,
+): Promise<string> {
+  const { GEMINI_API_KEY } = geminiConfig();
   const { GEMINI_TIMEOUT_MS } = httpConfig();
   const url =
     `https://generativelanguage.googleapis.com/v1beta/models/` +
-    `${encodeURIComponent(GEMINI_MODEL)}:generateContent`;
+    `${encodeURIComponent(model)}:generateContent`;
 
   const raw = geminiResponseSchema.parse(
     await fetchJson(
@@ -149,7 +158,7 @@ async function callGemini(systemPrompt: string, note: string): Promise<string> {
           },
         }),
       },
-      `gemini:${GEMINI_MODEL}`,
+      `gemini:${model}`,
       GEMINI_TIMEOUT_MS,
     ),
   );
@@ -161,6 +170,26 @@ async function callGemini(systemPrompt: string, note: string): Promise<string> {
     );
   }
   return text;
+}
+
+/** 앞 모델이 일일 한도에 걸리면 다음 모델로 넘어간다 */
+async function callGemini(systemPrompt: string, note: string): Promise<string> {
+  const { GEMINI_MODEL } = geminiConfig();
+  const models = GEMINI_MODEL.split(",").map((m) => m.trim()).filter(Boolean);
+  let lastError: unknown;
+
+  for (const [i, model] of models.entries()) {
+    try {
+      return await callOneModel(model, systemPrompt, note);
+    } catch (e) {
+      lastError = e;
+      if (!isQuotaExhausted(e) || i === models.length - 1) throw e;
+      console.warn(`[summarize] ${model} 일일 한도 소진 — 다음 모델로 전환`);
+    }
+  }
+  throw lastError instanceof Error
+    ? lastError
+    : new Error(`[summarize] 사용 가능한 모델 없음: ${GEMINI_MODEL}`);
 }
 
 /** 브리핑 전체 텍스트를 한 덩어리로 모은다 (금지 어휘 검사용) */
