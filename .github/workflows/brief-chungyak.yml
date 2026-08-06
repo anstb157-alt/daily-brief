@@ -2,8 +2,8 @@ name: 청약 브리핑
 
 on:
   schedule:
-    # KST 13:00 = UTC 04:00 당일. 아침 두 건과 충분히 떨어뜨려 Pages 커밋 충돌을 피한다
-    - cron: '0 4 * * 1-5'
+    # KST 10:00 = UTC 01:00 당일. 아침 두 건과 충분히 떨어뜨려 Pages 커밋 충돌을 피한다
+    - cron: '0 1 * * *'
   workflow_dispatch:
 
 concurrency:

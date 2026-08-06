@@ -117,6 +117,10 @@ const s = (v: unknown): string => (v === undefined || v === null ? "" : String(v
 
 export interface ApplyNotice {
   kind: string;
+  /** 정규화한 주택유형: 아파트 / 오피스텔 / 도시형생활주택 / 민간임대 / 생활숙박시설 */
+  housingType: string;
+  /** 아파트인가 — 정렬·우선순위 판정에 쓴다 */
+  isApartment: boolean;
   /** 민영/국민 등 (HOUSE_SECD_NM) */
   houseType: string;
   /** 민간분양/공공분양 구분 근거 (HOUSE_DTL_SECD_NM) */
@@ -212,6 +216,18 @@ function applyUrlOf(kind: string, manageNo: string, pblancNo: string): string {
   return `https://www.applyhome.co.kr/ap/apa/selectAPTLttotPblancDetailView.do?${q}`;
 }
 
+/**
+ * 주택유형 정규화 (2026-08-06 실측 기준 값 조합).
+ *   APT 엔드포인트      HOUSE_SECD_NM = APT / 신혼희망타운   → 아파트
+ *   오피스텔 엔드포인트 HOUSE_DTL_SECD_NM = 오피스텔 / 도시형생활주택 / 민간임대
+ *   무순위 엔드포인트   구분 필드가 없다 → 아파트로 본다 (무순위 물량은 사실상 아파트)
+ */
+function housingTypeOf(kind: string, secd: string, dtl: string): string {
+  if (kind === "오피스텔/도시형") return dtl || "오피스텔";
+  if (secd.includes("신혼희망")) return "아파트(신혼희망타운)";
+  return "아파트";
+}
+
 function toNotice(
   row: z.infer<typeof detailRow>,
   kind: string,
@@ -231,8 +247,16 @@ function toNotice(
     s(row.GNRL_RNK1_CRSPAREA_ENDDE);
   const area = s(row.SUBSCRPT_AREA_CODE_NM);
 
+  const housingType = housingTypeOf(
+    kind,
+    s(row.HOUSE_SECD_NM),
+    s(row.HOUSE_DTL_SECD_NM),
+  );
+
   return {
     kind,
+    housingType,
+    isApartment: housingType.startsWith("아파트"),
     houseType: s(row.HOUSE_SECD_NM),
     detailType: s(row.HOUSE_DTL_SECD_NM),
     rentType: s(row.RENT_SECD_NM),
@@ -310,10 +334,13 @@ export const applyhomeCollector: Collector<ApplyhomeData> = {
             (n.receiptStart === "" || n.receiptStart <= horizon),
         )
         .sort((a, b) => {
-          // 1) 무순위 → APT → 오피스텔  2) 접수 시작 빠른 순
+          // 1) 아파트 우선 (오피스텔·도시형은 항상 뒤)
+          if (a.isApartment !== b.isApartment) return a.isApartment ? -1 : 1;
+          // 2) 무순위 → APT → 오피스텔
           const pa = priorityOf.get(a.kind) ?? 9;
           const pb = priorityOf.get(b.kind) ?? 9;
           if (pa !== pb) return pa - pb;
+          // 3) 접수 시작 빠른 순
           return a.receiptStart.localeCompare(b.receiptStart);
         });
 

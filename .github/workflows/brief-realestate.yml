@@ -3,7 +3,7 @@ name: 부동산 브리핑
 on:
   schedule:
     # KST 08:00 = UTC 23:00 전날. 주식(08:40)보다 40분 먼저 — Pages 커밋 충돌 방지
-    - cron: '0 23 * * 0-4'
+    - cron: '0 23 * * *'
   workflow_dispatch:
 
 concurrency:
