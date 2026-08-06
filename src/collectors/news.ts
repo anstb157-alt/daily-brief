@@ -103,18 +103,25 @@ function stripTags(s: string): string {
   return decodeEntities(s.replace(/<[^>]+>/g, ""));
 }
 
+/**
+ * 네이버 검색 API는 NAVER Cloud Platform의 NAVER API HUB로 이관됐다 (2026-08-06 실측).
+ * 구 developers.naver.com 방식(openapi.naver.com + X-Naver-Client-* 헤더)은 401을 준다.
+ * 호스트·경로·헤더가 모두 바뀌었으므로 세 가지를 함께 봐야 한다.
+ */
+const NAVER_NEWS_URL = "https://naverapihub.apigw.ntruss.com/search/v1/news";
+
 async function fetchNaverNews(query: string): Promise<NewsItem[]> {
   const cfg = naverConfig();
   const url =
-    "https://openapi.naver.com/v1/search/news.json?" +
+    `${NAVER_NEWS_URL}?` +
     `query=${encodeURIComponent(query)}&display=${PER_QUERY}&sort=date`;
   const raw = naverNewsSchema.parse(
     await fetchJson(
       url,
       {
         headers: {
-          "X-Naver-Client-Id": cfg.NAVER_CLIENT_ID,
-          "X-Naver-Client-Secret": cfg.NAVER_CLIENT_SECRET,
+          "X-NCP-APIGW-API-KEY-ID": cfg.NAVER_CLIENT_ID,
+          "X-NCP-APIGW-API-KEY": cfg.NAVER_CLIENT_SECRET,
         },
       },
       `naver-news:${query}`,

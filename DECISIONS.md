@@ -86,3 +86,12 @@ Nasdaq `earnings-surprise` 표는 발표 직후 갱신되지 않는다.
 KST 08:40은 미 동부 전일 19:40이라, 장 마감 후 발표분의 실제 EPS는 대체로 아직 없다.
 따라서 실적 섹션의 실제 발표치·서프라이즈는 뉴스 기사가 주 근거가 되고,
 `epsForecast`(컨센서스)만 구조화 데이터로 확보된다.
+
+### 14. 네이버 검색 API는 NCP NAVER API HUB로 이관됨
+2026-08-06 실측: 구 방식(`openapi.naver.com/v1/search/news.json` + `X-Naver-Client-*` 헤더)은 401.
+현재는 NAVER Cloud Platform의 NAVER API HUB를 쓴다.
+  호스트: https://naverapihub.apigw.ntruss.com
+  경로:   /search/v1/news
+  헤더:   X-NCP-APIGW-API-KEY-ID / X-NCP-APIGW-API-KEY
+호스트·경로·헤더가 전부 바뀌었으므로 셋을 함께 봐야 한다.
+키는 NCP 콘솔 > NAVER API HUB > Application에서 발급한다.
