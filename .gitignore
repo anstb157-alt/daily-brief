@@ -1,0 +1,13 @@
+# 의존성
+node_modules/
+
+# 로컬 환경변수 — 절대 커밋 금지
+.env
+.env.*
+!.env.example
+
+# 로컬 실행 산출물 (Actions에서의 보존 방식은 5단계에서 결정)
+output/
+
+# 편집기/OS
+.DS_Store

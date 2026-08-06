@@ -1,0 +1,9 @@
+{
+  "stocks": [
+    { "ticker": "NVDA", "nameKo": "엔비디아" },
+    { "ticker": "SNDK", "nameKo": "샌디스크" }
+  ],
+  "regions": [
+    { "code": "11", "nameKo": "서울" }
+  ]
+}
