@@ -192,6 +192,33 @@ async function callGemini(systemPrompt: string, note: string): Promise<string> {
     : new Error(`[summarize] 사용 가능한 모델 없음: ${GEMINI_MODEL}`);
 }
 
+/**
+ * 모델이 JSON 문자열 안에 실제 줄바꿈 대신 `\n` 두 글자를 넣는 경우가 있다.
+ * 그대로 두면 표가 한 줄로 뭉개져 읽을 수 없다 (2026-08-06 실측).
+ * 렌더·발송 양쪽이 같은 텍스트를 쓰므로 파싱 직후 한 번만 정규화한다.
+ */
+function unescapeLiterals(s: string): string {
+  return s
+    .replace(/\\r\\n/g, "\n")
+    .replace(/\\n/g, "\n")
+    .replace(/\\t/g, " ")
+    .replace(/[ \t]+\n/g, "\n");
+}
+
+function normalizeBrief(b: Brief): Brief {
+  const f = unescapeLiterals;
+  return {
+    oneLiner: f(b.oneLiner),
+    headlines: b.headlines.map(f),
+    dashboardComment: f(b.dashboardComment),
+    threadFollowup: f(b.threadFollowup),
+    issues: b.issues.map((i) => ({ title: f(i.title), body: f(i.body) })),
+    schedule: f(b.schedule),
+    upcoming: f(b.upcoming),
+    closingQuestion: f(b.closingQuestion),
+  };
+}
+
 /** 브리핑 전체 텍스트를 한 덩어리로 모은다 (금지 어휘 검사용) */
 function allText(brief: Brief): string {
   return [
@@ -273,7 +300,7 @@ export async function summarize(
 
     let brief: Brief;
     try {
-      brief = briefSchema.parse(JSON.parse(lastText));
+      brief = normalizeBrief(briefSchema.parse(JSON.parse(lastText)));
     } catch (e) {
       console.warn(
         `[summarize] 스키마 검증 실패 (${attempt}/2): ${

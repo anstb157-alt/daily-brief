@@ -56,12 +56,14 @@ function splitCells(line: string): string[] {
  * URL은 http(s)만 허용한다 — 모델 출력이 그대로 앵커가 되므로 스킴을 제한한다.
  */
 function renderInline(text: string): string {
-  const escaped = escapeHtml(text);
-  return escaped.replace(
-    /\[([^\]]+)\]\((https?:\/\/[^\s)]+)\)/g,
-    (_m, label: string, url: string) =>
-      `<a href="${url}" target="_blank" rel="noopener">${label}</a>`,
-  );
+  return escapeHtml(text)
+    .replace(
+      /\[([^\]]+)\]\((https?:\/\/[^\s)]+)\)/g,
+      (_m, label: string, url: string) =>
+        `<a href="${url}" target="_blank" rel="noopener">${label}</a>`,
+    )
+    // 모델이 강조에 **를 쓰는 걸 막기보다 렌더하는 편이 낫다
+    .replace(/\*\*([^*]+)\*\*/g, "<strong>$1</strong>");
 }
 
 /** 표 블록을 <table>로. 넓은 표는 가로 스크롤 컨테이너에 넣는다 */
@@ -113,6 +115,14 @@ function renderBody(body: string): string {
       continue;
     }
     flushTable();
+
+    // ### 소제목 — 모델이 표 앞에 구획을 나눌 때 쓴다
+    const heading = /^(#{2,4})\s+(.*)$/.exec(trimmed);
+    if (heading) {
+      flushList();
+      out.push(`<h4>${renderInline(heading[2] ?? "")}</h4>`);
+      continue;
+    }
 
     const bullet = /^[-·*]\s+/.exec(trimmed);
     if (bullet) {
@@ -234,6 +244,7 @@ h1 { font-size:1.1rem; margin:0; }
 section { margin-bottom:1.6rem; }
 h2 { font-size:1rem; margin:0 0 .5rem; padding-bottom:.25rem; border-bottom:1px solid var(--line); }
 h3 { font-size:.95rem; margin:0 0 .3rem; }
+h4 { font-size:.88rem; margin:1rem 0 .35rem; color:var(--muted); }
 article { margin-bottom:1rem; }
 p { margin:.4rem 0; }
 ul { margin:.4rem 0; padding-left:1.15rem; }
