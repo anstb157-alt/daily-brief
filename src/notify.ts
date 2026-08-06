@@ -18,8 +18,10 @@ const SEND_ENDPOINT = "https://kapi.kakao.com/v2/api/talk/memo/default/send";
 
 /** 카카오 기본 텍스트 템플릿 제한 */
 export const MAX_TEXT_LENGTH = 200;
-/** "(1/4)\n" 같은 순번 표기가 차지하는 최대 길이 */
-const MARKER_RESERVE = 8;
+/** " (1/4)" 같은 순번 표기가 차지하는 길이 */
+const MARKER_RESERVE = 6;
+/** 2통 이후 머리글은 이모지뿐이다 */
+const SHORT_HEAD_LEN = 2;
 /** 연속 발송 시 순서가 뒤집히지 않도록 두는 간격 */
 const SEND_GAP_MS = 400;
 
@@ -48,55 +50,91 @@ function cut(s: string, max: number): string {
 
 // ─── 본문 조립 ─────────────────────────────────────────────────
 
-/** 대시보드를 한 줄씩 문자열로. 톤 없이 숫자와 부호만. */
+/**
+ * 카톡용 짧은 라벨. 지표 블록이 한 통을 넘기면 (1/4)(2/4)로 끊겨 읽히므로
+ * 라벨을 줄이고 천단위 콤마를 빼서 한 통 안에 넣는다. HTML은 원래 라벨을 쓴다.
+ */
+const SHORT_LABEL: Record<string, string> = {
+  "S&P500": "S&P",
+  미10년물: "10Y",
+  달러인덱스: "DXY",
+  원달러: "환율",
+  외국인: "외인",
+};
+
+/**
+ * 대시보드를 그룹당 한 줄로 압축한다. 톤 없이 숫자와 부호만.
+ * 그룹(구분선) 경계는 유지해 눈으로 묶음이 보이게 한다.
+ */
 function dashboardLines(dashboard: Dashboard): string[] {
-  return dashboard.flatMap((group) =>
-    group.cells.map((c) =>
-      c.delta === "-" ? `${c.label} ${c.value}` : `${c.label} ${c.value} ${c.delta}`,
-    ),
+  return dashboard.map((group) =>
+    group.cells
+      .map((c) => {
+        const label = SHORT_LABEL[c.label] ?? c.label;
+        const value = c.value.replace(/,/g, "");
+        return c.delta === "-" ? `${label} ${value}` : `${label} ${value} ${c.delta}`;
+      })
+      .join(" "),
   );
 }
 
 /**
- * 발송할 줄 목록을 프롬프트 블록 순서대로 만든다.
- * 1) 요약  2) 대시보드  3) 어제 스레드  4) 이슈  5) 오늘 일정  6) 내일 질문
+ * 발송 블록. atomic이면 통 경계에서 쪼개지 않는다 —
+ * 지표가 (1/4)(2/4)로 끊기면 표로 읽히지 않는다.
  */
-function buildLines(p: BriefPayload): string[] {
-  const lines: string[] = [];
+interface Block {
+  lines: string[];
+  atomic: boolean;
+}
 
-  if (!p.brief) {
-    lines.push(p.fallbackSummary);
-    return lines;
-  }
+const splitText = (s: string): string[] =>
+  s.split("\n").map((l) => l.trim()).filter(Boolean);
+
+/**
+ * 블록 순서: 요약 → 지표 → 오늘 일정 → 어제 스레드 → 이슈 → 내일 질문.
+ * 링크는 본문에 넣지 않는다 — 마지막 통의 버튼이 대신한다.
+ */
+function buildBlocks(p: BriefPayload): Block[] {
+  if (!p.brief) return [{ lines: [p.fallbackSummary], atomic: false }];
   const b = p.brief;
+  const blocks: Block[] = [];
 
-  lines.push(b.oneLiner);
-  lines.push(...b.headlines.map((h) => `· ${h}`));
+  blocks.push({
+    lines: [b.oneLiner, ...b.headlines.map((h) => `· ${h}`)],
+    atomic: false,
+  });
 
-  lines.push("", "[지표]");
-  lines.push(...dashboardLines(p.dashboard));
-  if (b.dashboardComment.trim()) lines.push(b.dashboardComment.trim());
-
-  if (b.threadFollowup.trim()) {
-    lines.push("", "[어제 스레드]", b.threadFollowup.trim());
-  }
-
-  if (b.issues.length > 0) {
-    lines.push("", "[이슈]");
-    for (const i of b.issues) {
-      lines.push(`◆ ${i.title}`);
-      lines.push(...i.body.split("\n").map((l) => l.trim()).filter(Boolean));
-    }
+  // 지표는 표로 읽혀야 하므로 통 경계에서 쪼개지 않는다.
+  // 코멘트는 서술이라 같이 묶지 않는다 — 묶으면 블록이 커져 한 통을 넘긴다.
+  blocks.push({ lines: dashboardLines(p.dashboard), atomic: true });
+  if (b.dashboardComment.trim()) {
+    blocks.push({ lines: [b.dashboardComment.trim()], atomic: false });
   }
 
   if (b.schedule.trim()) {
-    lines.push("", "[오늘 일정]");
-    lines.push(...b.schedule.split("\n").map((l) => l.trim()).filter(Boolean));
+    blocks.push({ lines: ["[오늘 일정]", ...splitText(b.schedule)], atomic: false });
   }
+  if (b.threadFollowup.trim()) {
+    blocks.push({
+      lines: ["[어제 스레드]", ...splitText(b.threadFollowup)],
+      atomic: false,
+    });
+  }
+  if (b.issues.length > 0) {
+    blocks.push({
+      lines: [
+        "[이슈]",
+        ...b.issues.flatMap((i) => [`◆ ${i.title}`, ...splitText(i.body)]),
+      ],
+      atomic: false,
+    });
+  }
+  blocks.push({
+    lines: ["[내일 질문]", ...splitText(b.closingQuestion)],
+    atomic: false,
+  });
 
-  lines.push("", "[내일 질문]", b.closingQuestion.trim());
-
-  return lines;
+  return blocks;
 }
 
 /**
@@ -131,29 +169,30 @@ function splitAt(line: string, room: number): [string, string] {
 /** 이어붙일 가치가 있는 최소 잔여 공간. 이보다 적게 남으면 그냥 다음 통으로 넘긴다 */
 const MIN_FILL = 40;
 
-/**
- * 줄 목록을 200자 이내 메시지 여러 통으로 묶는다.
- * - 통수가 maxMessages를 넘으면 뒤를 잘라낸다 (앞쪽이 중요도가 높다)
- * - 링크는 마지막 통에만, 절대 자르지 않는다
- */
 /** `[이슈]` 같은 구획 표시. 내용 없이 통 끝에 홀로 남으면 안 된다 */
 function isSectionHeader(line: string): boolean {
   return /^\[.+\]$/.test(line);
 }
 
+/**
+ * 블록을 200자 이내 메시지 여러 통으로 묶는다.
+ * - atomic 블록(지표)은 통 경계에서 쪼개지 않는다
+ * - 통수가 maxMessages를 넘으면 뒤를 잘라낸다 (앞쪽이 중요도가 높다)
+ * - 링크는 본문에 넣지 않는다. 마지막 통의 버튼이 대신한다.
+ */
 export function buildMessages(p: BriefPayload, maxMessages: number): string[] {
-  const linkLine = `→ ${p.link}`;
-  const linkCost = textLength(linkLine) + 1; // 앞 개행 포함
-
-  // 머리글(제목 + 순번)이 차지할 최대 길이를 먼저 빼둔다.
-  // 1통 머리글이 가장 길므로 그걸 기준으로 잡아야 어떤 통도 200자를 넘지 않는다.
-  const headerReserve =
-    textLength(p.heading) + MARKER_RESERVE + 1; // +1 = 머리글 뒤 개행
-  const budget = MAX_TEXT_LENGTH - headerReserve;
+  // 2통부터는 머리글이 이모지 + 순번뿐이라 훨씬 짧다.
+  // 이 짧은 머리글 기준으로 채우고, 1통만 나중에 길이를 맞춘다.
+  // 최대치로 잡으면 지표 한 줄이 안 들어가 통이 쪼개진다.
+  const budget = MAX_TEXT_LENGTH - SHORT_HEAD_LEN - MARKER_RESERVE - 1;
 
   const chunks: string[][] = [];
   let current: string[] = [];
   let used = 0;
+
+  /** 줄 배열이 차지하는 길이 (개행 포함) */
+  const size = (lines: string[]) =>
+    lines.reduce((a, l) => a + textLength(l), 0) + Math.max(0, lines.length - 1);
 
   const flush = () => {
     // 구획 표시만 남은 채로 끝나면 다음 통으로 넘긴다
@@ -163,33 +202,40 @@ export function buildMessages(p: BriefPayload, maxMessages: number): string[] {
     }
     if (current.length > 0) chunks.push(current);
     current = carry;
-    used = carry.reduce((a, l) => a + textLength(l) + 1, 0);
+    used = size(carry);
   };
 
   const push = (line: string) => {
+    used += textLength(line) + (current.length > 0 ? 1 : 0);
     current.push(line);
-    used += textLength(line) + (current.length > 1 ? 1 : 0);
   };
 
-  for (const rawLine of buildLines(p)) {
-    let line = rawLine;
-    while (line.length > 0 || rawLine === "") {
-      const gap = current.length > 0 ? 1 : 0;
-      const room = budget - used - gap;
+  for (const block of buildBlocks(p)) {
+    // 쪼개면 안 되는 블록은 통째로 들어갈 자리가 없으면 새 통에서 시작한다
+    if (block.atomic) {
+      const need = size(block.lines) + (current.length > 0 ? 1 : 0);
+      if (used + need > budget && current.length > 0) flush();
+      block.lines.forEach(push);
+      continue;
+    }
 
-      if (textLength(line) <= room) {
-        // 빈 줄로 시작하는 통은 만들지 않는다
-        if (!(current.length === 0 && line === "")) push(line);
-        break;
+    for (const rawLine of block.lines) {
+      let line = rawLine;
+      // 한 줄이 남은 자리를 넘으면 문장 끝에서 쪼개 이어붙인다
+      for (;;) {
+        const room = budget - used - (current.length > 0 ? 1 : 0);
+        if (textLength(line) <= room) {
+          push(line);
+          break;
+        }
+        if (room >= MIN_FILL && !isSectionHeader(line)) {
+          const [head, tail] = splitAt(line, room);
+          if (head.length > 0) push(head);
+          line = tail;
+        }
+        flush();
+        if (line.length === 0) break;
       }
-      // 구획 표시는 쪼개지 않는다 — 통째로 다음 통으로 넘긴다
-      if (room >= MIN_FILL && !isSectionHeader(line)) {
-        const [head, tail] = splitAt(line, room);
-        if (head.length > 0) push(head);
-        line = tail;
-      }
-      flush();
-      if (current.length === 0 && used === 0 && line.length === 0) break;
     }
   }
   if (current.length > 0 && current.some((l) => !isSectionHeader(l))) {
@@ -199,16 +245,16 @@ export function buildMessages(p: BriefPayload, maxMessages: number): string[] {
   const kept = chunks.slice(0, maxMessages);
   if (kept.length === 0) kept.push([p.fallbackSummary]);
 
-  // 마지막 통에 링크를 넣는다. 링크는 절대 자르지 않으므로 자리가 없으면 줄을 덜어낸다.
-  const last = kept[kept.length - 1];
-  if (last) {
-    while (
-      last.length > 0 &&
-      textLength(last.join("\n")) + linkCost > budget
-    ) {
-      last.pop();
+  // 1통은 머리글이 길어 예산을 넘을 수 있다. 넘치는 줄은 2통 앞으로 넘긴다.
+  const firstBudget =
+    MAX_TEXT_LENGTH - textLength(p.heading) - MARKER_RESERVE - 1;
+  const first = kept[0];
+  if (first) {
+    while (first.length > 1 && size(first) > firstBudget) {
+      const moved = first.pop() as string;
+      if (kept.length < maxMessages && kept.length === 1) kept.push([]);
+      kept[1]?.unshift(moved);
     }
-    last.push(linkLine);
   }
 
   const total = kept.length;

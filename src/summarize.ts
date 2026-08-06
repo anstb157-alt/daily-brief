@@ -44,8 +44,10 @@ const briefSchema = z.object({
   threadFollowup: z.string(),
   /** 3) 이슈·내러티브. 예상 대비 괴리가 큰 순서 */
   issues: z.array(z.object({ title: z.string().min(1), body: z.string() })),
-  /** 4) 오늘 일정 (KST) */
+  /** 오늘 일정 (KST). 대시보드 바로 다음에 온다 */
   schedule: z.string(),
+  /** 앞으로 2주간 예정된 지표·실적 발표. 없으면 빈 문자열 */
+  upcoming: z.string(),
   /** 5) 마무리 질문. 내일 브리핑의 2번 블록이 된다 */
   closingQuestion: z.string().min(1),
 });
@@ -74,6 +76,7 @@ const RESPONSE_SCHEMA = {
       },
     },
     schedule: { type: "STRING" },
+    upcoming: { type: "STRING" },
     closingQuestion: { type: "STRING" },
   },
   required: [
@@ -83,6 +86,7 @@ const RESPONSE_SCHEMA = {
     "threadFollowup",
     "issues",
     "schedule",
+    "upcoming",
     "closingQuestion",
   ],
 } as const;
@@ -164,6 +168,7 @@ function allText(brief: Brief): string {
     brief.threadFollowup,
     ...brief.issues.flatMap((i) => [i.title, i.body]),
     brief.schedule,
+    brief.upcoming,
     brief.closingQuestion,
   ].join("\n");
 }

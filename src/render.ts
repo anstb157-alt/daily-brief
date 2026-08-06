@@ -106,10 +106,12 @@ function renderNarrative(summary: SummaryResult): string {
     .join("\n");
 
   return [
+    // 일정이 맨 앞이다 — 장 열리기 전에 "오늘 뭘 봐야 하나"가 먼저다
+    block("오늘 일정", renderBody(b.schedule)),
+    block("예정 일정", renderBody(b.upcoming)),
     // 스레드가 없는 날은 블록 자체가 생략된다
     block("어제 스레드 후속", renderBody(b.threadFollowup)),
     block("이슈", issues),
-    block("오늘 일정", renderBody(b.schedule)),
     block("내일로 넘기는 질문", renderBody(b.closingQuestion)),
   ]
     .filter((s) => s.length > 0)

@@ -18,6 +18,10 @@ import { type Collector, type CollectResult, toResult } from "./types.js";
 
 /** 상세 조회는 종목당 1회 호출이라 상한을 둔다 (워치리스트 + 시총 상위) */
 const MAX_DETAIL_LOOKUPS = 8;
+/** 예정 실적을 며칠 앞까지 볼지 */
+const UPCOMING_DAYS = 10;
+/** 하루치 예정에서 남길 종목 수 (워치리스트 우선, 나머지는 시총 상위) */
+const UPCOMING_PER_DAY = 4;
 
 const watchlistSchema = z.object({
   stocks: z.array(z.object({ ticker: z.string(), nameKo: z.string() })),
@@ -80,6 +84,16 @@ export interface EarningsItem {
   watched: boolean;
 }
 
+export interface UpcomingEarning {
+  /** 발표 예정일 (YYYY-MM-DD) */
+  date: string;
+  symbol: string;
+  name: string;
+  time: string;
+  epsForecast: string;
+  watched: boolean;
+}
+
 export interface EarningsData {
   /** 조회 기준일 (미국장, YYYY-MM-DD) */
   date: string;
@@ -87,6 +101,8 @@ export interface EarningsData {
   totalCount: number;
   /** 상세까지 조회한 종목 */
   items: EarningsItem[];
+  /** 앞으로 며칠간 발표 예정 (워치리스트 우선, 시총 상위) */
+  upcoming: UpcomingEarning[];
   /** 가이던스·컨콜 발언은 이 소스에 없음을 요약 단계에 알린다 */
   note: string;
 }
@@ -135,6 +151,58 @@ async function fetchSurprise(
   };
 }
 
+/** YYYY-MM-DD에 일수를 더한다 (UTC 기준 — 캘린더 API가 날짜 문자열만 받는다) */
+function addDays(isoDate: string, days: number): string {
+  const d = new Date(`${isoDate}T00:00:00Z`);
+  d.setUTCDate(d.getUTCDate() + days);
+  return d.toISOString().slice(0, 10);
+}
+
+/**
+ * 앞으로 UPCOMING_DAYS일간 발표 예정을 모은다.
+ * 주말은 애초에 발표가 없어 빈 응답이 오므로 따로 거르지 않는다.
+ * 일부 날짜가 실패해도 나머지는 살린다.
+ */
+async function fetchUpcoming(
+  fromIsoDate: string,
+  watched: Set<string>,
+): Promise<UpcomingEarning[]> {
+  const dates = Array.from({ length: UPCOMING_DAYS }, (_, i) =>
+    addDays(fromIsoDate, i + 1),
+  );
+
+  const settled = await Promise.allSettled(
+    dates.map(async (date) => {
+      const cal = calendarSchema.parse(
+        await fetchJson(
+          `https://api.nasdaq.com/api/calendar/earnings?date=${date}`,
+          { headers },
+          `nasdaq:upcoming:${date}`,
+        ),
+      );
+      const rows = cal.data?.rows ?? [];
+      return [...rows]
+        .sort((a, b) => {
+          const aw = watched.has(a.symbol.toUpperCase()) ? 1 : 0;
+          const bw = watched.has(b.symbol.toUpperCase()) ? 1 : 0;
+          if (aw !== bw) return bw - aw;
+          return capValue(b.marketCap) - capValue(a.marketCap);
+        })
+        .slice(0, UPCOMING_PER_DAY)
+        .map<UpcomingEarning>((r) => ({
+          date,
+          symbol: r.symbol,
+          name: r.name,
+          time: r.time ?? "",
+          epsForecast: r.epsForecast ?? "",
+          watched: watched.has(r.symbol.toUpperCase()),
+        }));
+    }),
+  );
+
+  return settled.flatMap((r) => (r.status === "fulfilled" ? r.value : []));
+}
+
 /**
  * @param isoDate 미국장 기준 조회일 (YYYY-MM-DD).
  *                KST 아침 실행 시점의 "어제 미국장"을 호출부가 계산해 넘긴다.
@@ -157,11 +225,16 @@ export function createEarningsCollector(isoDate: string): Collector<EarningsData
           ),
         );
         const rows = cal.data?.rows ?? [];
+
+        // 예정 실적은 오늘 이후 날짜별로 따로 조회한다 (캘린더가 날짜 단위 API라서)
+        const upcoming = await fetchUpcoming(isoDate, watched);
+
         if (rows.length === 0) {
           return {
             date: isoDate,
             totalCount: 0,
             items: [],
+            upcoming,
             note: "해당일 실적 발표 없음",
           };
         }
@@ -205,6 +278,7 @@ export function createEarningsCollector(isoDate: string): Collector<EarningsData
           date: isoDate,
           totalCount: rows.length,
           items,
+          upcoming,
           note:
             "epsForecast는 다음 분기 컨센서스 전망치다(발표치가 아니다). " +
             "epsActual은 발표 다음 날에야 채워지므로 null이 정상이다. " +
