@@ -1,6 +1,8 @@
 /**
  * 엔트리포인트. 도메인 하나를 실행한다.
- * 사용: tsx src/main.ts stock | realestate
+ * 사용: tsx src/main.ts <stock|realestate|chungyak> [--no-send]
+ *
+ * --no-send: HTML만 만들고 카톡을 보내지 않는다 (프롬프트 손볼 때 쿼터 절약)
  */
 import { DOMAINS, type DomainId } from "./domains.js";
 import { runPipeline } from "./pipeline.js";
@@ -13,9 +15,10 @@ if (arg === undefined || !(arg in DOMAINS)) {
   process.exit(1);
 }
 
-const result = await runPipeline(arg as DomainId);
+const send = !process.argv.includes("--no-send");
+const result = await runPipeline(arg as DomainId, { send });
 console.log(
   result.sent
     ? `✅ 발송 완료 — ${result.pageUrl}`
-    : `⏭️  발송 스킵 — ${result.skipReason ?? ""}`,
+    : `⏭️  발송 없음 (${result.skipReason ?? ""}) — ${result.pageUrl}`,
 );

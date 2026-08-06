@@ -2,11 +2,13 @@
  * 도메인 파이프라인.
  *
  * 수집 → 요약 → 렌더 → 발송을 도메인 하나 기준으로 수행한다.
- * 주식/부동산의 차이는 전부 DomainConfig와 수집기 목록으로 주입된다 (DECISIONS #2).
+ * 도메인(주식·부동산·청약) 차이는 전부 DomainConfig와 수집기 목록으로 주입된다 (DECISIONS #2).
  * 파이프라인 로직을 도메인별로 복사하지 않는다.
  *
  * 한 도메인의 실패가 다른 도메인에 전파되지 않아야 하므로,
  * 워크플로우 파일 자체를 분리했다. 이 함수는 한 번에 한 도메인만 처리한다.
+ *
+ * 부동산 워크플로우와는 독립이다 — 하나가 죽어도 나머지는 각자 스케줄대로 돈다.
  */
 import { mkdir, writeFile } from "node:fs/promises";
 import { dirname } from "node:path";
@@ -84,6 +86,15 @@ function dashboardFor(
   return buildChungyakDashboard(collected["applyhome"] as ApplyhomeData | undefined);
 }
 
+export interface PipelineOptions {
+  /**
+   * false면 HTML까지만 만들고 카톡을 보내지 않는다.
+   * 프롬프트를 손볼 때 결과만 확인하려고 매번 발송하면
+   * 카카오 pair 쿼터(일 20건)가 금방 마른다.
+   */
+  send?: boolean;
+}
+
 export interface PipelineResult {
   /** 발송까지 마쳤는지. 스킵이면 false */
   sent: boolean;
@@ -92,7 +103,11 @@ export interface PipelineResult {
   pageUrl: string;
 }
 
-export async function runPipeline(domainId: DomainId): Promise<PipelineResult> {
+export async function runPipeline(
+  domainId: DomainId,
+  options: PipelineOptions = {},
+): Promise<PipelineResult> {
+  const { send = true } = options;
   const domain = DOMAINS[domainId];
   const { PAGES_BASE_URL } = siteConfig();
   const date = kstDateString();
@@ -135,10 +150,7 @@ export async function runPipeline(domainId: DomainId): Promise<PipelineResult> {
   // ── 발송 스킵 판정 ──
   // 신규 항목이 0건인 날은 보내지 않는다. 매일 같은 화면을 받으면 열지 않게 된다.
   if (okCount === 0) {
-    const skipReason =
-      collectors.length === 0
-        ? "수집기가 아직 없음 (부동산은 6단계에서 추가)"
-        : "모든 수집기 실패 — 신규 항목 0건";
+    const skipReason = "모든 수집기 실패 — 신규 항목 0건";
     console.log(`[pipeline:${domainId}] 발송 스킵: ${skipReason}`);
     return { sent: false, skipReason, pageUrl };
   }
@@ -171,6 +183,11 @@ export async function runPipeline(domainId: DomainId): Promise<PipelineResult> {
       askedOn: date,
       question: summary.brief.closingQuestion,
     });
+  }
+
+  if (!send) {
+    console.log(`[pipeline:${domainId}] --no-send — 발송 생략`);
+    return { sent: false, skipReason: "--no-send", pageUrl };
   }
 
   // ── 발송 ── 200자 템플릿을 여러 통으로 나눠 보낸다
