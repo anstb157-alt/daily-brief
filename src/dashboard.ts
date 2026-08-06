@@ -11,6 +11,8 @@
 import type { MarketData, Quote } from "./collectors/market.js";
 import type { FlowsData } from "./collectors/flows.js";
 import type { PriceData, WeeklyChange } from "./collectors/realestate/price.js";
+import type { SupplyData } from "./collectors/realestate/supply.js";
+import type { ApplyhomeData } from "./collectors/realestate/applyhome.js";
 
 /** 값이 없을 때 채우는 자리 표시자 */
 export const EMPTY = "-";
@@ -148,13 +150,15 @@ function weeklyCell(
  *   주간 매매 변동률 (서울 / 수도권 / 지방)
  *   주간 전세 변동률 (서울)
  *   ---
- *   서울 아파트 실거래 건수 (주간, 전주 대비)
- *   경매 낙찰가율
+ *   공급물량 / 입주물량 / 미분양 / 경매 낙찰가율
  *
- * 실거래 건수·낙찰가율은 아직 무료 소스를 확정하지 못해 "-"로 나간다.
+ * 낙찰가율은 아직 무료 소스를 확정하지 못해 "-"로 나간다.
  * 값이 없어도 자리를 비우지 않는다 — 자리가 밀리면 매일 눈으로 찾아야 한다.
  */
-export function buildRealestateDashboard(price: PriceData | undefined): Dashboard {
+export function buildRealestateDashboard(
+  price: PriceData | undefined,
+  supply: SupplyData | undefined,
+): Dashboard {
   const sale = (r: string) => price?.sale.find((x) => x.region === r);
   const lease = (r: string) => price?.lease.find((x) => x.region === r);
 
@@ -168,7 +172,65 @@ export function buildRealestateDashboard(price: PriceData | undefined): Dashboar
       ],
     },
     {
-      cells: [emptyCell("서울 실거래"), emptyCell("경매 낙찰가율")],
+      cells: [
+        countCell("공급물량", supply?.newSupplyUnits, "호"),
+        countCell("입주물량", supply?.completedUnits, "호"),
+        countCell("미분양", supply?.unsoldUnits, "호"),
+        emptyCell("경매 낙찰가율"),
+      ],
+    },
+  ];
+}
+
+/** 건수 한 칸. 방향 색은 넣지 않는다 — 물량은 많고 적음이 곧 좋고 나쁨이 아니다 */
+function countCell(
+  label: string,
+  value: number | undefined,
+  unit: string,
+): DashboardCell {
+  if (value === undefined) return emptyCell(label);
+  return {
+    label,
+    value: `${value.toLocaleString("ko-KR")}${unit}`,
+    delta: EMPTY,
+    direction: "flat",
+  };
+}
+
+/**
+ * 청약 대시보드. 순서 고정.
+ *   진행중 / 서울 / 마감임박 / 무순위
+ *   ---
+ *   최고 경쟁률
+ */
+export function buildChungyakDashboard(
+  data: ApplyhomeData | undefined,
+): Dashboard {
+  const top = data?.competitionTop[0];
+  return [
+    {
+      cells: [
+        countCell("진행·예정", data?.notices.length, "건"),
+        countCell("서울", data?.seoul.length, "건"),
+        countCell("마감임박", data?.deadlineAlerts.length, "건"),
+        countCell(
+          "무순위",
+          data?.notices.filter((n) => n.kind === "무순위/잔여").length,
+          "건",
+        ),
+      ],
+    },
+    {
+      cells: [
+        top
+          ? {
+              label: "최고 경쟁률",
+              value: `${top.rate.toLocaleString("ko-KR")}:1`,
+              delta: EMPTY,
+              direction: "flat",
+            }
+          : emptyCell("최고 경쟁률"),
+      ],
     },
   ];
 }

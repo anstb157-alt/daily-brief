@@ -18,9 +18,12 @@ import { marketCollector } from "./collectors/market.js";
 import { createNewsCollector } from "./collectors/news.js";
 import { priceCollector } from "./collectors/realestate/price.js";
 import { chungyakCollector } from "./collectors/realestate/chungyak.js";
+import { applyhomeCollector } from "./collectors/realestate/applyhome.js";
+import { supplyCollector } from "./collectors/realestate/supply.js";
 import type { Collector } from "./collectors/types.js";
 import { httpConfig, siteConfig } from "./config.js";
 import {
+  buildChungyakDashboard,
   buildRealestateDashboard,
   buildStockDashboard,
   type Dashboard,
@@ -34,6 +37,8 @@ import { loadThread, saveThread } from "./threads.js";
 import type { MarketData } from "./collectors/market.js";
 import type { FlowsData } from "./collectors/flows.js";
 import type { PriceData } from "./collectors/realestate/price.js";
+import type { ApplyhomeData } from "./collectors/realestate/applyhome.js";
+import type { SupplyData } from "./collectors/realestate/supply.js";
 
 /** Pages 소스 디렉터리. GitHub Pages를 main 브랜치의 /docs로 설정한다 */
 const PAGES_DIR = "docs";
@@ -48,7 +53,16 @@ function collectorsFor(domain: DomainId): Collector<unknown>[] {
       createEarningsCollector(lastUsTradingDate()),
     ];
   }
-  return [priceCollector, chungyakCollector, createNewsCollector("realestate")];
+  if (domain === "realestate") {
+    return [
+      priceCollector,
+      supplyCollector,
+      chungyakCollector,
+      createNewsCollector("realestate"),
+    ];
+  }
+  // 청약은 공고 데이터가 본체다. 뉴스는 정책 변경 감지용으로만 곁들인다.
+  return [applyhomeCollector, createNewsCollector("realestate")];
 }
 
 function dashboardFor(
@@ -61,7 +75,13 @@ function dashboardFor(
       collected["flows"] as FlowsData | undefined,
     );
   }
-  return buildRealestateDashboard(collected["price"] as PriceData | undefined);
+  if (domain === "realestate") {
+    return buildRealestateDashboard(
+      collected["price"] as PriceData | undefined,
+      collected["supply"] as SupplyData | undefined,
+    );
+  }
+  return buildChungyakDashboard(collected["applyhome"] as ApplyhomeData | undefined);
 }
 
 export interface PipelineResult {

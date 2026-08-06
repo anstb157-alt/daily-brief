@@ -24,6 +24,10 @@ import type { OpenThread } from "./threads.js";
 const PLACEHOLDER = "{{COLLECTED}}";
 /** 전일 스레드 자리 표시자 (없으면 "없음"이 들어간다) */
 const THREAD_PLACEHOLDER = "{{OPEN_THREAD}}";
+/** 사용자 프로필 자리 표시자. 청약 프롬프트만 쓴다 */
+const PROFILE_PLACEHOLDER = "{{PROFILE}}";
+/** 프로필은 코드가 아닌 데이터다 */
+const PROFILE_PATH = "profile.json";
 
 /**
  * 실제 변동폭이 값하지 않는데 쓰이면 신뢰가 깨지는 과장 어휘.
@@ -210,8 +214,19 @@ export async function summarize(
     );
   }
 
+  // 프로필을 쓰는 프롬프트에만 주입한다 (파일이 없으면 그 사실을 넘긴다)
+  let profileText = "프로필 없음";
+  if (template.includes(PROFILE_PLACEHOLDER)) {
+    try {
+      profileText = await readFile(PROFILE_PATH, "utf8");
+    } catch {
+      profileText = `${PROFILE_PATH}를 읽지 못했다. 사용자 맞춤 판정을 하지 말 것.`;
+    }
+  }
+
   const systemPrompt = template
     .replace(PLACEHOLDER, JSON.stringify(collected, null, 2))
+    .replace(PROFILE_PLACEHOLDER, profileText)
     .replace(
       THREAD_PLACEHOLDER,
       openThread

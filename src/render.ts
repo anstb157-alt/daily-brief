@@ -34,34 +34,96 @@ function escapeHtml(s: string): string {
     .replace(/"/g, "&quot;");
 }
 
+/** `| a | b |` 형태의 표 행인가 */
+function isTableRow(line: string): boolean {
+  return line.startsWith("|") && line.endsWith("|") && line.length > 2;
+}
+
+/** `|---|---|` 구분행인가 */
+function isTableDivider(line: string): boolean {
+  return isTableRow(line) && /^\|[\s:|-]+\|$/.test(line);
+}
+
+function splitCells(line: string): string[] {
+  return line
+    .slice(1, -1)
+    .split("|")
+    .map((c) => c.trim());
+}
+
 /**
- * 본문을 문단/목록으로 바꾼다.
+ * 링크는 마크다운 `[텍스트](URL)`만 인식한다.
+ * URL은 http(s)만 허용한다 — 모델 출력이 그대로 앵커가 되므로 스킴을 제한한다.
+ */
+function renderInline(text: string): string {
+  const escaped = escapeHtml(text);
+  return escaped.replace(
+    /\[([^\]]+)\]\((https?:\/\/[^\s)]+)\)/g,
+    (_m, label: string, url: string) =>
+      `<a href="${url}" target="_blank" rel="noopener">${label}</a>`,
+  );
+}
+
+/** 표 블록을 <table>로. 넓은 표는 가로 스크롤 컨테이너에 넣는다 */
+function renderTable(rows: string[]): string {
+  const [headRow, ...rest] = rows;
+  if (!headRow) return "";
+  const bodyRows = rest.filter((r) => !isTableDivider(r));
+
+  const head = splitCells(headRow)
+    .map((c) => `<th>${renderInline(c)}</th>`)
+    .join("");
+  const body = bodyRows
+    .map(
+      (r) =>
+        `<tr>${splitCells(r)
+          .map((c) => `<td>${renderInline(c)}</td>`)
+          .join("")}</tr>`,
+    )
+    .join("\n");
+
+  return `<div class="tw"><table>\n<thead><tr>${head}</tr></thead>\n<tbody>\n${body}\n</tbody>\n</table></div>`;
+}
+
+/**
+ * 본문을 표/문단/목록으로 바꾼다.
  * 마크다운 파서를 쓰지 않는 이유: 의존성을 늘릴 만큼 복잡한 문법을 쓰지 않는다.
- * 줄 앞의 `-` `·` `*` 만 목록으로 인식한다.
+ * 인식하는 것: `| a | b |` 표, 줄 앞의 `-` `·` `*` 목록, `[텍스트](URL)` 링크.
  */
 function renderBody(body: string): string {
   const out: string[] = [];
-  let inList = false;
+  let list: string[] = [];
+  let table: string[] = [];
+
+  const flushList = () => {
+    if (list.length > 0) out.push(`<ul>\n${list.join("\n")}\n</ul>`);
+    list = [];
+  };
+  const flushTable = () => {
+    if (table.length > 0) out.push(renderTable(table));
+    table = [];
+  };
 
   for (const line of body.split("\n")) {
     const trimmed = line.trim();
-    const bullet = /^[-·*]\s+/.exec(trimmed);
 
-    if (bullet) {
-      if (!inList) {
-        out.push("<ul>");
-        inList = true;
-      }
-      out.push(`<li>${escapeHtml(trimmed.slice(bullet[0].length))}</li>`);
+    if (isTableRow(trimmed)) {
+      flushList();
+      table.push(trimmed);
       continue;
     }
-    if (inList) {
-      out.push("</ul>");
-      inList = false;
+    flushTable();
+
+    const bullet = /^[-·*]\s+/.exec(trimmed);
+    if (bullet) {
+      list.push(`<li>${renderInline(trimmed.slice(bullet[0].length))}</li>`);
+      continue;
     }
-    if (trimmed.length > 0) out.push(`<p>${escapeHtml(trimmed)}</p>`);
+    flushList();
+    if (trimmed.length > 0) out.push(`<p>${renderInline(trimmed)}</p>`);
   }
-  if (inList) out.push("</ul>");
+  flushList();
+  flushTable();
   return out.join("\n");
 }
 
@@ -176,6 +238,16 @@ article { margin-bottom:1rem; }
 p { margin:.4rem 0; }
 ul { margin:.4rem 0; padding-left:1.15rem; }
 li { margin:.25rem 0; }
+a { color:inherit; text-decoration:underline; text-underline-offset:2px; }
+/* 넓은 표는 페이지가 아니라 표 자신이 가로 스크롤한다 */
+.tw { overflow-x:auto; -webkit-overflow-scrolling:touch; margin:.6rem 0; }
+table { border-collapse:collapse; font-size:.82rem; min-width:100%; }
+th, td { border-bottom:1px solid var(--line); padding:.4rem .55rem; text-align:left;
+  vertical-align:top; white-space:nowrap; }
+th { background:var(--card); font-weight:600; position:sticky; top:0; }
+/* 단지명처럼 긴 값은 줄바꿈을 허용해 표가 지나치게 넓어지지 않게 한다 */
+td:nth-child(3) { white-space:normal; min-width:9rem; }
+tbody tr:nth-child(even) td { background:rgba(127,127,127,.05); }
 pre { white-space:pre-wrap; background:var(--card); padding:1rem; border-radius:6px; font-size:.85rem; }
 .warn { color:var(--warn); font-weight:600; }
 .failures { border:1px solid var(--line); border-radius:6px; padding:.8rem; }

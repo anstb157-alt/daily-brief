@@ -6,7 +6,7 @@
  * 도메인이 늘어도 파이프라인 코드를 복사하지 않는다.
  */
 
-export type DomainId = "stock" | "realestate";
+export type DomainId = "stock" | "realestate" | "chungyak";
 
 export interface DomainConfig {
   readonly id: DomainId;
@@ -34,5 +34,12 @@ export const DOMAINS: Record<DomainId, DomainConfig> = {
     emoji: "🏠",
     promptPath: "prompts/realestate.md",
     outputDir: "realestate",
+  },
+  chungyak: {
+    id: "chungyak",
+    label: "청약",
+    emoji: "📋",
+    promptPath: "prompts/chungyak.md",
+    outputDir: "chungyak",
   },
 };
