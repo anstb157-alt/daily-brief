@@ -26,6 +26,9 @@ const authUrl =
     client_id: cfg.KAKAO_REST_API_KEY,
     redirect_uri: cfg.KAKAO_AUTH_REDIRECT_URI,
     scope: SCOPE,
+    // 기존 세션이 있으면 동의 화면을 건너뛸 수 있어 강제로 다시 띄운다.
+    // talk_message는 "선택 동의"라 접힌 영역에 해제 상태로 나타난다.
+    prompt: "login",
   }).toString();
 
 const server = createServer((req, res) => {
@@ -57,9 +60,23 @@ const server = createServer((req, res) => {
       const refreshDays = Math.floor(
         (token.refresh_token_expires_in ?? 0) / 86_400,
       );
+      const granted = (token.scope ?? "").split(" ").filter(Boolean);
+
       console.log("\n[auth] 발급 성공");
-      console.log(`  scope: ${token.scope ?? "(없음)"}`);
+      console.log(`  scope: ${granted.length > 0 ? granted.join(", ") : "(없음)"}`);
       console.log(`  refresh token 유효기간: 약 ${refreshDays}일`);
+
+      // 인가 성공과 동의 완료는 다르다. scope가 비면 발송 시 403(-402)이 난다.
+      if (!granted.includes(SCOPE)) {
+        console.error(
+          `\n❌ ${SCOPE} 동의가 빠졌습니다. 이 토큰으로는 발송할 수 없습니다.` +
+            "\n   동의 화면의 '선택 동의' 영역을 펼쳐 '카카오톡 메시지 전송'을 체크한 뒤" +
+            "\n   npm run auth:issue 를 다시 실행하세요. (.env는 그대로 두세요)\n",
+        );
+        process.exitCode = 1;
+        return;
+      }
+
       console.log("\n아래 값을 .env의 KAKAO_REFRESH_TOKEN에 넣으세요:\n");
       console.log(token.refresh_token ?? "(refresh_token 없음 — 응답 확인 필요)");
       console.log("");

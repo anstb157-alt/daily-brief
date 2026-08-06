@@ -10,7 +10,8 @@
     "typecheck": "tsc --noEmit",
     "config:check": "tsx --env-file-if-exists=.env src/config.ts",
     "auth:issue": "tsx --env-file-if-exists=.env src/auth/issue-token.ts",
-    "notify:test": "tsx --env-file-if-exists=.env src/scripts/test-notify.ts"
+    "notify:test": "tsx --env-file-if-exists=.env src/scripts/test-notify.ts",
+    "kakao:scopes": "tsx --env-file-if-exists=.env src/scripts/check-scopes.ts"
   },
   "dependencies": {
     "libsodium-wrappers": "^0.7.15",
