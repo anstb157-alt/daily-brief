@@ -222,7 +222,24 @@ export function buildMessages(p: BriefPayload, maxMessages: number): string[] {
 
 // ─── 발송 ──────────────────────────────────────────────────────
 
-async function sendOne(accessToken: string, text: string): Promise<void> {
+/**
+ * @param withButton 마지막 통에만 버튼을 단다. 중간 통까지 버튼이 붙으면 화면이 지저분해진다.
+ *
+ * 주의: 텍스트 템플릿에서 `link`는 필수다.
+ *       빼면 400 `failed to parse parameter. name=template_object`가 난다 (2026-08-06 실측).
+ */
+async function sendOne(
+  accessToken: string,
+  text: string,
+  link: string,
+  withButton: boolean,
+): Promise<void> {
+  const templateObject = {
+    object_type: "text",
+    text,
+    link: { web_url: link, mobile_web_url: link },
+    ...(withButton ? { button_title: "브리핑 전문" } : {}),
+  };
   const res = sendResponseSchema.parse(
     await fetchJson(
       SEND_ENDPOINT,
@@ -233,7 +250,7 @@ async function sendOne(accessToken: string, text: string): Promise<void> {
           "Content-Type": "application/x-www-form-urlencoded;charset=utf-8",
         },
         body: new URLSearchParams({
-          template_object: JSON.stringify({ object_type: "text", text }),
+          template_object: JSON.stringify(templateObject),
         }).toString(),
       },
       "kakao:memo/default/send",
@@ -260,7 +277,7 @@ export async function sendBrief(
 
   for (const [i, text] of messages.entries()) {
     if (i > 0) await new Promise((r) => setTimeout(r, SEND_GAP_MS));
-    await sendOne(accessToken, text);
+    await sendOne(accessToken, text, payload.link, i === messages.length - 1);
     console.log(`[notify] ${i + 1}/${messages.length} 발송 성공 (${textLength(text)}자)`);
   }
 }
