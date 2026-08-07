@@ -1,0 +1,135 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>2026-08-08 부동산 브리핑</title>
+<style>:root { color-scheme: light dark;
+  --fg:#1a1a1a; --muted:#6b6b6b; --line:#e3e3e3; --card:#f6f6f7;
+  --up:#c0392b; --down:#1565c0; --flat:#6b6b6b; --warn:#b45309; }
+@media (prefers-color-scheme: dark) {
+  :root { --fg:#e8e8e8; --muted:#9a9a9a; --line:#333; --card:#1c1c1e;
+    --up:#ff6b5a; --down:#5aa9ff; --flat:#9a9a9a; --warn:#fbbf24; }
+}
+* { box-sizing:border-box; }
+body { margin:0 auto; padding:1rem .9rem 3rem; max-width:44rem;
+  font:16px/1.65 -apple-system,BlinkMacSystemFont,"Apple SD Gothic Neo","Noto Sans KR",sans-serif;
+  color:var(--fg); word-break:keep-all; overflow-wrap:anywhere; }
+header { display:flex; align-items:baseline; gap:.5rem; margin-bottom:.7rem; }
+h1 { font-size:1.1rem; margin:0; }
+.date { color:var(--muted); font-size:.85rem; }
+
+/* 모바일 2열 고정 */
+.grid { display:grid; grid-template-columns:repeat(2,1fr); gap:.4rem; }
+@media (min-width:34rem) { .grid { grid-template-columns:repeat(4,1fr); } }
+.cell { background:var(--card); border-radius:8px; padding:.5rem .6rem; }
+.cell .k { font-size:.72rem; color:var(--muted); letter-spacing:-.02em; }
+.cell .v { font-size:1.02rem; font-weight:700; font-variant-numeric:tabular-nums; }
+.cell .d { font-size:.8rem; font-variant-numeric:tabular-nums; color:var(--flat); }
+.cell.up .d, .cell.up .v { color:var(--up); }
+.cell.down .d, .cell.down .v { color:var(--down); }
+.sep { border:0; border-top:1px solid var(--line); margin:.5rem 0; }
+.dash { margin-bottom:.8rem; }
+.comment { font-size:.9rem; color:var(--muted); margin:0 0 1.6rem; }
+
+section { margin-bottom:1.6rem; }
+h2 { font-size:1rem; margin:0 0 .5rem; padding-bottom:.25rem; border-bottom:1px solid var(--line); }
+h3 { font-size:.95rem; margin:0 0 .3rem; }
+h4 { font-size:.88rem; margin:1rem 0 .35rem; color:var(--muted); }
+article { margin-bottom:1rem; }
+p { margin:.4rem 0; }
+ul { margin:.4rem 0; padding-left:1.15rem; }
+li { margin:.25rem 0; }
+a { color:inherit; text-decoration:underline; text-underline-offset:2px; }
+/* 넓은 표는 페이지가 아니라 표 자신이 가로 스크롤한다 */
+.tw { overflow-x:auto; -webkit-overflow-scrolling:touch; margin:.6rem 0; }
+table { border-collapse:collapse; font-size:.82rem; min-width:100%; }
+th, td { border-bottom:1px solid var(--line); padding:.4rem .55rem; text-align:left;
+  vertical-align:top; white-space:nowrap; }
+th { background:var(--card); font-weight:600; position:sticky; top:0; }
+/* 단지명처럼 긴 값은 줄바꿈을 허용해 표가 지나치게 넓어지지 않게 한다 */
+td:nth-child(3) { white-space:normal; min-width:9rem; }
+tbody tr:nth-child(even) td { background:rgba(127,127,127,.05); }
+pre { white-space:pre-wrap; background:var(--card); padding:1rem; border-radius:6px; font-size:.85rem; }
+.warn { color:var(--warn); font-weight:600; }
+.failures { border:1px solid var(--line); border-radius:6px; padding:.8rem; }
+.failures h2 { border:0; color:var(--warn); }
+.failures li { color:var(--muted); font-size:.85rem; }
+footer { color:var(--muted); font-size:.78rem; border-top:1px solid var(--line); padding-top:.8rem; }</style>
+</head>
+<body>
+<header>
+<h1>🏠 부동산</h1>
+<span class="date">2026-08-08 KST</span>
+</header>
+<section class="dash">
+<div class="grid">
+<div class="cell up">
+<div class="k">매매 서울</div>
+<div class="v">+0.26%</div>
+<div class="d">-</div>
+</div>
+<div class="cell up">
+<div class="k">매매 수도권</div>
+<div class="v">+0.17%</div>
+<div class="d">-</div>
+</div>
+<div class="cell up">
+<div class="k">매매 지방</div>
+<div class="v">+0.01%</div>
+<div class="d">-</div>
+</div>
+<div class="cell up">
+<div class="k">전세 서울</div>
+<div class="v">+0.25%</div>
+<div class="d">-</div>
+</div>
+</div>
+<hr class="sep">
+<div class="grid">
+<div class="cell flat">
+<div class="k">공급물량</div>
+<div class="v">14,964호</div>
+<div class="d">-</div>
+</div>
+<div class="cell flat">
+<div class="k">입주물량</div>
+<div class="v">15,592호</div>
+<div class="d">-</div>
+</div>
+<div class="cell flat">
+<div class="k">미분양</div>
+<div class="v">13,553호</div>
+<div class="d">-</div>
+</div>
+<div class="cell flat">
+<div class="k">경매 낙찰가율</div>
+<div class="v">-</div>
+<div class="d">-</div>
+</div>
+</div>
+</section>
+<p class="comment">8월 3일(4일 전) 기준 주간 조사 결과이며, 서울 매매는 전주 대비 0.26% 상승했습니다.</p>
+<main>
+<section><h2>오늘 일정</h2>
+<p>2026-08-10: 세종 우미 린 센터파크, 한강 푸르지오 리버프론트, 두산위브더제니스 대연 청약 접수 시작</p></section>
+<section><h2>예정 일정</h2>
+<p>2026-08-10~08-12 세종 우미 린 센터파크·한강 푸르지오 리버프론트·두산위브더제니스 대연 청약 접수, 2026-08-18~08-26 시흥거모 A-5블록 신혼희망타운 청약 접수, 2026-08-18~08-21 더샵 신길센트럴시티·용인반도체클러스터 동일하이빌 파크밸리·써밋 클라비온·충정로역자이르네 청약 접수, 2026-08-18~08-20 달서자이 제니크 청약 접수</p></section>
+<section><h2>어제 스레드 후속</h2>
+<p>어제 던진 질문의 답이 일부 나왔다. 이 대통령이 주재한 6시간 회의에서 용산 어린이정원, 태릉, 과천 등의 주택 공급 확대 방안이 논의된 것으로 밝혀졌다. 다만 용산 어린이정원 추가 검토 등은 여전히 변수로 남아있다.</p></section>
+<section><h2>이슈</h2>
+<article><h3>이 대통령 주재 6시간 부동산 회의와 공급 부지 논란</h3>
+<p>이재명 대통령이 7일 오후 2시부터 8시까지 6시간 동안 제2차 부동산 정책 점검회의를 주재했다. 기존 '5만 호' 수준을 넘어서는 최대 물량 확보 방침을 세우고, 기존 사고를 벗어난 과감한 실천을 주문했다. 구체적으로 용산, 태릉, 과천 등의 주택 공급 확대가 논의 테이블에 올랐다. 특히 용산 어린이정원 추가 검토 여부가 주목받고 있으나, 녹지 보존 여론과 공급 필요성 사이에서 의견이 엇갈리는 상황이다. [커뮤니티] '부동산 난리인데 용산에 집 지어야 한다'는 의견과 '도심 녹지는 무조건 지켜야 한다'는 주장이 팽팽하게 맞서고 있다.</p></article>
+<article><h3>세제 개편안과 비거주 1주택자 규제 여파</h3>
+<p>세제 개편안을 둘러싼 공방이 치열하다. 특히 비거주 1주택자에 대한 규제가 변수로 떠오르면서, 마포와 성동 지역의 수요가 커지고 전세 매물은 오히려 줄어들 것이라는 우려가 나온다. 국민의힘은 이를 '세금 폭탄'이라 규정하며 송곳 검증을 예고했고, 부동산정책 정상화 특별위원회를 재가동했다. 오세훈 서울시장도 김용범 대통령실 정책실장을 만나 최근 부동산 대책에 대한 우려를 전달하고 정책 전환을 촉구했다. [커뮤니티] '초고가·비거주 세제 정상화 방향은 옳다'는 반응과 '결국 전세난만 더 심해질 것'이라는 우려가 공존한다.</p></article>
+<article><h3>거래 절벽에 문 닫는 중개업소와 경매로 몰리는 2030</h3>
+<p>외곽 인기 단지 중심으로 일부 거래가 있지만, 전반적인 거래 절벽으로 인해 개업 공인중개사 수가 6년 반 만에 최저치를 기록했다. 중랑구 면목동의 한 중개업소는 '한 달에 매매 1건도 못 하는 곳이 많다'고 전했다. 반면 분양가 상승 부담을 피하려는 2030 세대는 경매시장으로 눈을 돌리고 있다. 올해 상반기 경매 낙찰자 3명 중 1명이 30대인 것으로 나타났다. [커뮤니티] '일반 매매나 분양은 너무 비싸서 경매밖에 답이 없다'는 30대 낙찰자의 목소리가 나오는 반면, '경매도 권리분석 잘못하면 덤터기 쓴다'며 신중해야 한다는 이견도 있다.</p></article>
+<article><h3>지역별 온도차: 과천의 숨고르기와 수도권 강세</h3>
+<p>서울 아파트값은 8월 첫째 주(3일 기준) 전주 대비 0.26% 오르며 상승세를 이어갔다. 반면 과천 아파트 매매가격 변동률은 올해 들어 8월 첫째 주까지 -0.01%를 기록하며 동탄(15.99%), 수지(12.05%), 분당(10.74%) 등 경기 남부 반도체 벨트 지역에 비해 뚜렷한 숨고르기 양상을 보였다. 세종 아파트 매매가격은 보합을 기록하며 수도권과의 연동성이 약화되는 모습을 보였다.</p></article></section>
+<section><h2>내일로 넘기는 질문</h2>
+<p>용산 어린이정원과 과천 부지를 활용한 공급 대책이 실제로 발표된다면, 서울 도심의 매수 대기 수요를 붙잡아둘 수 있을까?</p></section>
+
+</main>
+<footer>생성 2026-08-07T23:34:09.311Z · 자동 생성된 요약이며 투자 권유가 아닙니다.</footer>
+</body>
+</html>
