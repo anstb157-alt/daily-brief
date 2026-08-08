@@ -1,0 +1,153 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>2026-08-09 증시 브리핑</title>
+<style>:root { color-scheme: light dark;
+  --fg:#1a1a1a; --muted:#6b6b6b; --line:#e3e3e3; --card:#f6f6f7;
+  --up:#c0392b; --down:#1565c0; --flat:#6b6b6b; --warn:#b45309; }
+@media (prefers-color-scheme: dark) {
+  :root { --fg:#e8e8e8; --muted:#9a9a9a; --line:#333; --card:#1c1c1e;
+    --up:#ff6b5a; --down:#5aa9ff; --flat:#9a9a9a; --warn:#fbbf24; }
+}
+* { box-sizing:border-box; }
+body { margin:0 auto; padding:1rem .9rem 3rem; max-width:44rem;
+  font:16px/1.65 -apple-system,BlinkMacSystemFont,"Apple SD Gothic Neo","Noto Sans KR",sans-serif;
+  color:var(--fg); word-break:keep-all; overflow-wrap:anywhere; }
+header { display:flex; align-items:baseline; gap:.5rem; margin-bottom:.7rem; }
+h1 { font-size:1.1rem; margin:0; }
+.date { color:var(--muted); font-size:.85rem; }
+
+/* 모바일 2열 고정 */
+.grid { display:grid; grid-template-columns:repeat(2,1fr); gap:.4rem; }
+@media (min-width:34rem) { .grid { grid-template-columns:repeat(4,1fr); } }
+.cell { background:var(--card); border-radius:8px; padding:.5rem .6rem; }
+.cell .k { font-size:.72rem; color:var(--muted); letter-spacing:-.02em; }
+.cell .v { font-size:1.02rem; font-weight:700; font-variant-numeric:tabular-nums; }
+.cell .d { font-size:.8rem; font-variant-numeric:tabular-nums; color:var(--flat); }
+.cell.up .d, .cell.up .v { color:var(--up); }
+.cell.down .d, .cell.down .v { color:var(--down); }
+.sep { border:0; border-top:1px solid var(--line); margin:.5rem 0; }
+.dash { margin-bottom:.8rem; }
+.comment { font-size:.9rem; color:var(--muted); margin:0 0 1.6rem; }
+
+section { margin-bottom:1.6rem; }
+h2 { font-size:1rem; margin:0 0 .5rem; padding-bottom:.25rem; border-bottom:1px solid var(--line); }
+h3 { font-size:.95rem; margin:0 0 .3rem; }
+h4 { font-size:.88rem; margin:1rem 0 .35rem; color:var(--muted); }
+article { margin-bottom:1rem; }
+p { margin:.4rem 0; }
+ul { margin:.4rem 0; padding-left:1.15rem; }
+li { margin:.25rem 0; }
+a { color:inherit; text-decoration:underline; text-underline-offset:2px; }
+/* 넓은 표는 페이지가 아니라 표 자신이 가로 스크롤한다 */
+.tw { overflow-x:auto; -webkit-overflow-scrolling:touch; margin:.6rem 0; }
+table { border-collapse:collapse; font-size:.82rem; min-width:100%; }
+th, td { border-bottom:1px solid var(--line); padding:.4rem .55rem; text-align:left;
+  vertical-align:top; white-space:nowrap; }
+th { background:var(--card); font-weight:600; position:sticky; top:0; }
+/* 단지명처럼 긴 값은 줄바꿈을 허용해 표가 지나치게 넓어지지 않게 한다 */
+td:nth-child(3) { white-space:normal; min-width:9rem; }
+tbody tr:nth-child(even) td { background:rgba(127,127,127,.05); }
+pre { white-space:pre-wrap; background:var(--card); padding:1rem; border-radius:6px; font-size:.85rem; }
+.warn { color:var(--warn); font-weight:600; }
+.failures { border:1px solid var(--line); border-radius:6px; padding:.8rem; }
+.failures h2 { border:0; color:var(--warn); }
+.failures li { color:var(--muted); font-size:.85rem; }
+footer { color:var(--muted); font-size:.78rem; border-top:1px solid var(--line); padding-top:.8rem; }</style>
+</head>
+<body>
+<header>
+<h1>📈 증시</h1>
+<span class="date">2026-08-09 KST</span>
+</header>
+<section class="dash">
+<div class="grid">
+<div class="cell up">
+<div class="k">S&amp;P500</div>
+<div class="v">7,757.64</div>
+<div class="d">+0.62%</div>
+</div>
+<div class="cell up">
+<div class="k">나스닥</div>
+<div class="v">26,690.62</div>
+<div class="d">+1.30%</div>
+</div>
+<div class="cell up">
+<div class="k">다우</div>
+<div class="v">54,036.93</div>
+<div class="d">+0.28%</div>
+</div>
+</div>
+<hr class="sep">
+<div class="grid">
+<div class="cell down">
+<div class="k">미10년물</div>
+<div class="v">4.649</div>
+<div class="d">−0.44%</div>
+</div>
+<div class="cell down">
+<div class="k">달러인덱스</div>
+<div class="v">99.54</div>
+<div class="d">−0.39%</div>
+</div>
+<div class="cell down">
+<div class="k">원달러</div>
+<div class="v">1,411.00</div>
+<div class="d">−0.95%</div>
+</div>
+</div>
+<hr class="sep">
+<div class="grid">
+<div class="cell down">
+<div class="k">코스피</div>
+<div class="v">6,258.77</div>
+<div class="d">−0.60%</div>
+</div>
+<div class="cell down">
+<div class="k">코스닥</div>
+<div class="v">798.81</div>
+<div class="d">−0.36%</div>
+</div>
+<div class="cell down">
+<div class="k">외국인</div>
+<div class="v">−8651억</div>
+<div class="d">-</div>
+</div>
+<div class="cell up">
+<div class="k">기관</div>
+<div class="v">+5854억</div>
+<div class="d">-</div>
+</div>
+<div class="cell up">
+<div class="k">개인</div>
+<div class="v">+2675억</div>
+<div class="d">-</div>
+</div>
+</div>
+</section>
+<p class="comment">원/달러 환율이 1411원으로 하락했으나 코스피는 외국인의 8651억 원 순매도로 하락 마감했다.</p>
+<main>
+<section><h2>오늘 일정</h2>
+<p>데이터 없음</p></section>
+<section><h2>예정 일정</h2>
+<p>2026-08-08 버크셔 해서웨이(BRK.B) 실적(컨센서스 $5.24) / 2026-08-10 사이먼 프로퍼티 그룹(SPG) 실적(컨센서스 $3.18) / 2026-08-11 씨 리미티드(SE) 실적(컨센서스 $0.78) / 2026-08-12 시스코 시스템즈(CSCO) 실적(컨센서스 $0.99) / 2026-08-13 어플라이드 머티어리얼즈(AMAT) 실적(컨센서스 $3.36)</p></section>
+<section><h2>어제 스레드 후속</h2>
+<p>어제 던진 질문의 답은 아직 반만 나왔다. 미국 증시는 고용 둔화를 호재로 받아들이며 반등했으나 오늘 한국 증시가 이 온기를 이어받아 반등할지는 장이 열려봐야 안다.</p></section>
+<section><h2>이슈</h2>
+<article><h3>샌디스크, 실적 웃돌고도 가이던스 실망에 주가 흔들</h3>
+<p>샌디스크는 시장 예상을 웃도는 실적을 발표했으나 다음 분기 매출 전망이 기대에 못 미치며 주가가 하락했다. 서버당 메모리 용량 최적화 우려와 주주환원 발표 지연 등이 겹치며 약세를 보였다는 분석이다. 다만 물량이 없어 못 팔 정도로 메모리 반도체 품귀 현상을 겪고 있어 장기공급계약(LTA)을 확대 중이다. BoA는 샌디스크 목표주가 2500달러를 유지하며 85% 추가 상승 여력이 있다고 평가했다. [커뮤니티] '실적 좋은데 가이던스 때문에 던지는 건 과하다'는 의견과 '반도체 고점 신호 아니냐'는 우려가 엇갈린다.</p></article>
+<article><h3>미국 고용 둔화가 부른 금리 인상 우려 완화, S&amp;P500 사상 최고</h3>
+<p>미국 7월 비농업 일자리가 전월 대비 2만 3,000명 증가하는 데 그치며 예상치를 크게 밑돌았다. 고용 지표 부진은 경기 불안을 자극하기도 했으나 연준의 금리 인상 우려를 낮추는 호재로 작용하며 S&amp;P500 지수가 사상 최고치를 경신했다. 나스닥도 1.3% 상승 마감했다. 엔비디아(2.27%), 퀄컴(4.66%) 등 시스템 반도체는 강세였으나 마이크론(-0.44%), 샌디스크 등 메모리 반도체는 약세를 보였다.</p></article>
+<article><h3>엔비디아, 전력 인프라 랜시엄에 4조 원 베팅</h3>
+<p>엔비디아가 AI 데이터센터의 전력 병목 현상을 해결하기 위해 전력 인프라 기업 랜시엄에 4조 원을 투자했다. 또한 스타게이트 개발사에도 최대 30억 달러 투자를 단행했다. 우주 궤도 AI 데이터센터용 독점 칩 공급 계약을 체결하고 최신 GPU인 블랙웰 B200 등을 공급하는 등 AI 인프라 확보에 속도를 내고 있다.</p></article>
+<article><h3>SK이노베이션 실적 선방에도 거래대금은 올해 최저</h3>
+<p>SK이노베이션의 2분기 영업이익이 전망치를 124% 상회하는 등 국내 기업들의 이익 체력은 유지되고 있다. 상장사 10곳 중 6곳이 기대치를 웃돌았다. 그러나 8월 들어 코스피 일 평균 거래대금과 거래량은 올해 최저 수준으로 떨어졌다. 정부의 밸류업 세제개편안 재검토 소식 속에 서학개미들의 미국 증시 복귀 움직임이 감지되고 있다. [커뮤니티] '국장은 답이 없다, 탈출이 지능 순'이라는 비판적인 반응이 지배적이다.</p></article></section>
+<section><h2>내일로 넘기는 질문</h2>
+<p>미국 고용 둔화가 금리 인하 기대감으로 이어져 뉴욕 증시를 끌어올렸는데, 경기 침체 우려보다 금리 온기가 더 오래 갈 수 있을까?</p></section>
+
+</main>
+<footer>생성 2026-08-08T23:58:09.565Z · 자동 생성된 요약이며 투자 권유가 아닙니다.</footer>
+</body>
+</html>
