@@ -1,0 +1,153 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>2026-08-08 증시 브리핑</title>
+<style>:root { color-scheme: light dark;
+  --fg:#1a1a1a; --muted:#6b6b6b; --line:#e3e3e3; --card:#f6f6f7;
+  --up:#c0392b; --down:#1565c0; --flat:#6b6b6b; --warn:#b45309; }
+@media (prefers-color-scheme: dark) {
+  :root { --fg:#e8e8e8; --muted:#9a9a9a; --line:#333; --card:#1c1c1e;
+    --up:#ff6b5a; --down:#5aa9ff; --flat:#9a9a9a; --warn:#fbbf24; }
+}
+* { box-sizing:border-box; }
+body { margin:0 auto; padding:1rem .9rem 3rem; max-width:44rem;
+  font:16px/1.65 -apple-system,BlinkMacSystemFont,"Apple SD Gothic Neo","Noto Sans KR",sans-serif;
+  color:var(--fg); word-break:keep-all; overflow-wrap:anywhere; }
+header { display:flex; align-items:baseline; gap:.5rem; margin-bottom:.7rem; }
+h1 { font-size:1.1rem; margin:0; }
+.date { color:var(--muted); font-size:.85rem; }
+
+/* 모바일 2열 고정 */
+.grid { display:grid; grid-template-columns:repeat(2,1fr); gap:.4rem; }
+@media (min-width:34rem) { .grid { grid-template-columns:repeat(4,1fr); } }
+.cell { background:var(--card); border-radius:8px; padding:.5rem .6rem; }
+.cell .k { font-size:.72rem; color:var(--muted); letter-spacing:-.02em; }
+.cell .v { font-size:1.02rem; font-weight:700; font-variant-numeric:tabular-nums; }
+.cell .d { font-size:.8rem; font-variant-numeric:tabular-nums; color:var(--flat); }
+.cell.up .d, .cell.up .v { color:var(--up); }
+.cell.down .d, .cell.down .v { color:var(--down); }
+.sep { border:0; border-top:1px solid var(--line); margin:.5rem 0; }
+.dash { margin-bottom:.8rem; }
+.comment { font-size:.9rem; color:var(--muted); margin:0 0 1.6rem; }
+
+section { margin-bottom:1.6rem; }
+h2 { font-size:1rem; margin:0 0 .5rem; padding-bottom:.25rem; border-bottom:1px solid var(--line); }
+h3 { font-size:.95rem; margin:0 0 .3rem; }
+h4 { font-size:.88rem; margin:1rem 0 .35rem; color:var(--muted); }
+article { margin-bottom:1rem; }
+p { margin:.4rem 0; }
+ul { margin:.4rem 0; padding-left:1.15rem; }
+li { margin:.25rem 0; }
+a { color:inherit; text-decoration:underline; text-underline-offset:2px; }
+/* 넓은 표는 페이지가 아니라 표 자신이 가로 스크롤한다 */
+.tw { overflow-x:auto; -webkit-overflow-scrolling:touch; margin:.6rem 0; }
+table { border-collapse:collapse; font-size:.82rem; min-width:100%; }
+th, td { border-bottom:1px solid var(--line); padding:.4rem .55rem; text-align:left;
+  vertical-align:top; white-space:nowrap; }
+th { background:var(--card); font-weight:600; position:sticky; top:0; }
+/* 단지명처럼 긴 값은 줄바꿈을 허용해 표가 지나치게 넓어지지 않게 한다 */
+td:nth-child(3) { white-space:normal; min-width:9rem; }
+tbody tr:nth-child(even) td { background:rgba(127,127,127,.05); }
+pre { white-space:pre-wrap; background:var(--card); padding:1rem; border-radius:6px; font-size:.85rem; }
+.warn { color:var(--warn); font-weight:600; }
+.failures { border:1px solid var(--line); border-radius:6px; padding:.8rem; }
+.failures h2 { border:0; color:var(--warn); }
+.failures li { color:var(--muted); font-size:.85rem; }
+footer { color:var(--muted); font-size:.78rem; border-top:1px solid var(--line); padding-top:.8rem; }</style>
+</head>
+<body>
+<header>
+<h1>📈 증시</h1>
+<span class="date">2026-08-08 KST</span>
+</header>
+<section class="dash">
+<div class="grid">
+<div class="cell up">
+<div class="k">S&amp;P500</div>
+<div class="v">7,757.64</div>
+<div class="d">+0.62%</div>
+</div>
+<div class="cell up">
+<div class="k">나스닥</div>
+<div class="v">26,690.62</div>
+<div class="d">+1.30%</div>
+</div>
+<div class="cell up">
+<div class="k">다우</div>
+<div class="v">54,036.93</div>
+<div class="d">+0.28%</div>
+</div>
+</div>
+<hr class="sep">
+<div class="grid">
+<div class="cell down">
+<div class="k">미10년물</div>
+<div class="v">4.649</div>
+<div class="d">−0.44%</div>
+</div>
+<div class="cell down">
+<div class="k">달러인덱스</div>
+<div class="v">99.54</div>
+<div class="d">−0.39%</div>
+</div>
+<div class="cell down">
+<div class="k">원달러</div>
+<div class="v">1,410.50</div>
+<div class="d">−0.98%</div>
+</div>
+</div>
+<hr class="sep">
+<div class="grid">
+<div class="cell down">
+<div class="k">코스피</div>
+<div class="v">6,258.77</div>
+<div class="d">−0.60%</div>
+</div>
+<div class="cell down">
+<div class="k">코스닥</div>
+<div class="v">798.81</div>
+<div class="d">−0.36%</div>
+</div>
+<div class="cell down">
+<div class="k">외국인</div>
+<div class="v">−8651억</div>
+<div class="d">-</div>
+</div>
+<div class="cell up">
+<div class="k">기관</div>
+<div class="v">+5854억</div>
+<div class="d">-</div>
+</div>
+<div class="cell up">
+<div class="k">개인</div>
+<div class="v">+2675억</div>
+<div class="d">-</div>
+</div>
+</div>
+</section>
+<p class="comment">미국 고용 감소가 오히려 금리 인상 우려를 덜어내며 뉴욕 증시를 밀어 올렸다.</p>
+<main>
+<section><h2>오늘 일정</h2>
+<p>2026-08-08: 경제지표 및 실적 발표 일정 없음.</p></section>
+<section><h2>예정 일정</h2>
+<p>2026-08-08 Berkshire Hathaway 실적 발표 / 2026-08-10 Simon Property Group, Barrick Mining, Rocket Lab 실적 발표 / 2026-08-11 Sea Limited, Lumentum, CoreWeave 실적 발표 / 2026-08-12 Cisco Systems, Coherent, Cerebras Systems 실적 발표 / 2026-08-13 Applied Materials, JD.com 실적 발표</p></section>
+<section><h2>어제 스레드 후속</h2>
+<p>어제 던진 질문, 절반의 답이 나왔다. 미국 7월 고용이 8만 명 증가 예상과 달리 2만 3000명 감소로 나타났다. 시장은 이를 금리 인상 우려 후퇴로 해석하며 S&amp;P500 사상 최고치 경신으로 화답했다. 다만 국내 반도체와 증시의 구원투수가 될지는 월요일 장이 열려봐야 안다.</p></section>
+<section><h2>이슈</h2>
+<article><h3>예상 밖의 미국 고용 감소와 뉴욕 증시 상승</h3>
+<p>미국의 7월 고용이 8만 명 증가할 것이라던 시장 예상과 달리 2만 3000명 감소로 집계됐다. 보통 악재로 읽힐 고용 감소가 연준의 추가 금리 인상 우려를 완화하는 호재로 해석됐다. S&amp;P500 지수는 0.62% 오른 7757.64로 종가 기준 사상 최고치를 기록했고 나스닥도 1.3% 상승했다. 주요 외신들은 고용 둔화가 긴축 부담을 덜어주며 위험자산 선호 심리를 자극했다고 분석했다. [커뮤니티]에서는 '고용이 마이너스인데 주가가 오르는 게 말이 되냐'는 의구심과 '금리 인상 우려가 끝났으니 랠리 시작이다'라는 기대감이 맞서고 있다.</p></article>
+<article><h3>엔비디아, HBM 품귀에 '루빈 울트라' 사양 축소 검토</h3>
+<p>엔비디아가 차세대 GPU인 '루빈 울트라'에 탑재할 고대역폭메모리(HBM) 용량을 당초 계획보다 줄이거나 저사양 칩을 검토 중이라는 소식이 전해졌다. HBM 공급 부족에 대응하기 위한 비용 절감 카드로 풀이된다. 한편 미국 상무부는 중국 AI 기업들이 해외 데이터센터를 통해 엔비디아 최첨단 GPU에 우회 접근하는 실태 조사에 착수했다. SK하이닉스의 용인 반도체 54조 원 투자 발표와 엔비디아의 사양 조정 검토가 월요일 국내 반도체주 수급에 미칠 영향이 주목된다.</p></article>
+<article><h3>호실적 후 흔들린 샌디스크, 서학개미는 집중 매수</h3>
+<p>샌디스크는 최근 호실적 발표에도 불구하고 매도세가 나오며 주가가 흔들렸으나, 월가에서는 AI 메모리 수요와 체력이 여전하다며 과도한 우려라고 평가했다. 서학개미들은 이 틈을 타 이달 들어 샌디스크를 1억 4762만 달러(약 2092억 원), 마이크론을 1억 5102만 달러 순매수했다. 샌디스크는 SK하이닉스와 협력해 낸드를 활용한 고대역폭 플래시(HBF) 표준 규격을 최초 공개하기도 했다. [커뮤니티]에서는 '실적이 좋은데 왜 파냐'며 저점 매수 기회로 보는 시각과 '메모리 업황이 꺾이는 신호 아니냐'는 불안감이 공존한다.</p></article>
+<article><h3>코스피 반등에 다시 불어난 신용융자잔고</h3>
+<p>7월 한 달간 코스피가 22.19%, 코스닥이 21.44% 하락하며 신용거래융자 잔고가 27조 원대까지 줄었으나, 최근 코스피가 하루 만에 3% 넘게 반등하자 신용잔고가 다시 1조 원 넘게 불어났다. 한편 정부의 세제개편안 중 '주가누르기방지' 요건에 대해 실효성 논란이 일자 대통령이 전면 재검토를 지시하며 세제 개편 방향은 안개속으로 들어갔다.</p></article></section>
+<section><h2>내일로 넘기는 질문</h2>
+<p>미국 고용 감소가 금리 우려를 낮춰 뉴욕 증시를 끌어올렸는데, 월요일 한국 증시도 이 온기를 이어받아 반등할 수 있을까?</p></section>
+
+</main>
+<footer>생성 2026-08-08T00:04:05.274Z · 자동 생성된 요약이며 투자 권유가 아닙니다.</footer>
+</body>
+</html>
