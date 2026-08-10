@@ -1,0 +1,135 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>2026-08-11 부동산 브리핑</title>
+<style>:root { color-scheme: light dark;
+  --fg:#1a1a1a; --muted:#6b6b6b; --line:#e3e3e3; --card:#f6f6f7;
+  --up:#c0392b; --down:#1565c0; --flat:#6b6b6b; --warn:#b45309; }
+@media (prefers-color-scheme: dark) {
+  :root { --fg:#e8e8e8; --muted:#9a9a9a; --line:#333; --card:#1c1c1e;
+    --up:#ff6b5a; --down:#5aa9ff; --flat:#9a9a9a; --warn:#fbbf24; }
+}
+* { box-sizing:border-box; }
+body { margin:0 auto; padding:1rem .9rem 3rem; max-width:44rem;
+  font:16px/1.65 -apple-system,BlinkMacSystemFont,"Apple SD Gothic Neo","Noto Sans KR",sans-serif;
+  color:var(--fg); word-break:keep-all; overflow-wrap:anywhere; }
+header { display:flex; align-items:baseline; gap:.5rem; margin-bottom:.7rem; }
+h1 { font-size:1.1rem; margin:0; }
+.date { color:var(--muted); font-size:.85rem; }
+
+/* 모바일 2열 고정 */
+.grid { display:grid; grid-template-columns:repeat(2,1fr); gap:.4rem; }
+@media (min-width:34rem) { .grid { grid-template-columns:repeat(4,1fr); } }
+.cell { background:var(--card); border-radius:8px; padding:.5rem .6rem; }
+.cell .k { font-size:.72rem; color:var(--muted); letter-spacing:-.02em; }
+.cell .v { font-size:1.02rem; font-weight:700; font-variant-numeric:tabular-nums; }
+.cell .d { font-size:.8rem; font-variant-numeric:tabular-nums; color:var(--flat); }
+.cell.up .d, .cell.up .v { color:var(--up); }
+.cell.down .d, .cell.down .v { color:var(--down); }
+.sep { border:0; border-top:1px solid var(--line); margin:.5rem 0; }
+.dash { margin-bottom:.8rem; }
+.comment { font-size:.9rem; color:var(--muted); margin:0 0 1.6rem; }
+
+section { margin-bottom:1.6rem; }
+h2 { font-size:1rem; margin:0 0 .5rem; padding-bottom:.25rem; border-bottom:1px solid var(--line); }
+h3 { font-size:.95rem; margin:0 0 .3rem; }
+h4 { font-size:.88rem; margin:1rem 0 .35rem; color:var(--muted); }
+article { margin-bottom:1rem; }
+p { margin:.4rem 0; }
+ul { margin:.4rem 0; padding-left:1.15rem; }
+li { margin:.25rem 0; }
+a { color:inherit; text-decoration:underline; text-underline-offset:2px; }
+/* 넓은 표는 페이지가 아니라 표 자신이 가로 스크롤한다 */
+.tw { overflow-x:auto; -webkit-overflow-scrolling:touch; margin:.6rem 0; }
+table { border-collapse:collapse; font-size:.82rem; min-width:100%; }
+th, td { border-bottom:1px solid var(--line); padding:.4rem .55rem; text-align:left;
+  vertical-align:top; white-space:nowrap; }
+th { background:var(--card); font-weight:600; position:sticky; top:0; }
+/* 단지명처럼 긴 값은 줄바꿈을 허용해 표가 지나치게 넓어지지 않게 한다 */
+td:nth-child(3) { white-space:normal; min-width:9rem; }
+tbody tr:nth-child(even) td { background:rgba(127,127,127,.05); }
+pre { white-space:pre-wrap; background:var(--card); padding:1rem; border-radius:6px; font-size:.85rem; }
+.warn { color:var(--warn); font-weight:600; }
+.failures { border:1px solid var(--line); border-radius:6px; padding:.8rem; }
+.failures h2 { border:0; color:var(--warn); }
+.failures li { color:var(--muted); font-size:.85rem; }
+footer { color:var(--muted); font-size:.78rem; border-top:1px solid var(--line); padding-top:.8rem; }</style>
+</head>
+<body>
+<header>
+<h1>🏠 부동산</h1>
+<span class="date">2026-08-11 KST</span>
+</header>
+<section class="dash">
+<div class="grid">
+<div class="cell up">
+<div class="k">매매 서울</div>
+<div class="v">+0.26%</div>
+<div class="d">-</div>
+</div>
+<div class="cell up">
+<div class="k">매매 수도권</div>
+<div class="v">+0.17%</div>
+<div class="d">-</div>
+</div>
+<div class="cell up">
+<div class="k">매매 지방</div>
+<div class="v">+0.01%</div>
+<div class="d">-</div>
+</div>
+<div class="cell up">
+<div class="k">전세 서울</div>
+<div class="v">+0.25%</div>
+<div class="d">-</div>
+</div>
+</div>
+<hr class="sep">
+<div class="grid">
+<div class="cell flat">
+<div class="k">공급물량</div>
+<div class="v">14,964호</div>
+<div class="d">-</div>
+</div>
+<div class="cell flat">
+<div class="k">입주물량</div>
+<div class="v">15,592호</div>
+<div class="d">-</div>
+</div>
+<div class="cell flat">
+<div class="k">미분양</div>
+<div class="v">13,553호</div>
+<div class="d">-</div>
+</div>
+<div class="cell flat">
+<div class="k">경매 낙찰가율</div>
+<div class="v">-</div>
+<div class="d">-</div>
+</div>
+</div>
+</section>
+<p class="comment">7일 전(8월 3일) 조사 기준이며, 서울 매매(+0.26%)와 전세(+0.25%)가 수도권 및 지방 대비 강세를 유지하고 있습니다.</p>
+<main>
+<section><h2>오늘 일정</h2>
+<p>2026-08-11: 국회 국토교통위원회 전체회의 개최, 김포 한강 푸르지오 리버프론트 등 청약 접수 진행</p></section>
+<section><h2>예정 일정</h2>
+<p>8월 10일~12일 세종 우미 린 센터파크·한강 푸르지오 리버프론트·두산위브더제니스 대연 청약 접수, 8월 18일~21일 더샵 신길센트럴시티·용인반도체클러스터 동일하이빌·써밋 클라비온·충정로역자이르네 청약 접수, 8월 18일~26일 시흥거모 A-5블록 청약 접수, 8월 31일~9월 8일 성남복정2 A1블록 청약 접수</p></section>
+<section><h2>어제 스레드 후속</h2>
+<p>어제 던진 '5만호+α' 공급 대책의 시장 안착 여부는 아직 모름. 정부와 여당이 주택안정화 TF를 구성하고 국회 국토위 전체회의를 열어 대책을 점검하고 있으나, 용산어린이정원 주택 공급 반발과 성남복정2 분양가 인상 논란 등 현장의 진통이 이어지고 있어 오늘 국회 논의 과정을 더 지켜봐야 함.</p></section>
+<section><h2>이슈</h2>
+<article><h3>사전청약 5.3억이 본청약 8억으로, 성남복정2 분양가 50% 인상 논란</h3>
+<p>성남복정2지구 A1블록 신혼희망타운 본청약 분양가가 사전청약 당시 예고된 약 5.3억 원에서 8억 원으로 50% 가까이 인상되어 수분양자들의 불만이 커지고 있다. [커뮤니티]에서는 '이럴 거면 사전청약을 왜 했냐', '서민 주거 안정이라더니 뒤통수를 쳤다'는 격앙된 반응이 나오고 있다. 반면 '공사비가 올랐으니 어쩔 수 없다'는 의견도 일부 있으나 분양가 산정 기준에 대한 불신이 깊다.</p></article>
+<article><h3>총량 막힌 은행권, 잔금·전세대출 실수요자 '오픈런' 속출</h3>
+<p>가계대출 총량 규제 여파로 은행들이 대출 문턱을 높이면서 입주 잔금대출이나 전세자금이 급한 실수요자들이 대출을 받기 위해 오픈런을 벌이는 현상이 나타나고 있다. 신용대출과 달리 이사 날짜가 정해진 담보·전세대출은 시기를 늦추기 어려워 실수요자들의 불안감이 크다. [커뮤니티]에서는 '대출 규제 때문에 이사도 못 가게 생겼다'는 하소연과 '투기꾼 잡는다더니 실수요자만 잡는다'는 비판이 대립하고 있다.</p></article>
+<article><h3>토지거래허가구역 내 '세입자 낀 집' 갭투자 허용 연장 추진</h3>
+<p>정부가 토지거래허가구역 내에서 세입자가 있는 아파트를 매수할 때 무주택자에 한해 갭투자를 허용하는 예외 조치를 연장 추진한다. 당초 올해 말 종료 예정이었으나 매도인들의 불만과 시장 상황을 고려해 세 번째 예외를 두는 방향으로 가닥을 잡았다. [커뮤니티]에서는 '규제를 일관성 없이 누더기로 만든다'는 지적과 '거래 숨통을 틔워주려면 어쩔 수 없다'는 의견이 엇갈리고 있다.</p></article>
+<article><h3>한강 푸르지오 리버프론트 등 청약 접수 개시 및 공급 대책 진통</h3>
+<p>김포 '한강 푸르지오 리버프론트'(2,432가구), '세종 우미 린 센터파크'(676가구) 등이 8월 10일부터 청약 접수를 시작했다. 한편, 정부의 주택 공급 대책을 두고 용산어린이정원 주택 공급에 대한 주민 반발이 이어지고 있으며, 야당 황희 의원의 '폐버스 주택' 제안은 청년층의 거센 비판을 받아 결국 사과와 함께 간담회가 취소되는 해프닝이 벌어졌다.</p></article></section>
+<section><h2>내일로 넘기는 질문</h2>
+<p>사전청약 분양가가 본청약에서 50%나 뛰어오르는 선례가 남은 상황에서, 앞으로 무주택 실수요자들이 정부의 공공분양 사전청약 제도를 신뢰하고 기다릴 수 있을까?</p></section>
+
+</main>
+<footer>생성 2026-08-10T23:35:26.923Z · 자동 생성된 요약이며 투자 권유가 아닙니다.</footer>
+</body>
+</html>
