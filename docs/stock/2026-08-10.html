@@ -1,0 +1,153 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>2026-08-10 증시 브리핑</title>
+<style>:root { color-scheme: light dark;
+  --fg:#1a1a1a; --muted:#6b6b6b; --line:#e3e3e3; --card:#f6f6f7;
+  --up:#c0392b; --down:#1565c0; --flat:#6b6b6b; --warn:#b45309; }
+@media (prefers-color-scheme: dark) {
+  :root { --fg:#e8e8e8; --muted:#9a9a9a; --line:#333; --card:#1c1c1e;
+    --up:#ff6b5a; --down:#5aa9ff; --flat:#9a9a9a; --warn:#fbbf24; }
+}
+* { box-sizing:border-box; }
+body { margin:0 auto; padding:1rem .9rem 3rem; max-width:44rem;
+  font:16px/1.65 -apple-system,BlinkMacSystemFont,"Apple SD Gothic Neo","Noto Sans KR",sans-serif;
+  color:var(--fg); word-break:keep-all; overflow-wrap:anywhere; }
+header { display:flex; align-items:baseline; gap:.5rem; margin-bottom:.7rem; }
+h1 { font-size:1.1rem; margin:0; }
+.date { color:var(--muted); font-size:.85rem; }
+
+/* 모바일 2열 고정 */
+.grid { display:grid; grid-template-columns:repeat(2,1fr); gap:.4rem; }
+@media (min-width:34rem) { .grid { grid-template-columns:repeat(4,1fr); } }
+.cell { background:var(--card); border-radius:8px; padding:.5rem .6rem; }
+.cell .k { font-size:.72rem; color:var(--muted); letter-spacing:-.02em; }
+.cell .v { font-size:1.02rem; font-weight:700; font-variant-numeric:tabular-nums; }
+.cell .d { font-size:.8rem; font-variant-numeric:tabular-nums; color:var(--flat); }
+.cell.up .d, .cell.up .v { color:var(--up); }
+.cell.down .d, .cell.down .v { color:var(--down); }
+.sep { border:0; border-top:1px solid var(--line); margin:.5rem 0; }
+.dash { margin-bottom:.8rem; }
+.comment { font-size:.9rem; color:var(--muted); margin:0 0 1.6rem; }
+
+section { margin-bottom:1.6rem; }
+h2 { font-size:1rem; margin:0 0 .5rem; padding-bottom:.25rem; border-bottom:1px solid var(--line); }
+h3 { font-size:.95rem; margin:0 0 .3rem; }
+h4 { font-size:.88rem; margin:1rem 0 .35rem; color:var(--muted); }
+article { margin-bottom:1rem; }
+p { margin:.4rem 0; }
+ul { margin:.4rem 0; padding-left:1.15rem; }
+li { margin:.25rem 0; }
+a { color:inherit; text-decoration:underline; text-underline-offset:2px; }
+/* 넓은 표는 페이지가 아니라 표 자신이 가로 스크롤한다 */
+.tw { overflow-x:auto; -webkit-overflow-scrolling:touch; margin:.6rem 0; }
+table { border-collapse:collapse; font-size:.82rem; min-width:100%; }
+th, td { border-bottom:1px solid var(--line); padding:.4rem .55rem; text-align:left;
+  vertical-align:top; white-space:nowrap; }
+th { background:var(--card); font-weight:600; position:sticky; top:0; }
+/* 단지명처럼 긴 값은 줄바꿈을 허용해 표가 지나치게 넓어지지 않게 한다 */
+td:nth-child(3) { white-space:normal; min-width:9rem; }
+tbody tr:nth-child(even) td { background:rgba(127,127,127,.05); }
+pre { white-space:pre-wrap; background:var(--card); padding:1rem; border-radius:6px; font-size:.85rem; }
+.warn { color:var(--warn); font-weight:600; }
+.failures { border:1px solid var(--line); border-radius:6px; padding:.8rem; }
+.failures h2 { border:0; color:var(--warn); }
+.failures li { color:var(--muted); font-size:.85rem; }
+footer { color:var(--muted); font-size:.78rem; border-top:1px solid var(--line); padding-top:.8rem; }</style>
+</head>
+<body>
+<header>
+<h1>📈 증시</h1>
+<span class="date">2026-08-10 KST</span>
+</header>
+<section class="dash">
+<div class="grid">
+<div class="cell up">
+<div class="k">S&amp;P500</div>
+<div class="v">7,757.64</div>
+<div class="d">+0.62%</div>
+</div>
+<div class="cell up">
+<div class="k">나스닥</div>
+<div class="v">26,690.62</div>
+<div class="d">+1.30%</div>
+</div>
+<div class="cell up">
+<div class="k">다우</div>
+<div class="v">54,036.93</div>
+<div class="d">+0.28%</div>
+</div>
+</div>
+<hr class="sep">
+<div class="grid">
+<div class="cell down">
+<div class="k">미10년물</div>
+<div class="v">4.649</div>
+<div class="d">−0.44%</div>
+</div>
+<div class="cell up">
+<div class="k">달러인덱스</div>
+<div class="v">99.63</div>
+<div class="d">+0.09%</div>
+</div>
+<div class="cell down">
+<div class="k">원달러</div>
+<div class="v">1,410.00</div>
+<div class="d">−0.07%</div>
+</div>
+</div>
+<hr class="sep">
+<div class="grid">
+<div class="cell flat">
+<div class="k">코스피</div>
+<div class="v">6,258.77</div>
+<div class="d">0.00%</div>
+</div>
+<div class="cell up">
+<div class="k">코스닥</div>
+<div class="v">812.72</div>
+<div class="d">+1.74%</div>
+</div>
+<div class="cell down">
+<div class="k">외국인</div>
+<div class="v">−8651억</div>
+<div class="d">-</div>
+</div>
+<div class="cell up">
+<div class="k">기관</div>
+<div class="v">+5854억</div>
+<div class="d">-</div>
+</div>
+<div class="cell up">
+<div class="k">개인</div>
+<div class="v">+2675억</div>
+<div class="d">-</div>
+</div>
+</div>
+</section>
+<p class="comment">고용 지표 악화로 미 10년물 국채금리가 하락하며 기술주 반등을 뒷받침했다.</p>
+<main>
+<section><h2>오늘 일정</h2>
+<p>08/10 Simon Property Group(SPG) 실적 발표(장마감 후) / Barrick Mining(B) 실적 발표(장시작 전) / Ferguson Enterprises(FERG) 실적 발표(장시작 전) / Rocket Lab(RKLB) 실적 발표(장마감 후)</p></section>
+<section><h2>예정 일정</h2>
+<p>8/11 Lumentum Holdings 실적 발표(장마감 후) / 8/12 미국 7월 CPI 발표(21:30, 예상 m/m 0.1%, y/y 3.4%) / 8/12 Cisco Systems 실적 발표(장마감 후) / 8/13 미국 7월 PPI 발표(21:30, 예상 m/m 0.2%) / 8/13 Applied Materials 실적 발표(장마감 후)</p></section>
+<section><h2>어제 스레드 후속</h2>
+<p>어제 던진 질문의 답은 아직 반만 나왔다. 7월 고용이 2만 3000명 감소하며 금리 부담은 덜었지만, 경기 침체 우려를 완전히 지웠는지는 이번 주 CPI 발표를 더 봐야 안다.</p></section>
+<section><h2>이슈</h2>
+<article><h3>예상 크게 밑돈 미국 7월 고용, 증시에는 호재로 작용</h3>
+<p>미국 노동부가 발표한 7월 비농가 취업자 수가 전월 대비 2만 3000명 감소했다. 시장 예상치였던 8만 명 증가를 크게 밑도는 수치다. 보통 고용 악화는 경기 침체 신호로 읽히지만, 시장은 금리 인상 우려 완화에 더 무게를 뒀다. 다우(0.28%), S&amp;P500(0.62%), 나스닥(1.30%) 모두 상승했고 S&amp;P500은 사상 최고치를 경신했다. 필라델피아 반도체지수도 2.56% 올랐다. [커뮤니티] 반응은 갈린다. &quot;고용 안 좋은데 주가는 가다니 역시 배드 이즈 굿(Bad is Good) 장세다&quot;라는 안도와 &quot;결국 경기 침체 오면 주가도 버티지 못할 것&quot;이라는 경계감이 팽팽하다.</p></article>
+<article><h3>중국 CXMT 애플 공급망 진입 테스트와 국내 반도체 영향</h3>
+<p>중국 창신메모리테크놀로지(CXMT)가 애플의 칩 적용 테스트를 받고 있다는 소식이 전해졌다. CXMT는 지난달 상하이 증시 상장 첫날 주가가 460% 상승하며 중국 본토 시가총액 1위에 오른 바 있다. 이 소식은 국내 증시에서 삼성전자와 SK하이닉스 주가 하락의 원인으로 지목되며 긴장감을 키우고 있다. 다만 오늘 프리마켓에서 삼성전자와 SK하이닉스는 미국 반도체주 상승 영향으로 2%대 오름세를 보였다. [커뮤니티]에서는 &quot;미국이 제재해도 중국 반도체는 기어코 쫓아온다&quot;며 우려하는 목소리가 크다. 반면 &quot;단순 테스트일 뿐 실제 공급까지는 갈 길이 멀다&quot;는 반론도 있다.</p></article>
+<article><h3>엔비디아, AI 전력망 선점을 위해 30억 달러 투자</h3>
+<p>엔비디아가 미국 랜시엄(Lancium)에 30억 달러(약 4조 원)를 투자해 AI 전력 인프라 확보에 나섰다. AI 가속기 경쟁을 넘어 이제는 전력 확보 싸움으로 번지는 양상이다. 한편 미국 정부가 중국 AI 기업들의 엔비디아 칩 우회 활용 방식을 조사 중이라는 소식도 전해졌다. [커뮤니티]에서는 &quot;엔비디아는 이제 칩만 파는 게 아니라 전력까지 다 먹으려고 한다&quot;며 생태계 독점에 감탄하는 반응이 주를 이뤘다.</p></article>
+<article><h3>샌디스크 실적 발표와 HBF 규격 공개</h3>
+<p>샌디스크가 2분기 실적을 발표했다. 실적 자체는 시장 예상치를 상회했으나, 이미 높아진 시장의 기대치에는 미치지 못했다는 평가를 받으며 주가는 3.68% 하락했다. 한편 SK하이닉스와 샌디스크가 공동으로 HBM의 대안으로 꼽히는 HBF(하이브리드 플래시) 첫 표준 규격을 공개하면서 한미반도체, 엘티씨 등 관련 밸류체인 수혜 여부가 주목받고 있다. [커뮤니티]에서는 &quot;실적이 잘 나와도 기대치 안 차면 던져버리는 무서운 시장&quot;이라는 반응이 나왔다.</p></article></section>
+<section><h2>내일로 넘기는 질문</h2>
+<p>고용 둔화를 금리 호재로 받아들인 뉴욕 증시의 훈풍이, 애플의 중국 칩 테스트라는 대형 변수를 마주한 국내 반도체주를 오늘 하루 건져 올릴 수 있을까?</p></section>
+
+</main>
+<footer>생성 2026-08-10T00:02:34.319Z · 자동 생성된 요약이며 투자 권유가 아닙니다.</footer>
+</body>
+</html>
