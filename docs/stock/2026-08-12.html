@@ -1,0 +1,159 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>2026-08-12 증시 브리핑</title>
+<style>:root { color-scheme: light dark;
+  --fg:#1a1a1a; --muted:#6b6b6b; --line:#e3e3e3; --card:#f6f6f7;
+  --up:#c0392b; --down:#1565c0; --flat:#6b6b6b; --warn:#b45309; }
+@media (prefers-color-scheme: dark) {
+  :root { --fg:#e8e8e8; --muted:#9a9a9a; --line:#333; --card:#1c1c1e;
+    --up:#ff6b5a; --down:#5aa9ff; --flat:#9a9a9a; --warn:#fbbf24; }
+}
+* { box-sizing:border-box; }
+body { margin:0 auto; padding:1rem .9rem 3rem; max-width:44rem;
+  font:16px/1.65 -apple-system,BlinkMacSystemFont,"Apple SD Gothic Neo","Noto Sans KR",sans-serif;
+  color:var(--fg); word-break:keep-all; overflow-wrap:anywhere; }
+header { display:flex; align-items:baseline; gap:.5rem; margin-bottom:.7rem; }
+h1 { font-size:1.1rem; margin:0; }
+.date { color:var(--muted); font-size:.85rem; }
+
+/* 모바일 2열 고정 */
+.grid { display:grid; grid-template-columns:repeat(2,1fr); gap:.4rem; }
+@media (min-width:34rem) { .grid { grid-template-columns:repeat(4,1fr); } }
+.cell { background:var(--card); border-radius:8px; padding:.5rem .6rem; }
+.cell .k { font-size:.72rem; color:var(--muted); letter-spacing:-.02em; }
+.cell .v { font-size:1.02rem; font-weight:700; font-variant-numeric:tabular-nums; }
+.cell .d { font-size:.8rem; font-variant-numeric:tabular-nums; color:var(--flat); }
+.cell.up .d, .cell.up .v { color:var(--up); }
+.cell.down .d, .cell.down .v { color:var(--down); }
+.sep { border:0; border-top:1px solid var(--line); margin:.5rem 0; }
+.dash { margin-bottom:.8rem; }
+.comment { font-size:.9rem; color:var(--muted); margin:0 0 1.6rem; }
+
+section { margin-bottom:1.6rem; }
+h2 { font-size:1rem; margin:0 0 .5rem; padding-bottom:.25rem; border-bottom:1px solid var(--line); }
+h3 { font-size:.95rem; margin:0 0 .3rem; }
+h4 { font-size:.88rem; margin:1rem 0 .35rem; color:var(--muted); }
+article { margin-bottom:1rem; }
+p { margin:.4rem 0; }
+ul { margin:.4rem 0; padding-left:1.15rem; }
+li { margin:.25rem 0; }
+a { color:inherit; text-decoration:underline; text-underline-offset:2px; }
+/* 넓은 표는 페이지가 아니라 표 자신이 가로 스크롤한다 */
+.tw { overflow-x:auto; -webkit-overflow-scrolling:touch; margin:.6rem 0; }
+table { border-collapse:collapse; font-size:.82rem; min-width:100%; }
+th, td { border-bottom:1px solid var(--line); padding:.4rem .55rem; text-align:left;
+  vertical-align:top; white-space:nowrap; }
+th { background:var(--card); font-weight:600; position:sticky; top:0; }
+/* 단지명처럼 긴 값은 줄바꿈을 허용해 표가 지나치게 넓어지지 않게 한다 */
+td:nth-child(3) { white-space:normal; min-width:9rem; }
+tbody tr:nth-child(even) td { background:rgba(127,127,127,.05); }
+pre { white-space:pre-wrap; background:var(--card); padding:1rem; border-radius:6px; font-size:.85rem; }
+.warn { color:var(--warn); font-weight:600; }
+.failures { border:1px solid var(--line); border-radius:6px; padding:.8rem; }
+.failures h2 { border:0; color:var(--warn); }
+.failures li { color:var(--muted); font-size:.85rem; }
+footer { color:var(--muted); font-size:.78rem; border-top:1px solid var(--line); padding-top:.8rem; }</style>
+</head>
+<body>
+<header>
+<h1>📈 증시</h1>
+<span class="date">2026-08-12 KST</span>
+</header>
+<section class="dash">
+<div class="grid">
+<div class="cell down">
+<div class="k">S&amp;P500</div>
+<div class="v">7,728.20</div>
+<div class="d">−0.32%</div>
+</div>
+<div class="cell down">
+<div class="k">나스닥</div>
+<div class="v">26,445.45</div>
+<div class="d">−0.60%</div>
+</div>
+<div class="cell down">
+<div class="k">다우</div>
+<div class="v">53,791.85</div>
+<div class="d">−0.34%</div>
+</div>
+</div>
+<hr class="sep">
+<div class="grid">
+<div class="cell up">
+<div class="k">미10년물</div>
+<div class="v">4.688</div>
+<div class="d">+0.09%</div>
+</div>
+<div class="cell down">
+<div class="k">달러인덱스</div>
+<div class="v">99.81</div>
+<div class="d">−0.02%</div>
+</div>
+<div class="cell up">
+<div class="k">원달러</div>
+<div class="v">1,413.60</div>
+<div class="d">+0.01%</div>
+</div>
+</div>
+<hr class="sep">
+<div class="grid">
+<div class="cell up">
+<div class="k">코스피</div>
+<div class="v">6,420.32</div>
+<div class="d">+1.18%</div>
+</div>
+<div class="cell down">
+<div class="k">코스닥</div>
+<div class="v">846.56</div>
+<div class="d">−1.31%</div>
+</div>
+<div class="cell up">
+<div class="k">외국인</div>
+<div class="v">+535억</div>
+<div class="d">-</div>
+</div>
+<div class="cell up">
+<div class="k">기관</div>
+<div class="v">+212억</div>
+<div class="d">-</div>
+</div>
+<div class="cell down">
+<div class="k">개인</div>
+<div class="v">−708억</div>
+<div class="d">-</div>
+</div>
+</div>
+</section>
+<p class="comment">미국 증시 하락에도 반도체 지수 상승과 SK하이닉스 ADR 급등이 코스피 상승 출발을 이끌었다.</p>
+<main>
+<section><h2>오늘 일정</h2>
+<p>21:30 미국 7월 소비자물가지수(CPI) 발표</p>
+<p>21:30 미국 7월 근원 소비자물가지수(Core CPI) 발표</p></section>
+<section><h2>예정 일정</h2>
+<p>2026-08-13 미국 7월 생산자물가지수(PPI) 발표 (21:30)</p>
+<p>2026-08-13 어플라이드 머티어리얼즈(AMAT) 실적 발표 (장 마감 후, 컨센서스 $3.36)</p></section>
+<section><h2>어제 스레드 후속</h2>
+<p>어제 던진 질문의 답이 절반쯤 나왔다. 엔비디아의 710조 원($5000억) AI 인프라 펀딩 파트너(아폴로, 블랙록 등)가 공개되며 신용 불안이 진정되었고, SK하이닉스 ADR(+4.70%)과 샌디스크(+2.68%) 등 반도체주가 강세를 보였다. 이 온기가 오늘 아침 코스피 반도체 대형주 상승(+1%대)으로 이어지며 투자심리를 되살리는 모양새다.</p></section>
+<section><h2>이슈</h2>
+<article><h3>엔비디아 710조 원 펀딩 실체 공개와 신용 불안 해소</h3>
+<p>엔비디아가 AI 인프라 확충을 위해 아폴로, 블랙록, 블랙스톤, 브룩필드, 골드만삭스, KKR 등 월가 거물들과 손잡고 5000억 달러(약 710조 원)를 조달하는 계획을 구체화했다. 이 소식에 엔비디아의 신용부도스왑(CDS) 프리미엄이 5bp 하락하며 신용 불안이 진정됐다. 엔비디아 주가는 0.03% 내린 217.48달러로 보합 마감했으나, 파트너로 참여한 아폴로 글로벌은 6.2% 강세를 보였다. 엔비디아는 '증류' 기법을 적용한 소형 AI 모델을 무료 공개하고 1조 매개변수 규모의 초대형 모델 출시도 예고했다.</p>
+<p>[커뮤니티] &quot;결국 월가 돈 끌어다 AI 판 키우겠다는 거네. 거품 우려는 당분간 접어도 되나?&quot;라는 긍정론과 &quot;엔비디아가 금융까지 손대는 건 그만큼 칩만 팔아서는 성장 한계가 왔다는 뜻 아님?&quot;이라는 우려가 팽팽하게 맞서고 있다.</p></article>
+<article><h3>미 반도체주 반등과 SK하이닉스 '최고의 AI 메모리주' 호평</h3>
+<p>대형 기술주들이 악재로 흔들린 가운데 반도체 업종은 강세를 보였다. 필라델피아반도체지수가 0.87% 상승했고 샌디스크(+2.68%), 마이크론(+0.87%) 등이 일제히 올랐다. 특히 SK하이닉스 ADR은 4.70% 급등했다. 미국 투자매체 모틀리풀은 SK하이닉스를 마이크론과 샌디스크를 제친 '최고의 AI 메모리주'로 꼽으며 시장 지배력과 낮은 밸류에이션을 높이 평가했다. 한편 SK하이닉스는 샌디스크와 함께 차세대 스토리지 기술인 HBF(Host-Buffered Flash) 첫 표준 규격을 공개하며 메모리 경쟁의 축을 대역폭에서 활용률로 전환하기 시작했다.</p>
+<p>[커뮤니티] &quot;미국에선 국장 하이닉스 사라고 난리인데 왜 한국에선 맨날 외인들이 패대기치냐&quot;며 억울해하는 반응과 &quot;오늘 아침 코스피 상승 출발하는 거 보니 외인 수급 돌아오는 듯&quot;이라며 기대하는 목소리가 공존한다.</p></article>
+<article><h3>호르무즈 긴장 재점화와 유가 상승에 미 증시 하락</h3>
+<p>미국과 이란의 호르무즈 해협 재개방 협상 불확실성이 커지면서 국제유가가 상승했다. 브렌트유는 1.4%, WTI는 1.3% 올랐다. 중동의 지정학적 긴장과 오늘 밤 예정된 미국 7월 소비자물가지수(CPI) 발표를 앞둔 경계감이 겹치며 뉴욕증시 3대 지수는 일제히 하락했다. 나스닥은 0.60% 내린 26,445.45로 마감했고, 알파벳은 청소년 플랫폼 유해성 관련 소송 리스크로 3.84% 급락했다.</p>
+<p>[커뮤니티] &quot;유가 또 오르면 금리 인하는 물 건너가는 거 아니냐&quot;는 걱정과 &quot;CPI만 잘 나오면 유가 상승 정도는 묻힌다. 오늘 밤이 진짜다&quot;라는 의견이 대립 중이다.</p></article>
+<article><h3>코스피·코스닥 디커플링 출발과 변동성 규제 효과</h3>
+<p>12일 코스피는 삼성전자와 SK하이닉스의 1%대 상승에 힘입어 1.47% 오른 6,438.50으로 강세 출발했다. 반면 코스닥은 0.35% 하락한 854.85에 장을 열며 엇갈린 행보를 보였다. 한편 단일종목 레버리지 ETF 규제 시행 이후 코스피200 변동성지수(VKOSPI)가 61.68을 기록하며 변동성이 27% 감소하는 등 시장 안정화 조짐이 나타나고 있다.</p>
+<p>[커뮤니티] &quot;코스피만 가고 코스닥은 왜 이 모양이냐&quot;는 불만과 &quot;레버리지 규제하니까 확실히 변동성은 줄어든 듯&quot;이라는 분석이 나오고 있다.</p></article></section>
+<section><h2>내일로 넘기는 질문</h2>
+<p>오늘 밤 발표될 미국 CPI가 예상치(3.4%)를 하회하며 반도체 중심의 코스피 상승 랠리에 불을 붙일 수 있을까?</p></section>
+
+</main>
+<footer>생성 2026-08-12T00:10:03.047Z · 자동 생성된 요약이며 투자 권유가 아닙니다.</footer>
+</body>
+</html>
