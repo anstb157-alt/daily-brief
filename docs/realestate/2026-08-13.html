@@ -1,0 +1,137 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>2026-08-13 부동산 브리핑</title>
+<style>:root { color-scheme: light dark;
+  --fg:#1a1a1a; --muted:#6b6b6b; --line:#e3e3e3; --card:#f6f6f7;
+  --up:#c0392b; --down:#1565c0; --flat:#6b6b6b; --warn:#b45309; }
+@media (prefers-color-scheme: dark) {
+  :root { --fg:#e8e8e8; --muted:#9a9a9a; --line:#333; --card:#1c1c1e;
+    --up:#ff6b5a; --down:#5aa9ff; --flat:#9a9a9a; --warn:#fbbf24; }
+}
+* { box-sizing:border-box; }
+body { margin:0 auto; padding:1rem .9rem 3rem; max-width:44rem;
+  font:16px/1.65 -apple-system,BlinkMacSystemFont,"Apple SD Gothic Neo","Noto Sans KR",sans-serif;
+  color:var(--fg); word-break:keep-all; overflow-wrap:anywhere; }
+header { display:flex; align-items:baseline; gap:.5rem; margin-bottom:.7rem; }
+h1 { font-size:1.1rem; margin:0; }
+.date { color:var(--muted); font-size:.85rem; }
+
+/* 모바일 2열 고정 */
+.grid { display:grid; grid-template-columns:repeat(2,1fr); gap:.4rem; }
+@media (min-width:34rem) { .grid { grid-template-columns:repeat(4,1fr); } }
+.cell { background:var(--card); border-radius:8px; padding:.5rem .6rem; }
+.cell .k { font-size:.72rem; color:var(--muted); letter-spacing:-.02em; }
+.cell .v { font-size:1.02rem; font-weight:700; font-variant-numeric:tabular-nums; }
+.cell .d { font-size:.8rem; font-variant-numeric:tabular-nums; color:var(--flat); }
+.cell.up .d, .cell.up .v { color:var(--up); }
+.cell.down .d, .cell.down .v { color:var(--down); }
+.sep { border:0; border-top:1px solid var(--line); margin:.5rem 0; }
+.dash { margin-bottom:.8rem; }
+.comment { font-size:.9rem; color:var(--muted); margin:0 0 1.6rem; }
+
+section { margin-bottom:1.6rem; }
+h2 { font-size:1rem; margin:0 0 .5rem; padding-bottom:.25rem; border-bottom:1px solid var(--line); }
+h3 { font-size:.95rem; margin:0 0 .3rem; }
+h4 { font-size:.88rem; margin:1rem 0 .35rem; color:var(--muted); }
+article { margin-bottom:1rem; }
+p { margin:.4rem 0; }
+ul { margin:.4rem 0; padding-left:1.15rem; }
+li { margin:.25rem 0; }
+a { color:inherit; text-decoration:underline; text-underline-offset:2px; }
+/* 넓은 표는 페이지가 아니라 표 자신이 가로 스크롤한다 */
+.tw { overflow-x:auto; -webkit-overflow-scrolling:touch; margin:.6rem 0; }
+table { border-collapse:collapse; font-size:.82rem; min-width:100%; }
+th, td { border-bottom:1px solid var(--line); padding:.4rem .55rem; text-align:left;
+  vertical-align:top; white-space:nowrap; }
+th { background:var(--card); font-weight:600; position:sticky; top:0; }
+/* 단지명처럼 긴 값은 줄바꿈을 허용해 표가 지나치게 넓어지지 않게 한다 */
+td:nth-child(3) { white-space:normal; min-width:9rem; }
+tbody tr:nth-child(even) td { background:rgba(127,127,127,.05); }
+pre { white-space:pre-wrap; background:var(--card); padding:1rem; border-radius:6px; font-size:.85rem; }
+.warn { color:var(--warn); font-weight:600; }
+.failures { border:1px solid var(--line); border-radius:6px; padding:.8rem; }
+.failures h2 { border:0; color:var(--warn); }
+.failures li { color:var(--muted); font-size:.85rem; }
+footer { color:var(--muted); font-size:.78rem; border-top:1px solid var(--line); padding-top:.8rem; }</style>
+</head>
+<body>
+<header>
+<h1>🏠 부동산</h1>
+<span class="date">2026-08-13 KST</span>
+</header>
+<section class="dash">
+<div class="grid">
+<div class="cell up">
+<div class="k">매매 서울</div>
+<div class="v">+0.26%</div>
+<div class="d">-</div>
+</div>
+<div class="cell up">
+<div class="k">매매 수도권</div>
+<div class="v">+0.17%</div>
+<div class="d">-</div>
+</div>
+<div class="cell up">
+<div class="k">매매 지방</div>
+<div class="v">+0.01%</div>
+<div class="d">-</div>
+</div>
+<div class="cell up">
+<div class="k">전세 서울</div>
+<div class="v">+0.25%</div>
+<div class="d">-</div>
+</div>
+</div>
+<hr class="sep">
+<div class="grid">
+<div class="cell flat">
+<div class="k">공급물량</div>
+<div class="v">14,964호</div>
+<div class="d">-</div>
+</div>
+<div class="cell flat">
+<div class="k">입주물량</div>
+<div class="v">15,592호</div>
+<div class="d">-</div>
+</div>
+<div class="cell flat">
+<div class="k">미분양</div>
+<div class="v">13,553호</div>
+<div class="d">-</div>
+</div>
+<div class="cell flat">
+<div class="k">경매 낙찰가율</div>
+<div class="v">-</div>
+<div class="d">-</div>
+</div>
+</div>
+</section>
+<p class="comment">9일 전(8월 3일) 조사 기준 주간 통계입니다. 서울 매매(0.26%)와 전세(0.25%) 모두 강세가 유지되고 있습니다.</p>
+<main>
+<section><h2>오늘 일정</h2>
+<p>2026-08-13: 국민의힘 '뉴홈' 사전청약 피해자 현장간담회(고양 창릉 S4 공사 현장), 서울 국회의원·시의원 부동산 정책대응 간담회</p></section>
+<section><h2>예정 일정</h2>
+<p>2026-08-18: 시흥거모 A-5블록, 더샵 신길센트럴시티, 용인반도체클러스터 동일하이빌, 써밋 클라비온, 충정로역자이르네, 달서자이 제니크 청약 접수 시작</p>
+<p>2026-08-19: 두산위브더제니스 부천 청약 접수 시작</p>
+<p>2026-08-31: 성남복정2 A1블록 신혼희망타운 청약 접수 시작</p></section>
+<section><h2>어제 스레드 후속</h2>
+<p>어제 던진 사전청약 신뢰 질문은 여전히 미해소 상태야. 오늘 국민의힘이 고양 창릉 S4 공사 현장을 찾아 사전청약 피해자들과 현장 간담회를 열고 대출 조건 변경 논란 등을 다룬다고 하니, 실질적인 구제책이 나올지 지켜봐야 해.</p></section>
+<section><h2>이슈</h2>
+<article><h3>세금 피하려 '아파트 물물교환' 선택하는 다주택자들</h3>
+<p>최근 다주택자들 사이에서 아파트를 서로 맞바꾸는 '교환 거래'가 3년 만에 최고치를 기록했어. 매매나 증여 대신 서로 부동산 재산권을 교환하는 방식인데, 기존 주택 처리가 까다로워지자 세금을 피하기 위한 절세 해법으로 부상한 거야. [커뮤니티]에서는 '이러다 물물교환 시대가 다시 오는 것 아니냐', '세금 피하려는 꼼수 거래를 규제해야 한다'는 비판과 '법이 보장하는 합법적인 절세 방법인데 뭐가 문제냐'는 옹호론이 팽팽하게 맞서고 있어.</p></article>
+<article><h3>규제 묶인 동탄·구리 대신 병점·다산으로 불길 이동</h3>
+<p>동탄과 구리가 규제지역으로 묶이자 인근 비규제지역인 병점과 다산 아파트값이 한 달 새 각각 1억 5천만 원, 1억 원씩 뛰어올랐어. 한국부동산원에 따르면 병점구 아파트 매매가 상승률은 규제 지정 전 한 달간 0.99%에서 지정 후 1.31%로 확대됐고, 남양주도 0.62%에서 0.97%로 커졌어. 규제로 한쪽을 누르면 다른 쪽이 튀어 오르는 풍선효과가 여실히 증명된 셈이야.</p></article>
+<article><h3>은마아파트 이주 시작과 학군지 전세 소멸 우려</h3>
+<p>강남 재건축의 상징인 은마아파트의 이주가 본격화되면서 대치동 세입자 3,100가구가 대체 전세를 찾아 움직이기 시작했어. 주변 아파트 전세가가 은마보다 5억~6억 원이나 높아 세입자들의 고민이 깊어. 게다가 대치·목동·중계·평촌 등 주요 학군지 8.2만 가구 중 전세 매물은 659건에 불과해. 세제 개편안 여파로 집주인들이 실거주하겠다며 퇴거를 통보하는 사례가 늘면서 전세 품귀 현상은 더 심해질 것으로 보여.</p></article>
+<article><h3>오세훈 서울시장 '2030년까지 청년주택 7.4만 가구 공급'</h3>
+<p>오세훈 서울시장이 청년들이 서울을 떠나지 않도록 2030년까지 청년주택 7.4만 가구를 공급하겠다고 발표했어. 야당에서 제안한 '폐버스 리모델링 청년주택'에 대해서는 '황당하다'며 직격탄을 날렸지. 한편, 가계대출 규제 강화로 전세자금대출이 막히거나 부부 합산 소득 제한으로 정책대출에서 배제되는 '결혼 페널티'에 대한 청년들의 불만도 함께 제기되고 있어.</p></article></section>
+<section><h2>내일로 넘기는 질문</h2>
+<p>규제를 피하려 비규제지역으로 매수세가 옮겨붙고 세금을 피하려 물물교환까지 성행하는 상황에서, 정부의 추가 공급·금융 대책이 이 우회로들을 모두 차단할 수 있을까?</p></section>
+
+</main>
+<footer>생성 2026-08-12T23:41:40.487Z · 자동 생성된 요약이며 투자 권유가 아닙니다.</footer>
+</body>
+</html>
