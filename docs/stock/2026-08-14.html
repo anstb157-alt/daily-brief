@@ -1,0 +1,160 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>2026-08-14 증시 브리핑</title>
+<style>:root { color-scheme: light dark;
+  --fg:#1a1a1a; --muted:#6b6b6b; --line:#e3e3e3; --card:#f6f6f7;
+  --up:#c0392b; --down:#1565c0; --flat:#6b6b6b; --warn:#b45309; }
+@media (prefers-color-scheme: dark) {
+  :root { --fg:#e8e8e8; --muted:#9a9a9a; --line:#333; --card:#1c1c1e;
+    --up:#ff6b5a; --down:#5aa9ff; --flat:#9a9a9a; --warn:#fbbf24; }
+}
+* { box-sizing:border-box; }
+body { margin:0 auto; padding:1rem .9rem 3rem; max-width:44rem;
+  font:16px/1.65 -apple-system,BlinkMacSystemFont,"Apple SD Gothic Neo","Noto Sans KR",sans-serif;
+  color:var(--fg); word-break:keep-all; overflow-wrap:anywhere; }
+header { display:flex; align-items:baseline; gap:.5rem; margin-bottom:.7rem; }
+h1 { font-size:1.1rem; margin:0; }
+.date { color:var(--muted); font-size:.85rem; }
+
+/* 모바일 2열 고정 */
+.grid { display:grid; grid-template-columns:repeat(2,1fr); gap:.4rem; }
+@media (min-width:34rem) { .grid { grid-template-columns:repeat(4,1fr); } }
+.cell { background:var(--card); border-radius:8px; padding:.5rem .6rem; }
+.cell .k { font-size:.72rem; color:var(--muted); letter-spacing:-.02em; }
+.cell .v { font-size:1.02rem; font-weight:700; font-variant-numeric:tabular-nums; }
+.cell .d { font-size:.8rem; font-variant-numeric:tabular-nums; color:var(--flat); }
+.cell.up .d, .cell.up .v { color:var(--up); }
+.cell.down .d, .cell.down .v { color:var(--down); }
+.sep { border:0; border-top:1px solid var(--line); margin:.5rem 0; }
+.dash { margin-bottom:.8rem; }
+.comment { font-size:.9rem; color:var(--muted); margin:0 0 1.6rem; }
+
+section { margin-bottom:1.6rem; }
+h2 { font-size:1rem; margin:0 0 .5rem; padding-bottom:.25rem; border-bottom:1px solid var(--line); }
+h3 { font-size:.95rem; margin:0 0 .3rem; }
+h4 { font-size:.88rem; margin:1rem 0 .35rem; color:var(--muted); }
+article { margin-bottom:1rem; }
+p { margin:.4rem 0; }
+ul { margin:.4rem 0; padding-left:1.15rem; }
+li { margin:.25rem 0; }
+a { color:inherit; text-decoration:underline; text-underline-offset:2px; }
+/* 넓은 표는 페이지가 아니라 표 자신이 가로 스크롤한다 */
+.tw { overflow-x:auto; -webkit-overflow-scrolling:touch; margin:.6rem 0; }
+table { border-collapse:collapse; font-size:.82rem; min-width:100%; }
+th, td { border-bottom:1px solid var(--line); padding:.4rem .55rem; text-align:left;
+  vertical-align:top; white-space:nowrap; }
+th { background:var(--card); font-weight:600; position:sticky; top:0; }
+/* 단지명처럼 긴 값은 줄바꿈을 허용해 표가 지나치게 넓어지지 않게 한다 */
+td:nth-child(3) { white-space:normal; min-width:9rem; }
+tbody tr:nth-child(even) td { background:rgba(127,127,127,.05); }
+pre { white-space:pre-wrap; background:var(--card); padding:1rem; border-radius:6px; font-size:.85rem; }
+.warn { color:var(--warn); font-weight:600; }
+.failures { border:1px solid var(--line); border-radius:6px; padding:.8rem; }
+.failures h2 { border:0; color:var(--warn); }
+.failures li { color:var(--muted); font-size:.85rem; }
+footer { color:var(--muted); font-size:.78rem; border-top:1px solid var(--line); padding-top:.8rem; }</style>
+</head>
+<body>
+<header>
+<h1>📈 증시</h1>
+<span class="date">2026-08-14 KST</span>
+</header>
+<section class="dash">
+<div class="grid">
+<div class="cell up">
+<div class="k">S&amp;P500</div>
+<div class="v">7,798.99</div>
+<div class="d">+0.65%</div>
+</div>
+<div class="cell up">
+<div class="k">나스닥</div>
+<div class="v">26,803.03</div>
+<div class="d">+0.81%</div>
+</div>
+<div class="cell up">
+<div class="k">다우</div>
+<div class="v">53,839.99</div>
+<div class="d">+0.13%</div>
+</div>
+</div>
+<hr class="sep">
+<div class="grid">
+<div class="cell up">
+<div class="k">미10년물</div>
+<div class="v">4.645</div>
+<div class="d">+0.08%</div>
+</div>
+<div class="cell down">
+<div class="k">달러인덱스</div>
+<div class="v">99.92</div>
+<div class="d">−0.05%</div>
+</div>
+<div class="cell down">
+<div class="k">원달러</div>
+<div class="v">1,419.60</div>
+<div class="d">−0.04%</div>
+</div>
+</div>
+<hr class="sep">
+<div class="grid">
+<div class="cell up">
+<div class="k">코스피</div>
+<div class="v">6,996.58</div>
+<div class="d">+2.69%</div>
+</div>
+<div class="cell up">
+<div class="k">코스닥</div>
+<div class="v">874.18</div>
+<div class="d">+1.49%</div>
+</div>
+<div class="cell up">
+<div class="k">외국인</div>
+<div class="v">+21102억</div>
+<div class="d">-</div>
+</div>
+<div class="cell up">
+<div class="k">기관</div>
+<div class="v">+6834억</div>
+<div class="d">-</div>
+</div>
+<div class="cell down">
+<div class="k">개인</div>
+<div class="v">−27410억</div>
+<div class="d">-</div>
+</div>
+</div>
+</section>
+<p class="comment">미국 물가 둔화와 반도체 호재가 겹치며 원/달러 환율은 소폭 내렸고 코스피는 강한 상승 출발을 보였다.</p>
+<main>
+<section><h2>오늘 일정</h2>
+<p>21:30 미국 7월 핵심 소매판매 (전월 대비, 예상 0.2%)</p>
+<p>21:30 미국 7월 소매판매 (전월 대비, 예상 0.1%)</p>
+<p>23:00 미국 미시간대 소비자심리지수 예비치 (예상 54.7)</p>
+<p>23:00 미국 미시간대 인플레이션 기대치 예비치</p></section>
+<section><h2>예정 일정</h2>
+<p>8/14 AYA(컨센 $0.36), SIND(컨센 -$0.12) 실적 발표</p>
+<p>8/17 FN(컨센 $3.69), HTHT(컨센 $0.65), XP(컨센 $0.51), GRFS(컨센 $0.27) 실적 발표</p>
+<p>8/18 HD(컨센 $4.71), KEYS(컨센 $2.16), BIDU(컨센 $1.19) 실적 발표</p>
+<p>8/19 ADI(컨센 $3.33), TJX(컨센 $1.18), LOW(컨센 $4.23), TGT(컨센 $2.25) 실적 발표</p>
+<p>8/20 WMT(컨센 $0.73), BABA(컨센 $1.77), DE(컨센 $4.85), ROST(컨센 $1.92) 실적 발표</p>
+<p>8/21 BEKE(컨센 $0.25), BJ(컨센 $1.16), MAKO(컨센 $0.18) 실적 발표</p>
+<p>8/27 엔비디아 실적 발표</p></section>
+<section><h2>어제 스레드 후속</h2>
+<p>어제 던진 질문, 답 나왔다. 미국 7월 PPI가 전월 대비 0.0%로 시장 전망치(0.2%)를 밑돌며 물가 둔화 흐름을 지지했다. 덕분에 코스피는 장중 7,000선을 회복하며 5일 연속 상승세를 이어갔다.</p></section>
+<section><h2>이슈</h2>
+<article><h3>샌디스크의 2030년 자신감, 반도체판 흔들다</h3>
+<p>샌디스크가 인베스터 데이에서 파격적인 장기 가이던스를 내놓았다. 2028~2030년 연평균 10%대 중후반의 매출 성장과 다년간 80% 수준의 매출총이익률 유지를 제시했다. 이 소식에 샌디스크 주가는 13.67% 급등했고 마이크론 등 메모리 반도체주가 동반 상승했다. 국내에서도 삼성전자와 SK하이닉스가 장 초반 각각 2%대, 5%대 강세를 보이며 반도체 수요 우려를 씻어내는 모습이다. [커뮤니티] 'AI 거품론 외치던 사람들 다 어디 갔냐', '메모리는 역시 꺾이지 않는다'며 환호하는 분위기다. 반면 '장기 전망일 뿐 당장 다음 분기 실적을 봐야 한다'는 신중론도 있다.</p></article>
+<article><h3>미국 7월 PPI 0.0% 보합, 인플레이션 압력 완화</h3>
+<p>미국 7월 생산자물가지수(PPI)가 전월 대비 0.0%를 기록하며 시장 예상치인 0.2%를 밑돌았다. 물가 압력이 완화되면서 금리 인상 우려가 일부 후퇴했고, S&amp;P500 지수는 0.65% 오른 7798.99로 사상 최고치를 경신했다. 나스닥도 0.81% 상승 마감했다. 국제유가(WTI)가 2.43% 하락한 것도 증시 상승에 우호적인 환경을 만들었다.</p></article>
+<article><h3>구광모 회장 엔비디아 방문과 AI 에이전트 경쟁</h3>
+<p>구광모 LG그룹 회장이 미국 산타클라라의 엔비디아 본사를 찾아 젠슨 황 CEO와 회동할 것으로 알려졌다. 두 달 만의 재회로 양사의 '피지컬 AI' 동맹에 속도가 붙을 전망이다. 한편 국내 AI 스타트업 업스테이지는 엔비디아 '네모트론 3 울트라'와 대등한 성능을 가진 '솔라 프로 4'를 공개하며 오픈라우터에 등재됐다. 엔비디아는 2026년 하반기 '루빈 MGX' 출격을 앞두고 800V DC 전환을 추진 중이다. 전방 수요를 검증할 마지막 이벤트는 27일 예정된 엔비디아 실적 발표가 될 것으로 보인다.</p></article></section>
+<section><h2>내일로 넘기는 질문</h2>
+<p>샌디스크가 쏘아 올린 2030년 장기 낙관론이 오늘 밤 발표될 미국 소매판매 지표의 실물 경기 검증을 통과하며 반도체 랠리를 이어갈 수 있을까?</p></section>
+
+</main>
+<footer>생성 2026-08-14T00:11:25.326Z · 자동 생성된 요약이며 투자 권유가 아닙니다.</footer>
+</body>
+</html>
