@@ -1,0 +1,135 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>2026-08-15 부동산 브리핑</title>
+<style>:root { color-scheme: light dark;
+  --fg:#1a1a1a; --muted:#6b6b6b; --line:#e3e3e3; --card:#f6f6f7;
+  --up:#c0392b; --down:#1565c0; --flat:#6b6b6b; --warn:#b45309; }
+@media (prefers-color-scheme: dark) {
+  :root { --fg:#e8e8e8; --muted:#9a9a9a; --line:#333; --card:#1c1c1e;
+    --up:#ff6b5a; --down:#5aa9ff; --flat:#9a9a9a; --warn:#fbbf24; }
+}
+* { box-sizing:border-box; }
+body { margin:0 auto; padding:1rem .9rem 3rem; max-width:44rem;
+  font:16px/1.65 -apple-system,BlinkMacSystemFont,"Apple SD Gothic Neo","Noto Sans KR",sans-serif;
+  color:var(--fg); word-break:keep-all; overflow-wrap:anywhere; }
+header { display:flex; align-items:baseline; gap:.5rem; margin-bottom:.7rem; }
+h1 { font-size:1.1rem; margin:0; }
+.date { color:var(--muted); font-size:.85rem; }
+
+/* 모바일 2열 고정 */
+.grid { display:grid; grid-template-columns:repeat(2,1fr); gap:.4rem; }
+@media (min-width:34rem) { .grid { grid-template-columns:repeat(4,1fr); } }
+.cell { background:var(--card); border-radius:8px; padding:.5rem .6rem; }
+.cell .k { font-size:.72rem; color:var(--muted); letter-spacing:-.02em; }
+.cell .v { font-size:1.02rem; font-weight:700; font-variant-numeric:tabular-nums; }
+.cell .d { font-size:.8rem; font-variant-numeric:tabular-nums; color:var(--flat); }
+.cell.up .d, .cell.up .v { color:var(--up); }
+.cell.down .d, .cell.down .v { color:var(--down); }
+.sep { border:0; border-top:1px solid var(--line); margin:.5rem 0; }
+.dash { margin-bottom:.8rem; }
+.comment { font-size:.9rem; color:var(--muted); margin:0 0 1.6rem; }
+
+section { margin-bottom:1.6rem; }
+h2 { font-size:1rem; margin:0 0 .5rem; padding-bottom:.25rem; border-bottom:1px solid var(--line); }
+h3 { font-size:.95rem; margin:0 0 .3rem; }
+h4 { font-size:.88rem; margin:1rem 0 .35rem; color:var(--muted); }
+article { margin-bottom:1rem; }
+p { margin:.4rem 0; }
+ul { margin:.4rem 0; padding-left:1.15rem; }
+li { margin:.25rem 0; }
+a { color:inherit; text-decoration:underline; text-underline-offset:2px; }
+/* 넓은 표는 페이지가 아니라 표 자신이 가로 스크롤한다 */
+.tw { overflow-x:auto; -webkit-overflow-scrolling:touch; margin:.6rem 0; }
+table { border-collapse:collapse; font-size:.82rem; min-width:100%; }
+th, td { border-bottom:1px solid var(--line); padding:.4rem .55rem; text-align:left;
+  vertical-align:top; white-space:nowrap; }
+th { background:var(--card); font-weight:600; position:sticky; top:0; }
+/* 단지명처럼 긴 값은 줄바꿈을 허용해 표가 지나치게 넓어지지 않게 한다 */
+td:nth-child(3) { white-space:normal; min-width:9rem; }
+tbody tr:nth-child(even) td { background:rgba(127,127,127,.05); }
+pre { white-space:pre-wrap; background:var(--card); padding:1rem; border-radius:6px; font-size:.85rem; }
+.warn { color:var(--warn); font-weight:600; }
+.failures { border:1px solid var(--line); border-radius:6px; padding:.8rem; }
+.failures h2 { border:0; color:var(--warn); }
+.failures li { color:var(--muted); font-size:.85rem; }
+footer { color:var(--muted); font-size:.78rem; border-top:1px solid var(--line); padding-top:.8rem; }</style>
+</head>
+<body>
+<header>
+<h1>🏠 부동산</h1>
+<span class="date">2026-08-15 KST</span>
+</header>
+<section class="dash">
+<div class="grid">
+<div class="cell up">
+<div class="k">매매 서울</div>
+<div class="v">+0.21%</div>
+<div class="d">-</div>
+</div>
+<div class="cell up">
+<div class="k">매매 수도권</div>
+<div class="v">+0.14%</div>
+<div class="d">-</div>
+</div>
+<div class="cell up">
+<div class="k">매매 지방</div>
+<div class="v">+0.01%</div>
+<div class="d">-</div>
+</div>
+<div class="cell up">
+<div class="k">전세 서울</div>
+<div class="v">+0.20%</div>
+<div class="d">-</div>
+</div>
+</div>
+<hr class="sep">
+<div class="grid">
+<div class="cell flat">
+<div class="k">공급물량</div>
+<div class="v">14,964호</div>
+<div class="d">-</div>
+</div>
+<div class="cell flat">
+<div class="k">입주물량</div>
+<div class="v">15,592호</div>
+<div class="d">-</div>
+</div>
+<div class="cell flat">
+<div class="k">미분양</div>
+<div class="v">13,553호</div>
+<div class="d">-</div>
+</div>
+<div class="cell flat">
+<div class="k">경매 낙찰가율</div>
+<div class="v">-</div>
+<div class="d">-</div>
+</div>
+</div>
+</section>
+<p class="comment">한국부동산원 8월 10일 조사(4일 전 기준) 결과입니다.</p>
+<main>
+<section><h2>오늘 일정</h2>
+<p>2026년 8월 15일 토요일 기준 오늘 예정된 청약 접수 및 당첨자 발표 일정은 없습니다.</p></section>
+<section><h2>예정 일정</h2>
+<p>2026-08-18: 써밋 클라비온, 충정로역자이르네, 더샵 신길센트럴시티, 용인반도체클러스터 동일하이빌 파크밸리, 달서자이 제니크, 시흥거모 A-5블록 청약 접수 시작 / 2026-08-19: 두산위브더제니스 부천 청약 접수 시작 / 2026-08-24: 포레나힐스테이트 진주, 쌍용 더 플래티넘 서대문, 아르티엠 라 테라스 청약 접수 시작</p></section>
+<section><h2>어제 스레드 후속</h2>
+<p>어제 던진 질문, 답이 절반은 나왔다. 8월 10일 기준 강남·서초 아파트값이 3개월 만에 하락세로 돌아섰고 서울 전체 상승 폭도 0.21%로 둔화됐다. 하지만 8·13 대책이 서울 전역의 매수세를 완전히 잠재울지는 아직 모른다. 정부의 공급 대책과 전세대출 규제가 얽히며 시장의 관망세가 짙어지는 모양새다.</p></section>
+<section><h2>이슈</h2>
+<article><h3>강남·서초 3개월 만에 하락 전환, 서울 상승 폭도 둔화</h3>
+<p>한국부동산원 8월 둘째 주(10일 기준) 조사에서 서울 아파트값은 전주 대비 0.21% 오르며 상승 폭이 0.05%포인트 줄었다. 특히 강남·서초 지역 집값이 3개월 만에 하락세로 돌아섰다. 세제 개편 여파와 관망세 속에 일부 하락 거래가 발생한 영향이다. [커뮤니티] &quot;세금 앞에는 장사 없다더니 강남이 먼저 꺾이네&quot;라는 반응과 &quot;일시적인 관망세일 뿐 진짜 하락으로 보긴 어렵다&quot;는 의견이 팽팽하게 맞서고 있다.</p></article>
+<article><h3>1주택자 전세대출 제한에 터져 나온 실수요자 불만</h3>
+<p>내년부터 수도권 비거주 1주택자의 전세대출이 제한된다는 소식에 시장이 술렁이고 있다. 1주택 전세대출이 막히면 집주인이 실거주를 선택하면서 기존 세입자가 밀려나거나 월세 시장으로 내몰릴 수 있다는 우려가 나온다. [커뮤니티] &quot;아이들 키우려고 넓은 집 전세 얻어 가는 게 왜 투기냐&quot;라며 실거주 예외를 인정해달라는 불만이 폭주하고 있다. 반면 &quot;갭투자를 막으려면 이 정도 규제는 불가피하다&quot;는 옹호론도 존재한다.</p></article>
+<article><h3>8·13 대책의 비아파트 활성화, 청년들은 '빌라 땡처리냐' 반발</h3>
+<p>정부가 8·13 공급대책을 통해 비아파트(빌라 등) 매매 대출 기준을 완화하는 등 공급 활성화에 나섰지만 청년층의 반응은 싸늘하다. 비아파트는 아파트보다 환금성이 떨어져 갈아타기가 어렵고, 대출 기준인 '4억 원 이하'도 서울 현실과 동떨어져 있다는 지적이다. [커뮤니티] &quot;청년들한테 아파트는 꿈도 꾸지 말고 빌라나 사라는 거냐&quot;라며 분통을 터뜨리는 목소리가 크다. 반면 &quot;아파트 쏠림을 막고 징검다리 주거지를 마련해 주는 취지 자체는 맞다&quot;는 의견도 일부 있다.</p></article>
+<article><h3>청약 시장의 온도차와 다음 주 분양 일정</h3>
+<p>청약 시장에서는 선호 단지 쏠림이 여전하다. 이번 주 청약 단지 중 '세종 우미 린 센터파크'만 1순위 마감에 성공했다. 다음 주에는 서울 영등포구 '써밋 클라비온', 중구 '충정로역자이르네', 경기 부천 '두산위브더제니스 부천' 등 전국 9개 단지에서 2,760가구(수도권 약 80%)가 청약을 받는다. 경남 진주 '포레나힐스테이트 진주'는 전용 84㎡ 기준 5억 대 분양가로 책정되어 흥행 여부에 관심이 쏠린다.</p></article></section>
+<section><h2>내일로 넘기는 질문</h2>
+<p>강남·서초의 하락 전환이 서울 전역으로 번질까, 아니면 전세대출 규제로 인한 일시적 숨고르기에 그칠까?</p></section>
+
+</main>
+<footer>생성 2026-08-14T23:21:19.409Z · 자동 생성된 요약이며 투자 권유가 아닙니다.</footer>
+</body>
+</html>
