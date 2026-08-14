@@ -1,0 +1,158 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>2026-08-15 증시 브리핑</title>
+<style>:root { color-scheme: light dark;
+  --fg:#1a1a1a; --muted:#6b6b6b; --line:#e3e3e3; --card:#f6f6f7;
+  --up:#c0392b; --down:#1565c0; --flat:#6b6b6b; --warn:#b45309; }
+@media (prefers-color-scheme: dark) {
+  :root { --fg:#e8e8e8; --muted:#9a9a9a; --line:#333; --card:#1c1c1e;
+    --up:#ff6b5a; --down:#5aa9ff; --flat:#9a9a9a; --warn:#fbbf24; }
+}
+* { box-sizing:border-box; }
+body { margin:0 auto; padding:1rem .9rem 3rem; max-width:44rem;
+  font:16px/1.65 -apple-system,BlinkMacSystemFont,"Apple SD Gothic Neo","Noto Sans KR",sans-serif;
+  color:var(--fg); word-break:keep-all; overflow-wrap:anywhere; }
+header { display:flex; align-items:baseline; gap:.5rem; margin-bottom:.7rem; }
+h1 { font-size:1.1rem; margin:0; }
+.date { color:var(--muted); font-size:.85rem; }
+
+/* 모바일 2열 고정 */
+.grid { display:grid; grid-template-columns:repeat(2,1fr); gap:.4rem; }
+@media (min-width:34rem) { .grid { grid-template-columns:repeat(4,1fr); } }
+.cell { background:var(--card); border-radius:8px; padding:.5rem .6rem; }
+.cell .k { font-size:.72rem; color:var(--muted); letter-spacing:-.02em; }
+.cell .v { font-size:1.02rem; font-weight:700; font-variant-numeric:tabular-nums; }
+.cell .d { font-size:.8rem; font-variant-numeric:tabular-nums; color:var(--flat); }
+.cell.up .d, .cell.up .v { color:var(--up); }
+.cell.down .d, .cell.down .v { color:var(--down); }
+.sep { border:0; border-top:1px solid var(--line); margin:.5rem 0; }
+.dash { margin-bottom:.8rem; }
+.comment { font-size:.9rem; color:var(--muted); margin:0 0 1.6rem; }
+
+section { margin-bottom:1.6rem; }
+h2 { font-size:1rem; margin:0 0 .5rem; padding-bottom:.25rem; border-bottom:1px solid var(--line); }
+h3 { font-size:.95rem; margin:0 0 .3rem; }
+h4 { font-size:.88rem; margin:1rem 0 .35rem; color:var(--muted); }
+article { margin-bottom:1rem; }
+p { margin:.4rem 0; }
+ul { margin:.4rem 0; padding-left:1.15rem; }
+li { margin:.25rem 0; }
+a { color:inherit; text-decoration:underline; text-underline-offset:2px; }
+/* 넓은 표는 페이지가 아니라 표 자신이 가로 스크롤한다 */
+.tw { overflow-x:auto; -webkit-overflow-scrolling:touch; margin:.6rem 0; }
+table { border-collapse:collapse; font-size:.82rem; min-width:100%; }
+th, td { border-bottom:1px solid var(--line); padding:.4rem .55rem; text-align:left;
+  vertical-align:top; white-space:nowrap; }
+th { background:var(--card); font-weight:600; position:sticky; top:0; }
+/* 단지명처럼 긴 값은 줄바꿈을 허용해 표가 지나치게 넓어지지 않게 한다 */
+td:nth-child(3) { white-space:normal; min-width:9rem; }
+tbody tr:nth-child(even) td { background:rgba(127,127,127,.05); }
+pre { white-space:pre-wrap; background:var(--card); padding:1rem; border-radius:6px; font-size:.85rem; }
+.warn { color:var(--warn); font-weight:600; }
+.failures { border:1px solid var(--line); border-radius:6px; padding:.8rem; }
+.failures h2 { border:0; color:var(--warn); }
+.failures li { color:var(--muted); font-size:.85rem; }
+footer { color:var(--muted); font-size:.78rem; border-top:1px solid var(--line); padding-top:.8rem; }</style>
+</head>
+<body>
+<header>
+<h1>📈 증시</h1>
+<span class="date">2026-08-15 KST</span>
+</header>
+<section class="dash">
+<div class="grid">
+<div class="cell down">
+<div class="k">S&amp;P500</div>
+<div class="v">7,785.76</div>
+<div class="d">−0.17%</div>
+</div>
+<div class="cell down">
+<div class="k">나스닥</div>
+<div class="v">26,729.16</div>
+<div class="d">−0.28%</div>
+</div>
+<div class="cell down">
+<div class="k">다우</div>
+<div class="v">53,732.41</div>
+<div class="d">−0.20%</div>
+</div>
+</div>
+<hr class="sep">
+<div class="grid">
+<div class="cell up">
+<div class="k">미10년물</div>
+<div class="v">4.692</div>
+<div class="d">+1.10%</div>
+</div>
+<div class="cell down">
+<div class="k">달러인덱스</div>
+<div class="v">99.64</div>
+<div class="d">−0.33%</div>
+</div>
+<div class="cell down">
+<div class="k">원달러</div>
+<div class="v">1,418.50</div>
+<div class="d">−0.12%</div>
+</div>
+</div>
+<hr class="sep">
+<div class="grid">
+<div class="cell up">
+<div class="k">코스피</div>
+<div class="v">6,977.94</div>
+<div class="d">+2.42%</div>
+</div>
+<div class="cell up">
+<div class="k">코스닥</div>
+<div class="v">864.65</div>
+<div class="d">+0.38%</div>
+</div>
+<div class="cell up">
+<div class="k">외국인</div>
+<div class="v">+30387억</div>
+<div class="d">-</div>
+</div>
+<div class="cell down">
+<div class="k">기관</div>
+<div class="v">−10298억</div>
+<div class="d">-</div>
+</div>
+<div class="cell down">
+<div class="k">개인</div>
+<div class="v">−19820억</div>
+<div class="d">-</div>
+</div>
+</div>
+</section>
+<p class="comment">미국 소비 지표 부진 속에 미 10년물 금리는 소폭 상승하고 달러인덱스는 하락했다.</p>
+<main>
+<section><h2>오늘 일정</h2>
+<p>04:00 [미국] 도널드 트럼프 전 대통령 연설</p></section>
+<section><h2>예정 일정</h2>
+<p>8/17 Fabrinet 실적(장마감 후, 컨센 $3.69) / H World Group 실적(장시작 전, 컨센 $0.65) / XP Inc. 실적(장마감 후, 컨센 $0.51) / Grifols 실적(컨센 $0.27)</p>
+<p>8/18 Home Depot 실적(장시작 전, 컨센 $4.71) / BHP Group 실적 / Keysight 실적(장마감 후, 컨센 $2.16) / Baidu 실적(장시작 전, 컨센 $1.19)</p>
+<p>8/19 Analog Devices 실적(장시작 전, 컨센 $3.33) / TJX Companies 실적(장시작 전, 컨센 $1.18) / Lowe's 실적(장시작 전, 컨센 $4.22) / Target 실적(장시작 전, 컨센 $2.25)</p>
+<p>8/20 Walmart 실적(장시작 전, 컨센 $0.73) / Alibaba 실적(장시작 전, 컨센 $1.77) / Deere &amp; Company 실적(장시작 전, 컨센 $4.85) / Ross Stores 실적(장마감 후, 컨센 $1.92)</p>
+<p>8/21 KE Holdings 실적(장시작 전, 컨센 $0.25) / BJ's Wholesale 실적(장시작 전, 컨센 $1.16) / Buckle 실적 / Mako Mining 실적(컨센 $0.18)</p>
+<p>8/24 PDD Holdings 실적(컨센 $2.69) / XPeng 실적 / Sasol 실적 / NAPCO 실적(컨센 $0.41)</p></section>
+<section><h2>어제 스레드 후속</h2>
+<p>절반만 맞았다. 미국 7월 소매판매가 0.6% 감소하며 실물 경기 우려를 자극해 뉴욕증시는 전반적으로 숨고르기에 들어갔다. 하지만 샌디스크는 파격적인 주주환원책과 JP모건의 투자의견 상향에 힘입어 7.39% 추가 상승하며 반도체 업종 내 차별화 흐름을 보였다.</p></section>
+<section><h2>이슈</h2>
+<article><h3>미국 7월 소매판매 0.6% 감소, 경기 둔화 우려에 뉴욕증시 약세</h3>
+<p>미국 7월 소매판매가 전월 대비 0.6% 감소하며 시장에 부담을 줬다. 부진한 소비 지표로 인해 실물 경기 둔화 우려가 부각되면서 다우(-0.20%), S&amp;P500(-0.17%), 나스닥(-0.28%) 등 뉴욕 3대 지수가 일제히 하락 마감했다. 금리 부담 완화 기대감보다는 경기 침체 우려가 시장에 반영되며 기술주 중심의 숨고르기가 나타났다.</p></article>
+<article><h3>샌디스크 100% 주주환원책에 7.39% 추가 상승, AMAT는 호실적에도 5% 하락</h3>
+<p>샌디스크는 잉여현금흐름 100%를 주주에게 환원하겠다는 파격적인 정책 발표와 JP모건의 투자의견 상향(비중 확대)에 힘입어 7.39% 상승했다. 반면 어플라이드 머티어리얼즈(AMAT)는 좋은 실적을 발표했음에도 불구하고 주가가 5% 하락하며 반도체 장비주 전반의 조정을 이끌었다. 메모리와 장비주 간의 희비가 엇갈리는 모습이다. [커뮤니티]에서는 '샌디스크 주주환원 보니까 국장 삼전닉스 주주환원 압박 엄청나겠다', 'AMAT는 실적 잘 나와도 왜 떨어지냐'며 엇갈린 반응을 보였다.</p></article>
+<article><h3>엔비디아, 스페이스X 지분 210억 달러 보유 공개 및 LG와 휴머노이드 로봇 협업</h3>
+<p>엔비디아가 스페이스X 지분 1억 2,280만 주(2분기 말 기준 평가액 약 210억 달러)를 보유하고 있는 것으로 밝혀졌다. 다만 스페이스X 주가가 6월 말 170.86달러에서 최근 140달러로 하락하며 지분 가치는 다소 줄었다. 한편, 엔비디아는 LG와 손잡고 이족보행 휴머노이드 로봇을 공동 개발해 내년 1분기에 공개할 예정이다. [커뮤니티]에서는 '엔비디아가 우주 인프라까지 선점하려는 빅픽처냐', 'LG랑 로봇 만드는 건 의외의 호재다'라는 의견이 나왔다.</p></article>
+<article><h3>코스피 장중 7,000선 회복, 서학개미는 반도체 3배 레버리지 재진입</h3>
+<p>전날 코스피는 외국인의 3조 387억 원 순매수에 힘입어 2.42% 상승한 6977.94로 마감하며 장중 7,000선을 밟았다. 증시가 반등하자 개인투자자들의 위험 선호가 되살아나고 있다. 서학개미들은 이틀간 반도체 3배 레버리지 ETF인 '속슬(SOXL)'에 약 9,000억 원을 베팅했고, 국내 신용융자잔고도 30조 9,262억 원으로 7거래일 연속 증가했다. 다만 시장에서는 급격한 반등 이후의 변동성을 경고하는 목소리도 나온다.</p></article></section>
+<section><h2>내일로 넘기는 질문</h2>
+<p>미국 소비 둔화 신호가 경기 침체 우려로 번지는 상황에서, 다음 주 한국 증시는 외국인의 매수세와 개인의 레버리지 베팅을 바탕으로 코스피 7,000선에 안착할 수 있을까?</p></section>
+
+</main>
+<footer>생성 2026-08-14T23:54:11.477Z · 자동 생성된 요약이며 투자 권유가 아닙니다.</footer>
+</body>
+</html>
