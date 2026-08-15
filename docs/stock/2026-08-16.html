@@ -1,0 +1,153 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>2026-08-16 증시 브리핑</title>
+<style>:root { color-scheme: light dark;
+  --fg:#1a1a1a; --muted:#6b6b6b; --line:#e3e3e3; --card:#f6f6f7;
+  --up:#c0392b; --down:#1565c0; --flat:#6b6b6b; --warn:#b45309; }
+@media (prefers-color-scheme: dark) {
+  :root { --fg:#e8e8e8; --muted:#9a9a9a; --line:#333; --card:#1c1c1e;
+    --up:#ff6b5a; --down:#5aa9ff; --flat:#9a9a9a; --warn:#fbbf24; }
+}
+* { box-sizing:border-box; }
+body { margin:0 auto; padding:1rem .9rem 3rem; max-width:44rem;
+  font:16px/1.65 -apple-system,BlinkMacSystemFont,"Apple SD Gothic Neo","Noto Sans KR",sans-serif;
+  color:var(--fg); word-break:keep-all; overflow-wrap:anywhere; }
+header { display:flex; align-items:baseline; gap:.5rem; margin-bottom:.7rem; }
+h1 { font-size:1.1rem; margin:0; }
+.date { color:var(--muted); font-size:.85rem; }
+
+/* 모바일 2열 고정 */
+.grid { display:grid; grid-template-columns:repeat(2,1fr); gap:.4rem; }
+@media (min-width:34rem) { .grid { grid-template-columns:repeat(4,1fr); } }
+.cell { background:var(--card); border-radius:8px; padding:.5rem .6rem; }
+.cell .k { font-size:.72rem; color:var(--muted); letter-spacing:-.02em; }
+.cell .v { font-size:1.02rem; font-weight:700; font-variant-numeric:tabular-nums; }
+.cell .d { font-size:.8rem; font-variant-numeric:tabular-nums; color:var(--flat); }
+.cell.up .d, .cell.up .v { color:var(--up); }
+.cell.down .d, .cell.down .v { color:var(--down); }
+.sep { border:0; border-top:1px solid var(--line); margin:.5rem 0; }
+.dash { margin-bottom:.8rem; }
+.comment { font-size:.9rem; color:var(--muted); margin:0 0 1.6rem; }
+
+section { margin-bottom:1.6rem; }
+h2 { font-size:1rem; margin:0 0 .5rem; padding-bottom:.25rem; border-bottom:1px solid var(--line); }
+h3 { font-size:.95rem; margin:0 0 .3rem; }
+h4 { font-size:.88rem; margin:1rem 0 .35rem; color:var(--muted); }
+article { margin-bottom:1rem; }
+p { margin:.4rem 0; }
+ul { margin:.4rem 0; padding-left:1.15rem; }
+li { margin:.25rem 0; }
+a { color:inherit; text-decoration:underline; text-underline-offset:2px; }
+/* 넓은 표는 페이지가 아니라 표 자신이 가로 스크롤한다 */
+.tw { overflow-x:auto; -webkit-overflow-scrolling:touch; margin:.6rem 0; }
+table { border-collapse:collapse; font-size:.82rem; min-width:100%; }
+th, td { border-bottom:1px solid var(--line); padding:.4rem .55rem; text-align:left;
+  vertical-align:top; white-space:nowrap; }
+th { background:var(--card); font-weight:600; position:sticky; top:0; }
+/* 단지명처럼 긴 값은 줄바꿈을 허용해 표가 지나치게 넓어지지 않게 한다 */
+td:nth-child(3) { white-space:normal; min-width:9rem; }
+tbody tr:nth-child(even) td { background:rgba(127,127,127,.05); }
+pre { white-space:pre-wrap; background:var(--card); padding:1rem; border-radius:6px; font-size:.85rem; }
+.warn { color:var(--warn); font-weight:600; }
+.failures { border:1px solid var(--line); border-radius:6px; padding:.8rem; }
+.failures h2 { border:0; color:var(--warn); }
+.failures li { color:var(--muted); font-size:.85rem; }
+footer { color:var(--muted); font-size:.78rem; border-top:1px solid var(--line); padding-top:.8rem; }</style>
+</head>
+<body>
+<header>
+<h1>📈 증시</h1>
+<span class="date">2026-08-16 KST</span>
+</header>
+<section class="dash">
+<div class="grid">
+<div class="cell down">
+<div class="k">S&amp;P500</div>
+<div class="v">7,785.76</div>
+<div class="d">−0.17%</div>
+</div>
+<div class="cell down">
+<div class="k">나스닥</div>
+<div class="v">26,729.16</div>
+<div class="d">−0.28%</div>
+</div>
+<div class="cell down">
+<div class="k">다우</div>
+<div class="v">53,732.41</div>
+<div class="d">−0.20%</div>
+</div>
+</div>
+<hr class="sep">
+<div class="grid">
+<div class="cell up">
+<div class="k">미10년물</div>
+<div class="v">4.692</div>
+<div class="d">+1.10%</div>
+</div>
+<div class="cell down">
+<div class="k">달러인덱스</div>
+<div class="v">99.67</div>
+<div class="d">−0.30%</div>
+</div>
+<div class="cell down">
+<div class="k">원달러</div>
+<div class="v">1,418.50</div>
+<div class="d">−0.12%</div>
+</div>
+</div>
+<hr class="sep">
+<div class="grid">
+<div class="cell up">
+<div class="k">코스피</div>
+<div class="v">6,977.94</div>
+<div class="d">+2.42%</div>
+</div>
+<div class="cell up">
+<div class="k">코스닥</div>
+<div class="v">864.65</div>
+<div class="d">+0.38%</div>
+</div>
+<div class="cell up">
+<div class="k">외국인</div>
+<div class="v">+30387억</div>
+<div class="d">-</div>
+</div>
+<div class="cell down">
+<div class="k">기관</div>
+<div class="v">−10298억</div>
+<div class="d">-</div>
+</div>
+<div class="cell down">
+<div class="k">개인</div>
+<div class="v">−19820억</div>
+<div class="d">-</div>
+</div>
+</div>
+</section>
+<p class="comment">외국인이 코스피에서 3조 원 넘게 순매수하며 지수를 6,970선까지 밀어 올렸어.</p>
+<main>
+<section><h2>오늘 일정</h2>
+<p>데이터 없음</p></section>
+<section><h2>예정 일정</h2>
+<p>8/17 FN 실적(컨센 $3.69), HTHT 실적(컨센 $0.65), XP 실적(컨센 $0.51), GRFS 실적 / 8/18 HD 실적(컨센 $4.71), BHP 실적, KEYS 실적(컨센 $2.16), BIDU 실적(컨센 $1.19) / 8/19 ADI 실적(컨센 $3.33), TJX 실적(컨센 $1.18), LOW 실적(컨센 $4.22), TGT 실적(컨센 $2.25) / 8/20 WMT 실적(컨센 $0.73), BABA 실적(컨센 $1.77), DE 실적(컨센 $4.85), ROST 실적(컨센 $1.92) / 8/21 BEKE 실적(컨센 $0.25), BJ 실적(컨센 $1.16), BKE 실적, MAKO 실적 / 8/24 PDD 실적(컨센 $2.69), XPEV 실적, SSL 실적, NSSC 실적(컨센 $0.41)</p></section>
+<section><h2>어제 스레드 후속</h2>
+<p>어제 던진 질문의 답은 아직 미해소야. 미국 소매판매 감소로 경기 둔화 우려가 커지며 뉴욕 증시는 약세를 보였어. 반면 코스피는 외국인의 3조 원대 강한 매수세로 장중 7,000선을 터치했으나 안착에는 실패하며 6,977.94로 마감했어. 안착 여부는 이번 주 수급을 더 지켜봐야 알 수 있어.</p></section>
+<section><h2>이슈</h2>
+<article><h3>미국 소매판매 깜짝 감소, 경기 둔화 우려에 뉴욕 증시 소폭 하락</h3>
+<p>미국의 소매판매 수치가 예상을 밑돌며 깜짝 감소세를 보였어. 이로 인해 경기 둔화 우려가 다시 부각되면서 다우(-0.2%), S&amp;P500(-0.17%), 나스닥(-0.28%) 등 뉴욕 3대 지수가 일제히 약세로 마감했어. 물가 상승 압력은 완화됐지만 소비가 꺾이고 있다는 신호에 시장이 민감하게 반응하는 모습이야.</p></article>
+<article><h3>샌디스크 '초과현금 100% 주주환원' 선언, 삼전·닉스 300조 원대 환원설 솔솔</h3>
+<p>샌디스크가 2028~2030년 매출 성장률을 10% 중후반으로 제시하며 초과현금 100%를 주주에게 돌려주겠다고 발표했어. 마이크론도 초과현금의 50~100% 환원 계획을 내놓은 상태야. 이에 국내 반도체 대장주인 삼성전자와 SK하이닉스의 주주환원 규모가 연간 300조 원에 달할 수 있다는 관측이 나오며 외국인의 강한 매수세(3조 387억 원 순매수)를 유도했어. [커뮤니티] '삼전닉스 안 팔고 버티길 잘했다'는 안도감과 '300조 환원이 진짜 가능하냐'는 의구심이 공존하고 있어.</p></article>
+<article><h3>코스피 5일 연속 상승에도 공매도 잔고 19조 원 돌파</h3>
+<p>코스피가 5거래일 연속 상승하며 장중 7,010.86까지 올랐지만, 동시에 주가 하락에 베팅하는 공매도 잔고도 19조 원 규모로 급증했어. 주가가 단기간에 급반등하자 경계감이 커진 탓이야. 개인투자자들은 상승장 속에서도 하락 베팅을 늘리는 흐름을 보이고 있어. [커뮤니티] '지금 반등은 일시적 숏커버링일 뿐'이라는 하락론과 '외인 매수세 보면 우상향 시작이다'라는 상승론이 팽팽하게 맞서는 중이야.</p></article>
+<article><h3>강화된 상장 유지 기준에 '동전주' 등 39개 종목 관리종목 지정</h3>
+<p>주가 1,000원 미만인 동전주와 시가총액 미달 종목들이 무더기로 관리종목에 지정됐어. 상장폐지 제도 개편 이후 액면병합이 276건이나 추진됐음에도 에이엔피, 크린앤사이언스 등이 기준을 넘지 못했어. 연내 최대 100개 기업이 퇴출당할 수 있다는 전망이 나와.</p></article></section>
+<section><h2>내일로 넘기는 질문</h2>
+<p>미국 소비 둔화 우려 속에서도 외국인의 반도체 '싹쓸이' 매수세가 코스피를 결국 7,000선 위에 안착시킬 수 있을까?</p></section>
+
+</main>
+<footer>생성 2026-08-15T23:50:32.100Z · 자동 생성된 요약이며 투자 권유가 아닙니다.</footer>
+</body>
+</html>
