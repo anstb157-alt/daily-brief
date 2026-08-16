@@ -1,0 +1,153 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>2026-08-17 증시 브리핑</title>
+<style>:root { color-scheme: light dark;
+  --fg:#1a1a1a; --muted:#6b6b6b; --line:#e3e3e3; --card:#f6f6f7;
+  --up:#c0392b; --down:#1565c0; --flat:#6b6b6b; --warn:#b45309; }
+@media (prefers-color-scheme: dark) {
+  :root { --fg:#e8e8e8; --muted:#9a9a9a; --line:#333; --card:#1c1c1e;
+    --up:#ff6b5a; --down:#5aa9ff; --flat:#9a9a9a; --warn:#fbbf24; }
+}
+* { box-sizing:border-box; }
+body { margin:0 auto; padding:1rem .9rem 3rem; max-width:44rem;
+  font:16px/1.65 -apple-system,BlinkMacSystemFont,"Apple SD Gothic Neo","Noto Sans KR",sans-serif;
+  color:var(--fg); word-break:keep-all; overflow-wrap:anywhere; }
+header { display:flex; align-items:baseline; gap:.5rem; margin-bottom:.7rem; }
+h1 { font-size:1.1rem; margin:0; }
+.date { color:var(--muted); font-size:.85rem; }
+
+/* 모바일 2열 고정 */
+.grid { display:grid; grid-template-columns:repeat(2,1fr); gap:.4rem; }
+@media (min-width:34rem) { .grid { grid-template-columns:repeat(4,1fr); } }
+.cell { background:var(--card); border-radius:8px; padding:.5rem .6rem; }
+.cell .k { font-size:.72rem; color:var(--muted); letter-spacing:-.02em; }
+.cell .v { font-size:1.02rem; font-weight:700; font-variant-numeric:tabular-nums; }
+.cell .d { font-size:.8rem; font-variant-numeric:tabular-nums; color:var(--flat); }
+.cell.up .d, .cell.up .v { color:var(--up); }
+.cell.down .d, .cell.down .v { color:var(--down); }
+.sep { border:0; border-top:1px solid var(--line); margin:.5rem 0; }
+.dash { margin-bottom:.8rem; }
+.comment { font-size:.9rem; color:var(--muted); margin:0 0 1.6rem; }
+
+section { margin-bottom:1.6rem; }
+h2 { font-size:1rem; margin:0 0 .5rem; padding-bottom:.25rem; border-bottom:1px solid var(--line); }
+h3 { font-size:.95rem; margin:0 0 .3rem; }
+h4 { font-size:.88rem; margin:1rem 0 .35rem; color:var(--muted); }
+article { margin-bottom:1rem; }
+p { margin:.4rem 0; }
+ul { margin:.4rem 0; padding-left:1.15rem; }
+li { margin:.25rem 0; }
+a { color:inherit; text-decoration:underline; text-underline-offset:2px; }
+/* 넓은 표는 페이지가 아니라 표 자신이 가로 스크롤한다 */
+.tw { overflow-x:auto; -webkit-overflow-scrolling:touch; margin:.6rem 0; }
+table { border-collapse:collapse; font-size:.82rem; min-width:100%; }
+th, td { border-bottom:1px solid var(--line); padding:.4rem .55rem; text-align:left;
+  vertical-align:top; white-space:nowrap; }
+th { background:var(--card); font-weight:600; position:sticky; top:0; }
+/* 단지명처럼 긴 값은 줄바꿈을 허용해 표가 지나치게 넓어지지 않게 한다 */
+td:nth-child(3) { white-space:normal; min-width:9rem; }
+tbody tr:nth-child(even) td { background:rgba(127,127,127,.05); }
+pre { white-space:pre-wrap; background:var(--card); padding:1rem; border-radius:6px; font-size:.85rem; }
+.warn { color:var(--warn); font-weight:600; }
+.failures { border:1px solid var(--line); border-radius:6px; padding:.8rem; }
+.failures h2 { border:0; color:var(--warn); }
+.failures li { color:var(--muted); font-size:.85rem; }
+footer { color:var(--muted); font-size:.78rem; border-top:1px solid var(--line); padding-top:.8rem; }</style>
+</head>
+<body>
+<header>
+<h1>📈 증시</h1>
+<span class="date">2026-08-17 KST</span>
+</header>
+<section class="dash">
+<div class="grid">
+<div class="cell down">
+<div class="k">S&amp;P500</div>
+<div class="v">7,785.76</div>
+<div class="d">−0.17%</div>
+</div>
+<div class="cell down">
+<div class="k">나스닥</div>
+<div class="v">26,729.16</div>
+<div class="d">−0.28%</div>
+</div>
+<div class="cell down">
+<div class="k">다우</div>
+<div class="v">53,732.41</div>
+<div class="d">−0.20%</div>
+</div>
+</div>
+<hr class="sep">
+<div class="grid">
+<div class="cell up">
+<div class="k">미10년물</div>
+<div class="v">4.692</div>
+<div class="d">+1.10%</div>
+</div>
+<div class="cell flat">
+<div class="k">달러인덱스</div>
+<div class="v">99.67</div>
+<div class="d">0.00%</div>
+</div>
+<div class="cell down">
+<div class="k">원달러</div>
+<div class="v">1,418.00</div>
+<div class="d">−0.15%</div>
+</div>
+</div>
+<hr class="sep">
+<div class="grid">
+<div class="cell up">
+<div class="k">코스피</div>
+<div class="v">6,977.94</div>
+<div class="d">+2.42%</div>
+</div>
+<div class="cell up">
+<div class="k">코스닥</div>
+<div class="v">864.65</div>
+<div class="d">+0.38%</div>
+</div>
+<div class="cell up">
+<div class="k">외국인</div>
+<div class="v">+30387억</div>
+<div class="d">-</div>
+</div>
+<div class="cell down">
+<div class="k">기관</div>
+<div class="v">−10298억</div>
+<div class="d">-</div>
+</div>
+<div class="cell down">
+<div class="k">개인</div>
+<div class="v">−19820억</div>
+<div class="d">-</div>
+</div>
+</div>
+</section>
+<p class="comment">미국 증시는 소비 지표 부진으로 소폭 조정받았으나 메모리 반도체 온기는 이어졌다.</p>
+<main>
+<section><h2>오늘 일정</h2>
+<p>08월 17일 한국 증시 대체공휴일 휴장 / 실적발표: 에이치 월드 그룹(HTHT, 장 시작 전), 패브리넷(FN, 장 마감 후), XP(XP, 장 마감 후)</p></section>
+<section><h2>예정 일정</h2>
+<p>08/18 홈디포 실적발표(장 시작 전, 컨센 $4.71) / 08/20 미국 FOMC 회의록 공개 / 08/20 월마트 실적발표(장 시작 전, 컨센 $0.73) / 08/20 알리바바 실적발표(장 시작 전, 컨센 $1.77)</p></section>
+<section><h2>어제 스레드 후속</h2>
+<p>어제 던진 질문은 아직 미해소. 외국인이 코스피를 3조 원 넘게 사며 6,977.94까지 끌어올렸지만 오늘 한국 증시가 휴장이라 7,000선 안착 여부는 내일 개장 이후에나 확인 가능하다.</p></section>
+<section><h2>이슈</h2>
+<article><h3>샌디스크의 파격 주주환원과 파생상품 쏠림</h3>
+<p>샌디스크가 잉여현금흐름(FCF) 100%를 주주환원에 쓰겠다고 발표했다. 이에 주가는 13.7% 급등했다. 시장에서는 삼성전자와 SK하이닉스의 주주환원 확대 기대감으로 번지는 모양새다. 특이하게 가상자산 시장에서 샌디스크 무기한 선물 미결제약정이 17억 달러를 돌파하며 주식형 상품 중 1위를 기록했다. [커뮤니티]에서는 &quot;반도체 주주환원 300조 시대 진짜 오냐&quot;라며 기대하는 반응과 &quot;코인 시장에서 주식 선물을 왜 이렇게 많이 하냐 부러지면 골로 간다&quot;라며 우려하는 목소리가 함께 나왔다.</p></article>
+<article><h3>엔비디아와 LG전자의 로보틱스 밀월</h3>
+<p>젠슨 황 엔비디아 CEO의 장녀 매디슨 황 마케팅 수석 이사가 내일 LG전자 로보틱스 거점을 비공개 방문한다. 구광모 회장과 젠슨 황의 미국 본사 회동 직후 이루어지는 답방이다. 양사는 내년 초 이족보행 휴머노이드 로봇 공개를 목표로 협력 중이다. [커뮤니티] 반응은 &quot;LG가 엔비디아 날개 달고 로봇 대장주 되나&quot;라며 흥분하는 의견과 &quot;비공개인데 기사는 어떻게 다 아냐&quot;라는 의구심이 대립했다.</p></article>
+<article><h3>오늘(17일) 국장 대체공휴일 휴장</h3>
+<p>광복절 대체공휴일인 오늘(17일) 국내 증시는 휴장한다. 은행, 관공서 등도 문을 닫으며 주식 거래는 18일부터 재개된다. 미국 증시는 소비지표 부진과 유가 상승 영향으로 S&amp;P500(-0.17%)과 나스닥(-0.28%) 모두 소폭 조정받았다. [커뮤니티]에서는 &quot;화요일 개장할 때 미장 눈치 보느라 피 마르겠다&quot;라는 걱정과 &quot;하루 쉬어 가니 오히려 다행&quot;이라는 안도감이 교차했다.</p></article>
+<article><h3>중국 AI 반도체의 14나노 우회 승부수</h3>
+<p>미국의 4나노 규제에 막힌 화웨이와 아이플라이텍이 14나노 공정을 묶어 구축한 '페이싱 1호'로 승부수를 던졌다. 동일 규모 엔비디아 시스템 대비 초기 분산 훈련 성능을 맞추려는 시도다. 중국 독자 규격에 맞춘 맞춤형 메모리 시장 형성 가능성도 제기된다. 커뮤니티 이견 없음.</p></article></section>
+<section><h2>내일로 넘기는 질문</h2>
+<p>샌디스크의 100% 주주환원 선언이 내일 개장할 국내 반도체 대형주들의 주주환원 경쟁에 불을 붙일 수 있을까?</p></section>
+
+</main>
+<footer>생성 2026-08-16T23:50:30.502Z · 자동 생성된 요약이며 투자 권유가 아닙니다.</footer>
+</body>
+</html>
