@@ -1,0 +1,429 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>2026-08-17 청약 브리핑</title>
+<style>:root { color-scheme: light dark;
+  --fg:#1a1a1a; --muted:#6b6b6b; --line:#e3e3e3; --card:#f6f6f7;
+  --up:#c0392b; --down:#1565c0; --flat:#6b6b6b; --warn:#b45309; }
+@media (prefers-color-scheme: dark) {
+  :root { --fg:#e8e8e8; --muted:#9a9a9a; --line:#333; --card:#1c1c1e;
+    --up:#ff6b5a; --down:#5aa9ff; --flat:#9a9a9a; --warn:#fbbf24; }
+}
+* { box-sizing:border-box; }
+body { margin:0 auto; padding:1rem .9rem 3rem; max-width:44rem;
+  font:16px/1.65 -apple-system,BlinkMacSystemFont,"Apple SD Gothic Neo","Noto Sans KR",sans-serif;
+  color:var(--fg); word-break:keep-all; overflow-wrap:anywhere; }
+header { display:flex; align-items:baseline; gap:.5rem; margin-bottom:.7rem; }
+h1 { font-size:1.1rem; margin:0; }
+.date { color:var(--muted); font-size:.85rem; }
+
+/* 모바일 2열 고정 */
+.grid { display:grid; grid-template-columns:repeat(2,1fr); gap:.4rem; }
+@media (min-width:34rem) { .grid { grid-template-columns:repeat(4,1fr); } }
+.cell { background:var(--card); border-radius:8px; padding:.5rem .6rem; }
+.cell .k { font-size:.72rem; color:var(--muted); letter-spacing:-.02em; }
+.cell .v { font-size:1.02rem; font-weight:700; font-variant-numeric:tabular-nums; }
+.cell .d { font-size:.8rem; font-variant-numeric:tabular-nums; color:var(--flat); }
+.cell.up .d, .cell.up .v { color:var(--up); }
+.cell.down .d, .cell.down .v { color:var(--down); }
+.sep { border:0; border-top:1px solid var(--line); margin:.5rem 0; }
+.dash { margin-bottom:.8rem; }
+.comment { font-size:.9rem; color:var(--muted); margin:0 0 1.6rem; }
+
+section { margin-bottom:1.6rem; }
+h2 { font-size:1rem; margin:0 0 .5rem; padding-bottom:.25rem; border-bottom:1px solid var(--line); }
+h3 { font-size:.95rem; margin:0 0 .3rem; }
+h4 { font-size:.88rem; margin:1rem 0 .35rem; color:var(--muted); }
+article { margin-bottom:1rem; }
+p { margin:.4rem 0; }
+ul { margin:.4rem 0; padding-left:1.15rem; }
+li { margin:.25rem 0; }
+a { color:inherit; text-decoration:underline; text-underline-offset:2px; }
+/* 넓은 표는 페이지가 아니라 표 자신이 가로 스크롤한다 */
+.tw { overflow-x:auto; -webkit-overflow-scrolling:touch; margin:.6rem 0; }
+table { border-collapse:collapse; font-size:.82rem; min-width:100%; }
+th, td { border-bottom:1px solid var(--line); padding:.4rem .55rem; text-align:left;
+  vertical-align:top; white-space:nowrap; }
+th { background:var(--card); font-weight:600; position:sticky; top:0; }
+/* 단지명처럼 긴 값은 줄바꿈을 허용해 표가 지나치게 넓어지지 않게 한다 */
+td:nth-child(3) { white-space:normal; min-width:9rem; }
+tbody tr:nth-child(even) td { background:rgba(127,127,127,.05); }
+pre { white-space:pre-wrap; background:var(--card); padding:1rem; border-radius:6px; font-size:.85rem; }
+.warn { color:var(--warn); font-weight:600; }
+.failures { border:1px solid var(--line); border-radius:6px; padding:.8rem; }
+.failures h2 { border:0; color:var(--warn); }
+.failures li { color:var(--muted); font-size:.85rem; }
+footer { color:var(--muted); font-size:.78rem; border-top:1px solid var(--line); padding-top:.8rem; }</style>
+</head>
+<body>
+<header>
+<h1>📒 청약</h1>
+<span class="date">2026-08-17 KST</span>
+</header>
+<section class="dash">
+<div class="grid">
+<div class="cell flat">
+<div class="k">진행·예정</div>
+<div class="v">19건</div>
+<div class="d">-</div>
+</div>
+<div class="cell flat">
+<div class="k">서울</div>
+<div class="v">7건</div>
+<div class="d">-</div>
+</div>
+<div class="cell flat">
+<div class="k">마감임박</div>
+<div class="v">3건</div>
+<div class="d">-</div>
+</div>
+<div class="cell flat">
+<div class="k">무순위</div>
+<div class="v">3건</div>
+<div class="d">-</div>
+</div>
+</div>
+<hr class="sep">
+<div class="grid">
+<div class="cell flat">
+<div class="k">최고 경쟁률</div>
+<div class="v">3,321:1</div>
+<div class="d">-</div>
+</div>
+</div>
+</section>
+<p class="comment">본 분석은 정보 제공이며 수익이나 대출 승인을 보장하지 않습니다. 모든 일정·자격·가격·납부조건은 정정본을 포함한 공식 모집공고로 재검증해야 합니다.</p>
+<main>
+<section><h2>오늘 일정</h2>
+<p>2026-08-17: 오늘 접수 일정 없음</p>
+<p>2026-08-18: [접수시작] 송파 시그니처 롯데캐슬(무순위), 힐스테이트 초월역 2BL(무순위), 더샵 신길센트럴시티(민영), 써밋 클라비온(민영), 충정로역자이르네(민영), 용인반도체클러스터 동일하이빌(민영), 달서자이 제니크(민영)</p>
+<p>2026-08-19: [접수시작] 천왕역 모아엘가 트레뷰(무순위), 두산위브더제니스 부천(민영), 선유 노블레르(오피스텔)</p></section>
+<section><h2>예정 일정</h2>
+<p>2026-08-24: [접수시작] 쌍용 더 플래티넘 서대문, 상동역 롯데캐슬 시그니처, 의왕역 한신더휴, 오남역 서희스타힐스, 포레나힐스테이트 진주, 아르티엠 라 테라스, 제일풍경채 첨단3지구</p>
+<p>2026-08-31: [접수시작] 성남복정2 A1블록 신혼희망타운</p></section>
+<section><h2>어제 스레드 후속</h2>
+<p>전일 스레드: 2026-08-16에 던진 질문: 통장 없이 서울 8년 거주 우선권을 활용할 수 있는 '송파 시그니처 롯데캐슬' 무순위 청약을 위해 18일 접수 전 주식 자산 6억 원의 현금화 일정과 모집공고문 상세 자격 요건을 재검증하시겠습니까?</p></section>
+<section><h2>이슈</h2>
+<article><h3>[서울 무순위] 송파 시그니처 롯데캐슬 (불법행위 재공급)</h3>
+<h4>① 공고 개요</h4>
+<div class="tw"><table>
+<thead><tr><th>신청일~마감일</th><th>지역</th><th>단지</th><th>주택유형</th><th>공급구분</th><th>공급세대</th><th>통장 필요</th><th>신청 가능</th><th>맞는 트랙</th><th>경쟁률</th><th>신청</th></tr></thead>
+<tbody>
+<tr><td>2026-08-18~08-18</td><td>서울</td><td>송파 시그니처 롯데캐슬</td><td>아파트</td><td>불법행위 재공급</td><td>1</td><td>무</td><td>가능</td><td>무순위 (일반)</td><td>공고 확인 필요</td><td><a href="https://www.applyhome.co.kr/ap/apa/selectRemndrLttotPblancDetailView.do?houseManageNo=2026930025&amp;pblancNo=2026930025" target="_blank" rel="noopener">신청</a></td></tr>
+</tbody>
+</table></div>
+<h4>② 조건</h4>
+<div class="tw"><table>
+<thead><tr><th>항목</th><th>내용</th></tr></thead>
+<tbody>
+<tr><td>대표 평형 분양가</td><td>공고 확인 필요</td></tr>
+<tr><td>계약금 / 중도금 / 잔금</td><td>공고 확인 필요</td></tr>
+<tr><td>대출·이자후불제</td><td>공고 확인 필요</td></tr>
+<tr><td>입주일</td><td>2026-09 (즉시 입주 수준)</td></tr>
+<tr><td>전매·실거주·재당첨 제한</td><td>공고 확인 필요</td></tr>
+<tr><td>지역우선</td><td>서울특별시 거주자 우선</td></tr>
+<tr><td>가점·추첨 비율</td><td>100% 추첨</td></tr>
+<tr><td>무순위 자격</td><td>서울시 거주 무주택세대구성원 (상세 요건 <a href="https://www.applyhome.co.kr/ai/aia/selectAPTRemndrLttotPblancDetailView.do?houseManageNo=2026930025&amp;pblancNo=2026930025" target="_blank" rel="noopener">공고문</a> 확인 필수)</td></tr>
+</tbody>
+</table></div>
+<h4>③ 판정</h4>
+<div class="tw"><table>
+<thead><tr><th>구분</th><th>판정</th><th>근거</th></tr></thead>
+<tbody>
+<tr><td>당첨 가능성</td><td>낮음</td><td>1세대 공급으로 극심한 경쟁이 예상되나, 서울 8년 거주 및 무주택 요건을 충족하여 자격은 유효함</td></tr>
+<tr><td>당첨 전략</td><td>추첨제 접수</td><td>100% 추첨제이므로 무조건 접수하되, 2026년 9월 입주 예정으로 초고속 자금 조달 계획이 수반되어야 함</td></tr>
+<tr><td>자금계획</td><td>주식 현금화 필수</td><td>보유 주식 자산 6억 원을 즉시 현금화하여 계약금 및 잔금을 치러야 함. 입주가 매우 빨라 대출 실행 기간이 촉박함</td></tr>
+<tr><td>예상수익</td><td>산정 보류</td><td>실거래 비교 데이터 없음 (공고문 상 분양가와 거여동 인근 시세 대조 필요)</td></tr>
+<tr><td>리스크</td><td>자금 납부 기한 압박</td><td>2026년 9월 입주로 자금 납부 기한이 매우 짧음. 주식 6억 원의 급격한 현금화에 따른 세금 및 매도시점 리스크 존재</td></tr>
+</tbody>
+</table></div>
+<h4>④ 매력도</h4>
+<div class="tw"><table>
+<thead><tr><th>항목</th><th>배점</th><th>점수</th></tr></thead>
+<tbody>
+<tr><td>가격·안전마진</td><td>2</td><td>2.0</td></tr>
+<tr><td>입지·미래가치</td><td>2</td><td>2.0</td></tr>
+<tr><td>사용자 기준 당첨 가능성</td><td>2</td><td>0.5</td></tr>
+<tr><td>자금조달 용이성</td><td>2</td><td>1.5</td></tr>
+<tr><td>규제·시장 리스크</td><td>2</td><td>1.5</td></tr>
+<tr><td><strong>총점</strong></td><td><strong>10</strong></td><td><strong>7.5</strong></td></tr>
+</tbody>
+</table></div>
+<h4>⑤ 예상투자금</h4>
+<div class="tw"><table>
+<thead><tr><th>구분</th><th>금액</th><th>시점</th></tr></thead>
+<tbody>
+<tr><td>분양가 (대표 평형)</td><td>공고 확인 필요</td><td>모집공고 확인 후 산정</td></tr>
+<tr><td>계약금</td><td>공고 확인 필요</td><td>계약 시</td></tr>
+<tr><td>중도금 (회차·비율)</td><td>없음</td><td>해당 없음</td></tr>
+<tr><td>중도금 대출 가능 여부</td><td>불가</td><td>해당 없음</td></tr>
+<tr><td>잔금</td><td>공고 확인 필요</td><td>입주 시 (2026-09)</td></tr>
+<tr><td>옵션·확장</td><td>공고 확인 필요</td><td>-</td></tr>
+<tr><td>취득세·등기비</td><td>공고 확인 필요</td><td>-</td></tr>
+<tr><td><strong>예상 총투자금 (자기자본)</strong></td><td><strong>공고 확인 필요</strong></td><td><strong>주식 6억 원 범위 내 조달 계획 수립</strong></td></tr>
+</tbody>
+</table></div>
+<h4>⑥ 신청 전략</h4>
+<div class="tw"><table>
+<thead><tr><th>항목</th><th>내용</th></tr></thead>
+<tbody>
+<tr><td>인기 평형</td><td>공고 확인 필요</td></tr>
+<tr><td>비인기 평형</td><td>공고 확인 필요</td></tr>
+<tr><td>추천 타입</td><td>단일 공급 세대이므로 선택 여지 없음</td></tr>
+<tr><td>예비당첨 전망</td><td>공고 확인 필요</td></tr>
+<tr><td>신청 트랙</td><td>무순위 (사후)</td></tr>
+<tr><td>부적격 방지</td><td>서울시 거주 무주택세대주 및 세대구성원 자격 유지 여부 재검증 필수</td></tr>
+</tbody>
+</table></div></article>
+<article><h3>[서울 신규 분양] 써밋 클라비온, 충정로역자이르네, 더샵 신길센트럴시티</h3>
+<h4>① 공고 개요</h4>
+<div class="tw"><table>
+<thead><tr><th>신청일~마감일</th><th>지역</th><th>단지</th><th>주택유형</th><th>공급구분</th><th>공급세대</th><th>통장 필요</th><th>신청 가능</th><th>맞는 트랙</th><th>경쟁률</th><th>신청</th></tr></thead>
+<tbody>
+<tr><td>2026-08-18~08-21</td><td>서울</td><td>써밋 클라비온</td><td>아파트</td><td>민영</td><td>176</td><td>유</td><td>조건부</td><td>일반공급 2순위</td><td>공고 확인 필요</td><td><a href="https://www.applyhome.co.kr/ap/apa/selectAPTLttotPblancDetailView.do?houseManageNo=2026000364&amp;pblancNo=2026000364" target="_blank" rel="noopener">신청</a></td></tr>
+<tr><td>2026-08-18~08-21</td><td>서울</td><td>충정로역자이르네</td><td>아파트</td><td>민영</td><td>186</td><td>유</td><td>조건부</td><td>일반공급 2순위</td><td>공고 확인 필요</td><td><a href="https://www.applyhome.co.kr/ap/apa/selectAPTLttotPblancDetailView.do?houseManageNo=2026000358&amp;pblancNo=2026000358" target="_blank" rel="noopener">신청</a></td></tr>
+<tr><td>2026-08-18~08-21</td><td>서울</td><td>더샵 신길센트럴시티(조합원 취소분)</td><td>아파트</td><td>민영</td><td>67</td><td>유</td><td>조건부</td><td>일반공급 2순위</td><td>공고 확인 필요</td><td><a href="https://www.applyhome.co.kr/ap/apa/selectAPTLttotPblancDetailView.do?houseManageNo=2026000374&amp;pblancNo=2026000374" target="_blank" rel="noopener">신청</a></td></tr>
+</tbody>
+</table></div>
+<p>*주의: 사용자는 청약통장 가입 1개월차로, 수도권 1순위 요건(12개월 경과)에 미달합니다. 일반공급 2순위로만 신청 가능합니다. (1순위 가능 시점: 2027-07)*</p>
+<h4>② 조건</h4>
+<div class="tw"><table>
+<thead><tr><th>항목</th><th>내용</th></tr></thead>
+<tbody>
+<tr><td>대표 평형 분양가</td><td>공고 확인 필요</td></tr>
+<tr><td>계약금 / 중도금 / 잔금</td><td>공고 확인 필요</td></tr>
+<tr><td>대출·이자후불제</td><td>공고 확인 필요</td></tr>
+<tr><td>입주일</td><td>써밋 클라비온(2030-01) / 충정로역자이르네(2030-05) / 더샵 신길센트럴시티(2029-07)</td></tr>
+<tr><td>전매·실거주·재당첨 제한</td><td>규제지역 여부 및 상세 제한 사항 공고 확인 필요</td></tr>
+<tr><td>지역우선</td><td>서울특별시 2년 이상 계속 거주자 우선 (사용자 8년 거주로 충족하나 1순위 미달로 무의미)</td></tr>
+<tr><td>가점·추첨 비율</td><td>1순위 미달 시에만 2순위 기회 부여</td></tr>
+<tr><td>무순위 자격</td><td>해당 없음</td></tr>
+</tbody>
+</table></div>
+<h4>③ 판정</h4>
+<div class="tw"><table>
+<thead><tr><th>구분</th><th>판정</th><th>근거</th></tr></thead>
+<tbody>
+<tr><td>당첨 가능성</td><td>불가</td><td>서울 인기 단지들로 1순위에서 청약 마감이 확실시되어 2순위 접수자에게 기회가 돌아올 가능성이 없음</td></tr>
+<tr><td>당첨 전략</td><td>관망 및 통장 유지</td><td>청약통장 가입 기간 12개월을 채우는 2027년 7월 이후 서울 1순위 추첨제 물량을 노리는 로드맵 수립 필요</td></tr>
+<tr><td>자금계획</td><td>산정 보류</td><td>신청 자격 미달로 인한 산정 보류</td></tr>
+<tr><td>예상수익</td><td>산정 보류</td><td>신청 자격 미달로 인한 산정 보류</td></tr>
+<tr><td>리스크</td><td>부적격 처리 위험</td><td>1순위로 잘못 청약 시 가입기간 미달로 즉시 부적격 처리되므로 절대 1순위 접수 금지</td></tr>
+</tbody>
+</table></div>
+<h4>④ 매력도</h4>
+<div class="tw"><table>
+<thead><tr><th>항목</th><th>배점</th><th>점수</th></tr></thead>
+<tbody>
+<tr><td>가격·안전마진</td><td>2</td><td>1.5</td></tr>
+<tr><td>입지·미래가치</td><td>2</td><td>1.8</td></tr>
+<tr><td>사용자 기준 당첨 가능성</td><td>2</td><td>0.0</td></tr>
+<tr><td>자금조달 용이성</td><td>2</td><td>1.5</td></tr>
+<tr><td>규제·시장 리스크</td><td>2</td><td>1.0</td></tr>
+<tr><td><strong>총점</strong></td><td><strong>10</strong></td><td><strong>5.8</strong></td></tr>
+</tbody>
+</table></div>
+<p>*매력도 총점 5.8점으로 신중 단계이며, 통장 순위 미달로 실질적인 신청이 불가능하므로 예상투자금 및 신청 전략 표 작성을 생략합니다.*</p></article>
+<article><h3>[서울 무순위] 천왕역 모아엘가 트레뷰(11차)</h3>
+<h4>① 공고 개요</h4>
+<div class="tw"><table>
+<thead><tr><th>신청일~마감일</th><th>지역</th><th>단지</th><th>주택유형</th><th>공급구분</th><th>공급세대</th><th>통장 필요</th><th>신청 가능</th><th>맞는 트랙</th><th>경쟁률</th><th>신청</th></tr></thead>
+<tbody>
+<tr><td>2026-08-19~08-19</td><td>서울</td><td>천왕역 모아엘가 트레뷰(11차)</td><td>아파트</td><td>무순위</td><td>3</td><td>무</td><td>가능</td><td>무순위 (일반)</td><td>공고 확인 필요</td><td><a href="https://www.applyhome.co.kr/ap/apa/selectRemndrLttotPblancDetailView.do?houseManageNo=2026910218&amp;pblancNo=2026910218" target="_blank" rel="noopener">신청</a></td></tr>
+</tbody>
+</table></div>
+<h4>② 조건</h4>
+<div class="tw"><table>
+<thead><tr><th>항목</th><th>내용</th></tr></thead>
+<tbody>
+<tr><td>대표 평형 분양가</td><td>공고 확인 필요</td></tr>
+<tr><td>계약금 / 중도금 / 잔금</td><td>공고 확인 필요</td></tr>
+<tr><td>대출·이자후불제</td><td>공고 확인 필요</td></tr>
+<tr><td>입주일</td><td>2026-08 (즉시 입주)</td></tr>
+<tr><td>전매·실거주·재당첨 제한</td><td>공고 확인 필요</td></tr>
+<tr><td>지역우선</td><td>공고 확인 필요</td></tr>
+<tr><td>가점·추첨 비율</td><td>100% 추첨</td></tr>
+<tr><td>무순위 자격</td><td>무주택세대구성원 (상세 요건 <a href="https://www.applyhome.co.kr/ai/aia/selectAPTRemndrLttotPblancDetailView.do?houseManageNo=2026910218&amp;pblancNo=2026910218" target="_blank" rel="noopener">공고문</a> 확인 필수)</td></tr>
+</tbody>
+</table></div>
+<h4>③ 판정</h4>
+<div class="tw"><table>
+<thead><tr><th>구분</th><th>판정</th><th>근거</th></tr></thead>
+<tbody>
+<tr><td>당첨 가능성</td><td>낮음</td><td>3세대 공급으로 경쟁이 치열할 것으로 예상됨</td></tr>
+<tr><td>당첨 전략</td><td>선별적 접수</td><td>청약통장 없이 서울 거주 요건만으로 신청 가능한 추첨제이나, 11차 무순위 진행 단지이므로 입지 및 분양가 재검증 필요</td></tr>
+<tr><td>자금계획</td><td>즉시 잔금 납부</td><td>2026년 8월 즉시 입주 단지이므로 계약과 동시에 잔금 납부가 요구됨. 주식 6억 원의 즉시 현금화 계획 필수</td></tr>
+<tr><td>예상수익</td><td>산정 보류</td><td>실거래 비교 데이터 없음</td></tr>
+<tr><td>리스크</td><td>미분양 장기화 우려</td><td>11차 무순위 공급이라는 점은 고분양가 혹은 선호도 저하 단지일 가능성이 높음. 추후 환금성 리스크 존재</td></tr>
+</tbody>
+</table></div>
+<h4>④ 매력도</h4>
+<div class="tw"><table>
+<thead><tr><th>항목</th><th>배점</th><th>점수</th></tr></thead>
+<tbody>
+<tr><td>가격·안전마진</td><td>2</td><td>0.8</td></tr>
+<tr><td>입지·미래가치</td><td>2</td><td>1.0</td></tr>
+<tr><td>사용자 기준 당첨 가능성</td><td>2</td><td>1.0</td></tr>
+<tr><td>자금조달 용이성</td><td>2</td><td>1.5</td></tr>
+<tr><td>규제·시장 리스크</td><td>2</td><td>1.0</td></tr>
+<tr><td><strong>총점</strong></td><td><strong>10</strong></td><td><strong>5.3</strong></td></tr>
+</tbody>
+</table></div>
+<h4>⑤ 예상투자금</h4>
+<div class="tw"><table>
+<thead><tr><th>구분</th><th>금액</th><th>시점</th></tr></thead>
+<tbody>
+<tr><td>분양가 (대표 평형)</td><td>공고 확인 필요</td><td>모집공고 확인 후 산정</td></tr>
+<tr><td>계약금</td><td>공고 확인 필요</td><td>계약 시</td></tr>
+<tr><td>중도금 (회차·비율)</td><td>없음</td><td>해당 없음</td></tr>
+<tr><td>중도금 대출 가능 여부</td><td>불가</td><td>해당 없음</td></tr>
+<tr><td>잔금</td><td>공고 확인 필요</td><td>입주 시 (2026-08)</td></tr>
+<tr><td>옵션·확장</td><td>공고 확인 필요</td><td>-</td></tr>
+<tr><td>취득세·등기비</td><td>공고 확인 필요</td><td>-</td></tr>
+<tr><td><strong>예상 총투자금 (자기자본)</strong></td><td><strong>공고 확인 필요</strong></td><td><strong>즉시 잔금 납부 가능한 자금 계획 필요</strong></td></tr>
+</tbody>
+</table></div>
+<h4>⑥ 신청 전략</h4>
+<div class="tw"><table>
+<thead><tr><th>항목</th><th>내용</th></tr></thead>
+<tbody>
+<tr><td>인기 평형</td><td>공고 확인 필요</td></tr>
+<tr><td>비인기 평형</td><td>공고 확인 필요</td></tr>
+<tr><td>추천 타입</td><td>공고 확인 필요</td></tr>
+<tr><td>예비당첨 전망</td><td>공고 확인 필요</td></tr>
+<tr><td>신청 트랙</td><td>무순위 (사후)</td></tr>
+<tr><td>부적격 방지</td><td>무주택 요건 및 과거 재당첨 제한 여부 공고문 대조 필수</td></tr>
+</tbody>
+</table></div></article>
+<article><h3>[서울 오피스텔] 선유 노블레르</h3>
+<h4>① 공고 개요</h4>
+<div class="tw"><table>
+<thead><tr><th>신청일~마감일</th><th>지역</th><th>단지</th><th>주택유형</th><th>공급구분</th><th>공급세대</th><th>통장 필요</th><th>신청 가능</th><th>맞는 트랙</th><th>경쟁률</th><th>신청</th></tr></thead>
+<tbody>
+<tr><td>2026-08-19~08-25</td><td>서울</td><td>선유 노블레르</td><td>오피스텔</td><td>도시형/오피스텔/생활숙박시설/민간임대</td><td>6</td><td>무</td><td>가능</td><td>오피스텔 청약</td><td>공고 확인 필요</td><td><a href="https://www.applyhome.co.kr/ap/apo/selectUrbtyOfctlPblancDetailView.do?houseManageNo=2026950070&amp;pblancNo=2026950070" target="_blank" rel="noopener">신청</a></td></tr>
+</tbody>
+</table></div>
+<h4>② 조건</h4>
+<div class="tw"><table>
+<thead><tr><th>항목</th><th>내용</th></tr></thead>
+<tbody>
+<tr><td>대표 평형 분양가</td><td>공고 확인 필요</td></tr>
+<tr><td>계약금 / 중도금 / 잔금</td><td>공고 확인 필요</td></tr>
+<tr><td>대출·이자후불제</td><td>공고 확인 필요</td></tr>
+<tr><td>입주일</td><td>2026-09 (즉시 입주)</td></tr>
+<tr><td>전매·실거주·재당첨 제한</td><td>오피스텔이므로 아파트 대비 규제 완화 (공고 확인 필요)</td></tr>
+<tr><td>지역우선</td><td>공고 확인 필요</td></tr>
+<tr><td>가점·추첨 비율</td><td>100% 추첨</td></tr>
+<tr><td>무순위 자격</td><td>해당 없음</td></tr>
+</tbody>
+</table></div>
+<h4>③ 판정</h4>
+<div class="tw"><table>
+<thead><tr><th>구분</th><th>판정</th><th>근거</th></tr></thead>
+<tbody>
+<tr><td>당첨 가능성</td><td>보통</td><td>총 6실 공급으로 소규모이나 청약 제한이 없어 진입 장벽이 낮음</td></tr>
+<tr><td>당첨 전략</td><td>비추천</td><td>아파트 매수를 계획하는 사용자 성향상, 환금성이 떨어지는 오피스텔 청약은 자금 묶임 우려로 비추천</td></tr>
+<tr><td>자금계획</td><td>즉시 잔금 납부</td><td>2026년 9월 입주이므로 계약금 및 잔금 즉시 조달 필요</td></tr>
+<tr><td>예상수익</td><td>산정 보류</td><td>실거래 비교 데이터 없음</td></tr>
+<tr><td>리스크</td><td>환금성 및 세제 리스크</td><td>오피스텔은 취득세율(4.6%)이 높고 아파트 대비 시세 상승 탄력이 낮아 내년 아파트 매수 계획에 걸림돌이 될 수 있음</td></tr>
+</tbody>
+</table></div>
+<h4>④ 매력도</h4>
+<div class="tw"><table>
+<thead><tr><th>항목</th><th>배점</th><th>점수</th></tr></thead>
+<tbody>
+<tr><td>가격·안전마진</td><td>2</td><td>0.5</td></tr>
+<tr><td>입지·미래가치</td><td>2</td><td>1.0</td></tr>
+<tr><td>사용자 기준 당첨 가능성</td><td>2</td><td>1.5</td></tr>
+<tr><td>자금조달 용이성</td><td>2</td><td>1.5</td></tr>
+<tr><td>규제·시장 리스크</td><td>2</td><td>0.5</td></tr>
+<tr><td><strong>총점</strong></td><td><strong>10</strong></td><td><strong>5.0</strong></td></tr>
+</tbody>
+</table></div>
+<h4>⑤ 예상투자금</h4>
+<div class="tw"><table>
+<thead><tr><th>구분</th><th>금액</th><th>시점</th></tr></thead>
+<tbody>
+<tr><td>분양가 (대표 평형)</td><td>공고 확인 필요</td><td>모집공고 확인 후 산정</td></tr>
+<tr><td>계약금</td><td>공고 확인 필요</td><td>계약 시</td></tr>
+<tr><td>중도금 (회차·비율)</td><td>없음</td><td>해당 없음</td></tr>
+<tr><td>중도금 대출 가능 여부</td><td>불가</td><td>해당 없음</td></tr>
+<tr><td>잔금</td><td>공고 확인 필요</td><td>입주 시 (2026-09)</td></tr>
+<tr><td>옵션·확장</td><td>공고 확인 필요</td><td>-</td></tr>
+<tr><td>취득세·등기비</td><td>공고 확인 필요</td><td>-</td></tr>
+<tr><td><strong>예상 총투자금 (자기자본)</strong></td><td><strong>공고 확인 필요</strong></td><td><strong>즉시 납부 가능한 자금 계획 필요</strong></td></tr>
+</tbody>
+</table></div>
+<h4>⑥ 신청 전략</h4>
+<div class="tw"><table>
+<thead><tr><th>항목</th><th>내용</th></tr></thead>
+<tbody>
+<tr><td>인기 평형</td><td>공고 확인 필요</td></tr>
+<tr><td>비인기 평형</td><td>공고 확인 필요</td></tr>
+<tr><td>추천 타입</td><td>공고 확인 필요</td></tr>
+<tr><td>예비당첨 전망</td><td>공고 확인 필요</td></tr>
+<tr><td>신청 트랙</td><td>오피스텔 일반공급</td></tr>
+<tr><td>부적격 방지</td><td>청약 제한은 거의 없으나 계약금 납부 일정 준수 필수</td></tr>
+</tbody>
+</table></div></article>
+<article><h3>[경기/지방 공공분양] 시흥거모 A-5 및 성남복정2 A1 (신혼희망타운)</h3>
+<h4>① 공고 개요</h4>
+<div class="tw"><table>
+<thead><tr><th>신청일~마감일</th><th>지역</th><th>단지</th><th>주택유형</th><th>공급구분</th><th>공급세대</th><th>통장 필요</th><th>신청 가능</th><th>맞는 트랙</th><th>경쟁률</th><th>신청</th></tr></thead>
+<tbody>
+<tr><td>2026-08-18~08-26</td><td>경기</td><td>시흥거모 A-5블록 신혼희망타운</td><td>아파트(신혼희망타운)</td><td>신혼희망타운</td><td>290</td><td>유</td><td>불가</td><td>해당 없음</td><td>공고 확인 필요</td><td><a href="https://www.applyhome.co.kr/ap/apa/selectAPTLttotPblancDetailView.do?houseManageNo=2026820006&amp;pblancNo=2026820006" target="_blank" rel="noopener">신청</a></td></tr>
+<tr><td>2026-08-31~09-08</td><td>경기</td><td>성남복정2 A1블록 신혼희망타운</td><td>아파트(신혼희망타운)</td><td>신혼희망타운</td><td>594</td><td>유</td><td>불가</td><td>해당 없음</td><td>공고 확인 필요</td><td><a href="https://www.applyhome.co.kr/ap/apa/selectAPTLttotPblancDetailView.do?houseManageNo=2026820008&amp;pblancNo=2026820008" target="_blank" rel="noopener">신청</a></td></tr>
+</tbody>
+</table></div>
+<h4>② 판정</h4>
+<div class="tw"><table>
+<thead><tr><th>구분</th><th>판정</th><th>근거</th></tr></thead>
+<tbody>
+<tr><td>당첨 가능성</td><td>불가</td><td>미혼 자격 및 자산 기준(6억 원 보유로 신혼희망타운 자산 상한 초과 명백) 미달로 신청 불가</td></tr>
+<tr><td>당첨 전략</td><td>추천 제외</td><td>자격 미달로 청약 대상에서 완전히 제외함</td></tr>
+<tr><td>자금계획</td><td>산정 보류</td><td>신청 자격 미달로 인한 산정 보류</td></tr>
+<tr><td>예상수익</td><td>산정 보류</td><td>신청 자격 미달로 인한 산정 보류</td></tr>
+<tr><td>리스크</td><td>부적격 페널티</td><td>미혼 상태에서 신청 시 즉시 부적격 처리되며 향후 청약 신청에 제한을 받게 됨</td></tr>
+</tbody>
+</table></div>
+<h4>③ 매력도</h4>
+<div class="tw"><table>
+<thead><tr><th>항목</th><th>배점</th><th>점수</th></tr></thead>
+<tbody>
+<tr><td>가격·안전마진</td><td>2</td><td>1.0</td></tr>
+<tr><td>입지·미래가치</td><td>2</td><td>1.0</td></tr>
+<tr><td>사용자 기준 당첨 가능성</td><td>2</td><td>0.0</td></tr>
+<tr><td>자금조달 용이성</td><td>2</td><td>0.0</td></tr>
+<tr><td>규제·시장 리스크</td><td>2</td><td>0.0</td></tr>
+<tr><td><strong>총점</strong></td><td><strong>10</strong></td><td><strong>2.0</strong></td></tr>
+</tbody>
+</table></div>
+<p>*매력도 총점 2.0점으로 비추천 단계이며, 신청 자체가 불가능하므로 예상투자금 및 신청 전략 표 작성을 생략합니다.*</p></article>
+<article><h3>[참고] 최근 무순위/잔여 청약 경쟁률 인기 순위</h3>
+<h4>최근 무순위/잔여 경쟁률 현황</h4>
+<div class="tw"><table>
+<thead><tr><th>순위</th><th>단지</th><th>지역</th><th>타입</th><th>공급</th><th>접수</th><th>경쟁률</th></tr></thead>
+<tbody>
+<tr><td>1</td><td>의왕고천지구 대방 디에트르 센트럴(B1BL)(2차)</td><td>경기</td><td>084.9705A</td><td>1</td><td>3321</td><td>3321.00</td></tr>
+<tr><td>2</td><td>복대자이 더 스카이</td><td>충북</td><td>084.9926C</td><td>1</td><td>2350</td><td>2350.00</td></tr>
+<tr><td>3</td><td>동탄신도시 금강펜테리움 6차 센트럴파크(A59BL) (3차)</td><td>경기</td><td>100.8334A</td><td>3</td><td>5999</td><td>1999.67</td></tr>
+<tr><td>4</td><td>창원 롯데캐슬 하버팰리스</td><td>경남</td><td>084.9976A</td><td>2</td><td>3946</td><td>1973.00</td></tr>
+<tr><td>5</td><td>라클라체자이드파인</td><td>서울</td><td>059.8054B</td><td>1</td><td>1726</td><td>1726.00</td></tr>
+<tr><td>6</td><td>e편한세상 동탄 파크아너스 A56블럭(2회차)</td><td>경기</td><td>099.9869B</td><td>1</td><td>1172</td><td>1172.00</td></tr>
+<tr><td>7</td><td>라클라체자이드파인</td><td>서울</td><td>084.9634A</td><td>1</td><td>743</td><td>743.00</td></tr>
+<tr><td>8</td><td>써밋 더힐</td><td>서울</td><td>084.9000A</td><td>3</td><td>2179</td><td>726.33</td></tr>
+<tr><td>9</td><td>신검단중앙역 금강펜테리움 센트럴파크(3차)</td><td>인천</td><td>098.4316A</td><td>1</td><td>721</td><td>721.00</td></tr>
+<tr><td>10</td><td>동탄 파크릭스 A55BL(2차)</td><td>경기</td><td>110.7034A</td><td>2</td><td>1005</td><td>502.50</td></tr>
+<tr><td>11</td><td>용현자이 크레스트(2차)</td><td>인천</td><td>074.9700C</td><td>1</td><td>493</td><td>493.00</td></tr>
+<tr><td>12</td><td>양평역 한라비발디 2단지</td><td>경기</td><td>059.7390B</td><td>1</td><td>401</td><td>401.00</td></tr>
+</tbody>
+</table></div></article></section>
+<section><h2>내일로 넘기는 질문</h2>
+<p>통장 없이 서울 8년 거주 우선권을 활용할 수 있는 '송파 시그니처 롯데캐슬' 무순위 청약을 위해 18일 접수 전 주식 자산 6억 원의 현금화 일정과 모집공고문 상세 자격 요건을 재검증하시겠습니까? 본 분석은 정보 제공이며 수익이나 대출 승인을 보장하지 않습니다.</p></section>
+
+</main>
+<footer>생성 2026-08-17T02:17:33.514Z · 자동 생성된 요약이며 투자 권유가 아닙니다.</footer>
+</body>
+</html>
