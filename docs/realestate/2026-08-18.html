@@ -1,0 +1,135 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>2026-08-18 부동산 브리핑</title>
+<style>:root { color-scheme: light dark;
+  --fg:#1a1a1a; --muted:#6b6b6b; --line:#e3e3e3; --card:#f6f6f7;
+  --up:#c0392b; --down:#1565c0; --flat:#6b6b6b; --warn:#b45309; }
+@media (prefers-color-scheme: dark) {
+  :root { --fg:#e8e8e8; --muted:#9a9a9a; --line:#333; --card:#1c1c1e;
+    --up:#ff6b5a; --down:#5aa9ff; --flat:#9a9a9a; --warn:#fbbf24; }
+}
+* { box-sizing:border-box; }
+body { margin:0 auto; padding:1rem .9rem 3rem; max-width:44rem;
+  font:16px/1.65 -apple-system,BlinkMacSystemFont,"Apple SD Gothic Neo","Noto Sans KR",sans-serif;
+  color:var(--fg); word-break:keep-all; overflow-wrap:anywhere; }
+header { display:flex; align-items:baseline; gap:.5rem; margin-bottom:.7rem; }
+h1 { font-size:1.1rem; margin:0; }
+.date { color:var(--muted); font-size:.85rem; }
+
+/* 모바일 2열 고정 */
+.grid { display:grid; grid-template-columns:repeat(2,1fr); gap:.4rem; }
+@media (min-width:34rem) { .grid { grid-template-columns:repeat(4,1fr); } }
+.cell { background:var(--card); border-radius:8px; padding:.5rem .6rem; }
+.cell .k { font-size:.72rem; color:var(--muted); letter-spacing:-.02em; }
+.cell .v { font-size:1.02rem; font-weight:700; font-variant-numeric:tabular-nums; }
+.cell .d { font-size:.8rem; font-variant-numeric:tabular-nums; color:var(--flat); }
+.cell.up .d, .cell.up .v { color:var(--up); }
+.cell.down .d, .cell.down .v { color:var(--down); }
+.sep { border:0; border-top:1px solid var(--line); margin:.5rem 0; }
+.dash { margin-bottom:.8rem; }
+.comment { font-size:.9rem; color:var(--muted); margin:0 0 1.6rem; }
+
+section { margin-bottom:1.6rem; }
+h2 { font-size:1rem; margin:0 0 .5rem; padding-bottom:.25rem; border-bottom:1px solid var(--line); }
+h3 { font-size:.95rem; margin:0 0 .3rem; }
+h4 { font-size:.88rem; margin:1rem 0 .35rem; color:var(--muted); }
+article { margin-bottom:1rem; }
+p { margin:.4rem 0; }
+ul { margin:.4rem 0; padding-left:1.15rem; }
+li { margin:.25rem 0; }
+a { color:inherit; text-decoration:underline; text-underline-offset:2px; }
+/* 넓은 표는 페이지가 아니라 표 자신이 가로 스크롤한다 */
+.tw { overflow-x:auto; -webkit-overflow-scrolling:touch; margin:.6rem 0; }
+table { border-collapse:collapse; font-size:.82rem; min-width:100%; }
+th, td { border-bottom:1px solid var(--line); padding:.4rem .55rem; text-align:left;
+  vertical-align:top; white-space:nowrap; }
+th { background:var(--card); font-weight:600; position:sticky; top:0; }
+/* 단지명처럼 긴 값은 줄바꿈을 허용해 표가 지나치게 넓어지지 않게 한다 */
+td:nth-child(3) { white-space:normal; min-width:9rem; }
+tbody tr:nth-child(even) td { background:rgba(127,127,127,.05); }
+pre { white-space:pre-wrap; background:var(--card); padding:1rem; border-radius:6px; font-size:.85rem; }
+.warn { color:var(--warn); font-weight:600; }
+.failures { border:1px solid var(--line); border-radius:6px; padding:.8rem; }
+.failures h2 { border:0; color:var(--warn); }
+.failures li { color:var(--muted); font-size:.85rem; }
+footer { color:var(--muted); font-size:.78rem; border-top:1px solid var(--line); padding-top:.8rem; }</style>
+</head>
+<body>
+<header>
+<h1>🏠 부동산</h1>
+<span class="date">2026-08-18 KST</span>
+</header>
+<section class="dash">
+<div class="grid">
+<div class="cell up">
+<div class="k">매매 서울</div>
+<div class="v">+0.21%</div>
+<div class="d">-</div>
+</div>
+<div class="cell up">
+<div class="k">매매 수도권</div>
+<div class="v">+0.14%</div>
+<div class="d">-</div>
+</div>
+<div class="cell up">
+<div class="k">매매 지방</div>
+<div class="v">+0.01%</div>
+<div class="d">-</div>
+</div>
+<div class="cell up">
+<div class="k">전세 서울</div>
+<div class="v">+0.20%</div>
+<div class="d">-</div>
+</div>
+</div>
+<hr class="sep">
+<div class="grid">
+<div class="cell flat">
+<div class="k">공급물량</div>
+<div class="v">14,964호</div>
+<div class="d">-</div>
+</div>
+<div class="cell flat">
+<div class="k">입주물량</div>
+<div class="v">15,592호</div>
+<div class="d">-</div>
+</div>
+<div class="cell flat">
+<div class="k">미분양</div>
+<div class="v">13,553호</div>
+<div class="d">-</div>
+</div>
+<div class="cell flat">
+<div class="k">경매 낙찰가율</div>
+<div class="v">-</div>
+<div class="d">-</div>
+</div>
+</div>
+</section>
+<p class="comment">7일 전(8월 10일) 조사 기준 변동률로, 서울 매매(0.21%)와 전세(0.20%) 모두 상승세를 유지하고 있습니다.</p>
+<main>
+<section><h2>오늘 일정</h2>
+<p>2026-08-18: 시흥거모 A-5블록 신혼희망타운(공공분양)(본청약) 청약 접수, 더샵 신길센트럴시티(조합원 취소분) 청약 접수, 용인반도체클러스터 동일하이빌 파크밸리(D1-1블록) 청약 접수, 써밋 클라비온 청약 접수, 충정로역자이르네 청약 접수, 달서자이 제니크 청약 접수</p></section>
+<section><h2>예정 일정</h2>
+<p>2026-08-19: 두산위브더제니스 부천 청약 접수 / 2026-08-24: 포레나힐스테이트 진주 청약 접수, 쌍용 더 플래티넘 서대문 청약 접수, 아르티엠 라 테라스 청약 접수</p></section>
+<section><h2>어제 스레드 후속</h2>
+<p>어제 던진 질문인 공급 속도전과 대출 규제 완화가 단기 집값을 자극할지 여부는 아직 데이터로 확인되지 않음. 다만 준공 후 1년 내 최초 매매 시 임대사업자 주담대를 허용하는 빌라 대출 규제 완화가 시장에 미칠 영향과, 20일 국토부와 서울시의 용산 주택 공급 회동 결과가 단기적인 공급 신호의 향방을 가를 변수임.</p></section>
+<section><h2>이슈</h2>
+<article><h3>세제 개편안 발표 후 강남3구 매물 6.5% 증가, 거래는 관망세</h3>
+<p>정부의 세제 개편안 발표 이후 서울 아파트 매매 매물이 늘어나는 움직임이다. 부동산 플랫폼 아실에 따르면 세제개편안이 발표된 8월 3일부터 17일까지 서울 아파트 매물은 6만 409건에서 6만 3,480건으로 5.1% 증가했다. 특히 강남·서초·송파 등 강남3구의 매물 증가율은 6.5%로 서울 평균을 웃돌았다. 다만 매물은 늘었으나 실제 거래는 뚝 끊기며 시장 참여자들은 눈치싸움을 벌이고 있다. [커뮤니티]에서는 '세금 무서워서 일단 던지는 매물이 나오는 것 같다'는 의견과 '원하는 가격 이하로는 안 팔 테니 결국 버티기가 될 것'이라는 반응이 팽팽하게 맞선다.</p></article>
+<article><h3>서울 아파트 전세 줄고 월세 폭증, '실거주 세제' 우려 현실로</h3>
+<p>서울 임대차 시장에서 전세가 줄고 월세 비중이 늘어나는 '전세의 월세화'가 뚜렷해지고 있다. 최근 7년간 서울 아파트 전세는 줄어든 반면 반전세를 포함한 월세 가구는 크게 늘었다. 특히 실거주 세제 강화 방안이 예고되면서 세입자들의 주거비 부담이 더 커질 것이라는 우려가 나온다. [커뮤니티]에서는 '전세 대출 규제에 세금까지 올리니 집주인들이 월세로 돌리는 건 당연한 수순'이라며 한탄하는 목소리가 높은 반면, '월세 선호 현상은 금리와 시장 상황에 따른 자연스러운 변화일 뿐'이라는 시각도 존재한다.</p></article>
+<article><h3>용산공원 주택 공급 여부, 20일 국토부·서울시 회동이 분수령</h3>
+<p>정부의 수도권 주택 신속 공급 방안을 두고 국토교통부와 서울시가 오는 20일 회동한다. 이번 회동에서는 용산공원 내 청년 주택 공급 방안과 그린벨트 해제 등이 집중 논의될 예정이다. 정부는 용산어린이정원 부지를 청년 주택으로 활용하는 방안에 대해 여론조사까지 검토하며 공급 속도를 내고 싶어 하지만, 서울시는 이에 반발하는 모양새다. 빨라야 2030년 착공이 가능한 용산 개발을 두고 양측이 합의점을 찾을 수 있을지가 이번 주 공급 대책의 가장 중요한 계기가 될 전망이다.</p></article>
+<article><h3>빌라 대출 규제 완화 추진과 지방 주택 시장 패싱 논란</h3>
+<p>정부가 비아파트 공급을 늘리기 위해 임대사업자의 대출 규제를 완화하기로 했다. 준공 후 1년 내 최초 매매계약에 한해 주택담보대출을 허용하는 방안이다. 그러나 시장에서는 비아파트의 경우 매매보다 전월세 수요가 많아 실제 흥행 여부는 미지수라는 평가가 나온다. 한편, 지난 8·13 대책이 수도권 신속 공급에만 초점을 맞추면서 지방 주택 시장은 또다시 소외되었다는 '지방 패싱' 불만도 커지고 있다. 지방은 매매와 분양 시장의 양극화가 심화되는 가운데 수요 진작을 위한 투트랙 정책이 필요하다는 지적이 제기된다.</p></article></section>
+<section><h2>내일로 넘기는 질문</h2>
+<p>세제 개편 예고로 강남3구 매물은 늘었지만 거래는 뚝 끊긴 상황, 과연 20일 국토부와 서울시의 회동이 꽉 막힌 공급과 시장 관망세를 뚫어줄 실마리가 될 수 있을까?</p></section>
+
+</main>
+<footer>생성 2026-08-17T23:22:25.712Z · 자동 생성된 요약이며 투자 권유가 아닙니다.</footer>
+</body>
+</html>
