@@ -1,0 +1,151 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>2026-08-19 증시 브리핑</title>
+<style>:root { color-scheme: light dark;
+  --fg:#1a1a1a; --muted:#6b6b6b; --line:#e3e3e3; --card:#f6f6f7;
+  --up:#c0392b; --down:#1565c0; --flat:#6b6b6b; --warn:#b45309; }
+@media (prefers-color-scheme: dark) {
+  :root { --fg:#e8e8e8; --muted:#9a9a9a; --line:#333; --card:#1c1c1e;
+    --up:#ff6b5a; --down:#5aa9ff; --flat:#9a9a9a; --warn:#fbbf24; }
+}
+* { box-sizing:border-box; }
+body { margin:0 auto; padding:1rem .9rem 3rem; max-width:44rem;
+  font:16px/1.65 -apple-system,BlinkMacSystemFont,"Apple SD Gothic Neo","Noto Sans KR",sans-serif;
+  color:var(--fg); word-break:keep-all; overflow-wrap:anywhere; }
+header { display:flex; align-items:baseline; gap:.5rem; margin-bottom:.7rem; }
+h1 { font-size:1.1rem; margin:0; }
+.date { color:var(--muted); font-size:.85rem; }
+
+/* 모바일 2열 고정 */
+.grid { display:grid; grid-template-columns:repeat(2,1fr); gap:.4rem; }
+@media (min-width:34rem) { .grid { grid-template-columns:repeat(4,1fr); } }
+.cell { background:var(--card); border-radius:8px; padding:.5rem .6rem; }
+.cell .k { font-size:.72rem; color:var(--muted); letter-spacing:-.02em; }
+.cell .v { font-size:1.02rem; font-weight:700; font-variant-numeric:tabular-nums; }
+.cell .d { font-size:.8rem; font-variant-numeric:tabular-nums; color:var(--flat); }
+.cell.up .d, .cell.up .v { color:var(--up); }
+.cell.down .d, .cell.down .v { color:var(--down); }
+.sep { border:0; border-top:1px solid var(--line); margin:.5rem 0; }
+.dash { margin-bottom:.8rem; }
+.comment { font-size:.9rem; color:var(--muted); margin:0 0 1.6rem; }
+
+section { margin-bottom:1.6rem; }
+h2 { font-size:1rem; margin:0 0 .5rem; padding-bottom:.25rem; border-bottom:1px solid var(--line); }
+h3 { font-size:.95rem; margin:0 0 .3rem; }
+h4 { font-size:.88rem; margin:1rem 0 .35rem; color:var(--muted); }
+article { margin-bottom:1rem; }
+p { margin:.4rem 0; }
+ul { margin:.4rem 0; padding-left:1.15rem; }
+li { margin:.25rem 0; }
+a { color:inherit; text-decoration:underline; text-underline-offset:2px; }
+/* 넓은 표는 페이지가 아니라 표 자신이 가로 스크롤한다 */
+.tw { overflow-x:auto; -webkit-overflow-scrolling:touch; margin:.6rem 0; }
+table { border-collapse:collapse; font-size:.82rem; min-width:100%; }
+th, td { border-bottom:1px solid var(--line); padding:.4rem .55rem; text-align:left;
+  vertical-align:top; white-space:nowrap; }
+th { background:var(--card); font-weight:600; position:sticky; top:0; }
+/* 단지명처럼 긴 값은 줄바꿈을 허용해 표가 지나치게 넓어지지 않게 한다 */
+td:nth-child(3) { white-space:normal; min-width:9rem; }
+tbody tr:nth-child(even) td { background:rgba(127,127,127,.05); }
+pre { white-space:pre-wrap; background:var(--card); padding:1rem; border-radius:6px; font-size:.85rem; }
+.warn { color:var(--warn); font-weight:600; }
+.failures { border:1px solid var(--line); border-radius:6px; padding:.8rem; }
+.failures h2 { border:0; color:var(--warn); }
+.failures li { color:var(--muted); font-size:.85rem; }
+footer { color:var(--muted); font-size:.78rem; border-top:1px solid var(--line); padding-top:.8rem; }</style>
+</head>
+<body>
+<header>
+<h1>📈 증시</h1>
+<span class="date">2026-08-19 KST</span>
+</header>
+<section class="dash">
+<div class="grid">
+<div class="cell down">
+<div class="k">S&amp;P500</div>
+<div class="v">7,691.76</div>
+<div class="d">−0.69%</div>
+</div>
+<div class="cell down">
+<div class="k">나스닥</div>
+<div class="v">26,289.71</div>
+<div class="d">−1.33%</div>
+</div>
+<div class="cell down">
+<div class="k">다우</div>
+<div class="v">53,343.40</div>
+<div class="d">−0.22%</div>
+</div>
+</div>
+<hr class="sep">
+<div class="grid">
+<div class="cell up">
+<div class="k">미10년물</div>
+<div class="v">4.710</div>
+<div class="d">+0.09%</div>
+</div>
+<div class="cell flat">
+<div class="k">달러인덱스</div>
+<div class="v">99.66</div>
+<div class="d">0.00%</div>
+</div>
+<div class="cell flat">
+<div class="k">원달러</div>
+<div class="v">1,413.50</div>
+<div class="d">0.00%</div>
+</div>
+</div>
+<hr class="sep">
+<div class="grid">
+<div class="cell flat">
+<div class="k">코스피</div>
+<div class="v">6,869.83</div>
+<div class="d">0.00%</div>
+</div>
+<div class="cell flat">
+<div class="k">코스닥</div>
+<div class="v">834.20</div>
+<div class="d">0.00%</div>
+</div>
+<div class="cell up">
+<div class="k">외국인</div>
+<div class="v">+914억</div>
+<div class="d">-</div>
+</div>
+<div class="cell down">
+<div class="k">기관</div>
+<div class="v">−7951억</div>
+<div class="d">-</div>
+</div>
+<div class="cell up">
+<div class="k">개인</div>
+<div class="v">+7420억</div>
+<div class="d">-</div>
+</div>
+</div>
+</section>
+<p class="comment">미국 장기 국채금리 급등과 유가 상승이 기술주 중심의 매도 압력으로 이어졌다.</p>
+<main>
+<section><h2>오늘 일정</h2>
+<p>2026-08-19 경제지표 발표 없음 / 실적 발표: 아날로그 디바이스(ADI), TJX, 로스(LOW), 타깃(TGT) 장 시작 전 예정.</p></section>
+<section><h2>예정 일정</h2>
+<p>2026-08-20 03:00 FOMC 회의록 공개 / 2026-08-20 월마트(WMT), 알리바바(BABA) 실적 발표 / 2026-08-26 엔비디아(NVDA, 컨센서스 $2.01) 실적 발표</p></section>
+<section><h2>어제 스레드 후속</h2>
+<p>어제 던진 질문, 바로 답이 나왔다. 미·이란 MOU 연장 불발로 유가가 오르고 국채금리가 치솟자 필라델피아 반도체 지수가 4.98% 밀렸다. 반도체의 독주에 확실히 제동이 걸린 모습이다.</p></section>
+<section><h2>이슈</h2>
+<article><h3>금리 쇼크에 직격탄 맞은 반도체·스토리지주</h3>
+<p>미·이란 협상 교착으로 국제유가가 상승하고 미 국채 금리가 급등하자 기술주가 일제히 밀렸다. 특히 메모리와 스토리지 관련주의 낙폭이 깊었다. 샌디스크가 8.89% 하락했고, 웨스턴 디지털(-7.43%)과 마이크론 테크놀로지(-7.06%)도 동반 약세를 보였다. 필라델피아 반도체 지수(SOX)는 4.98% 하락 마감했다. 국내 삼성전자와 SK하이닉스도 프리마켓에서 5~6%대 급락세를 기록했다. [커뮤니티]에서는 'AI 거품이 드디어 터지는 것 아니냐'는 우려와 '고점 대비 30% 빠진 샌디스크는 지금이 줍기 기회'라는 의견이 팽팽하게 맞서고 있다.</p></article>
+<article><h3>엔비디아의 이색 행보, 인텔 지분 보유와 금융 보증</h3>
+<p>엔비디아가 SEC에 제출한 13F 공시에 따르면, 지난 6월 말 기준 경쟁사인 인텔 주식 2억 1,477만여 주(약 42조 원 규모)를 보유한 것으로 나타났다. 아울러 오픈AI의 오하이오 초대형 데이터센터 구축에 최대 1,050억 달러 규모의 금융 보증을 서며 금융 플랫폼으로의 확장세를 보였다. 한편 젠슨 황 CEO의 장녀 매디슨 황 수석이사가 LG전자의 로봇 훈련소를 방문해 로보틱스 협업을 논의했다는 소식도 전해졌다.</p></article>
+<article><h3>코스피 7,200선 터치 후 반락, 오늘 KDI 성장률 전망 주목</h3>
+<p>전날 코스피는 장중 7,200선을 넘었으나 미·일 국채금리 상승 여파로 상승폭을 반납하며 6,869.83으로 마감했다. 기관이 7,951억 원을 순매도하며 하락을 주도했다. 오늘(19일)은 한국개발연구원(KDI)의 성장률 수정 전망과 한국은행의 지표 발표가 예정되어 있어 국내발 지표가 시장을 움직일 것으로 보인다. 증권가에서는 전날 급락으로 금리발 조정 압력이 상당 부분 반영되어 낙폭은 제한될 것으로 전망하고 있다.</p></article></section>
+<section><h2>내일로 넘기는 질문</h2>
+<p>미국 장기 금리가 내려올 기미를 보이지 않는 상황에서, 오늘 발표될 KDI 성장률 전망이 한국 증시의 든든한 버팀목이 되어줄 수 있을까?</p></section>
+
+</main>
+<footer>생성 2026-08-18T23:52:18.795Z · 자동 생성된 요약이며 투자 권유가 아닙니다.</footer>
+</body>
+</html>
