@@ -1,0 +1,135 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>2026-08-20 부동산 브리핑</title>
+<style>:root { color-scheme: light dark;
+  --fg:#1a1a1a; --muted:#6b6b6b; --line:#e3e3e3; --card:#f6f6f7;
+  --up:#c0392b; --down:#1565c0; --flat:#6b6b6b; --warn:#b45309; }
+@media (prefers-color-scheme: dark) {
+  :root { --fg:#e8e8e8; --muted:#9a9a9a; --line:#333; --card:#1c1c1e;
+    --up:#ff6b5a; --down:#5aa9ff; --flat:#9a9a9a; --warn:#fbbf24; }
+}
+* { box-sizing:border-box; }
+body { margin:0 auto; padding:1rem .9rem 3rem; max-width:44rem;
+  font:16px/1.65 -apple-system,BlinkMacSystemFont,"Apple SD Gothic Neo","Noto Sans KR",sans-serif;
+  color:var(--fg); word-break:keep-all; overflow-wrap:anywhere; }
+header { display:flex; align-items:baseline; gap:.5rem; margin-bottom:.7rem; }
+h1 { font-size:1.1rem; margin:0; }
+.date { color:var(--muted); font-size:.85rem; }
+
+/* 모바일 2열 고정 */
+.grid { display:grid; grid-template-columns:repeat(2,1fr); gap:.4rem; }
+@media (min-width:34rem) { .grid { grid-template-columns:repeat(4,1fr); } }
+.cell { background:var(--card); border-radius:8px; padding:.5rem .6rem; }
+.cell .k { font-size:.72rem; color:var(--muted); letter-spacing:-.02em; }
+.cell .v { font-size:1.02rem; font-weight:700; font-variant-numeric:tabular-nums; }
+.cell .d { font-size:.8rem; font-variant-numeric:tabular-nums; color:var(--flat); }
+.cell.up .d, .cell.up .v { color:var(--up); }
+.cell.down .d, .cell.down .v { color:var(--down); }
+.sep { border:0; border-top:1px solid var(--line); margin:.5rem 0; }
+.dash { margin-bottom:.8rem; }
+.comment { font-size:.9rem; color:var(--muted); margin:0 0 1.6rem; }
+
+section { margin-bottom:1.6rem; }
+h2 { font-size:1rem; margin:0 0 .5rem; padding-bottom:.25rem; border-bottom:1px solid var(--line); }
+h3 { font-size:.95rem; margin:0 0 .3rem; }
+h4 { font-size:.88rem; margin:1rem 0 .35rem; color:var(--muted); }
+article { margin-bottom:1rem; }
+p { margin:.4rem 0; }
+ul { margin:.4rem 0; padding-left:1.15rem; }
+li { margin:.25rem 0; }
+a { color:inherit; text-decoration:underline; text-underline-offset:2px; }
+/* 넓은 표는 페이지가 아니라 표 자신이 가로 스크롤한다 */
+.tw { overflow-x:auto; -webkit-overflow-scrolling:touch; margin:.6rem 0; }
+table { border-collapse:collapse; font-size:.82rem; min-width:100%; }
+th, td { border-bottom:1px solid var(--line); padding:.4rem .55rem; text-align:left;
+  vertical-align:top; white-space:nowrap; }
+th { background:var(--card); font-weight:600; position:sticky; top:0; }
+/* 단지명처럼 긴 값은 줄바꿈을 허용해 표가 지나치게 넓어지지 않게 한다 */
+td:nth-child(3) { white-space:normal; min-width:9rem; }
+tbody tr:nth-child(even) td { background:rgba(127,127,127,.05); }
+pre { white-space:pre-wrap; background:var(--card); padding:1rem; border-radius:6px; font-size:.85rem; }
+.warn { color:var(--warn); font-weight:600; }
+.failures { border:1px solid var(--line); border-radius:6px; padding:.8rem; }
+.failures h2 { border:0; color:var(--warn); }
+.failures li { color:var(--muted); font-size:.85rem; }
+footer { color:var(--muted); font-size:.78rem; border-top:1px solid var(--line); padding-top:.8rem; }</style>
+</head>
+<body>
+<header>
+<h1>🏠 부동산</h1>
+<span class="date">2026-08-20 KST</span>
+</header>
+<section class="dash">
+<div class="grid">
+<div class="cell up">
+<div class="k">매매 서울</div>
+<div class="v">+0.21%</div>
+<div class="d">-</div>
+</div>
+<div class="cell up">
+<div class="k">매매 수도권</div>
+<div class="v">+0.14%</div>
+<div class="d">-</div>
+</div>
+<div class="cell up">
+<div class="k">매매 지방</div>
+<div class="v">+0.01%</div>
+<div class="d">-</div>
+</div>
+<div class="cell up">
+<div class="k">전세 서울</div>
+<div class="v">+0.20%</div>
+<div class="d">-</div>
+</div>
+</div>
+<hr class="sep">
+<div class="grid">
+<div class="cell flat">
+<div class="k">공급물량</div>
+<div class="v">14,964호</div>
+<div class="d">-</div>
+</div>
+<div class="cell flat">
+<div class="k">입주물량</div>
+<div class="v">15,592호</div>
+<div class="d">-</div>
+</div>
+<div class="cell flat">
+<div class="k">미분양</div>
+<div class="v">13,553호</div>
+<div class="d">-</div>
+</div>
+<div class="cell flat">
+<div class="k">경매 낙찰가율</div>
+<div class="v">-</div>
+<div class="d">-</div>
+</div>
+</div>
+</section>
+<p class="comment">9일 전인 8월 10일 조사 기준 통계야. 서울 매매는 전주 대비 0.21%, 전세는 0.20% 올랐어.</p>
+<main>
+<section><h2>오늘 일정</h2>
+<p>2026-08-20: 달서자이 제니크 청약 접수 마감</p></section>
+<section><h2>예정 일정</h2>
+<p>2026-08-21: 더샵 신길센트럴시티(조합원 취소분), 용인반도체클러스터 동일하이빌 파크밸리(D1-1블록), 써밋 클라비온, 충정로역자이르네, 두산위브더제니스 부천 청약 접수 마감 / 2026-08-24: 포레나힐스테이트 진주, 쌍용 더 플래티넘 서대문, 아르티엠 라 테라스 청약 접수 시작 / 2026-08-26: 시흥거모 A-5블록 신혼희망타운(공공분양)(본청약), 포레나힐스테이트 진주, 아르티엠 라 테라스 청약 접수 마감 / 2026-08-27: 쌍용 더 플래티넘 서대문 청약 접수 마감</p></section>
+<section><h2>어제 스레드 후속</h2>
+<p>어제 던진 용산공원 부지 개발 갈등의 답은 아직 안 나왔어. 오늘 김윤덕 국토부 장관과 오세훈 서울시장이 만나 담판을 짓는다고 하니 오늘 회동 결과를 지켜봐야 해.</p></section>
+<section><h2>이슈</h2>
+<article><h3>용산공원 청년주택 공급 두고 국토부·서울시 오늘 담판 회동</h3>
+<p>정부의 용산공원 부지 활용 청년주택 공급 계획을 두고 국토교통부와 서울시가 정면충돌하고 있어. 김윤덕 국토부 장관은 녹지 기능을 상실한 곳에 청년주택을 공급하자는 입장인 반면, 오세훈 서울시장은 도심 녹지 보존을 이유로 일관되게 반대해 왔지. 오늘(20일) 두 사람이 만나 서울 주택 문제를 협의할 예정이야. 정치권에서도 공방이 치열해. 조국 조국혁신당 원장은 오 시장을 향해 '정치적 몽니'라며 비판했고, 여당 일각에서도 추가 세수 20조 원을 청년 주거 공급에 써야 한다는 주장이 나오고 있어. [커뮤니티] 관련 반응 데이터 없음.</p></article>
+<article><h3>LTV 80% 대출 풀렸지만 살 집 없는 서울 빌라 시장</h3>
+<p>정부가 청년층에게 비아파트 매입 시 LTV를 최대 80%까지 완화해주기로 했지만 정작 살 만한 빌라가 없다는 지적이 나와. 서울 연립주택 평균 매매가격은 3억 5,813만 원으로 통계 개편 이후 최고치를 기록했고, 일부 분석에서는 평균 4억 원을 넘어섰다고 해. 게다가 올해 1~7월 서울 연립·다세대 매매 거래 중 신축 빌라 비중은 13%에 불과해 공급 가뭄이 심각한 상태야. 청년 주거 사다리 역할을 해야 할 빌라 시장이 전세사기 여파로 신뢰를 잃은 상황에서 실질적인 대안이 되기 어렵다는 우려가 커지고 있어. [커뮤니티] 관련 반응 데이터 없음.</p></article>
+<article><h3>조합설립 기간 1년에서 4개월로 서울시 재건축 속도전</h3>
+<p>서울시가 주택 공급 속도를 높이기 위해 정비구역 지정 전이라도 조합설립 절차를 병행할 수 있도록 제도를 개선하기로 했어. 기존에 1년 넘게 걸리던 조합설립 기간이 4개월로 대폭 단축될 전망이야. 이는 2031년까지 31만 호 착공 공약을 달성하기 위한 가속화 조치야. [커뮤니티] 관련 반응 데이터 없음.</p></article>
+<article><h3>중저가 외곽 지역 전세 매물 급감과 전세대출 예외 허용</h3>
+<p>서울 아파트 전세시장에서 중랑·금천·구로·노원 등 보증금이 상대적으로 낮은 외곽 지역의 매물 감소 폭이 강남권 고가 전세보다 훨씬 크게 나타나고 있어. 한편, 금융당국이 가계대출 규제를 강화하는 가운데 내 집과 전세 사는 집이 같은 구에 있더라도 합당한 사유가 있으면 전세대출을 예외적으로 허용하기로 했어. [커뮤니티] 관련 반응 데이터 없음.</p></article></section>
+<section><h2>내일로 넘기는 질문</h2>
+<p>오늘 열리는 국토부 장관과 서울시장의 용산공원 주택 공급 담판 회동에서 과연 합의점을 찾을 수 있을까?</p></section>
+
+</main>
+<footer>생성 2026-08-19T23:22:31.678Z · 자동 생성된 요약이며 투자 권유가 아닙니다.</footer>
+</body>
+</html>
