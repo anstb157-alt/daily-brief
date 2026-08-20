@@ -1,0 +1,153 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>2026-08-21 증시 브리핑</title>
+<style>:root { color-scheme: light dark;
+  --fg:#1a1a1a; --muted:#6b6b6b; --line:#e3e3e3; --card:#f6f6f7;
+  --up:#c0392b; --down:#1565c0; --flat:#6b6b6b; --warn:#b45309; }
+@media (prefers-color-scheme: dark) {
+  :root { --fg:#e8e8e8; --muted:#9a9a9a; --line:#333; --card:#1c1c1e;
+    --up:#ff6b5a; --down:#5aa9ff; --flat:#9a9a9a; --warn:#fbbf24; }
+}
+* { box-sizing:border-box; }
+body { margin:0 auto; padding:1rem .9rem 3rem; max-width:44rem;
+  font:16px/1.65 -apple-system,BlinkMacSystemFont,"Apple SD Gothic Neo","Noto Sans KR",sans-serif;
+  color:var(--fg); word-break:keep-all; overflow-wrap:anywhere; }
+header { display:flex; align-items:baseline; gap:.5rem; margin-bottom:.7rem; }
+h1 { font-size:1.1rem; margin:0; }
+.date { color:var(--muted); font-size:.85rem; }
+
+/* 모바일 2열 고정 */
+.grid { display:grid; grid-template-columns:repeat(2,1fr); gap:.4rem; }
+@media (min-width:34rem) { .grid { grid-template-columns:repeat(4,1fr); } }
+.cell { background:var(--card); border-radius:8px; padding:.5rem .6rem; }
+.cell .k { font-size:.72rem; color:var(--muted); letter-spacing:-.02em; }
+.cell .v { font-size:1.02rem; font-weight:700; font-variant-numeric:tabular-nums; }
+.cell .d { font-size:.8rem; font-variant-numeric:tabular-nums; color:var(--flat); }
+.cell.up .d, .cell.up .v { color:var(--up); }
+.cell.down .d, .cell.down .v { color:var(--down); }
+.sep { border:0; border-top:1px solid var(--line); margin:.5rem 0; }
+.dash { margin-bottom:.8rem; }
+.comment { font-size:.9rem; color:var(--muted); margin:0 0 1.6rem; }
+
+section { margin-bottom:1.6rem; }
+h2 { font-size:1rem; margin:0 0 .5rem; padding-bottom:.25rem; border-bottom:1px solid var(--line); }
+h3 { font-size:.95rem; margin:0 0 .3rem; }
+h4 { font-size:.88rem; margin:1rem 0 .35rem; color:var(--muted); }
+article { margin-bottom:1rem; }
+p { margin:.4rem 0; }
+ul { margin:.4rem 0; padding-left:1.15rem; }
+li { margin:.25rem 0; }
+a { color:inherit; text-decoration:underline; text-underline-offset:2px; }
+/* 넓은 표는 페이지가 아니라 표 자신이 가로 스크롤한다 */
+.tw { overflow-x:auto; -webkit-overflow-scrolling:touch; margin:.6rem 0; }
+table { border-collapse:collapse; font-size:.82rem; min-width:100%; }
+th, td { border-bottom:1px solid var(--line); padding:.4rem .55rem; text-align:left;
+  vertical-align:top; white-space:nowrap; }
+th { background:var(--card); font-weight:600; position:sticky; top:0; }
+/* 단지명처럼 긴 값은 줄바꿈을 허용해 표가 지나치게 넓어지지 않게 한다 */
+td:nth-child(3) { white-space:normal; min-width:9rem; }
+tbody tr:nth-child(even) td { background:rgba(127,127,127,.05); }
+pre { white-space:pre-wrap; background:var(--card); padding:1rem; border-radius:6px; font-size:.85rem; }
+.warn { color:var(--warn); font-weight:600; }
+.failures { border:1px solid var(--line); border-radius:6px; padding:.8rem; }
+.failures h2 { border:0; color:var(--warn); }
+.failures li { color:var(--muted); font-size:.85rem; }
+footer { color:var(--muted); font-size:.78rem; border-top:1px solid var(--line); padding-top:.8rem; }</style>
+</head>
+<body>
+<header>
+<h1>📈 증시</h1>
+<span class="date">2026-08-21 KST</span>
+</header>
+<section class="dash">
+<div class="grid">
+<div class="cell down">
+<div class="k">S&amp;P500</div>
+<div class="v">7,641.16</div>
+<div class="d">−0.87%</div>
+</div>
+<div class="cell down">
+<div class="k">나스닥</div>
+<div class="v">26,067.17</div>
+<div class="d">−1.00%</div>
+</div>
+<div class="cell down">
+<div class="k">다우</div>
+<div class="v">52,759.21</div>
+<div class="d">−1.32%</div>
+</div>
+</div>
+<hr class="sep">
+<div class="grid">
+<div class="cell up">
+<div class="k">미10년물</div>
+<div class="v">4.704</div>
+<div class="d">+0.13%</div>
+</div>
+<div class="cell flat">
+<div class="k">달러인덱스</div>
+<div class="v">98.90</div>
+<div class="d">0.00%</div>
+</div>
+<div class="cell down">
+<div class="k">원달러</div>
+<div class="v">1,392.50</div>
+<div class="d">−0.16%</div>
+</div>
+</div>
+<hr class="sep">
+<div class="grid">
+<div class="cell flat">
+<div class="k">코스피</div>
+<div class="v">6,852.58</div>
+<div class="d">0.00%</div>
+</div>
+<div class="cell flat">
+<div class="k">코스닥</div>
+<div class="v">840.89</div>
+<div class="d">0.00%</div>
+</div>
+<div class="cell up">
+<div class="k">외국인</div>
+<div class="v">+17068억</div>
+<div class="d">-</div>
+</div>
+<div class="cell down">
+<div class="k">기관</div>
+<div class="v">−4895억</div>
+<div class="d">-</div>
+</div>
+<div class="cell down">
+<div class="k">개인</div>
+<div class="v">−22712억</div>
+<div class="d">-</div>
+</div>
+</div>
+</section>
+<p class="comment">어제 코스피가 5.89% 급등하며 6850선을 회복했으나, 간밤 뉴욕증시 하락으로 오늘 하락 출발이 예상된다.</p>
+<main>
+<section><h2>오늘 일정</h2>
+<p>08-21 실적발표: KE Holdings(BEKE), BJ's Wholesale Club(BJ), Buckle(BKE) 장 시작 전 발표 예정.</p></section>
+<section><h2>예정 일정</h2>
+<p>8/24 PDD Holdings(PDD), XPeng(XPEV) 실적 발표 / 8/25 Intuit(INTU) 실적 발표 / 8/26 엔비디아(NVDA, 컨센 $2.01), CrowdStrike(CRWD), Salesforce(CRM) 실적 발표 / 8/27 Marvell(MRVL) 실적 발표</p></section>
+<section><h2>어제 스레드 후속</h2>
+<p>어제 던진 SK하이닉스 40조 자사주 소각 카드 질문, 답 나왔다. SK하이닉스가 13% 넘게 오르고 코스피도 하루 만에 5.89% 오른 6852.58로 마감하며 분위기 반전에 성공했다. 다만 오늘 미국발 금리 반등 악재를 맞닥뜨려 이 기세를 이어갈지가 관건이다.</p></section>
+<section><h2>이슈</h2>
+<article><h3>하루 만에 끝난 바이백 약발, 미 국채 금리 다시 상승</h3>
+<p>미 재무부의 국채 바이백 확대 발표로 진정되는 듯했던 장기 국채 금리가 하루 만에 다시 올랐다. 10년물 국채 금리는 4.704%로 상승했다. 여기에 월마트 실적 부진에 따른 소비 둔화 우려와 중동 지정학적 긴장으로 인한 국제유가 상승이 겹쳤다. 다우(-1.32%), S&amp;P500(-0.87%), 나스닥(-1.00%) 등 뉴욕 3대 지수가 일제히 하락했다. 반면 마이크론(+3.97%), 샌디스크(+2.02%) 등 반도체주는 대규모 AI 투자 계획 등에 힘입어 상승했다.</p></article>
+<article><h3>엔비디아, '중국 맞춤형 AI 칩 출시 계획 전혀 없다'</h3>
+<p>올해 말 중국 시장을 겨냥한 새로운 AI 칩을 소량 출하할 계획이라는 외신 보도가 나왔으나, 엔비디아 측은 이를 공식 부인했다. 엔비디아는 '중국 전용 AI 칩 출시 계획이 전혀 없다'고 일축했다. 한편 TSMC는 엔비디아, 브로드컴과 함께 1.6T CPO 플랫폼을 바탕으로 한 모듈 시제품 생산에 돌입하며 2027년 양산을 목표로 하고 있다.</p></article>
+<article><h3>외국인 7개월째 '팔자' 지속, 야놀자는 기업가치 2조 미만으로 추락</h3>
+<p>외국인은 지난 7월 한 달간 코스피에서 30조 7,760억 원, 코스닥에서 8,890억 원을 순매도하며 7개월 연속 매도세를 이어갔다. 한편, 나스닥 상장을 추진하던 야놀자는 최근 기업가치가 2조 원에도 미치지 못하는 수준으로 떨어지며 국내외 증시 입성이 불투명해졌다. [커뮤니티] '하이닉스 호재로 외인이 들어오는 줄 알았는데 7월 매도 규모 보니 갈 길이 멀다'는 우려와 '반도체 업황만 살아나면 외인은 다시 돌아온다'는 의견이 엇갈린다.</p></article>
+<article><h3>LG-엔비디아 AI 동맹 공식화와 보험주 배당 재개 기대감</h3>
+<p>LG전자가 반기보고서를 통해 AIDV(인공지능 중심 차량) 플랫폼 개발을 위해 엔비디아와 협력 중임을 밝혔다. 로봇, AI 팩토리, 자율주행 등 3개 분야에서 협력하며 글로벌 AI 밸류체인 편입 신호로 해석된다. 국내 증시에서는 해약환급금준비금 규제 완화 관측으로 현대해상(+13.74%)과 한화생명(+9.54%) 등 보험주가 배당 재개 기대로 강세를 보였다.</p></article></section>
+<section><h2>내일로 넘기는 질문</h2>
+<p>미국 국채 금리 반등과 소비 둔화 우려가 덮친 오늘, 어제 6% 가까이 급등했던 코스피는 반도체주의 버팀목 역할 속에 하락 압력을 이겨낼 수 있을까?</p></section>
+
+</main>
+<footer>생성 2026-08-20T23:54:28.946Z · 자동 생성된 요약이며 투자 권유가 아닙니다.</footer>
+</body>
+</html>
