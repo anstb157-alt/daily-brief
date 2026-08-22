@@ -1,0 +1,137 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>2026-08-23 부동산 브리핑</title>
+<style>:root { color-scheme: light dark;
+  --fg:#1a1a1a; --muted:#6b6b6b; --line:#e3e3e3; --card:#f6f6f7;
+  --up:#c0392b; --down:#1565c0; --flat:#6b6b6b; --warn:#b45309; }
+@media (prefers-color-scheme: dark) {
+  :root { --fg:#e8e8e8; --muted:#9a9a9a; --line:#333; --card:#1c1c1e;
+    --up:#ff6b5a; --down:#5aa9ff; --flat:#9a9a9a; --warn:#fbbf24; }
+}
+* { box-sizing:border-box; }
+body { margin:0 auto; padding:1rem .9rem 3rem; max-width:44rem;
+  font:16px/1.65 -apple-system,BlinkMacSystemFont,"Apple SD Gothic Neo","Noto Sans KR",sans-serif;
+  color:var(--fg); word-break:keep-all; overflow-wrap:anywhere; }
+header { display:flex; align-items:baseline; gap:.5rem; margin-bottom:.7rem; }
+h1 { font-size:1.1rem; margin:0; }
+.date { color:var(--muted); font-size:.85rem; }
+
+/* 모바일 2열 고정 */
+.grid { display:grid; grid-template-columns:repeat(2,1fr); gap:.4rem; }
+@media (min-width:34rem) { .grid { grid-template-columns:repeat(4,1fr); } }
+.cell { background:var(--card); border-radius:8px; padding:.5rem .6rem; }
+.cell .k { font-size:.72rem; color:var(--muted); letter-spacing:-.02em; }
+.cell .v { font-size:1.02rem; font-weight:700; font-variant-numeric:tabular-nums; }
+.cell .d { font-size:.8rem; font-variant-numeric:tabular-nums; color:var(--flat); }
+.cell.up .d, .cell.up .v { color:var(--up); }
+.cell.down .d, .cell.down .v { color:var(--down); }
+.sep { border:0; border-top:1px solid var(--line); margin:.5rem 0; }
+.dash { margin-bottom:.8rem; }
+.comment { font-size:.9rem; color:var(--muted); margin:0 0 1.6rem; }
+
+section { margin-bottom:1.6rem; }
+h2 { font-size:1rem; margin:0 0 .5rem; padding-bottom:.25rem; border-bottom:1px solid var(--line); }
+h3 { font-size:.95rem; margin:0 0 .3rem; }
+h4 { font-size:.88rem; margin:1rem 0 .35rem; color:var(--muted); }
+article { margin-bottom:1rem; }
+p { margin:.4rem 0; }
+ul { margin:.4rem 0; padding-left:1.15rem; }
+li { margin:.25rem 0; }
+a { color:inherit; text-decoration:underline; text-underline-offset:2px; }
+/* 넓은 표는 페이지가 아니라 표 자신이 가로 스크롤한다 */
+.tw { overflow-x:auto; -webkit-overflow-scrolling:touch; margin:.6rem 0; }
+table { border-collapse:collapse; font-size:.82rem; min-width:100%; }
+th, td { border-bottom:1px solid var(--line); padding:.4rem .55rem; text-align:left;
+  vertical-align:top; white-space:nowrap; }
+th { background:var(--card); font-weight:600; position:sticky; top:0; }
+/* 단지명처럼 긴 값은 줄바꿈을 허용해 표가 지나치게 넓어지지 않게 한다 */
+td:nth-child(3) { white-space:normal; min-width:9rem; }
+tbody tr:nth-child(even) td { background:rgba(127,127,127,.05); }
+pre { white-space:pre-wrap; background:var(--card); padding:1rem; border-radius:6px; font-size:.85rem; }
+.warn { color:var(--warn); font-weight:600; }
+.failures { border:1px solid var(--line); border-radius:6px; padding:.8rem; }
+.failures h2 { border:0; color:var(--warn); }
+.failures li { color:var(--muted); font-size:.85rem; }
+footer { color:var(--muted); font-size:.78rem; border-top:1px solid var(--line); padding-top:.8rem; }</style>
+</head>
+<body>
+<header>
+<h1>🏠 부동산</h1>
+<span class="date">2026-08-23 KST</span>
+</header>
+<section class="dash">
+<div class="grid">
+<div class="cell up">
+<div class="k">매매 서울</div>
+<div class="v">+0.22%</div>
+<div class="d">-</div>
+</div>
+<div class="cell up">
+<div class="k">매매 수도권</div>
+<div class="v">+0.15%</div>
+<div class="d">-</div>
+</div>
+<div class="cell flat">
+<div class="k">매매 지방</div>
+<div class="v">0.00%</div>
+<div class="d">-</div>
+</div>
+<div class="cell up">
+<div class="k">전세 서울</div>
+<div class="v">+0.19%</div>
+<div class="d">-</div>
+</div>
+</div>
+<hr class="sep">
+<div class="grid">
+<div class="cell flat">
+<div class="k">공급물량</div>
+<div class="v">14,964호</div>
+<div class="d">-</div>
+</div>
+<div class="cell flat">
+<div class="k">입주물량</div>
+<div class="v">15,592호</div>
+<div class="d">-</div>
+</div>
+<div class="cell flat">
+<div class="k">미분양</div>
+<div class="v">13,553호</div>
+<div class="d">-</div>
+</div>
+<div class="cell flat">
+<div class="k">경매 낙찰가율</div>
+<div class="v">-</div>
+<div class="d">-</div>
+</div>
+</div>
+</section>
+<p class="comment">주간 통계는 5일 전(8월 17일) 기준이며, 서울 매매(+0.22%)와 전세(+0.19%) 모두 상승세를 유지하고 있습니다.</p>
+<main>
+<section><h2>오늘 일정</h2>
+<p>2026-08-24: 포레나힐스테이트 진주, 쌍용 더 플래티넘 서대문, 아르티엠 라 테라스, 상동역 롯데캐슬 시그니처, 제일풍경채 첨단3지구(A6BL), 의왕역 한신더휴, 오남역 서희스타힐스 여의재 1단지 청약 접수 시작</p></section>
+<section><h2>예정 일정</h2>
+<p>2026-08-26: 시흥거모 A-5블록 신혼희망타운, 포레나힐스테이트 진주, 아르티엠 라 테라스, 상동역 롯데캐슬 시그니처, 제일풍경채 첨단3지구(A6BL), 오남역 서희스타힐스 여의재 1단지 청약 접수 종료 | 2026-08-27: 쌍용 더 플래티넘 서대문, 의왕역 한신더휴 청약 접수 종료 | 2026-08-31: 검암역 푸르지오 프라베뉴 (B-1BL), 시티오씨엘 9단지 오션파크뷰 청약 접수 시작 | 2026-09-02: 검암역 푸르지오 프라베뉴 (B-1BL), 시티오씨엘 9단지 오션파크뷰 청약 접수 종료</p></section>
+<section><h2>어제 스레드 후속</h2>
+<p>어제 던진 전세대출 제한과 매물 잠김 우려의 답이 서서히 보인다. 집주인들의 실거주 전환으로 방을 빼달라는 요구가 늘면서 전세난 이중 압박이 현실화되는 분위기다. 은마와 잠실주공5단지 이주 수요까지 겹치며 서울 아파트 전세 매물은 2만 800건 수준으로 줄었다.</p></section>
+<section><h2>이슈</h2>
+<article><h3>8.3 세제개편의 온도차, 강남 하락 vs 강북 상승</h3>
+<p>8.3 세제개편 영향으로 강남과 서초 아파트 가격이 2주 연속 하락세를 보였다. 반면 강북 지역은 20억 원대 아파트값을 중심으로 키 맞추기 상승세가 나타나며 온도차를 보이고 있다. [커뮤니티]에서는 세금 부담 때문에 강남 똘똘한 한 채도 주춤하는 것 같다는 의견과 강남이 떨어져도 강북이 오르면 결국 서민에겐 그림의 떡이라는 엇갈린 반응이 나온다.</p></article>
+<article><h3>용산공원 주택 공급 두고 국토부·서울시 평행선</h3>
+<p>용산공원 부지 일부에 청년·신혼부부 주택을 지으려는 국토교통부와 1cm도 양보할 수 없다는 서울시가 이번 주 다시 회동한다. 민주당과 오세훈 서울시장의 오찬에서도 주택 공급을 둘러싼 이견만 확인됐다. [커뮤니티]에서는 도심 핵심지에 청년 주택을 지어야 공급 가뭄이 해결된다는 찬성론과 한 번 훼손된 공원은 되돌릴 수 없으니 녹지로 보존해야 한다는 반대론이 팽팽하게 맞서고 있다.</p></article>
+<article><h3>대출 여력 30조 원 확보, 청년·저신용자 유인책 제시</h3>
+<p>금융당국이 8·13 대책을 통해 연간 가계대출 증가율 목표를 1.5%에서 3.0%로 상향하며 약 30조 원의 대출 여력을 확보했다. 당국은 청년 및 저신용자 대출을 늘리는 은행에 총량 규제를 완화해 주는 유인책을 제시했다. 한편 한국은행은 환율은 안정됐으나 부동산 시장 불안이 이어지는 만큼 향후 금리 인상 시점은 주택시장 흐름에 따라 결정될 것이라는 관측이 나온다.</p></article>
+<article><h3>실거주 전환 압박 속 전세사기 안심신탁 내달 시행</h3>
+<p>집주인들의 실거주 전환으로 세입자들이 방을 비워줘야 하는 상황이 늘면서 전세난이 심화되고 있다. 전세사기를 막기 위해 전세보증금을 공공기관에 신탁하는 안심신탁 제도가 내달 시행되지만, 임대인 참여를 이끌 유인책이 부족하다는 지적이 우세하다. 한편 경기도는 임대인 부재로 관리가 방치된 전세사기 피해주택의 수리비를 오는 26일부터 지원하기로 했다.</p></article>
+<article><h3>서대문 13억 원대 단지 청약 개시 및 대단지 분양 대기</h3>
+<p>이번 주 서울 홍은동 쌍용 더 플래티넘 서대문이 전용 84㎡ 기준 13억 원대의 분양가에도 청약 접수를 시작한다. 경기도 부천에서는 1,859가구 규모의 상동역 롯데캐슬 시그니처 등 대단지 청약이 예정되어 있다. 최근 청약 시장에서는 분양가 상승에 대응해 발코니 확장 등으로 실사용 면적을 넓힌 특화 설계 단지들이 주목받고 있다.</p></article></section>
+<section><h2>내일로 넘기는 질문</h2>
+<p>가계대출 한도가 3%로 늘어나고 청년층 대출이 완화되면, 규제지역에서 밀려난 매수세가 경기 비규제지역으로 얼마나 더 빠르게 이동할까?</p></section>
+
+</main>
+<footer>생성 2026-08-22T23:21:05.820Z · 자동 생성된 요약이며 투자 권유가 아닙니다.</footer>
+</body>
+</html>
