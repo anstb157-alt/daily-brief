@@ -1,0 +1,154 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>2026-08-24 증시 브리핑</title>
+<style>:root { color-scheme: light dark;
+  --fg:#1a1a1a; --muted:#6b6b6b; --line:#e3e3e3; --card:#f6f6f7;
+  --up:#c0392b; --down:#1565c0; --flat:#6b6b6b; --warn:#b45309; }
+@media (prefers-color-scheme: dark) {
+  :root { --fg:#e8e8e8; --muted:#9a9a9a; --line:#333; --card:#1c1c1e;
+    --up:#ff6b5a; --down:#5aa9ff; --flat:#9a9a9a; --warn:#fbbf24; }
+}
+* { box-sizing:border-box; }
+body { margin:0 auto; padding:1rem .9rem 3rem; max-width:44rem;
+  font:16px/1.65 -apple-system,BlinkMacSystemFont,"Apple SD Gothic Neo","Noto Sans KR",sans-serif;
+  color:var(--fg); word-break:keep-all; overflow-wrap:anywhere; }
+header { display:flex; align-items:baseline; gap:.5rem; margin-bottom:.7rem; }
+h1 { font-size:1.1rem; margin:0; }
+.date { color:var(--muted); font-size:.85rem; }
+
+/* 모바일 2열 고정 */
+.grid { display:grid; grid-template-columns:repeat(2,1fr); gap:.4rem; }
+@media (min-width:34rem) { .grid { grid-template-columns:repeat(4,1fr); } }
+.cell { background:var(--card); border-radius:8px; padding:.5rem .6rem; }
+.cell .k { font-size:.72rem; color:var(--muted); letter-spacing:-.02em; }
+.cell .v { font-size:1.02rem; font-weight:700; font-variant-numeric:tabular-nums; }
+.cell .d { font-size:.8rem; font-variant-numeric:tabular-nums; color:var(--flat); }
+.cell.up .d, .cell.up .v { color:var(--up); }
+.cell.down .d, .cell.down .v { color:var(--down); }
+.sep { border:0; border-top:1px solid var(--line); margin:.5rem 0; }
+.dash { margin-bottom:.8rem; }
+.comment { font-size:.9rem; color:var(--muted); margin:0 0 1.6rem; }
+
+section { margin-bottom:1.6rem; }
+h2 { font-size:1rem; margin:0 0 .5rem; padding-bottom:.25rem; border-bottom:1px solid var(--line); }
+h3 { font-size:.95rem; margin:0 0 .3rem; }
+h4 { font-size:.88rem; margin:1rem 0 .35rem; color:var(--muted); }
+article { margin-bottom:1rem; }
+p { margin:.4rem 0; }
+ul { margin:.4rem 0; padding-left:1.15rem; }
+li { margin:.25rem 0; }
+a { color:inherit; text-decoration:underline; text-underline-offset:2px; }
+/* 넓은 표는 페이지가 아니라 표 자신이 가로 스크롤한다 */
+.tw { overflow-x:auto; -webkit-overflow-scrolling:touch; margin:.6rem 0; }
+table { border-collapse:collapse; font-size:.82rem; min-width:100%; }
+th, td { border-bottom:1px solid var(--line); padding:.4rem .55rem; text-align:left;
+  vertical-align:top; white-space:nowrap; }
+th { background:var(--card); font-weight:600; position:sticky; top:0; }
+/* 단지명처럼 긴 값은 줄바꿈을 허용해 표가 지나치게 넓어지지 않게 한다 */
+td:nth-child(3) { white-space:normal; min-width:9rem; }
+tbody tr:nth-child(even) td { background:rgba(127,127,127,.05); }
+pre { white-space:pre-wrap; background:var(--card); padding:1rem; border-radius:6px; font-size:.85rem; }
+.warn { color:var(--warn); font-weight:600; }
+.failures { border:1px solid var(--line); border-radius:6px; padding:.8rem; }
+.failures h2 { border:0; color:var(--warn); }
+.failures li { color:var(--muted); font-size:.85rem; }
+footer { color:var(--muted); font-size:.78rem; border-top:1px solid var(--line); padding-top:.8rem; }</style>
+</head>
+<body>
+<header>
+<h1>📈 증시</h1>
+<span class="date">2026-08-24 KST</span>
+</header>
+<section class="dash">
+<div class="grid">
+<div class="cell up">
+<div class="k">S&amp;P500</div>
+<div class="v">7,674.37</div>
+<div class="d">+0.43%</div>
+</div>
+<div class="cell up">
+<div class="k">나스닥</div>
+<div class="v">26,180.46</div>
+<div class="d">+0.44%</div>
+</div>
+<div class="cell up">
+<div class="k">다우</div>
+<div class="v">53,277.01</div>
+<div class="d">+0.98%</div>
+</div>
+</div>
+<hr class="sep">
+<div class="grid">
+<div class="cell up">
+<div class="k">미10년물</div>
+<div class="v">4.736</div>
+<div class="d">+0.81%</div>
+</div>
+<div class="cell flat">
+<div class="k">달러인덱스</div>
+<div class="v">98.80</div>
+<div class="d">0.00%</div>
+</div>
+<div class="cell down">
+<div class="k">원달러</div>
+<div class="v">1,385.50</div>
+<div class="d">−0.11%</div>
+</div>
+</div>
+<hr class="sep">
+<div class="grid">
+<div class="cell flat">
+<div class="k">코스피</div>
+<div class="v">6,912.95</div>
+<div class="d">0.00%</div>
+</div>
+<div class="cell flat">
+<div class="k">코스닥</div>
+<div class="v">801.94</div>
+<div class="d">0.00%</div>
+</div>
+<div class="cell down">
+<div class="k">외국인</div>
+<div class="v">−1760억</div>
+<div class="d">-</div>
+</div>
+<div class="cell up">
+<div class="k">기관</div>
+<div class="v">+2481억</div>
+<div class="d">-</div>
+</div>
+<div class="cell down">
+<div class="k">개인</div>
+<div class="v">−11652억</div>
+<div class="d">-</div>
+</div>
+</div>
+</section>
+<p class="comment">미국 장기 국채금리가 4.736%로 올랐으나 저가 매수세 유입으로 뉴욕 증시는 소폭 반등했다.</p>
+<main>
+<section><h2>오늘 일정</h2>
+<p>데이터 없음</p></section>
+<section><h2>예정 일정</h2>
+<p>8/24 PDD 실적발표(장시작 전, 컨센 $2.69) / XPeng 실적발표(장시작 전)</p>
+<p>8/26 Core PCE 물가지수 발표(21:30, 컨센 0.2%) / 미국 잠정 GDP 발표(21:30, 컨센 1.5%) / 엔비디아 실적발표(장마감 후, 컨센 $2.01)</p>
+<p>8/28 연준 워시 의장 연설(23:00) / 미국 비농업 고용 벤치마크 수정치 발표(23:00)</p>
+<p>8/29 잭슨홀 심포지엄(01:15)</p></section>
+<section><h2>어제 스레드 후속</h2>
+<p>어제 던진 질문의 답은 아직 안 나왔다. 삼성전자가 90조~110조 원 규모의 주주환원책을 발표했으나 프리마켓에서 삼성전자는 3.6% 하락하고 SK하이닉스는 1.9% 상승하며 투심이 갈렸다. 코스피 야간선물도 2.29% 하락해 오늘 본장에서 주주환원책의 진짜 약발이 증명될지 지켜봐야 한다.</p></section>
+<section><h2>이슈</h2>
+<article><h3>삼성전자·SK하이닉스 주주환원책 발표와 엇갈린 프리마켓 반응</h3>
+<p>삼성전자가 2024~2026년 누적 잉여현금흐름(FCF)의 50%를 활용해 90조~110조 원 규모의 주주환원을 하겠다고 발표했다. SK하이닉스도 주주환원책을 내놓았다. 그러나 프리마켓에서 삼성전자는 3.6% 하락했고 SK하이닉스는 1.9% 상승하며 반응이 갈렸다. 미국 증시에서 마이크론(-0.77%), 샌디스크(-0.28%) 등 메모리 반도체주도 약세를 보였다. [커뮤니티] 반응은 분분하다. '주주환원 기준이 FCF라 미국 기업들의 초과현금 기준보다 짜다'는 불만과 '이 정도 규모면 하방은 확실히 지지해 줄 것'이라는 옹호론이 대립하고 있다.</p></article>
+<article><h3>엔비디아, 메모리 가격 상승에 AI 서버 가격 15% 인상 예고</h3>
+<p>메모리 반도체 가격 급등 영향으로 엔비디아가 내년 초부터 차세대 AI 서버 가격을 15% 이상 인상할 전망이다. 엔비디아는 AI 개발 기업을 인수하며 오픈웨이트 '네모트론'에 힘을 싣고 있으며, 전력 인프라 기업 클로버리프 지분 인수 및 리벨리온과의 협력도 추진 중이다. 다만 지난 금요일 주가는 0.98% 하락했다. [커뮤니티]에서는 '서버 가격 올리면 마진이 더 좋아질 것'이라는 긍정론과 'AI 투자 비용 부담이 커져 빅테크들이 지갑을 닫을 수 있다'는 우려가 공존한다.</p></article>
+<article><h3>미국 증시 반등과 코스피 야간선물의 괴리</h3>
+<p>뉴욕 증시는 서비스업 경기 호조와 저가 매수세 유입으로 3대 지수가 소폭 상승 마감했다. 하지만 코스피200 야간선물은 2.29% 하락하며 본장 개장을 앞두고 부담을 주는 상황이다. 이번 주 잭슨홀 미팅 결과, PCE 물가, 엔비디아 실적 등 대형 이벤트를 앞둔 관망세가 짙다. [커뮤니티]에서는 '미국장 올랐는데 야간선물 왜 이 모양이냐', '국장은 오늘도 쉽지 않겠다'며 실망 섞인 목소리가 주를 이룬다.</p></article></section>
+<section><h2>내일로 넘기는 질문</h2>
+<p>삼성전자와 SK하이닉스의 초대형 주주환원책이 야간선물 2.29% 하락이라는 찬물을 끼얹은 국장 투심을 돌려세울 수 있을까?</p></section>
+
+</main>
+<footer>생성 2026-08-23T23:51:23.576Z · 자동 생성된 요약이며 투자 권유가 아닙니다.</footer>
+</body>
+</html>
