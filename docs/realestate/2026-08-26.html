@@ -1,0 +1,135 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>2026-08-26 부동산 브리핑</title>
+<style>:root { color-scheme: light dark;
+  --fg:#1a1a1a; --muted:#6b6b6b; --line:#e3e3e3; --card:#f6f6f7;
+  --up:#c0392b; --down:#1565c0; --flat:#6b6b6b; --warn:#b45309; }
+@media (prefers-color-scheme: dark) {
+  :root { --fg:#e8e8e8; --muted:#9a9a9a; --line:#333; --card:#1c1c1e;
+    --up:#ff6b5a; --down:#5aa9ff; --flat:#9a9a9a; --warn:#fbbf24; }
+}
+* { box-sizing:border-box; }
+body { margin:0 auto; padding:1rem .9rem 3rem; max-width:44rem;
+  font:16px/1.65 -apple-system,BlinkMacSystemFont,"Apple SD Gothic Neo","Noto Sans KR",sans-serif;
+  color:var(--fg); word-break:keep-all; overflow-wrap:anywhere; }
+header { display:flex; align-items:baseline; gap:.5rem; margin-bottom:.7rem; }
+h1 { font-size:1.1rem; margin:0; }
+.date { color:var(--muted); font-size:.85rem; }
+
+/* 모바일 2열 고정 */
+.grid { display:grid; grid-template-columns:repeat(2,1fr); gap:.4rem; }
+@media (min-width:34rem) { .grid { grid-template-columns:repeat(4,1fr); } }
+.cell { background:var(--card); border-radius:8px; padding:.5rem .6rem; }
+.cell .k { font-size:.72rem; color:var(--muted); letter-spacing:-.02em; }
+.cell .v { font-size:1.02rem; font-weight:700; font-variant-numeric:tabular-nums; }
+.cell .d { font-size:.8rem; font-variant-numeric:tabular-nums; color:var(--flat); }
+.cell.up .d, .cell.up .v { color:var(--up); }
+.cell.down .d, .cell.down .v { color:var(--down); }
+.sep { border:0; border-top:1px solid var(--line); margin:.5rem 0; }
+.dash { margin-bottom:.8rem; }
+.comment { font-size:.9rem; color:var(--muted); margin:0 0 1.6rem; }
+
+section { margin-bottom:1.6rem; }
+h2 { font-size:1rem; margin:0 0 .5rem; padding-bottom:.25rem; border-bottom:1px solid var(--line); }
+h3 { font-size:.95rem; margin:0 0 .3rem; }
+h4 { font-size:.88rem; margin:1rem 0 .35rem; color:var(--muted); }
+article { margin-bottom:1rem; }
+p { margin:.4rem 0; }
+ul { margin:.4rem 0; padding-left:1.15rem; }
+li { margin:.25rem 0; }
+a { color:inherit; text-decoration:underline; text-underline-offset:2px; }
+/* 넓은 표는 페이지가 아니라 표 자신이 가로 스크롤한다 */
+.tw { overflow-x:auto; -webkit-overflow-scrolling:touch; margin:.6rem 0; }
+table { border-collapse:collapse; font-size:.82rem; min-width:100%; }
+th, td { border-bottom:1px solid var(--line); padding:.4rem .55rem; text-align:left;
+  vertical-align:top; white-space:nowrap; }
+th { background:var(--card); font-weight:600; position:sticky; top:0; }
+/* 단지명처럼 긴 값은 줄바꿈을 허용해 표가 지나치게 넓어지지 않게 한다 */
+td:nth-child(3) { white-space:normal; min-width:9rem; }
+tbody tr:nth-child(even) td { background:rgba(127,127,127,.05); }
+pre { white-space:pre-wrap; background:var(--card); padding:1rem; border-radius:6px; font-size:.85rem; }
+.warn { color:var(--warn); font-weight:600; }
+.failures { border:1px solid var(--line); border-radius:6px; padding:.8rem; }
+.failures h2 { border:0; color:var(--warn); }
+.failures li { color:var(--muted); font-size:.85rem; }
+footer { color:var(--muted); font-size:.78rem; border-top:1px solid var(--line); padding-top:.8rem; }</style>
+</head>
+<body>
+<header>
+<h1>🏠 부동산</h1>
+<span class="date">2026-08-26 KST</span>
+</header>
+<section class="dash">
+<div class="grid">
+<div class="cell up">
+<div class="k">매매 서울</div>
+<div class="v">+0.22%</div>
+<div class="d">-</div>
+</div>
+<div class="cell up">
+<div class="k">매매 수도권</div>
+<div class="v">+0.15%</div>
+<div class="d">-</div>
+</div>
+<div class="cell flat">
+<div class="k">매매 지방</div>
+<div class="v">0.00%</div>
+<div class="d">-</div>
+</div>
+<div class="cell up">
+<div class="k">전세 서울</div>
+<div class="v">+0.19%</div>
+<div class="d">-</div>
+</div>
+</div>
+<hr class="sep">
+<div class="grid">
+<div class="cell flat">
+<div class="k">공급물량</div>
+<div class="v">12,008호</div>
+<div class="d">-</div>
+</div>
+<div class="cell flat">
+<div class="k">입주물량</div>
+<div class="v">15,592호</div>
+<div class="d">-</div>
+</div>
+<div class="cell flat">
+<div class="k">미분양</div>
+<div class="v">13,553호</div>
+<div class="d">-</div>
+</div>
+<div class="cell flat">
+<div class="k">경매 낙찰가율</div>
+<div class="v">-</div>
+<div class="d">-</div>
+</div>
+</div>
+</section>
+<p class="comment">8일 전(8월 17일) 기준 한국부동산원 주간 통계입니다.</p>
+<main>
+<section><h2>오늘 일정</h2>
+<p>2026-08-26: 구리역 롯데캐슬 시그니처 무순위 청약 접수, 포레나힐스테이트 진주 청약 접수 종료, 아르티엠 라 테라스 청약 접수 종료, 상동역 롯데캐슬 시그니처 청약 접수 종료, 제일풍경채 첨단3지구(A6BL) 청약 접수 종료, 오남역 서희스타힐스 여의재 1단지 청약 접수 종료, 시흥거모 A-5블록 신혼희망타운 청약 접수 종료</p></section>
+<section><h2>예정 일정</h2>
+<p>2026-08-27: 쌍용 더 플래티넘 서대문 및 의왕역 한신더휴 청약 접수 종료 / 2026-08-31: 검암역 푸르지오 프라베뉴 및 시티오씨엘 9단지 오션파크뷰 청약 접수 시작</p></section>
+<section><h2>어제 스레드 후속</h2>
+<p>어제 던진 질문은 아직 완전히 해소되지 않았어. 다만 서울 빌라 전세 중위가격이 2억 150만 원으로 역대 최고를 기록하며 전세난이 빌라로 번지는 양상이야. 반면 강남·서초 아파트값은 2주 연속 하락하며 서울 내에서도 온도차가 나고 있어.</p></section>
+<section><h2>이슈</h2>
+<article><h3>집단대출만 숨통 트였나, 일반 주담대는 여전히 꽁꽁</h3>
+<p>정부가 가계대출 규제 속에서 청약 당첨자들의 잔금대출을 위해 올해 대출 총량을 30조 원 추가했어. 덕분에 이주비나 중도금, 잔금대출 같은 주택 공급 관련 집단대출은 은행별 가계대출 목표와 별도로 관리되면서 숨통이 트였지. 하지만 일반 주담대와 전세대출을 받으려는 실수요자들은 여전히 울상이야. 하나은행은 대출모집인을 통한 11월 실행분 주담대와 전세대출 접수를 중단했고, 국민은행은 주택 구입 목적 주담대 한도를 6억 원에서 3억 원으로 낮췄거든. 대출 문턱이 여전히 높아서 발을 구르는 이들이 많아.</p></article>
+<article><h3>국토부와 서울시, 오늘 용산공원 주택 공급 2차 담판</h3>
+<p>김윤덕 국토교통부 장관과 오세훈 서울시장이 오늘(26일) 다시 만나 용산공원 주택 공급 문제를 논의해. 지난 20일 첫 회동에서 이견만 확인한 지 엿새 만이야. 정부는 공원·녹지 기능이 훼손된 일부 부지를 제한적으로 활용해 청년·신혼부부 주택을 공급하자는 입장이고, 서울시는 본체 개발은 불가하다며 대체부지나 정비사업 규제 완화를 제안하고 있어. 오늘 회동에서 양측이 절충안을 찾아낼 수 있을지가 서울 공급 대책의 핵심 변수야.</p></article>
+<article><h3>서울 빌라 전세 최고가 및 강남권 하락</h3>
+<p>아파트 전세 매물이 줄어들자 대체 주거지인 빌라로 수요가 몰리고 있어. 지난달 서울 연립·다세대 중위 전셋값은 2억 150만 원으로 역대 최고치를 기록했지. 반면 매매 시장에서는 강남권이 주춤하는 모양새야. 8월 셋째 주 기준 서초구(-0.09%)와 강남구(-0.05%) 아파트 매매가격은 2주 연속 하락했어. 서울 25개 자치구 중 하락한 곳은 이 두 곳뿐이야. 강남구 매물은 8월 3일 이후 12.2% 늘어난 반면 토지거래허가 신청은 30% 감소하며 거래 절벽 우려가 나오고 있어. [커뮤니티]에서는 '강남 집값도 대출 규제 앞엔 장사 없다'는 의견과 '일시적 숨 고르기일 뿐 결국 다시 갈 것'이라는 의견이 팽팽하게 맞서고 있어.</p></article>
+<article><h3>뉴홈 대출 조건 원안 유지와 구리역 줍줍 시작</h3>
+<p>국토부가 고양창릉 등 뉴홈 사전청약자들의 요구를 수용해 2022년 예시했던 전용 모기지 대출 조건을 그대로 적용하기로 확정했어. 청약 시장에서는 오늘 구리시 인창동 '구리역 롯데캐슬 시그니처' 전용 82㎡B 1가구 무순위 줍줍 청약이 진행돼. 최근 청약 경쟁률을 보면 전용 84.9944A 타입이 53.24대 1로 가장 높았고, 059.7292B 타입은 8.00대 1을 기록하는 등 선호도에 따라 경쟁률 편차가 나타나고 있어.</p></article></section>
+<section><h2>내일로 넘기는 질문</h2>
+<p>오늘 국토부와 서울시의 용산공원 주택 공급 회동에서 대체부지 합의안이 도출될 수 있을까, 아니면 이견을 좁히지 못하고 평행선을 달리게 될까?</p></section>
+
+</main>
+<footer>생성 2026-08-25T23:25:10.676Z · 자동 생성된 요약이며 투자 권유가 아닙니다.</footer>
+</body>
+</html>
