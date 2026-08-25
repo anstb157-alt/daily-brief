@@ -1,0 +1,153 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>2026-08-26 증시 브리핑</title>
+<style>:root { color-scheme: light dark;
+  --fg:#1a1a1a; --muted:#6b6b6b; --line:#e3e3e3; --card:#f6f6f7;
+  --up:#c0392b; --down:#1565c0; --flat:#6b6b6b; --warn:#b45309; }
+@media (prefers-color-scheme: dark) {
+  :root { --fg:#e8e8e8; --muted:#9a9a9a; --line:#333; --card:#1c1c1e;
+    --up:#ff6b5a; --down:#5aa9ff; --flat:#9a9a9a; --warn:#fbbf24; }
+}
+* { box-sizing:border-box; }
+body { margin:0 auto; padding:1rem .9rem 3rem; max-width:44rem;
+  font:16px/1.65 -apple-system,BlinkMacSystemFont,"Apple SD Gothic Neo","Noto Sans KR",sans-serif;
+  color:var(--fg); word-break:keep-all; overflow-wrap:anywhere; }
+header { display:flex; align-items:baseline; gap:.5rem; margin-bottom:.7rem; }
+h1 { font-size:1.1rem; margin:0; }
+.date { color:var(--muted); font-size:.85rem; }
+
+/* 모바일 2열 고정 */
+.grid { display:grid; grid-template-columns:repeat(2,1fr); gap:.4rem; }
+@media (min-width:34rem) { .grid { grid-template-columns:repeat(4,1fr); } }
+.cell { background:var(--card); border-radius:8px; padding:.5rem .6rem; }
+.cell .k { font-size:.72rem; color:var(--muted); letter-spacing:-.02em; }
+.cell .v { font-size:1.02rem; font-weight:700; font-variant-numeric:tabular-nums; }
+.cell .d { font-size:.8rem; font-variant-numeric:tabular-nums; color:var(--flat); }
+.cell.up .d, .cell.up .v { color:var(--up); }
+.cell.down .d, .cell.down .v { color:var(--down); }
+.sep { border:0; border-top:1px solid var(--line); margin:.5rem 0; }
+.dash { margin-bottom:.8rem; }
+.comment { font-size:.9rem; color:var(--muted); margin:0 0 1.6rem; }
+
+section { margin-bottom:1.6rem; }
+h2 { font-size:1rem; margin:0 0 .5rem; padding-bottom:.25rem; border-bottom:1px solid var(--line); }
+h3 { font-size:.95rem; margin:0 0 .3rem; }
+h4 { font-size:.88rem; margin:1rem 0 .35rem; color:var(--muted); }
+article { margin-bottom:1rem; }
+p { margin:.4rem 0; }
+ul { margin:.4rem 0; padding-left:1.15rem; }
+li { margin:.25rem 0; }
+a { color:inherit; text-decoration:underline; text-underline-offset:2px; }
+/* 넓은 표는 페이지가 아니라 표 자신이 가로 스크롤한다 */
+.tw { overflow-x:auto; -webkit-overflow-scrolling:touch; margin:.6rem 0; }
+table { border-collapse:collapse; font-size:.82rem; min-width:100%; }
+th, td { border-bottom:1px solid var(--line); padding:.4rem .55rem; text-align:left;
+  vertical-align:top; white-space:nowrap; }
+th { background:var(--card); font-weight:600; position:sticky; top:0; }
+/* 단지명처럼 긴 값은 줄바꿈을 허용해 표가 지나치게 넓어지지 않게 한다 */
+td:nth-child(3) { white-space:normal; min-width:9rem; }
+tbody tr:nth-child(even) td { background:rgba(127,127,127,.05); }
+pre { white-space:pre-wrap; background:var(--card); padding:1rem; border-radius:6px; font-size:.85rem; }
+.warn { color:var(--warn); font-weight:600; }
+.failures { border:1px solid var(--line); border-radius:6px; padding:.8rem; }
+.failures h2 { border:0; color:var(--warn); }
+.failures li { color:var(--muted); font-size:.85rem; }
+footer { color:var(--muted); font-size:.78rem; border-top:1px solid var(--line); padding-top:.8rem; }</style>
+</head>
+<body>
+<header>
+<h1>📈 증시</h1>
+<span class="date">2026-08-26 KST</span>
+</header>
+<section class="dash">
+<div class="grid">
+<div class="cell up">
+<div class="k">S&amp;P500</div>
+<div class="v">7,677.28</div>
+<div class="d">+0.32%</div>
+</div>
+<div class="cell up">
+<div class="k">나스닥</div>
+<div class="v">26,151.30</div>
+<div class="d">+0.66%</div>
+</div>
+<div class="cell up">
+<div class="k">다우</div>
+<div class="v">53,577.40</div>
+<div class="d">+0.30%</div>
+</div>
+</div>
+<hr class="sep">
+<div class="grid">
+<div class="cell down">
+<div class="k">미10년물</div>
+<div class="v">4.633</div>
+<div class="d">−0.14%</div>
+</div>
+<div class="cell flat">
+<div class="k">달러인덱스</div>
+<div class="v">98.92</div>
+<div class="d">0.00%</div>
+</div>
+<div class="cell down">
+<div class="k">원달러</div>
+<div class="v">1,383.00</div>
+<div class="d">−0.04%</div>
+</div>
+</div>
+<hr class="sep">
+<div class="grid">
+<div class="cell flat">
+<div class="k">코스피</div>
+<div class="v">6,742.74</div>
+<div class="d">0.00%</div>
+</div>
+<div class="cell flat">
+<div class="k">코스닥</div>
+<div class="v">827.15</div>
+<div class="d">0.00%</div>
+</div>
+<div class="cell down">
+<div class="k">외국인</div>
+<div class="v">−38140억</div>
+<div class="d">-</div>
+</div>
+<div class="cell up">
+<div class="k">기관</div>
+<div class="v">+11711억</div>
+<div class="d">-</div>
+</div>
+<div class="cell up">
+<div class="k">개인</div>
+<div class="v">+10509억</div>
+<div class="d">-</div>
+</div>
+</div>
+</section>
+<p class="comment">외국인이 코스피에서 3.8조 원을 던졌음에도 기관과 개인의 매수로 전날 국장은 반등에 성공했다.</p>
+<main>
+<section><h2>오늘 일정</h2>
+<p>21:30 미국 근원 PCE 물가지수 (MoM) / 21:30 미국 GDP 잠정치 (QoQ) / 21:30 미국 GDP 디플레이터 잠정치 / 미국 장마감 후 엔비디아(NVDA) 실적 발표</p></section>
+<section><h2>예정 일정</h2>
+<p>8/28 미국 워시 연준 이사 연설, 미국 비농업 고용 벤치마크 수정치 발표 / 8/29 잭슨홀 심포지엄 개막 / 9/1 델 테크놀로지스(DELL) 실적 발표 / 9/2 브로드컴(AVGO) 실적 발표</p></section>
+<section><h2>어제 스레드 후속</h2>
+<p>어제 던진 질문, 절반만 해소됐다. 외국인이 코스피에서 3조 8,140억 원을 순매도하며 강하게 밀어냈으나, 기관과 개인의 매수세 덕분에 코스피는 0.7% 가까이 반등하며 6742.74로 마감했다. 다만 주주환원책에 대해서는 해외 경쟁사(샌디스크, 마이크론)의 100% 환원 발표와 비교되며 여전히 투심이 엇갈리고 있다.</p></section>
+<section><h2>이슈</h2>
+<article><h3>줌(ZM) 실적 가이던스 실망에 시간외 4% 추가 하락</h3>
+<p>줌(ZM)은 정규장에서 3.73% 하락 마감한 뒤, 시간외 거래에서 약 4% 추가 하락했다. AI 및 기업용 제품군을 확대했으나 향후 전망이 시장 기대치에 미치지 못하는 미지근한 수준에 그쳤기 때문이다. 다음 분기 EPS 컨센서스 전망치는 $1.01이다. [커뮤니티] 반응은 &quot;AI 붙여도 화상회의 원툴은 한계가 있다&quot;는 의견과 &quot;그래도 이 가격이면 저평가 영역 아닌가&quot;라며 의견이 나뉜다.</p></article>
+<article><h3>오픈AI, 자체 칩 '할라페뇨' 공개하며 엔비디아에 도전장</h3>
+<p>오픈AI가 자체 개발한 AI 추론 전용 칩 '할라페뇨(Jalapeño)'의 첫 실측 성능을 공개했다. 엔비디아의 GB200·GB300 시스템 대비 전력 1kW당 처리하는 AI 작업량이 1.5~1.9배 많고 지연 시간도 앞선다고 주장했다. 엔비디아의 철옹성에 균열을 내기 위한 빅테크의 독자 칩 승부수가 구체화되는 양상이다. [커뮤니티] 반응은 &quot;엔비디아 천하도 슬슬 끝이 보이는 건가&quot;라는 우려와 &quot;실제 양산해서 대규모로 깔기 전까지는 언론플레이에 불과하다&quot;는 반론이 팽팽하다.</p></article>
+<article><h3>엔비디아 2분기 실적 발표 대기, '황의 입'에 쏠린 눈</h3>
+<p>엔비디아가 현지시간 26일 장 마감 후 2분기 실적을 발표한다. LSEG 집계 기준 매출 전망치는 전년 대비 거의 두 배인 921억 8,000만 달러(또는 922억 달러)다. 폴리마켓에 따르면 조정 주당순이익(EPS)이 전망치를 웃돌 확률은 96%에 달한다. 다만 미국 투자회사들 사이에서는 실적 호조만으로는 주가가 오르지 않을 수 있다는 신중론도 나온다. 시장은 실적 수치 자체보다 젠슨 황의 입에서 나올 향후 AI 수요 전망과 블랙웰 칩 계획에 주목하고 있다. [커뮤니티] 반응은 &quot;실적 잘 나와도 재료 소멸로 떨어질까 봐 무섭다&quot;는 의견과 &quot;이번에도 어닝 서프라이즈로 쇼트 스퀴즈 낸다&quot;는 의견으로 갈린다.</p></article>
+<article><h3>서학개미, 반도체 3배 레버리지와 샌디스크에 1조 원대 집중 베팅</h3>
+<p>국내 투자자들은 엔비디아 실적 발표를 앞두고 반도체 3배 레버리지 ETF(SOXL)에 1.2조 원을 베팅했다. 개별 종목 중에서는 샌디스크에 1억 94만 달러(일부 집계선 1억 290만 달러)를 순매수하며 집중 베팅했다. 샌디스크는 초과현금의 100%를 주주에게 돌려주겠다고 발표했으나, 월요일(24일) 주가는 6.45% 하락한 1,493.12달러로 마감하는 등 높은 변동성을 보이고 있다. [커뮤니티] 반응은 &quot;남들 무서워할 때 3배 레버리지 타는 게 진정한 야수&quot;라는 찬사와 &quot;엔비디아 실적 한 방에 계좌 녹을 수 있다&quot;는 경고가 공존한다.</p></article></section>
+<section><h2>내일로 넘기는 질문</h2>
+<p>오픈AI의 자체 칩 도발과 샌디스크의 주주환원 공세 속에서, 오늘 밤 베일을 벗을 엔비디아의 실적과 가이던스는 반도체 멀티플의 정당성을 증명해낼 수 있을까?</p></section>
+
+</main>
+<footer>생성 2026-08-25T23:53:22.686Z · 자동 생성된 요약이며 투자 권유가 아닙니다.</footer>
+</body>
+</html>
