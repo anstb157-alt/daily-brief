@@ -1,0 +1,261 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>2026-08-26 청약 브리핑</title>
+<style>:root { color-scheme: light dark;
+  --fg:#1a1a1a; --muted:#6b6b6b; --line:#e3e3e3; --card:#f6f6f7;
+  --up:#c0392b; --down:#1565c0; --flat:#6b6b6b; --warn:#b45309; }
+@media (prefers-color-scheme: dark) {
+  :root { --fg:#e8e8e8; --muted:#9a9a9a; --line:#333; --card:#1c1c1e;
+    --up:#ff6b5a; --down:#5aa9ff; --flat:#9a9a9a; --warn:#fbbf24; }
+}
+* { box-sizing:border-box; }
+body { margin:0 auto; padding:1rem .9rem 3rem; max-width:44rem;
+  font:16px/1.65 -apple-system,BlinkMacSystemFont,"Apple SD Gothic Neo","Noto Sans KR",sans-serif;
+  color:var(--fg); word-break:keep-all; overflow-wrap:anywhere; }
+header { display:flex; align-items:baseline; gap:.5rem; margin-bottom:.7rem; }
+h1 { font-size:1.1rem; margin:0; }
+.date { color:var(--muted); font-size:.85rem; }
+
+/* 모바일 2열 고정 */
+.grid { display:grid; grid-template-columns:repeat(2,1fr); gap:.4rem; }
+@media (min-width:34rem) { .grid { grid-template-columns:repeat(4,1fr); } }
+.cell { background:var(--card); border-radius:8px; padding:.5rem .6rem; }
+.cell .k { font-size:.72rem; color:var(--muted); letter-spacing:-.02em; }
+.cell .v { font-size:1.02rem; font-weight:700; font-variant-numeric:tabular-nums; }
+.cell .d { font-size:.8rem; font-variant-numeric:tabular-nums; color:var(--flat); }
+.cell.up .d, .cell.up .v { color:var(--up); }
+.cell.down .d, .cell.down .v { color:var(--down); }
+.sep { border:0; border-top:1px solid var(--line); margin:.5rem 0; }
+.dash { margin-bottom:.8rem; }
+.comment { font-size:.9rem; color:var(--muted); margin:0 0 1.6rem; }
+
+section { margin-bottom:1.6rem; }
+h2 { font-size:1rem; margin:0 0 .5rem; padding-bottom:.25rem; border-bottom:1px solid var(--line); }
+h3 { font-size:.95rem; margin:0 0 .3rem; }
+h4 { font-size:.88rem; margin:1rem 0 .35rem; color:var(--muted); }
+article { margin-bottom:1rem; }
+p { margin:.4rem 0; }
+ul { margin:.4rem 0; padding-left:1.15rem; }
+li { margin:.25rem 0; }
+a { color:inherit; text-decoration:underline; text-underline-offset:2px; }
+/* 넓은 표는 페이지가 아니라 표 자신이 가로 스크롤한다 */
+.tw { overflow-x:auto; -webkit-overflow-scrolling:touch; margin:.6rem 0; }
+table { border-collapse:collapse; font-size:.82rem; min-width:100%; }
+th, td { border-bottom:1px solid var(--line); padding:.4rem .55rem; text-align:left;
+  vertical-align:top; white-space:nowrap; }
+th { background:var(--card); font-weight:600; position:sticky; top:0; }
+/* 단지명처럼 긴 값은 줄바꿈을 허용해 표가 지나치게 넓어지지 않게 한다 */
+td:nth-child(3) { white-space:normal; min-width:9rem; }
+tbody tr:nth-child(even) td { background:rgba(127,127,127,.05); }
+pre { white-space:pre-wrap; background:var(--card); padding:1rem; border-radius:6px; font-size:.85rem; }
+.warn { color:var(--warn); font-weight:600; }
+.failures { border:1px solid var(--line); border-radius:6px; padding:.8rem; }
+.failures h2 { border:0; color:var(--warn); }
+.failures li { color:var(--muted); font-size:.85rem; }
+footer { color:var(--muted); font-size:.78rem; border-top:1px solid var(--line); padding-top:.8rem; }</style>
+</head>
+<body>
+<header>
+<h1>📒 청약</h1>
+<span class="date">2026-08-26 KST</span>
+</header>
+<section class="dash">
+<div class="grid">
+<div class="cell flat">
+<div class="k">진행·예정</div>
+<div class="v">14건</div>
+<div class="d">-</div>
+</div>
+<div class="cell flat">
+<div class="k">서울</div>
+<div class="v">2건</div>
+<div class="d">-</div>
+</div>
+<div class="cell flat">
+<div class="k">마감임박</div>
+<div class="v">11건</div>
+<div class="d">-</div>
+</div>
+<div class="cell flat">
+<div class="k">무순위</div>
+<div class="v">2건</div>
+<div class="d">-</div>
+</div>
+</div>
+<hr class="sep">
+<div class="grid">
+<div class="cell flat">
+<div class="k">최고 경쟁률</div>
+<div class="v">3,321:1</div>
+<div class="d">-</div>
+</div>
+</div>
+</section>
+<p class="comment">청약통장 가입 1개월차인 현재는 아파트 1순위 청약이 불가능하므로, 통장이 필요 없는 오피스텔이나 무순위 청약 위주로 기회를 찾아야 합니다.</p>
+<main>
+<section><h2>오늘 일정</h2>
+<p>2026-08-26 [접수시작] 구리역 롯데캐슬 시그니처 (무순위/당일마감)</p>
+<p>2026-08-26 [접수시작] 왕십리역 어반홈스 B동 (오피스텔)</p>
+<p>2026-08-26 [접수마감] 시흥거모 A-5블록 신혼희망타운 (공공분양/당일마감)</p>
+<p>2026-08-26 [접수마감] 포레나힐스테이트 진주 (민영/당일마감)</p>
+<p>2026-08-26 [접수마감] 아르티엠 라 테라스 (민영/당일마감)</p>
+<p>2026-08-26 [접수마감] 상동역 롯데캐슬 시그니처 (민영/당일마감)</p>
+<p>2026-08-26 [접수마감] 제일풍경채 첨단3지구(A6BL) (민영/당일마감)</p>
+<p>2026-08-26 [접수마감] 오남역 서희스타힐스 여의재 1단지 (민영/당일마감)</p>
+<p>2026-08-27 [접수마감] 쌍용 더 플래티넘 서대문 (민영/D-1)</p>
+<p>2026-08-27 [접수마감] 의왕역 한신더휴 (민영/D-1)</p></section>
+<section><h2>예정 일정</h2>
+<p>2026-08-31 [접수시작] 오산헤리티지자이 1단지 (무순위)</p>
+<p>2026-08-31 [접수시작] 검암역 푸르지오 프라베뉴 (공공분양)</p>
+<p>2026-08-31 [접수시작] 시티오씨엘 9단지 오션파크뷰 (민영)</p>
+<p>2026-08-31 [접수시작] 성남복정2 A1블록 신혼희망타운 (공공분양)</p></section>
+<section><h2>어제 스레드 후속</h2>
+<p>청약통장 가입 1개월차인 현재는 오늘 마감되는 '춘천 리버뷰 아이파크' 무순위 청약에 도전하거나, 서울 오피스텔 잔여세대를 검토하며 내년 7월 서울 1순위 자격 획득을 준비하는 것이 가장 유리합니다. 다음 행동으로 춘천 리버뷰 아이파크 모집공고를 확인하시겠습니까?</p></section>
+<section><h2>이슈</h2>
+<article><h3>서울 신규 아파트 분석: 쌍용 더 플래티넘 서대문 (신청 불가)</h3>
+<h4>① 공고 개요</h4>
+<div class="tw"><table>
+<thead><tr><th>신청일~마감일</th><th>지역</th><th>단지</th><th>주택유형</th><th>공급구분</th><th>공급세대</th><th>통장 필요</th><th>신청 가능</th><th>맞는 트랙</th><th>경쟁률</th><th>신청</th></tr></thead>
+<tbody>
+<tr><td>2026-08-24~08-27</td><td>서울</td><td>쌍용 더 플래티넘 서대문</td><td>아파트</td><td>민영</td><td>62</td><td>O</td><td>불가 (가능 시점: 2027-07)</td><td>일반공급 2순위</td><td>1순위 평균 39.71:1 (최고 240.5:1)</td><td><a href="https://www.applyhome.co.kr/ap/apa/selectAPTLttotPblancDetailView.do?houseManageNo=2026000372&amp;pblancNo=2026000372" target="_blank" rel="noopener">신청</a></td></tr>
+</tbody>
+</table></div>
+<h4>② 조건</h4>
+<div class="tw"><table>
+<thead><tr><th>항목</th><th>내용</th></tr></thead>
+<tbody>
+<tr><td>대표 평형 분양가</td><td>공고 확인 필요</td></tr>
+<tr><td>계약금 / 중도금 / 잔금</td><td>공고 확인 필요</td></tr>
+<tr><td>대출·이자후불제</td><td>공고 확인 필요</td></tr>
+<tr><td>입주일</td><td>2030-01</td></tr>
+<tr><td>전매·실거주·재당첨 제한</td><td>규제지역(Y), 공고 확인 필요</td></tr>
+<tr><td>지역우선</td><td>서울특별시 거주자 우선</td></tr>
+<tr><td>가점·추첨 비율</td><td>공고 확인 필요</td></tr>
+<tr><td>무순위 자격</td><td>해당 없음</td></tr>
+</tbody>
+</table></div>
+<h4>③ 판정</h4>
+<div class="tw"><table>
+<thead><tr><th>구분</th><th>판정</th><th>근거</th></tr></thead>
+<tbody>
+<tr><td>당첨 가능성</td><td>불가</td><td>청약통장 가입 1개월차로 1순위 요건(12개월) 미달. 1순위 해당지역에서 전 타입 마감되어 2순위 기회 없음.</td></tr>
+<tr><td>당첨 전략</td><td>산정 보류 (신청 자격 미달)</td><td>-</td></tr>
+<tr><td>자금계획</td><td>산정 보류 (신청 자격 미달)</td><td>-</td></tr>
+<tr><td>예상수익</td><td>산정 보류 (신청 자격 미달)</td><td>-</td></tr>
+<tr><td>리스크</td><td>산정 보류 (신청 자격 미달)</td><td>-</td></tr>
+</tbody>
+</table></div>
+<h4>④ 매력도</h4>
+<div class="tw"><table>
+<thead><tr><th>항목</th><th>배점</th><th>점수</th></tr></thead>
+<tbody>
+<tr><td>가격·안전마진</td><td>2</td><td>1.0</td></tr>
+<tr><td>입지·미래가치</td><td>2</td><td>1.5</td></tr>
+<tr><td>사용자 기준 당첨 가능성</td><td>2</td><td>0.0</td></tr>
+<tr><td>자금조달 용이성</td><td>2</td><td>1.0</td></tr>
+<tr><td>규제·시장 리스크</td><td>2</td><td>0.5</td></tr>
+<tr><td><strong>총점</strong></td><td><strong>10</strong></td><td><strong>4.0</strong></td></tr>
+</tbody>
+</table></div>
+<p>*청약통장 순위 미달로 신청 자체가 불가능하므로 총점 상한을 4.0점으로 제한합니다.*</p></article>
+<article><h3>서울 신규 오피스텔 및 오늘 마감 무순위 분석</h3>
+<h4>① 공고 개요</h4>
+<div class="tw"><table>
+<thead><tr><th>신청일~마감일</th><th>지역</th><th>단지</th><th>주택유형</th><th>공급구분</th><th>공급세대</th><th>통장 필요</th><th>신청 가능</th><th>맞는 트랙</th><th>경쟁률</th><th>신청</th></tr></thead>
+<tbody>
+<tr><td>2026-08-26~09-01</td><td>서울</td><td>왕십리역 어반홈스 B동</td><td>오피스텔</td><td>오피스텔</td><td>14</td><td>X</td><td>가능</td><td>일반공급</td><td>경쟁률 미공개</td><td><a href="https://www.applyhome.co.kr/ap/apo/selectUrbtyOfctlPblancDetailView.do?houseManageNo=2026950075&amp;pblancNo=2026950075" target="_blank" rel="noopener">신청</a></td></tr>
+<tr><td>2026-08-26~08-26</td><td>경기</td><td>구리역 롯데캐슬 시그니처</td><td>아파트</td><td>불법행위 재공급</td><td>1</td><td>X</td><td>불가</td><td>무순위</td><td>경쟁률 미공개</td><td><a href="https://www.applyhome.co.kr/ap/apa/selectRemndrLttotPblancDetailView.do?houseManageNo=2026930028&amp;pblancNo=2026930028" target="_blank" rel="noopener">신청</a></td></tr>
+</tbody>
+</table></div>
+<p>*구리역 롯데캐슬 시그니처는 불법행위 재공급 물량으로 구리시 거주 요건이 필요하여 서울 거주자인 사용자는 신청이 불가능합니다.</p>
+<h4>② 조건 (왕십리역 어반홈스 B동)</h4>
+<div class="tw"><table>
+<thead><tr><th>항목</th><th>내용</th></tr></thead>
+<tbody>
+<tr><td>대표 평형 분양가</td><td>공고 확인 필요</td></tr>
+<tr><td>계약금 / 중도금 / 잔금</td><td>공고 확인 필요</td></tr>
+<tr><td>대출·이자후불제</td><td>공고 확인 필요</td></tr>
+<tr><td>입주일</td><td>2026-09</td></tr>
+<tr><td>전매·실거주·재당첨 제한</td><td>공고 확인 필요</td></tr>
+<tr><td>지역우선</td><td>공고 확인 필요</td></tr>
+<tr><td>가점·추첨 비율</td><td>추첨 100%</td></tr>
+<tr><td>무순위 자격</td><td>해당 없음</td></tr>
+</tbody>
+</table></div>
+<h4>③ 판정 (왕십리역 어반홈스 B동)</h4>
+<div class="tw"><table>
+<thead><tr><th>구분</th><th>판정</th><th>근거</th></tr></thead>
+<tbody>
+<tr><td>당첨 가능성</td><td>낮음</td><td>100% 추첨제이나 공급 세대수가 14세대로 매우 적어 경쟁이 치열할 것으로 예상됨.</td></tr>
+<tr><td>당첨 전략</td><td>선호 타입 위주 신청</td><td>청약통장을 사용하지 않으므로 당첨 시 포기해도 재당첨 제한 등의 불이익이 없음. 선호도 높은 타입 위주로 소신 지원.</td></tr>
+<tr><td>자금계획</td><td>주식 자산 현금화 필요</td><td>입주일이 2026년 9월로 매우 촉박함. 계약금 및 잔금을 단기간 내에 전액 조달해야 하므로 보유 중인 주식 자산(6억 원)의 즉각적인 현금화 계획이 필수적임.</td></tr>
+<tr><td>예상수익</td><td>실거래 비교 데이터 없음</td><td>인근 오피스텔 실거래 비교 데이터가 수집되지 않아 정확한 안전마진 산정 불가.</td></tr>
+<tr><td>리스크</td><td>초단기 자금 조달 및 환금성 리스크</td><td>입주가 당장 다음 달이므로 주식 매도 시점의 시장 변동성 및 세금 리스크가 매우 큼. 오피스텔 특성상 아파트 대비 환금성이 낮고 시세 상승 여력이 제한적임.</td></tr>
+</tbody>
+</table></div>
+<h4>④ 매력도 (왕십리역 어반홈스 B동)</h4>
+<div class="tw"><table>
+<thead><tr><th>항목</th><th>배점</th><th>점수</th></tr></thead>
+<tbody>
+<tr><td>가격·안전마진</td><td>2</td><td>1.0</td></tr>
+<tr><td>입지·미래가치</td><td>2</td><td>1.5</td></tr>
+<tr><td>사용자 기준 당첨 가능성</td><td>2</td><td>1.0</td></tr>
+<tr><td>자금조달 용이성</td><td>2</td><td>1.0</td></tr>
+<tr><td>규제·시장 리스크</td><td>2</td><td>1.0</td></tr>
+<tr><td><strong>총점</strong></td><td><strong>10</strong></td><td><strong>5.5</strong></td></tr>
+</tbody>
+</table></div>
+<h4>⑤ 예상투자금 (왕십리역 어반홈스 B동)</h4>
+<div class="tw"><table>
+<thead><tr><th>구분</th><th>금액</th><th>시점</th></tr></thead>
+<tbody>
+<tr><td>분양가 (대표 평형)</td><td>분양가 미공개 — 모집공고 확인 후 산정</td><td>-</td></tr>
+<tr><td>계약금</td><td>공고 확인 필요</td><td>계약 시</td></tr>
+<tr><td>중도금 (회차·비율)</td><td>공고 확인 필요</td><td>-</td></tr>
+<tr><td>중도금 대출 가능 여부</td><td>공고 확인 필요</td><td>-</td></tr>
+<tr><td>잔금</td><td>공고 확인 필요</td><td>입주 시 (2026-09)</td></tr>
+<tr><td>옵션·확장</td><td>공고 확인 필요</td><td>-</td></tr>
+<tr><td>취득세·등기비</td><td>공고 확인 필요</td><td>-</td></tr>
+<tr><td><strong>예상 총투자금 (자기자본)</strong></td><td>공고 확인 필요</td><td>-</td></tr>
+</tbody>
+</table></div>
+<h4>⑥ 신청 전략 (왕십리역 어반홈스 B동)</h4>
+<div class="tw"><table>
+<thead><tr><th>항목</th><th>내용</th></tr></thead>
+<tbody>
+<tr><td>인기 평형</td><td>경쟁률 미공개 — 타입별 비교 불가</td></tr>
+<tr><td>비인기 평형</td><td>경쟁률 미공개 — 타입별 비교 불가</td></tr>
+<tr><td>추천 타입</td><td>공고 확인 후 자금 조달이 가능한 범위 내의 소형 타입 추천</td></tr>
+<tr><td>예비당첨 전망</td><td>공고 확인 필요</td></tr>
+<tr><td>신청 트랙</td><td>오피스텔 일반공급</td></tr>
+<tr><td>부적격 방지</td><td>청약통장을 사용하지 않으므로 통장 관련 부적격 리스크는 없으나, 단기간 내 대금 미납으로 인한 계약 해지 위험 주의</td></tr>
+</tbody>
+</table></div>
+<p>*본 분석은 정보 제공이며 수익이나 대출 승인을 보장하지 않습니다.*</p></article>
+<article><h3>청약 경쟁률 인기 순위 (최근 무순위/APT)</h3>
+<h4>최근 주요 단지 청약 경쟁률</h4>
+<div class="tw"><table>
+<thead><tr><th>순위</th><th>단지</th><th>지역</th><th>타입</th><th>공급</th><th>접수</th><th>경쟁률</th></tr></thead>
+<tbody>
+<tr><td>1</td><td>의왕고천지구 대방 디에트르 센트럴(B1BL)(2차)</td><td>경기</td><td>084.9705A</td><td>1</td><td>3321</td><td>3321.00</td></tr>
+<tr><td>2</td><td>복대자이 더 스카이</td><td>충북</td><td>084.9926C</td><td>1</td><td>2350</td><td>2350.00</td></tr>
+<tr><td>3</td><td>동탄신도시 금강펜테리움 6차 센트럴파크(A59BL) (3차)</td><td>경기</td><td>100.8334A</td><td>3</td><td>5999</td><td>1999.67</td></tr>
+<tr><td>4</td><td>창원 롯데캐슬 하버팰리스</td><td>경남</td><td>084.9976A</td><td>2</td><td>3946</td><td>1973.00</td></tr>
+<tr><td>5</td><td>라클라체자이드파인</td><td>서울</td><td>059.8054B</td><td>1</td><td>1726</td><td>1726.00</td></tr>
+<tr><td>6</td><td>e편한세상 동탄 파크아너스 A56블럭(2회차)</td><td>경기</td><td>099.9869B</td><td>1</td><td>1172</td><td>1172.00</td></tr>
+<tr><td>7</td><td>라클라체자이드파인</td><td>서울</td><td>084.9634A</td><td>1</td><td>743</td><td>743.00</td></tr>
+<tr><td>8</td><td>써밋 더힐</td><td>서울</td><td>084.9000A</td><td>3</td><td>2179</td><td>726.33</td></tr>
+<tr><td>9</td><td>신검단중앙역 금강펜테리움 센트럴파크(3차)</td><td>인천</td><td>098.4316A</td><td>1</td><td>721</td><td>721.00</td></tr>
+<tr><td>10</td><td>더샵 신길센트럴시티(조합원 취소분)</td><td>서울</td><td>059.9945B</td><td>6</td><td>3388</td><td>564.67</td></tr>
+</tbody>
+</table></div></article></section>
+<section><h2>내일로 넘기는 질문</h2>
+<p>현재 통장 1개월차로 아파트 청약이 불가능하므로, 통장이 필요 없는 '왕십리역 어반홈스 B동' 오피스텔의 모집공고를 확인하시겠습니까?</p></section>
+
+</main>
+<footer>생성 2026-08-26T02:22:46.867Z · 자동 생성된 요약이며 투자 권유가 아닙니다.</footer>
+</body>
+</html>
