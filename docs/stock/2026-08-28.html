@@ -1,0 +1,151 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>2026-08-28 증시 브리핑</title>
+<style>:root { color-scheme: light dark;
+  --fg:#1a1a1a; --muted:#6b6b6b; --line:#e3e3e3; --card:#f6f6f7;
+  --up:#c0392b; --down:#1565c0; --flat:#6b6b6b; --warn:#b45309; }
+@media (prefers-color-scheme: dark) {
+  :root { --fg:#e8e8e8; --muted:#9a9a9a; --line:#333; --card:#1c1c1e;
+    --up:#ff6b5a; --down:#5aa9ff; --flat:#9a9a9a; --warn:#fbbf24; }
+}
+* { box-sizing:border-box; }
+body { margin:0 auto; padding:1rem .9rem 3rem; max-width:44rem;
+  font:16px/1.65 -apple-system,BlinkMacSystemFont,"Apple SD Gothic Neo","Noto Sans KR",sans-serif;
+  color:var(--fg); word-break:keep-all; overflow-wrap:anywhere; }
+header { display:flex; align-items:baseline; gap:.5rem; margin-bottom:.7rem; }
+h1 { font-size:1.1rem; margin:0; }
+.date { color:var(--muted); font-size:.85rem; }
+
+/* 모바일 2열 고정 */
+.grid { display:grid; grid-template-columns:repeat(2,1fr); gap:.4rem; }
+@media (min-width:34rem) { .grid { grid-template-columns:repeat(4,1fr); } }
+.cell { background:var(--card); border-radius:8px; padding:.5rem .6rem; }
+.cell .k { font-size:.72rem; color:var(--muted); letter-spacing:-.02em; }
+.cell .v { font-size:1.02rem; font-weight:700; font-variant-numeric:tabular-nums; }
+.cell .d { font-size:.8rem; font-variant-numeric:tabular-nums; color:var(--flat); }
+.cell.up .d, .cell.up .v { color:var(--up); }
+.cell.down .d, .cell.down .v { color:var(--down); }
+.sep { border:0; border-top:1px solid var(--line); margin:.5rem 0; }
+.dash { margin-bottom:.8rem; }
+.comment { font-size:.9rem; color:var(--muted); margin:0 0 1.6rem; }
+
+section { margin-bottom:1.6rem; }
+h2 { font-size:1rem; margin:0 0 .5rem; padding-bottom:.25rem; border-bottom:1px solid var(--line); }
+h3 { font-size:.95rem; margin:0 0 .3rem; }
+h4 { font-size:.88rem; margin:1rem 0 .35rem; color:var(--muted); }
+article { margin-bottom:1rem; }
+p { margin:.4rem 0; }
+ul { margin:.4rem 0; padding-left:1.15rem; }
+li { margin:.25rem 0; }
+a { color:inherit; text-decoration:underline; text-underline-offset:2px; }
+/* 넓은 표는 페이지가 아니라 표 자신이 가로 스크롤한다 */
+.tw { overflow-x:auto; -webkit-overflow-scrolling:touch; margin:.6rem 0; }
+table { border-collapse:collapse; font-size:.82rem; min-width:100%; }
+th, td { border-bottom:1px solid var(--line); padding:.4rem .55rem; text-align:left;
+  vertical-align:top; white-space:nowrap; }
+th { background:var(--card); font-weight:600; position:sticky; top:0; }
+/* 단지명처럼 긴 값은 줄바꿈을 허용해 표가 지나치게 넓어지지 않게 한다 */
+td:nth-child(3) { white-space:normal; min-width:9rem; }
+tbody tr:nth-child(even) td { background:rgba(127,127,127,.05); }
+pre { white-space:pre-wrap; background:var(--card); padding:1rem; border-radius:6px; font-size:.85rem; }
+.warn { color:var(--warn); font-weight:600; }
+.failures { border:1px solid var(--line); border-radius:6px; padding:.8rem; }
+.failures h2 { border:0; color:var(--warn); }
+.failures li { color:var(--muted); font-size:.85rem; }
+footer { color:var(--muted); font-size:.78rem; border-top:1px solid var(--line); padding-top:.8rem; }</style>
+</head>
+<body>
+<header>
+<h1>📈 증시</h1>
+<span class="date">2026-08-28 KST</span>
+</header>
+<section class="dash">
+<div class="grid">
+<div class="cell up">
+<div class="k">S&amp;P500</div>
+<div class="v">7,730.99</div>
+<div class="d">+0.72%</div>
+</div>
+<div class="cell up">
+<div class="k">나스닥</div>
+<div class="v">26,541.35</div>
+<div class="d">+1.57%</div>
+</div>
+<div class="cell up">
+<div class="k">다우</div>
+<div class="v">53,569.44</div>
+<div class="d">+0.20%</div>
+</div>
+</div>
+<hr class="sep">
+<div class="grid">
+<div class="cell up">
+<div class="k">미10년물</div>
+<div class="v">4.672</div>
+<div class="d">+0.01%</div>
+</div>
+<div class="cell flat">
+<div class="k">달러인덱스</div>
+<div class="v">99.16</div>
+<div class="d">0.00%</div>
+</div>
+<div class="cell down">
+<div class="k">원달러</div>
+<div class="v">1,372.40</div>
+<div class="d">−0.69%</div>
+</div>
+</div>
+<hr class="sep">
+<div class="grid">
+<div class="cell down">
+<div class="k">코스피</div>
+<div class="v">6,788.88</div>
+<div class="d">−1.79%</div>
+</div>
+<div class="cell up">
+<div class="k">코스닥</div>
+<div class="v">838.41</div>
+<div class="d">+0.09%</div>
+</div>
+<div class="cell up">
+<div class="k">외국인</div>
+<div class="v">+1333억</div>
+<div class="d">-</div>
+</div>
+<div class="cell up">
+<div class="k">기관</div>
+<div class="v">+1835억</div>
+<div class="d">-</div>
+</div>
+<div class="cell down">
+<div class="k">개인</div>
+<div class="v">−19116억</div>
+<div class="d">-</div>
+</div>
+</div>
+</section>
+<p class="comment">미국 증시 상승에도 불구하고 코스피는 외국인과 기관의 매도세에 1.79% 하락 마감했다.</p>
+<main>
+<section><h2>오늘 일정</h2>
+<p>01:15 잭슨홀 심포지엄 / 23:00 케빈 워시 연준 의장 연설 / 23:00 미 예비 기준 고용 수정치 / 23:00 미 8월 미시간대 소비자심리지수 확정치 / 23:00 미 8월 미시간대 인플레이션 기대치 확정치</p></section>
+<section><h2>예정 일정</h2>
+<p>8/29 잭슨홀 심포지엄 / 8/31 사솔(SSL) 실적, 그리폴스(GRFS) 실적, 사이언스 애플리케이션스(SAIC) 실적, 크로노스케일(CHRN) 실적 / 9/1 델 테크놀로지스(DELL) 실적, 팔로알토 네트웍스(PANW) 실적, 메드트로닉(MDT) 실적, 크레도 테크놀로지(CRDO) 실적 / 9/2 브로드컴(AVGO) 실적, 스노우플레이크(SNOW) 실적, 휴렛팩커드 엔터프라이즈(HPE) 실적, 넷앱(NTAP) 실적 / 9/3 시에나(CIEN) 실적, 코파트(CPRT) 실적, 지스케일러(ZS) 실적, 삼사라(IOT) 실적 / 9/4 KT 실적, 노트 오프쇼어 파트너스(KNOP) 실적, 임페리얼 패트롤리엄(IMPP) 실적, 홈즈투라이프(HTLM) 실적</p></section>
+<section><h2>어제 스레드 후속</h2>
+<p>어제 던진 질문의 답은 절반만 나왔다. 엔비디아는 매출 962억 달러로 예상을 깨며 미국 기술주를 띄웠지만 한국 반도체는 관세 검토설과 잭슨홀 경계감에 오히려 밀렸다. 오늘 밤 케빈 워시 연설과 잭슨홀 미팅이 완전히 지나가야 방향성이 잡힐 것이다.</p></section>
+<section><h2>이슈</h2>
+<article><h3>엔비디아 서프라이즈와 국내 반도체주의 디커플링</h3>
+<p>엔비디아가 2분기 매출 962억 달러(예상 922억 달러)를 기록하고 내년 매출 70% 성장 전망을 제시하며 미국 기술주 상승을 이끌었다. 하지만 국내 반도체 투톱은 하락했다. 삼성전자는 3%대 하락하며 26만 원 선이 무너졌고 SK하이닉스도 동반 하락했다. 엔비디아 호재가 전날 선반영된 데다 미국의 반도체 2차 관세 검토설과 잭슨홀 미팅을 앞둔 경계감이 작용했다. SK하이닉스의 경우 배당락일 영향도 겹쳤다. [커뮤니티]에서는 '미장 오를 때 국장은 왜 이 모양이냐', '관세 폭탄 맞으면 반도체 다 죽는다'라며 한탄하는 분위기가 지배적이다. 반면 '배당락과 대외 이벤트를 앞둔 일시적 조정일 뿐'이라는 의견도 맞섰다.</p></article>
+<article><h3>미국 반도체 2차 관세 검토설과 글로벌 메모리 동향</h3>
+<p>미국 정부가 노트북과 서버 등 완제품까지 포함하는 반도체 2차 관세를 검토 중이라는 소식이 전해졌다. 이는 해외 파운드리에 의존하는 미국 설계 기업뿐 아니라 글로벌 반도체 공급망 전반에 부담을 줄 수 있다. 이 여파로 마이크론은 0.3% 내렸고 샌디스크도 1.0% 하락 마감했다. 한편 일본 키옥시아와 미국 샌디스크는 2032년까지 일본에 310억 달러(약 5조 엔) 이상을 공동 투자해 낸드 신공장을 건설하고 메모리 증설에 베팅하기로 합의했다.</p></article>
+<article><h3>원/달러 환율 13개월 만에 최저치 기록</h3>
+<p>원/달러 환율은 전날보다 9.6원 내린 1372.4원에 마감하며 13개월 만에 최저치를 기록했다. 외국인의 주식 순매도와 잭슨홀 미팅 경계감에도 불구하고 월말을 앞둔 수출업체의 달러 매도(네고) 물량이 대거 쏟아진 영향이다. 다음 주 법인세 중간예납 납부 시한과 맞물려 달러 하방 압력이 더 강해졌다.</p></article></section>
+<section><h2>내일로 넘기는 질문</h2>
+<p>미국의 반도체 관세 검토가 단순한 엄포에 그칠지, 아니면 국내 반도체 수출 전선에 실질적인 타격을 줄지 지켜봐야 한다.</p></section>
+
+</main>
+<footer>생성 2026-08-28T07:03:41.547Z · 자동 생성된 요약이며 투자 권유가 아닙니다.</footer>
+</body>
+</html>
