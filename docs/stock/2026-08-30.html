@@ -1,0 +1,159 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>2026-08-30 증시 브리핑</title>
+<style>:root { color-scheme: light dark;
+  --fg:#1a1a1a; --muted:#6b6b6b; --line:#e3e3e3; --card:#f6f6f7;
+  --up:#c0392b; --down:#1565c0; --flat:#6b6b6b; --warn:#b45309; }
+@media (prefers-color-scheme: dark) {
+  :root { --fg:#e8e8e8; --muted:#9a9a9a; --line:#333; --card:#1c1c1e;
+    --up:#ff6b5a; --down:#5aa9ff; --flat:#9a9a9a; --warn:#fbbf24; }
+}
+* { box-sizing:border-box; }
+body { margin:0 auto; padding:1rem .9rem 3rem; max-width:44rem;
+  font:16px/1.65 -apple-system,BlinkMacSystemFont,"Apple SD Gothic Neo","Noto Sans KR",sans-serif;
+  color:var(--fg); word-break:keep-all; overflow-wrap:anywhere; }
+header { display:flex; align-items:baseline; gap:.5rem; margin-bottom:.7rem; }
+h1 { font-size:1.1rem; margin:0; }
+.date { color:var(--muted); font-size:.85rem; }
+
+/* 모바일 2열 고정 */
+.grid { display:grid; grid-template-columns:repeat(2,1fr); gap:.4rem; }
+@media (min-width:34rem) { .grid { grid-template-columns:repeat(4,1fr); } }
+.cell { background:var(--card); border-radius:8px; padding:.5rem .6rem; }
+.cell .k { font-size:.72rem; color:var(--muted); letter-spacing:-.02em; }
+.cell .v { font-size:1.02rem; font-weight:700; font-variant-numeric:tabular-nums; }
+.cell .d { font-size:.8rem; font-variant-numeric:tabular-nums; color:var(--flat); }
+.cell.up .d, .cell.up .v { color:var(--up); }
+.cell.down .d, .cell.down .v { color:var(--down); }
+.sep { border:0; border-top:1px solid var(--line); margin:.5rem 0; }
+.dash { margin-bottom:.8rem; }
+.comment { font-size:.9rem; color:var(--muted); margin:0 0 1.6rem; }
+
+section { margin-bottom:1.6rem; }
+h2 { font-size:1rem; margin:0 0 .5rem; padding-bottom:.25rem; border-bottom:1px solid var(--line); }
+h3 { font-size:.95rem; margin:0 0 .3rem; }
+h4 { font-size:.88rem; margin:1rem 0 .35rem; color:var(--muted); }
+article { margin-bottom:1rem; }
+p { margin:.4rem 0; }
+ul { margin:.4rem 0; padding-left:1.15rem; }
+li { margin:.25rem 0; }
+a { color:inherit; text-decoration:underline; text-underline-offset:2px; }
+/* 넓은 표는 페이지가 아니라 표 자신이 가로 스크롤한다 */
+.tw { overflow-x:auto; -webkit-overflow-scrolling:touch; margin:.6rem 0; }
+table { border-collapse:collapse; font-size:.82rem; min-width:100%; }
+th, td { border-bottom:1px solid var(--line); padding:.4rem .55rem; text-align:left;
+  vertical-align:top; white-space:nowrap; }
+th { background:var(--card); font-weight:600; position:sticky; top:0; }
+/* 단지명처럼 긴 값은 줄바꿈을 허용해 표가 지나치게 넓어지지 않게 한다 */
+td:nth-child(3) { white-space:normal; min-width:9rem; }
+tbody tr:nth-child(even) td { background:rgba(127,127,127,.05); }
+pre { white-space:pre-wrap; background:var(--card); padding:1rem; border-radius:6px; font-size:.85rem; }
+.warn { color:var(--warn); font-weight:600; }
+.failures { border:1px solid var(--line); border-radius:6px; padding:.8rem; }
+.failures h2 { border:0; color:var(--warn); }
+.failures li { color:var(--muted); font-size:.85rem; }
+footer { color:var(--muted); font-size:.78rem; border-top:1px solid var(--line); padding-top:.8rem; }</style>
+</head>
+<body>
+<header>
+<h1>📈 증시</h1>
+<span class="date">2026-08-30 KST</span>
+</header>
+<section class="dash">
+<div class="grid">
+<div class="cell down">
+<div class="k">S&amp;P500</div>
+<div class="v">7,711.76</div>
+<div class="d">−0.25%</div>
+</div>
+<div class="cell down">
+<div class="k">나스닥</div>
+<div class="v">26,402.42</div>
+<div class="d">−0.52%</div>
+</div>
+<div class="cell down">
+<div class="k">다우</div>
+<div class="v">53,559.99</div>
+<div class="d">−0.02%</div>
+</div>
+</div>
+<hr class="sep">
+<div class="grid">
+<div class="cell up">
+<div class="k">미10년물</div>
+<div class="v">4.730</div>
+<div class="d">+1.24%</div>
+</div>
+<div class="cell up">
+<div class="k">달러인덱스</div>
+<div class="v">99.70</div>
+<div class="d">+0.55%</div>
+</div>
+<div class="cell down">
+<div class="k">원달러</div>
+<div class="v">1,380.50</div>
+<div class="d">−0.11%</div>
+</div>
+</div>
+<hr class="sep">
+<div class="grid">
+<div class="cell down">
+<div class="k">코스피</div>
+<div class="v">6,788.88</div>
+<div class="d">−1.79%</div>
+</div>
+<div class="cell up">
+<div class="k">코스닥</div>
+<div class="v">838.41</div>
+<div class="d">+0.09%</div>
+</div>
+<div class="cell down">
+<div class="k">외국인</div>
+<div class="v">−8525억</div>
+<div class="d">-</div>
+</div>
+<div class="cell down">
+<div class="k">기관</div>
+<div class="v">−11876억</div>
+<div class="d">-</div>
+</div>
+<div class="cell up">
+<div class="k">개인</div>
+<div class="v">+4194억</div>
+<div class="d">-</div>
+</div>
+</div>
+</section>
+<p class="comment">워시의 매파적 발언 여파로 미 10년물 금리가 4.73%로 오르고 달러인덱스도 99.7로 상승했어.</p>
+<main>
+<section><h2>오늘 일정</h2>
+<p>01:15 잭슨홀 심포지엄(Jackson Hole Symposium)</p></section>
+<section><h2>예정 일정</h2>
+<p>08/31 SAIC 실적 발표(컨센서스 $2.25) / GRFS 실적 발표(컨센서스 $0.27)</p>
+<p>09/01 PANW 실적 발표(컨센서스 $0.51) / DELL 실적 발표(컨센서스 $4.72) / MDT 실적 발표(컨센서스 $1.38) / CRDO 실적 발표(컨센서스 $0.91)</p>
+<p>09/02 AVGO 실적 발표(컨센서스 $2.83) / SNOW 실적 발표(컨센서스 -$0.51) / HPE 실적 발표(컨센서스 $0.82) / NTAP 실적 발표(컨센서스 $1.72)</p>
+<p>09/03 CIEN 실적 발표(컨센서스 $1.45) / CPRT 실적 발표(컨센서스 $0.39) / ZS 실적 발표(컨센서스 $0.06) / IOT 실적 발표(컨센서스 $0.02)</p>
+<p>09/04 KT 실적 발표 / KNOP 실적 발표(컨센서스 -$0.03)</p></section>
+<section><h2>어제 스레드 후속</h2>
+<p>어제 던진 질문, 답이 매파 쪽으로 기울고 있어. 워시의 '할 일 있다'는 발언으로 9월 금리 인상론이 재부각되면서 미국 국채 2년물 금리가 연 4.348%로 급등했고, 뉴욕증시와 비트코인 등 자산 시장이 동반 하락했거든. 단순 구두 개입을 넘어 시장의 금리 경계감을 완전히 깨운 모양새야.</p></section>
+<section><h2>이슈</h2>
+<article><h3>코스피 약세장 공식 진입과 서학개미의 10조 원 탈출극</h3>
+<p>코스피가 지난 6월 22일 역사적 고점(9114.55)을 찍은 뒤 조정에 들어가며 28일 기준 6788.88로 마감했어. 고점 대비 무려 25.52% 하락하며 공식적인 '약세장' 영역에 들어선 셈이지. 국내 증시가 지지부진하자 개인 투자자들은 7월 1일부터 8월 27일까지 두 달간 미국 주식을 약 10조 원(70억 3,879만 달러)이나 쓸어 담았어. 금융당국의 레버리지 규제 강화에도 불구하고 서학개미들은 미국 레버리지 상품으로 향하고 있어. [커뮤니티] 반응은 뜨거워. '국장은 답이 없다, 탈출은 지능순', '미국 레버리지 규제 피해 미국으로 직접 가는 게 이득'이라며 국장 이탈을 당연시하는 분위기야. 반면 '자사주 매입 신청도 46개 종목이나 대기 중인데 지금이 바닥 아닐까' 하는 소수 의견도 있어.</p></article>
+<article><h3>워시 매파 쇼크와 미 증시 하락</h3>
+<p>연준 워시의 '할 일 있다'는 매파적 발언이 시장을 흔들었어. 9월 금리 인상론이 다시 고개를 들면서 미국 국채 2년물 금리가 11.8bp 오른 연 4.348%를 기록했고, 10년물 금리도 4.73%로 상승했어. 이 여파로 다우(-0.02%), S&amp;P500(-0.25%), 나스닥(-0.52%)이 일제히 하락 마감했어. 금리 경계감이 반도체 대형주 약세로 이어지며 코스피도 1.79% 하락하는 원인이 됐지. [커뮤니티]에서는 '9월 금리 인하 기대하더니 갑자기 인상론이라니 뒤통수 맞았다', '결국 고금리가 더 오래 갈 것 같다'며 우려 섞인 반응이 지배적이야.</p></article>
+<article><h3>중국 메모리 반도체의 추격과 글로벌 반도체 투자 경쟁</h3>
+<p>중국 YMTC가 출하량 기준 키옥시아, 마이크론, 샌디스크를 제치고 3위에 올랐고, CXMT의 DDR5는 SK하이닉스와 성능 차이가 1%에 불과하다는 소식이 전해졌어. 이에 대응해 일본 키옥시아와 샌디스크는 일본 내 생산시설에 310억 달러(5조 엔 이상) 공동 투자를 발표했지. 한편 번스타인은 삼성전자, SK하이닉스뿐 아니라 마이크론, 샌디스크 등에도 '시장수익률 상회' 등급을 부여하며 수혜 범위가 넓어질 것으로 전망했어. [커뮤니티]에서는 '중국 반도체 추격 속도가 무섭다', '이러다 2027년쯤엔 메모리 공급 과잉으로 팽창의 저주가 오는 것 아니냐'는 걱정이 나오고 있어.</p></article>
+<article><h3>의외의 복병, 8월 코스피 상승률 1위는 건설주</h3>
+<p>반도체가 주춤한 사이 코스피 건설업종이 월간 33.11% 상승하며 업종 상승률 1위를 차지했어. 특히 금호건설은 호남 반도체 테마주로 엮이며 한 달간 79.35% 급등하는 기염을 토했지. [커뮤니티]에서는 '반도체 사놨더니 건설주가 반도체 테마로 가네', '이게 국장식 테마 순환매의 정수'라며 헛웃음을 짓는 반응이 많아.</p></article>
+<article><h3>네이버·SKT의 AI 인프라 승부수와 정부의 B200 지원</h3>
+<p>네이버가 엔비디아, 브룩필드와 손잡고 'AI 팩토리' 사업을 전담할 100% 자회사를 설립해. 브룩필드가 최대 90억 달러를 투입하고 엔비디아는 네이버에 10억 달러를 지분 투자할 예정이야. 또한 정부의 '모두의 AI' 사업에 SKT, 카카오, KT 컨소시엄이 선정되어 엔비디아의 최신 GPU인 B200 총 512장을 지원받게 되었어. [커뮤니티]에서는 '네이버가 엔비디아랑 제대로 엮였네', 'B200 지원받는 통신사들이 진짜 AI 관문을 잡을 수 있을까'라며 기대감을 나타내고 있어.</p></article></section>
+<section><h2>내일로 넘기는 질문</h2>
+<p>역사적 고점 대비 25% 밀리며 약세장에 진입한 코스피, 46개 기업의 자사주 매입과 수출 지표가 구원투수가 될 수 있을까?</p></section>
+
+</main>
+<footer>생성 2026-08-30T01:36:43.765Z · 자동 생성된 요약이며 투자 권유가 아닙니다.</footer>
+</body>
+</html>
