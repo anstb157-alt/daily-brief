@@ -1,0 +1,139 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>2026-09-02 부동산 브리핑</title>
+<style>:root { color-scheme: light dark;
+  --fg:#1a1a1a; --muted:#6b6b6b; --line:#e3e3e3; --card:#f6f6f7;
+  --up:#c0392b; --down:#1565c0; --flat:#6b6b6b; --warn:#b45309; }
+@media (prefers-color-scheme: dark) {
+  :root { --fg:#e8e8e8; --muted:#9a9a9a; --line:#333; --card:#1c1c1e;
+    --up:#ff6b5a; --down:#5aa9ff; --flat:#9a9a9a; --warn:#fbbf24; }
+}
+* { box-sizing:border-box; }
+body { margin:0 auto; padding:1rem .9rem 3rem; max-width:44rem;
+  font:16px/1.65 -apple-system,BlinkMacSystemFont,"Apple SD Gothic Neo","Noto Sans KR",sans-serif;
+  color:var(--fg); word-break:keep-all; overflow-wrap:anywhere; }
+header { display:flex; align-items:baseline; gap:.5rem; margin-bottom:.7rem; }
+h1 { font-size:1.1rem; margin:0; }
+.date { color:var(--muted); font-size:.85rem; }
+
+/* 모바일 2열 고정 */
+.grid { display:grid; grid-template-columns:repeat(2,1fr); gap:.4rem; }
+@media (min-width:34rem) { .grid { grid-template-columns:repeat(4,1fr); } }
+.cell { background:var(--card); border-radius:8px; padding:.5rem .6rem; }
+.cell .k { font-size:.72rem; color:var(--muted); letter-spacing:-.02em; }
+.cell .v { font-size:1.02rem; font-weight:700; font-variant-numeric:tabular-nums; }
+.cell .d { font-size:.8rem; font-variant-numeric:tabular-nums; color:var(--flat); }
+.cell.up .d, .cell.up .v { color:var(--up); }
+.cell.down .d, .cell.down .v { color:var(--down); }
+.sep { border:0; border-top:1px solid var(--line); margin:.5rem 0; }
+.dash { margin-bottom:.8rem; }
+.comment { font-size:.9rem; color:var(--muted); margin:0 0 1.6rem; }
+
+section { margin-bottom:1.6rem; }
+h2 { font-size:1rem; margin:0 0 .5rem; padding-bottom:.25rem; border-bottom:1px solid var(--line); }
+h3 { font-size:.95rem; margin:0 0 .3rem; }
+h4 { font-size:.88rem; margin:1rem 0 .35rem; color:var(--muted); }
+article { margin-bottom:1rem; }
+p { margin:.4rem 0; }
+ul { margin:.4rem 0; padding-left:1.15rem; }
+li { margin:.25rem 0; }
+a { color:inherit; text-decoration:underline; text-underline-offset:2px; }
+/* 넓은 표는 페이지가 아니라 표 자신이 가로 스크롤한다 */
+.tw { overflow-x:auto; -webkit-overflow-scrolling:touch; margin:.6rem 0; }
+table { border-collapse:collapse; font-size:.82rem; min-width:100%; }
+th, td { border-bottom:1px solid var(--line); padding:.4rem .55rem; text-align:left;
+  vertical-align:top; white-space:nowrap; }
+th { background:var(--card); font-weight:600; position:sticky; top:0; }
+/* 단지명처럼 긴 값은 줄바꿈을 허용해 표가 지나치게 넓어지지 않게 한다 */
+td:nth-child(3) { white-space:normal; min-width:9rem; }
+tbody tr:nth-child(even) td { background:rgba(127,127,127,.05); }
+pre { white-space:pre-wrap; background:var(--card); padding:1rem; border-radius:6px; font-size:.85rem; }
+.warn { color:var(--warn); font-weight:600; }
+.failures { border:1px solid var(--line); border-radius:6px; padding:.8rem; }
+.failures h2 { border:0; color:var(--warn); }
+.failures li { color:var(--muted); font-size:.85rem; }
+footer { color:var(--muted); font-size:.78rem; border-top:1px solid var(--line); padding-top:.8rem; }</style>
+</head>
+<body>
+<header>
+<h1>🏠 부동산</h1>
+<span class="date">2026-09-02 KST</span>
+</header>
+<section class="dash">
+<div class="grid">
+<div class="cell up">
+<div class="k">매매 서울</div>
+<div class="v">+0.29%</div>
+<div class="d">-</div>
+</div>
+<div class="cell up">
+<div class="k">매매 수도권</div>
+<div class="v">+0.22%</div>
+<div class="d">-</div>
+</div>
+<div class="cell up">
+<div class="k">매매 지방</div>
+<div class="v">+0.01%</div>
+<div class="d">-</div>
+</div>
+<div class="cell up">
+<div class="k">전세 서울</div>
+<div class="v">+0.22%</div>
+<div class="d">-</div>
+</div>
+</div>
+<hr class="sep">
+<div class="grid">
+<div class="cell flat">
+<div class="k">공급물량</div>
+<div class="v">12,008호</div>
+<div class="d">-</div>
+</div>
+<div class="cell flat">
+<div class="k">입주물량</div>
+<div class="v">15,592호</div>
+<div class="d">-</div>
+</div>
+<div class="cell flat">
+<div class="k">미분양</div>
+<div class="v">13,553호</div>
+<div class="d">-</div>
+</div>
+<div class="cell flat">
+<div class="k">경매 낙찰가율</div>
+<div class="v">-</div>
+<div class="d">-</div>
+</div>
+</div>
+</section>
+<p class="comment">한국부동산원 8월 24일 조사(9일 전) 기준 주간 통계입니다.</p>
+<main>
+<section><h2>오늘 일정</h2>
+<p>2026-09-02: 검암역 푸르지오 프라베뉴 (B-1BL) 공공분양주택 청약 접수 종료, 시티오씨엘 9단지 오션파크뷰 청약 접수 종료</p></section>
+<section><h2>예정 일정</h2>
+<p>2026-09-07: 문수데시앙2단지 공가세대 일반공급 청약 접수 시작</p>
+<p>2026-09-07: 브라운스톤 월곡 센트럴 청약 접수 시작</p>
+<p>2026-09-07: 의정부우정 A2블록 공공분양주택 청약 접수 시작</p>
+<p>2026-09-08: 성남복정2 A1블록 신혼희망타운 청약 접수 종료</p>
+<p>2026-09-08: 남양주진접2지구 A-4블록 신혼희망타운 잔여세대 청약 접수 시작</p>
+<p>2026-09-14: 양주회천지구 A-26블록 공공분양주택 청약 접수 시작</p>
+<p>2026-09-17: 인천계양지구 A6블록 공공분양주택 청약 접수 시작</p></section>
+<section><h2>어제 스레드 후속</h2>
+<p>어제 던진 강남과 외곽의 디커플링 심화 여부는 아직 미해소 상태야. 서울 외곽인 중랑구 거래가 전월 대비 137% 급증한 반면, 강남권은 매물이 14~15% 늘며 눈치보기에 들어갔다는 상반된 데이터가 나와서 조금 더 지켜봐야 해.</p></section>
+<section><h2>이슈</h2>
+<article><h3>종부세 강화안 결국 철회, 강남권 집주인들 눈치보기 돌입</h3>
+<p>정부가 비거주 1주택자의 종합부동산세 기본공제액을 9억 원으로 낮추려던 세제개편안을 철회하고 기존 12억 원을 유지하기로 했어. 세금 부담 때문에 집을 팔려던 임대인들이 버틸 수 있는 여지가 생긴 셈이지. 실제로 한 달 전과 비교해 서초구(15%)와 강남구(14.2%) 등 강남권 아파트 매물이 크게 늘어난 상황에서, 이번 규제 철회로 집주인들이 매물을 거두거나 호조세를 관망하는 눈치보기에 들어갔어. [커뮤니티]에서는 &quot;세금 부담이 줄어 다행이다, 매물을 거둬야겠다&quot;는 반응과 &quot;정책이 일관성 없이 번복되어 시장 혼란만 가중시킨다&quot;는 비판이 팽팽하게 맞서고 있어.</p></article>
+<article><h3>서울 갭투자 의심 거래 55% 급증, 30대가 시장 주도</h3>
+<p>실거주 없이 전세를 끼고 집을 사는 갭투자 의심 거래가 서울에서 1년 새 54.6% 급증하며 7,000건에 육박했어. 성동구, 강동구, 마포구 등에서 증가세가 가팔랐고 매수자의 절반이 30대 청년층으로 나타났어. 서울 외곽인 중랑구의 경우 7월 매매 거래량이 전월 대비 137%나 뛰는 등 서울 집값 상승세 속에 매수세가 주변부로 번지는 모양새야. [커뮤니티]에서는 &quot;지금 안 사면 영영 기회가 없을 것 같아 무리해서라도 진입하는 것&quot;이라는 공감 여론과 &quot;전세가율이 낮은 상황에서 무리한 갭투자는 하우스푸어로 전락할 위험이 크다&quot;는 경고가 동시에 나오고 있어.</p></article>
+<article><h3>PF 규제 2년 유예로 주택 공급 속도전 뒷받침</h3>
+<p>정부가 정상 사업장에 자금을 원활히 공급하기 위해 PF 부실 정리와 2금융권 돈줄 죄기 규제를 2년 늦추기로 했어. 이는 수도권 13만 호 신속 공급을 골자로 한 8·13 부동산 대책을 지원하기 위한 조치야. 한편, 최근 청약 시장에서는 일부 타입에서 최고 262대 1의 높은 경쟁률이 나오는 등 청약 열기가 이어지고 있어 공급 속도전이 시장에 미칠 영향이 주목돼.</p></article></section>
+<section><h2>내일로 넘기는 질문</h2>
+<p>종부세 규제 철회와 대출 규제가 맞물린 상황에서, 30대의 서울 갭투자 열풍은 계속 이어질 수 있을까?</p></section>
+
+</main>
+<footer>생성 2026-09-02T00:52:15.762Z · 자동 생성된 요약이며 투자 권유가 아닙니다.</footer>
+</body>
+</html>
