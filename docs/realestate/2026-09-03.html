@@ -1,0 +1,143 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>2026-09-03 부동산 브리핑</title>
+<style>:root { color-scheme: light dark;
+  --fg:#1a1a1a; --muted:#6b6b6b; --line:#e3e3e3; --card:#f6f6f7;
+  --up:#c0392b; --down:#1565c0; --flat:#6b6b6b; --warn:#b45309; }
+@media (prefers-color-scheme: dark) {
+  :root { --fg:#e8e8e8; --muted:#9a9a9a; --line:#333; --card:#1c1c1e;
+    --up:#ff6b5a; --down:#5aa9ff; --flat:#9a9a9a; --warn:#fbbf24; }
+}
+* { box-sizing:border-box; }
+body { margin:0 auto; padding:1rem .9rem 3rem; max-width:44rem;
+  font:16px/1.65 -apple-system,BlinkMacSystemFont,"Apple SD Gothic Neo","Noto Sans KR",sans-serif;
+  color:var(--fg); word-break:keep-all; overflow-wrap:anywhere; }
+header { display:flex; align-items:baseline; gap:.5rem; margin-bottom:.7rem; }
+h1 { font-size:1.1rem; margin:0; }
+.date { color:var(--muted); font-size:.85rem; }
+
+/* 모바일 2열 고정 */
+.grid { display:grid; grid-template-columns:repeat(2,1fr); gap:.4rem; }
+@media (min-width:34rem) { .grid { grid-template-columns:repeat(4,1fr); } }
+.cell { background:var(--card); border-radius:8px; padding:.5rem .6rem; }
+.cell .k { font-size:.72rem; color:var(--muted); letter-spacing:-.02em; }
+.cell .v { font-size:1.02rem; font-weight:700; font-variant-numeric:tabular-nums; }
+.cell .d { font-size:.8rem; font-variant-numeric:tabular-nums; color:var(--flat); }
+.cell.up .d, .cell.up .v { color:var(--up); }
+.cell.down .d, .cell.down .v { color:var(--down); }
+.sep { border:0; border-top:1px solid var(--line); margin:.5rem 0; }
+.dash { margin-bottom:.8rem; }
+.comment { font-size:.9rem; color:var(--muted); margin:0 0 1.6rem; }
+
+section { margin-bottom:1.6rem; }
+h2 { font-size:1rem; margin:0 0 .5rem; padding-bottom:.25rem; border-bottom:1px solid var(--line); }
+h3 { font-size:.95rem; margin:0 0 .3rem; }
+h4 { font-size:.88rem; margin:1rem 0 .35rem; color:var(--muted); }
+article { margin-bottom:1rem; }
+p { margin:.4rem 0; }
+ul { margin:.4rem 0; padding-left:1.15rem; }
+li { margin:.25rem 0; }
+a { color:inherit; text-decoration:underline; text-underline-offset:2px; }
+/* 넓은 표는 페이지가 아니라 표 자신이 가로 스크롤한다 */
+.tw { overflow-x:auto; -webkit-overflow-scrolling:touch; margin:.6rem 0; }
+table { border-collapse:collapse; font-size:.82rem; min-width:100%; }
+th, td { border-bottom:1px solid var(--line); padding:.4rem .55rem; text-align:left;
+  vertical-align:top; white-space:nowrap; }
+th { background:var(--card); font-weight:600; position:sticky; top:0; }
+/* 단지명처럼 긴 값은 줄바꿈을 허용해 표가 지나치게 넓어지지 않게 한다 */
+td:nth-child(3) { white-space:normal; min-width:9rem; }
+tbody tr:nth-child(even) td { background:rgba(127,127,127,.05); }
+pre { white-space:pre-wrap; background:var(--card); padding:1rem; border-radius:6px; font-size:.85rem; }
+.warn { color:var(--warn); font-weight:600; }
+.failures { border:1px solid var(--line); border-radius:6px; padding:.8rem; }
+.failures h2 { border:0; color:var(--warn); }
+.failures li { color:var(--muted); font-size:.85rem; }
+footer { color:var(--muted); font-size:.78rem; border-top:1px solid var(--line); padding-top:.8rem; }</style>
+</head>
+<body>
+<header>
+<h1>🏠 부동산</h1>
+<span class="date">2026-09-03 KST</span>
+</header>
+<section class="dash">
+<div class="grid">
+<div class="cell up">
+<div class="k">매매 서울</div>
+<div class="v">+0.29%</div>
+<div class="d">-</div>
+</div>
+<div class="cell up">
+<div class="k">매매 수도권</div>
+<div class="v">+0.22%</div>
+<div class="d">-</div>
+</div>
+<div class="cell up">
+<div class="k">매매 지방</div>
+<div class="v">+0.01%</div>
+<div class="d">-</div>
+</div>
+<div class="cell up">
+<div class="k">전세 서울</div>
+<div class="v">+0.22%</div>
+<div class="d">-</div>
+</div>
+</div>
+<hr class="sep">
+<div class="grid">
+<div class="cell flat">
+<div class="k">공급물량</div>
+<div class="v">12,008호</div>
+<div class="d">-</div>
+</div>
+<div class="cell flat">
+<div class="k">입주물량</div>
+<div class="v">15,592호</div>
+<div class="d">-</div>
+</div>
+<div class="cell flat">
+<div class="k">미분양</div>
+<div class="v">13,553호</div>
+<div class="d">-</div>
+</div>
+<div class="cell flat">
+<div class="k">경매 낙찰가율</div>
+<div class="v">-</div>
+<div class="d">-</div>
+</div>
+</div>
+</section>
+<p class="comment">8월 24일(10일 전) 기준 한국부동산원 주간 통계입니다.</p>
+<main>
+<section><h2>오늘 일정</h2>
+<p>2026-09-03: 목동윤슬자이 견본주택 개관</p></section>
+<section><h2>예정 일정</h2>
+<p>2026-09-07: 문수데시앙2단지 공가세대 일반공급 청약 접수 시작</p>
+<p>2026-09-07: 브라운스톤 월곡 센트럴 청약 접수 시작</p>
+<p>2026-09-07: 의정부우정 A2블록 공공분양주택(본청약) 청약 접수 시작</p>
+<p>2026-09-08: 남양주진접2지구 A-4블록 신혼희망타운 잔여세대 추가 청약 접수 시작</p>
+<p>2026-09-08: 목동윤슬자이 청약 접수</p>
+<p>2026-09-14: 올 뉴 챔피언스시티 1차 청약 접수 시작</p>
+<p>2026-09-14: 그랑라크 에일린의 뜰 청약 접수 시작</p>
+<p>2026-09-14: 양주회천지구 A-26블록 공공분양주택 청약 접수 시작</p>
+<p>2026-09-17: 인천계양지구 A6블록 공공분양주택(본청약) 청약 접수 시작</p></section>
+<section><h2>어제 스레드 후속</h2>
+<p>어제 던진 질문은 아직 해소되지 않았어. 신한은행이 대출모집인 가계대출을 이틀 만에 다시 막아서 대출 옥죄기가 심해지는 한편, 종부세 완화 논란은 계속되고 있어 갭투자 방향성은 더 지켜봐야 해.</p></section>
+<section><h2>이슈</h2>
+<article><h3>신한은행 대출모집인 주담대·전세대출 이틀 만에 다시 중단</h3>
+<p>신한은행이 지난 1일 재개했던 대출모집인 경유 주택담보대출과 전세대출 신규 접수를 오늘(3일)부터 다시 중단하기로 했어. 재개한 지 단 이틀 만에 내린 결정이야. 가계대출 증가세를 잡기 위한 조치인데, 시장 혼선이 불가피해 보여. [커뮤니티]에서는 &quot;대출을 줬다 뺏다 장난하는 것도 아니고 실수요자만 피 말린다&quot;라는 분통 섞인 반응과 &quot;가계부채를 잡으려면 어쩔 수 없는 고육지책&quot;이라는 의견이 맞서고 있어.</p></article>
+<article><h3>종부세 완화 후퇴 논란에 이 대통령 직접 반박</h3>
+<p>정부가 비거주 1주택자의 종합부동산세 기본공제액 감면 상한을 당초 계획보다 완화한 것을 두고 '개혁 후퇴'라는 비판이 나오자, 이재명 대통령이 직접 반박했어. 이 대통령은 자신의 SNS를 통해 &quot;정책 입장을 바꾸는 것은 부정의고 고수하는 것은 무조건 옳은 것이냐&quot;며 정책 내용 전체를 봐달라고 언급했지. 한편 비거주 1주택 논란이 일었던 이형일 후보자는 과천 아파트가 재건축으로 멸실 중이라 비거주 상황이 된 것이라며 청문회에서 설명하겠다고 밝혔어.</p></article>
+<article><h3>전세사기 피해 신청 23% 부결, 입증 책임이 장벽</h3>
+<p>정부의 전세사기 피해자 심사에서 처리된 6만 7,618건 중 23%에 달하는 1만 5,567건이 부결된 것으로 나타났어. 탈락 사유의 대부분은 '임대인의 보증금 미반환 고의성'을 임차인이 입증하지 못했기 때문이야. [커뮤니티]에서는 &quot;돈 떼인 것도 억울한데 사기꾼 속마음까지 피해자가 증명하라는 게 말이 되냐&quot;는 비판이 지배적이야. 반면 &quot;단순 역전세와 고의적 사기는 구분해야 국가 재정 낭비를 막는다&quot;는 신중론도 일부 존재해.</p></article>
+<article><h3>목동 32억 오피스텔 분양과 수도권 청약·공급 소식</h3>
+<p>GS건설이 서울 목동 옛 KT 부지에 48층 규모 주거형 오피스텔 '목동윤슬자이' 분양에 나섰어. 전용 114㎡ 분양가가 32억 원에 달하지만, 청약통장 없이 만 19세 이상이면 100% 추첨제로 청약할 수 있어 오는 8일 접수를 진행해. 한편 인천 '검암역 푸르지오 프라베뉴'는 1순위 평균 19대 1의 경쟁률로 마감됐어. LH는 임대주택 한 채당 부채가 2.9억 원 늘어나는 재무 부담 속에서도 광명시흥 등 수도권 보상 기간을 44개월에서 24개월로 단축해 공급 속도를 내겠다고 밝혔고, 서울 염창동에서는 공원화 약속 대신 공공주택을 짓는다는 계획에 주민들이 집단 반발하고 있어.</p></article></section>
+<section><h2>내일로 넘기는 질문</h2>
+<p>대출모집인 창구까지 이틀 만에 다시 닫아버린 은행권의 초강수 대출 규제 속에서, 32억 원에 달하는 목동 오피스텔 청약 성적표는 과연 어떻게 나올까?</p></section>
+
+</main>
+<footer>생성 2026-09-03T00:58:47.955Z · 자동 생성된 요약이며 투자 권유가 아닙니다.</footer>
+</body>
+</html>
