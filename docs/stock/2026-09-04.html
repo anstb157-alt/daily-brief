@@ -1,0 +1,157 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>2026-09-04 증시 브리핑</title>
+<style>:root { color-scheme: light dark;
+  --fg:#1a1a1a; --muted:#6b6b6b; --line:#e3e3e3; --card:#f6f6f7;
+  --up:#c0392b; --down:#1565c0; --flat:#6b6b6b; --warn:#b45309; }
+@media (prefers-color-scheme: dark) {
+  :root { --fg:#e8e8e8; --muted:#9a9a9a; --line:#333; --card:#1c1c1e;
+    --up:#ff6b5a; --down:#5aa9ff; --flat:#9a9a9a; --warn:#fbbf24; }
+}
+* { box-sizing:border-box; }
+body { margin:0 auto; padding:1rem .9rem 3rem; max-width:44rem;
+  font:16px/1.65 -apple-system,BlinkMacSystemFont,"Apple SD Gothic Neo","Noto Sans KR",sans-serif;
+  color:var(--fg); word-break:keep-all; overflow-wrap:anywhere; }
+header { display:flex; align-items:baseline; gap:.5rem; margin-bottom:.7rem; }
+h1 { font-size:1.1rem; margin:0; }
+.date { color:var(--muted); font-size:.85rem; }
+
+/* 모바일 2열 고정 */
+.grid { display:grid; grid-template-columns:repeat(2,1fr); gap:.4rem; }
+@media (min-width:34rem) { .grid { grid-template-columns:repeat(4,1fr); } }
+.cell { background:var(--card); border-radius:8px; padding:.5rem .6rem; }
+.cell .k { font-size:.72rem; color:var(--muted); letter-spacing:-.02em; }
+.cell .v { font-size:1.02rem; font-weight:700; font-variant-numeric:tabular-nums; }
+.cell .d { font-size:.8rem; font-variant-numeric:tabular-nums; color:var(--flat); }
+.cell.up .d, .cell.up .v { color:var(--up); }
+.cell.down .d, .cell.down .v { color:var(--down); }
+.sep { border:0; border-top:1px solid var(--line); margin:.5rem 0; }
+.dash { margin-bottom:.8rem; }
+.comment { font-size:.9rem; color:var(--muted); margin:0 0 1.6rem; }
+
+section { margin-bottom:1.6rem; }
+h2 { font-size:1rem; margin:0 0 .5rem; padding-bottom:.25rem; border-bottom:1px solid var(--line); }
+h3 { font-size:.95rem; margin:0 0 .3rem; }
+h4 { font-size:.88rem; margin:1rem 0 .35rem; color:var(--muted); }
+article { margin-bottom:1rem; }
+p { margin:.4rem 0; }
+ul { margin:.4rem 0; padding-left:1.15rem; }
+li { margin:.25rem 0; }
+a { color:inherit; text-decoration:underline; text-underline-offset:2px; }
+/* 넓은 표는 페이지가 아니라 표 자신이 가로 스크롤한다 */
+.tw { overflow-x:auto; -webkit-overflow-scrolling:touch; margin:.6rem 0; }
+table { border-collapse:collapse; font-size:.82rem; min-width:100%; }
+th, td { border-bottom:1px solid var(--line); padding:.4rem .55rem; text-align:left;
+  vertical-align:top; white-space:nowrap; }
+th { background:var(--card); font-weight:600; position:sticky; top:0; }
+/* 단지명처럼 긴 값은 줄바꿈을 허용해 표가 지나치게 넓어지지 않게 한다 */
+td:nth-child(3) { white-space:normal; min-width:9rem; }
+tbody tr:nth-child(even) td { background:rgba(127,127,127,.05); }
+pre { white-space:pre-wrap; background:var(--card); padding:1rem; border-radius:6px; font-size:.85rem; }
+.warn { color:var(--warn); font-weight:600; }
+.failures { border:1px solid var(--line); border-radius:6px; padding:.8rem; }
+.failures h2 { border:0; color:var(--warn); }
+.failures li { color:var(--muted); font-size:.85rem; }
+footer { color:var(--muted); font-size:.78rem; border-top:1px solid var(--line); padding-top:.8rem; }</style>
+</head>
+<body>
+<header>
+<h1>📈 증시</h1>
+<span class="date">2026-09-04 KST</span>
+</header>
+<section class="dash">
+<div class="grid">
+<div class="cell up">
+<div class="k">S&amp;P500</div>
+<div class="v">7,747.71</div>
+<div class="d">+1.06%</div>
+</div>
+<div class="cell up">
+<div class="k">나스닥</div>
+<div class="v">26,584.06</div>
+<div class="d">+1.40%</div>
+</div>
+<div class="cell up">
+<div class="k">다우</div>
+<div class="v">53,686.11</div>
+<div class="d">+1.18%</div>
+</div>
+</div>
+<hr class="sep">
+<div class="grid">
+<div class="cell up">
+<div class="k">미10년물</div>
+<div class="v">4.768</div>
+<div class="d">+0.13%</div>
+</div>
+<div class="cell up">
+<div class="k">달러인덱스</div>
+<div class="v">98.98</div>
+<div class="d">+0.07%</div>
+</div>
+<div class="cell up">
+<div class="k">원달러</div>
+<div class="v">1,358.90</div>
+<div class="d">+0.03%</div>
+</div>
+</div>
+<hr class="sep">
+<div class="grid">
+<div class="cell up">
+<div class="k">코스피</div>
+<div class="v">6,660.98</div>
+<div class="d">+1.24%</div>
+</div>
+<div class="cell up">
+<div class="k">코스닥</div>
+<div class="v">800.07</div>
+<div class="d">+1.25%</div>
+</div>
+<div class="cell up">
+<div class="k">외국인</div>
+<div class="v">+414억</div>
+<div class="d">-</div>
+</div>
+<div class="cell up">
+<div class="k">기관</div>
+<div class="v">+9143억</div>
+<div class="d">-</div>
+</div>
+<div class="cell down">
+<div class="k">개인</div>
+<div class="v">−9552억</div>
+<div class="d">-</div>
+</div>
+</div>
+</section>
+<p class="comment">국채 금리가 안정을 찾으며 미국과 한국 증시 모두 매수세가 유입됐다.</p>
+<main>
+<section><h2>오늘 일정</h2>
+<p>21:30 미국 8월 비농업 고용지수 / 실업률 / 시간당 평균 임금 발표</p></section>
+<section><h2>예정 일정</h2>
+<p>09/04 KT 실적발표 / 09/08 오라클 실적발표 / 09/08 게임스탑 실적발표 / 09/10 어도비 실적발표</p></section>
+<section><h2>어제 스레드 후속</h2>
+<p>유가는 배럴당 91.30달러로 여전히 높지만, 월러 이사의 금리 동결 시사 발언으로 금리 인상 우려는 일단 완화됐다. 다만 인플레이션 경로와 금리 인하 폭 제한 여부는 오늘 밤 발표될 비농업 고용지표를 확인해야 알 수 있어 아직 미해소 상태다.</p></section>
+<section><h2>이슈</h2>
+<article><h3>엔비디아, 18조 원에 허깅페이스 전격 인수</h3>
+<p>엔비디아가 세계 최대 오픈소스 AI 플랫폼인 허깅페이스를 약 130억 달러(약 17.6조~18조 원)에 인수한다. GPU 하드웨어를 넘어 AI 모델 유통망까지 장악하겠다는 전략이다. 인수 소식에 엔비디아 주가는 1.8% 상승 마감했다. 한편 엔비디아는 유휴 PC GPU로 AI 추론을 분산하는 'PAIR' 기술을 공개하고, 오는 10월 PC용 AI 기술인 'RTX 스파크'를 출격시킬 예정이다. [커뮤니티] '18조 원은 비싸 보이지만 완벽한 헤지다', 'AI 생태계를 통째로 먹으려 하네' 등의 반응이 나오고 있다.</p></article>
+<article><h3>월러 이사의 동결 시사 발언에 국채금리 하락, 증시 반등</h3>
+<p>크리스토퍼 월러 연준 이사가 조건부 금리 동결을 시사하면서 미국 10년물 국채금리가 4.768%로 안정을 찾았다. 이에 뉴욕증시 3대 지수가 일제히 1% 넘게 올랐고, 코스피도 외국인과 기관의 동반 매수세에 힘입어 6,660선을 돌파했다. 다만 국제유가(WTI)는 배럴당 91.30달러 선을 유지하며 부담 요인으로 남아있다.</p></article>
+<article><h3>비트코인 8만 1천 달러 회복에 국내 가상자산주 급등</h3>
+<p>비트코인이 8만 1천 달러(국내 기준 1억 1천만 원) 선을 회복하면서 투자심리가 개선됐다. 이에 따라 국내 증시에서 위지트(+16.43%), 우리기술투자(+12.78%) 등 가상자산 관련주들이 장중 급등세를 보이고 있다.</p></article>
+<article><h3>SK하이닉스-키옥시아 공동생산, 샌디스크 계약이 걸림돌</h3>
+<p>SK하이닉스가 일본 키옥시아와의 공동생산을 검토 중이나, 키옥시아와 미국 샌디스크 간의 '제3자 생산 제한' 계약이 걸림돌로 작용하고 있다는 소식이다. 또한 SK하이닉스는 자회사 솔리다임의 미국 증시 중복상장(더블 카운팅) 우려로 주가 향방에 촉각을 곤두세우고 있다. 한편 마이크론은 샌디스크와 협력해 고대역폭 플래시(HBF) 표준을 공개하며 넥스트 HBM 경쟁에 참전했다.</p></article>
+<article><h3>부실기업 퇴출 시총 기준 상향 조치 6개월 유예</h3>
+<p>정부가 코스닥(200억-&gt;300억 원) 및 코스피(300억-&gt;500억 원) 상장폐지 시가총액 기준 상향 조치를 내년 1월에서 7월로 6개월 유예하기로 했다. 코스피 시장에서도 코스닥과 동일하게 코넥스 이전상장을 허용하는 방안도 추진된다.</p></article>
+<article><h3>Ciena, Zscaler 등 실적 발표 결과</h3>
+<p>Ciena(CIEN), Zscaler(ZS), lululemon(LULU), DocuSign(DOCU) 등이 실적을 발표했으나 세부 발표치는 확인 안 됨.</p></article></section>
+<section><h2>내일로 넘기는 질문</h2>
+<p>오늘 밤 발표될 미국의 비농업 고용지표가 월러 이사의 '조건부 금리 동결' 시나리오를 뒷받침해 줄까, 아니면 찬물을 끼얹을까?</p></section>
+
+</main>
+<footer>생성 2026-09-04T01:21:08.867Z · 자동 생성된 요약이며 투자 권유가 아닙니다.</footer>
+</body>
+</html>
