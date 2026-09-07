@@ -1,0 +1,153 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>2026-09-07 증시 브리핑</title>
+<style>:root { color-scheme: light dark;
+  --fg:#1a1a1a; --muted:#6b6b6b; --line:#e3e3e3; --card:#f6f6f7;
+  --up:#c0392b; --down:#1565c0; --flat:#6b6b6b; --warn:#b45309; }
+@media (prefers-color-scheme: dark) {
+  :root { --fg:#e8e8e8; --muted:#9a9a9a; --line:#333; --card:#1c1c1e;
+    --up:#ff6b5a; --down:#5aa9ff; --flat:#9a9a9a; --warn:#fbbf24; }
+}
+* { box-sizing:border-box; }
+body { margin:0 auto; padding:1rem .9rem 3rem; max-width:44rem;
+  font:16px/1.65 -apple-system,BlinkMacSystemFont,"Apple SD Gothic Neo","Noto Sans KR",sans-serif;
+  color:var(--fg); word-break:keep-all; overflow-wrap:anywhere; }
+header { display:flex; align-items:baseline; gap:.5rem; margin-bottom:.7rem; }
+h1 { font-size:1.1rem; margin:0; }
+.date { color:var(--muted); font-size:.85rem; }
+
+/* 모바일 2열 고정 */
+.grid { display:grid; grid-template-columns:repeat(2,1fr); gap:.4rem; }
+@media (min-width:34rem) { .grid { grid-template-columns:repeat(4,1fr); } }
+.cell { background:var(--card); border-radius:8px; padding:.5rem .6rem; }
+.cell .k { font-size:.72rem; color:var(--muted); letter-spacing:-.02em; }
+.cell .v { font-size:1.02rem; font-weight:700; font-variant-numeric:tabular-nums; }
+.cell .d { font-size:.8rem; font-variant-numeric:tabular-nums; color:var(--flat); }
+.cell.up .d, .cell.up .v { color:var(--up); }
+.cell.down .d, .cell.down .v { color:var(--down); }
+.sep { border:0; border-top:1px solid var(--line); margin:.5rem 0; }
+.dash { margin-bottom:.8rem; }
+.comment { font-size:.9rem; color:var(--muted); margin:0 0 1.6rem; }
+
+section { margin-bottom:1.6rem; }
+h2 { font-size:1rem; margin:0 0 .5rem; padding-bottom:.25rem; border-bottom:1px solid var(--line); }
+h3 { font-size:.95rem; margin:0 0 .3rem; }
+h4 { font-size:.88rem; margin:1rem 0 .35rem; color:var(--muted); }
+article { margin-bottom:1rem; }
+p { margin:.4rem 0; }
+ul { margin:.4rem 0; padding-left:1.15rem; }
+li { margin:.25rem 0; }
+a { color:inherit; text-decoration:underline; text-underline-offset:2px; }
+/* 넓은 표는 페이지가 아니라 표 자신이 가로 스크롤한다 */
+.tw { overflow-x:auto; -webkit-overflow-scrolling:touch; margin:.6rem 0; }
+table { border-collapse:collapse; font-size:.82rem; min-width:100%; }
+th, td { border-bottom:1px solid var(--line); padding:.4rem .55rem; text-align:left;
+  vertical-align:top; white-space:nowrap; }
+th { background:var(--card); font-weight:600; position:sticky; top:0; }
+/* 단지명처럼 긴 값은 줄바꿈을 허용해 표가 지나치게 넓어지지 않게 한다 */
+td:nth-child(3) { white-space:normal; min-width:9rem; }
+tbody tr:nth-child(even) td { background:rgba(127,127,127,.05); }
+pre { white-space:pre-wrap; background:var(--card); padding:1rem; border-radius:6px; font-size:.85rem; }
+.warn { color:var(--warn); font-weight:600; }
+.failures { border:1px solid var(--line); border-radius:6px; padding:.8rem; }
+.failures h2 { border:0; color:var(--warn); }
+.failures li { color:var(--muted); font-size:.85rem; }
+footer { color:var(--muted); font-size:.78rem; border-top:1px solid var(--line); padding-top:.8rem; }</style>
+</head>
+<body>
+<header>
+<h1>📈 증시</h1>
+<span class="date">2026-09-07 KST</span>
+</header>
+<section class="dash">
+<div class="grid">
+<div class="cell down">
+<div class="k">S&amp;P500</div>
+<div class="v">7,718.60</div>
+<div class="d">−0.38%</div>
+</div>
+<div class="cell down">
+<div class="k">나스닥</div>
+<div class="v">26,506.99</div>
+<div class="d">−0.29%</div>
+</div>
+<div class="cell down">
+<div class="k">다우</div>
+<div class="v">53,414.25</div>
+<div class="d">−0.51%</div>
+</div>
+</div>
+<hr class="sep">
+<div class="grid">
+<div class="cell up">
+<div class="k">미10년물</div>
+<div class="v">4.784</div>
+<div class="d">+0.47%</div>
+</div>
+<div class="cell down">
+<div class="k">달러인덱스</div>
+<div class="v">99.10</div>
+<div class="d">−0.08%</div>
+</div>
+<div class="cell down">
+<div class="k">원달러</div>
+<div class="v">1,336.80</div>
+<div class="d">−0.94%</div>
+</div>
+</div>
+<hr class="sep">
+<div class="grid">
+<div class="cell up">
+<div class="k">코스피</div>
+<div class="v">6,887.20</div>
+<div class="d">+2.99%</div>
+</div>
+<div class="cell up">
+<div class="k">코스닥</div>
+<div class="v">825.59</div>
+<div class="d">+1.49%</div>
+</div>
+<div class="cell up">
+<div class="k">외국인</div>
+<div class="v">+4796억</div>
+<div class="d">-</div>
+</div>
+<div class="cell up">
+<div class="k">기관</div>
+<div class="v">+16694억</div>
+<div class="d">-</div>
+</div>
+<div class="cell down">
+<div class="k">개인</div>
+<div class="v">−37229억</div>
+<div class="d">-</div>
+</div>
+</div>
+</section>
+<p class="comment">미국 3대 지수는 고용 지표 호조에 따른 금리 우려로 하락했으나 반도체 업종은 독자적인 랠리를 펼쳤다.</p>
+<main>
+<section><h2>오늘 일정</h2>
+<p>2026-09-07: 미국 증시 휴장 (Bank Holiday)</p></section>
+<section><h2>예정 일정</h2>
+<p>2026-09-07 GRFS 실적 발표 / 2026-09-08 CASY, GME 실적 발표 / 2026-09-10 미국 Core PPI, PPI 발표, ORCL, ADBE 실적 발표 / 2026-09-11 미국 Core CPI, CPI 발표</p></section>
+<section><h2>어제 스레드 후속</h2>
+<p>2026-09-06에 던진 질문: 서학개미가 던진 마이크론과 샌디스크는 날아가고, 3배 레버리지(속슬)를 쥔 개미들은 웃을 수 있을까? 답은 나왔다. 마이크론(+6.10%)과 샌디스크(+11.90%)가 급등했고 필라델피아반도체지수도 3.38% 상승하면서 3배 레버리지를 쥔 개미들도 일단 웃게 됐다.</p></section>
+<section><h2>이슈</h2>
+<article><h3>고용 호조에 지수는 밀렸지만 오픈AI 아스트라가 반도체를 살렸다</h3>
+<p>미국 8월 비농업 일자리가 16만 2,000명 증가하며 고용 지표가 호조를 보였다. 국채금리 상승 우려로 뉴욕 3대 지수는 하락 마감했다. 하지만 반도체는 달랐다. 오픈AI가 새 AI 모델 'GPT-6 아스트라'를 공개하며 AGI 시대 도래를 선언하자 반도체주가 급등했다. 샌디스크가 11.90% 올랐고 마이크론도 6.10% 상승했다. 필라델피아반도체지수는 3.38% 올랐다. 젠슨 황 엔비디아 CEO는 'AGI가 도착했다'며 극찬했다. 국내 증시도 이 온기를 이어받아 삼성전자와 SK하이닉스가 강세를 보이고 DB하이텍은 14%대 급등했다.</p></article>
+<article><h3>원·달러 환율 1330원대 진입, 23개월 만의 최저치</h3>
+<p>원·달러 환율이 장중 1336.8원까지 내려앉으며 1년 11개월 만에 1330원대에 진입했다. 미국의 금리 인상 긴장감이라는 환율 상승 요인이 있었음에도 불구하고 국내 반도체 수출 기업들의 달러 매도 물량이 지속적으로 쏟아진 영향이다. 여기에 외국인 투자자들의 국내 증시 순매수세가 유입되면서 원화 강세를 부추겼다.</p></article>
+<article><h3>개별주 던지고 3배 레버리지 탄 서학개미들의 희비</h3>
+<p>최근 서학개미들은 마이크론, 샌디스크 등 반도체 개별주를 매도하는 대신 3배 레버리지 ETF를 집중 매수했다. 결과적으로 개별주와 레버리지 모두 급등하며 상승 흐름을 탔다. [커뮤니티]에서는 '월요일에 삼전닉스 불기둥 가냐', '오픈AI가 살려냈다'며 환호하는 분위기다. 반면 '미국 고용 잘 나와서 금리 또 올릴까 봐 무섭다'는 우려 섞인 목소리도 공존하고 있다.</p></article>
+<article><h3>엔비디아의 허깅페이스 인수와 인텔을 둘러싼 미 정부의 압박</h3>
+<p>엔비디아가 129억 달러를 들여 오픈소스 AI 플랫폼 허깅페이스를 인수했다는 소식이 전해졌다. 한편 트럼프 행정부가 지난해 89억 달러를 투입해 인텔 지분 9.9%를 확보하고 엔비디아와 애플 칩을 인텔에서 생산하도록 압박하고 있다는 분석이 제기됐다. 이는 한국 반도체 기업들에 중장기적인 리스크 요인이 될 수 있다는 지적이다. 중국의 딥시크는 화웨이 AI 칩을 도입하며 엔비디아로부터의 독립을 시도하고 있다.</p></article></section>
+<section><h2>내일로 넘기는 질문</h2>
+<p>오픈AI의 아스트라 훈풍이 단기 테마에 그칠까, 아니면 반도체 업황의 장기 우상향을 이끄는 진짜 동력이 될까?</p></section>
+
+</main>
+<footer>생성 2026-09-07T01:21:08.689Z · 자동 생성된 요약이며 투자 권유가 아닙니다.</footer>
+</body>
+</html>
