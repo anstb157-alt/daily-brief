@@ -1,0 +1,153 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>2026-09-09 증시 브리핑</title>
+<style>:root { color-scheme: light dark;
+  --fg:#1a1a1a; --muted:#6b6b6b; --line:#e3e3e3; --card:#f6f6f7;
+  --up:#c0392b; --down:#1565c0; --flat:#6b6b6b; --warn:#b45309; }
+@media (prefers-color-scheme: dark) {
+  :root { --fg:#e8e8e8; --muted:#9a9a9a; --line:#333; --card:#1c1c1e;
+    --up:#ff6b5a; --down:#5aa9ff; --flat:#9a9a9a; --warn:#fbbf24; }
+}
+* { box-sizing:border-box; }
+body { margin:0 auto; padding:1rem .9rem 3rem; max-width:44rem;
+  font:16px/1.65 -apple-system,BlinkMacSystemFont,"Apple SD Gothic Neo","Noto Sans KR",sans-serif;
+  color:var(--fg); word-break:keep-all; overflow-wrap:anywhere; }
+header { display:flex; align-items:baseline; gap:.5rem; margin-bottom:.7rem; }
+h1 { font-size:1.1rem; margin:0; }
+.date { color:var(--muted); font-size:.85rem; }
+
+/* 모바일 2열 고정 */
+.grid { display:grid; grid-template-columns:repeat(2,1fr); gap:.4rem; }
+@media (min-width:34rem) { .grid { grid-template-columns:repeat(4,1fr); } }
+.cell { background:var(--card); border-radius:8px; padding:.5rem .6rem; }
+.cell .k { font-size:.72rem; color:var(--muted); letter-spacing:-.02em; }
+.cell .v { font-size:1.02rem; font-weight:700; font-variant-numeric:tabular-nums; }
+.cell .d { font-size:.8rem; font-variant-numeric:tabular-nums; color:var(--flat); }
+.cell.up .d, .cell.up .v { color:var(--up); }
+.cell.down .d, .cell.down .v { color:var(--down); }
+.sep { border:0; border-top:1px solid var(--line); margin:.5rem 0; }
+.dash { margin-bottom:.8rem; }
+.comment { font-size:.9rem; color:var(--muted); margin:0 0 1.6rem; }
+
+section { margin-bottom:1.6rem; }
+h2 { font-size:1rem; margin:0 0 .5rem; padding-bottom:.25rem; border-bottom:1px solid var(--line); }
+h3 { font-size:.95rem; margin:0 0 .3rem; }
+h4 { font-size:.88rem; margin:1rem 0 .35rem; color:var(--muted); }
+article { margin-bottom:1rem; }
+p { margin:.4rem 0; }
+ul { margin:.4rem 0; padding-left:1.15rem; }
+li { margin:.25rem 0; }
+a { color:inherit; text-decoration:underline; text-underline-offset:2px; }
+/* 넓은 표는 페이지가 아니라 표 자신이 가로 스크롤한다 */
+.tw { overflow-x:auto; -webkit-overflow-scrolling:touch; margin:.6rem 0; }
+table { border-collapse:collapse; font-size:.82rem; min-width:100%; }
+th, td { border-bottom:1px solid var(--line); padding:.4rem .55rem; text-align:left;
+  vertical-align:top; white-space:nowrap; }
+th { background:var(--card); font-weight:600; position:sticky; top:0; }
+/* 단지명처럼 긴 값은 줄바꿈을 허용해 표가 지나치게 넓어지지 않게 한다 */
+td:nth-child(3) { white-space:normal; min-width:9rem; }
+tbody tr:nth-child(even) td { background:rgba(127,127,127,.05); }
+pre { white-space:pre-wrap; background:var(--card); padding:1rem; border-radius:6px; font-size:.85rem; }
+.warn { color:var(--warn); font-weight:600; }
+.failures { border:1px solid var(--line); border-radius:6px; padding:.8rem; }
+.failures h2 { border:0; color:var(--warn); }
+.failures li { color:var(--muted); font-size:.85rem; }
+footer { color:var(--muted); font-size:.78rem; border-top:1px solid var(--line); padding-top:.8rem; }</style>
+</head>
+<body>
+<header>
+<h1>📈 증시</h1>
+<span class="date">2026-09-09 KST</span>
+</header>
+<section class="dash">
+<div class="grid">
+<div class="cell down">
+<div class="k">S&amp;P500</div>
+<div class="v">7,673.52</div>
+<div class="d">−0.58%</div>
+</div>
+<div class="cell down">
+<div class="k">나스닥</div>
+<div class="v">26,421.41</div>
+<div class="d">−0.32%</div>
+</div>
+<div class="cell down">
+<div class="k">다우</div>
+<div class="v">52,786.07</div>
+<div class="d">−1.18%</div>
+</div>
+</div>
+<hr class="sep">
+<div class="grid">
+<div class="cell down">
+<div class="k">미10년물</div>
+<div class="v">4.788</div>
+<div class="d">−0.33%</div>
+</div>
+<div class="cell down">
+<div class="k">달러인덱스</div>
+<div class="v">98.78</div>
+<div class="d">−0.01%</div>
+</div>
+<div class="cell down">
+<div class="k">원달러</div>
+<div class="v">1,338.90</div>
+<div class="d">−0.19%</div>
+</div>
+</div>
+<hr class="sep">
+<div class="grid">
+<div class="cell up">
+<div class="k">코스피</div>
+<div class="v">7,066.04</div>
+<div class="d">+1.60%</div>
+</div>
+<div class="cell up">
+<div class="k">코스닥</div>
+<div class="v">828.67</div>
+<div class="d">+2.07%</div>
+</div>
+<div class="cell up">
+<div class="k">외국인</div>
+<div class="v">+6316억</div>
+<div class="d">-</div>
+</div>
+<div class="cell up">
+<div class="k">기관</div>
+<div class="v">+6427억</div>
+<div class="d">-</div>
+</div>
+<div class="cell down">
+<div class="k">개인</div>
+<div class="v">−30329억</div>
+<div class="d">-</div>
+</div>
+</div>
+</section>
+<p class="comment">뉴욕증시는 중동 악재로 밀렸지만 미국 반도체 지수 강세가 국내 증시 상승을 이끌고 있다.</p>
+<main>
+<section><h2>오늘 일정</h2>
+<p>9월 9일 실적발표: Sunbelt Rentals(SUNB, 장 시작 전), SailPoint(SAIL, 장 시작 전), Chewy(CHWY, 장 시작 전), The Cooper Companies(COO, 장 마감 후)</p></section>
+<section><h2>예정 일정</h2>
+<p>9월 10일 미국 8월 PPI 발표(예상 0.4%) / 오라클(ORCL), 어도비(ADBE) 실적 발표(장 마감 후) / 9월 11일 미국 8월 CPI 발표(예상 3.4%) / KT 실적 발표</p></section>
+<section><h2>어제 스레드 후속</h2>
+<p>어제 던진 질문: '이번 주 후반 발표될 미국의 CPI 지표와 오라클 실적이 코스피 7,000선 안착을 결정짓는 진짜 시험대가 될까?'에 대한 답은 아직 모름. 중동 리스크와 유가 상승이라는 돌발 변수가 터진 가운데, 코스피는 반도체 힘으로 장중 7,000선을 회복하며 버티는 중. 진짜 안착 여부는 10~11일 발표될 미국 물가 지표와 오라클 실적을 봐야 함.</p></section>
+<section><h2>이슈</h2>
+<article><h3>중동 무력 충돌과 유가 상승</h3>
+<p>예멘 후티 반군의 사우디 아람코 시설 공격과 미국의 이란 유조선 타격으로 중동 긴장이 격화됐다. 브렌트유가 100달러에 육박하며 뉴욕증시 다우(-1.18%), S&amp;P500(-0.58%) 등 주요 지수가 하락했다. 인플레이션 우려가 다시 고개를 드는 분위기다.</p></article>
+<article><h3>미 반도체 강세와 코스피 7,000선 회복</h3>
+<p>지수 하락에도 미국 반도체주는 강했다. 인텔이 9.05% 올랐고 AMD, 마이크론, 샌디스크 등이 견조했다. 이 온기가 국내로 넘어와 삼성전자와 SK하이닉스가 강세를 보이며 코스피 7,000선 회복을 이끌고 있다. 기관 매수세가 유입되는 중이다.</p></article>
+<article><h3>나이키의 몰락과 S&amp;P100 퇴출</h3>
+<p>고점 대비 주가가 78% 추락한 나이키가 S&amp;P100 지수에서 18년 만에 퇴출당한다. 빈자리는 샌디스크, 델, 팔로알토 네트웍스 등 AI·빅테크 기업들이 채운다. 시장의 무게중심이 소비재에서 AI 인프라로 이동했음을 보여준다.</p></article>
+<article><h3>데이비드 테퍼의 메모리 피크 베팅 논란</h3>
+<p>헤지펀드 거물 데이비드 테퍼가 2분기에 샌디스크 주식을 전량 매도하고 마이크론 지분을 41% 줄인 사실이 드러났다. 메모리 반도체 고점 우려에 베팅한 것 아니냐는 해석이 나온다. [커뮤니티] '반도체 고점론 또 시작이냐'라며 경계하는 목소리와 '단순한 비중 조절일 뿐 AI 수요는 여전하다'는 반론이 맞서고 있다.</p></article></section>
+<section><h2>내일로 넘기는 질문</h2>
+<p>중동발 유가 상승 악재를 뚫고 올라온 반도체 훈풍이 이번 주 CPI 발표 이후에도 코스피 7,000선을 지켜낼 수 있을까?</p></section>
+
+</main>
+<footer>생성 2026-09-09T01:29:54.363Z · 자동 생성된 요약이며 투자 권유가 아닙니다.</footer>
+</body>
+</html>
