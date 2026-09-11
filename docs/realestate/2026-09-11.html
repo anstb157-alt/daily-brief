@@ -1,0 +1,138 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>2026-09-11 부동산 브리핑</title>
+<style>:root { color-scheme: light dark;
+  --fg:#1a1a1a; --muted:#6b6b6b; --line:#e3e3e3; --card:#f6f6f7;
+  --up:#c0392b; --down:#1565c0; --flat:#6b6b6b; --warn:#b45309; }
+@media (prefers-color-scheme: dark) {
+  :root { --fg:#e8e8e8; --muted:#9a9a9a; --line:#333; --card:#1c1c1e;
+    --up:#ff6b5a; --down:#5aa9ff; --flat:#9a9a9a; --warn:#fbbf24; }
+}
+* { box-sizing:border-box; }
+body { margin:0 auto; padding:1rem .9rem 3rem; max-width:44rem;
+  font:16px/1.65 -apple-system,BlinkMacSystemFont,"Apple SD Gothic Neo","Noto Sans KR",sans-serif;
+  color:var(--fg); word-break:keep-all; overflow-wrap:anywhere; }
+header { display:flex; align-items:baseline; gap:.5rem; margin-bottom:.7rem; }
+h1 { font-size:1.1rem; margin:0; }
+.date { color:var(--muted); font-size:.85rem; }
+
+/* 모바일 2열 고정 */
+.grid { display:grid; grid-template-columns:repeat(2,1fr); gap:.4rem; }
+@media (min-width:34rem) { .grid { grid-template-columns:repeat(4,1fr); } }
+.cell { background:var(--card); border-radius:8px; padding:.5rem .6rem; }
+.cell .k { font-size:.72rem; color:var(--muted); letter-spacing:-.02em; }
+.cell .v { font-size:1.02rem; font-weight:700; font-variant-numeric:tabular-nums; }
+.cell .d { font-size:.8rem; font-variant-numeric:tabular-nums; color:var(--flat); }
+.cell.up .d, .cell.up .v { color:var(--up); }
+.cell.down .d, .cell.down .v { color:var(--down); }
+.sep { border:0; border-top:1px solid var(--line); margin:.5rem 0; }
+.dash { margin-bottom:.8rem; }
+.comment { font-size:.9rem; color:var(--muted); margin:0 0 1.6rem; }
+
+section { margin-bottom:1.6rem; }
+h2 { font-size:1rem; margin:0 0 .5rem; padding-bottom:.25rem; border-bottom:1px solid var(--line); }
+h3 { font-size:.95rem; margin:0 0 .3rem; }
+h4 { font-size:.88rem; margin:1rem 0 .35rem; color:var(--muted); }
+article { margin-bottom:1rem; }
+p { margin:.4rem 0; }
+ul { margin:.4rem 0; padding-left:1.15rem; }
+li { margin:.25rem 0; }
+a { color:inherit; text-decoration:underline; text-underline-offset:2px; }
+/* 넓은 표는 페이지가 아니라 표 자신이 가로 스크롤한다 */
+.tw { overflow-x:auto; -webkit-overflow-scrolling:touch; margin:.6rem 0; }
+table { border-collapse:collapse; font-size:.82rem; min-width:100%; }
+th, td { border-bottom:1px solid var(--line); padding:.4rem .55rem; text-align:left;
+  vertical-align:top; white-space:nowrap; }
+th { background:var(--card); font-weight:600; position:sticky; top:0; }
+/* 단지명처럼 긴 값은 줄바꿈을 허용해 표가 지나치게 넓어지지 않게 한다 */
+td:nth-child(3) { white-space:normal; min-width:9rem; }
+tbody tr:nth-child(even) td { background:rgba(127,127,127,.05); }
+pre { white-space:pre-wrap; background:var(--card); padding:1rem; border-radius:6px; font-size:.85rem; }
+.warn { color:var(--warn); font-weight:600; }
+.failures { border:1px solid var(--line); border-radius:6px; padding:.8rem; }
+.failures h2 { border:0; color:var(--warn); }
+.failures li { color:var(--muted); font-size:.85rem; }
+footer { color:var(--muted); font-size:.78rem; border-top:1px solid var(--line); padding-top:.8rem; }</style>
+</head>
+<body>
+<header>
+<h1>🏠 부동산</h1>
+<span class="date">2026-09-11 KST</span>
+</header>
+<section class="dash">
+<div class="grid">
+<div class="cell up">
+<div class="k">매매 서울</div>
+<div class="v">+0.20%</div>
+<div class="d">-</div>
+</div>
+<div class="cell up">
+<div class="k">매매 수도권</div>
+<div class="v">+0.16%</div>
+<div class="d">-</div>
+</div>
+<div class="cell up">
+<div class="k">매매 지방</div>
+<div class="v">+0.01%</div>
+<div class="d">-</div>
+</div>
+<div class="cell up">
+<div class="k">전세 서울</div>
+<div class="v">+0.19%</div>
+<div class="d">-</div>
+</div>
+</div>
+<hr class="sep">
+<div class="grid">
+<div class="cell flat">
+<div class="k">공급물량</div>
+<div class="v">12,008호</div>
+<div class="d">-</div>
+</div>
+<div class="cell flat">
+<div class="k">입주물량</div>
+<div class="v">31,778호</div>
+<div class="d">-</div>
+</div>
+<div class="cell flat">
+<div class="k">미분양</div>
+<div class="v">14,394호</div>
+<div class="d">-</div>
+</div>
+<div class="cell flat">
+<div class="k">경매 낙찰가율</div>
+<div class="v">-</div>
+<div class="d">-</div>
+</div>
+</div>
+</section>
+<p class="comment">9월 7일(4일 전) 기준 한국부동산원 주간 통계입니다. 서울 매매(0.2%)와 전세(0.19%) 모두 전주 대비 상승세를 이어갔습니다.</p>
+<main>
+<section><h2>오늘 일정</h2>
+<p>2026-09-11: 일정 없음</p></section>
+<section><h2>예정 일정</h2>
+<p>2026-09-14: 천안 아이파크 시티 3·4단지, 두정역 푸르지오 그랑피크, 남울산 노르웨이숲, 더샵 여주역더퍼스트, 올 뉴 챔피언스시티 1차, 그랑라크 에일린의 뜰, 양주회천지구 A-26블록 청약 접수 시작</p>
+<p>2026-09-15: 시흥 은계 에피트 청약 접수 시작</p>
+<p>2026-09-16: 천안 아이파크 시티 3·4단지, 두정역 푸르지오 그랑피크, 남울산 노르웨이숲, 더샵 여주역더퍼스트, 올 뉴 챔피언스시티 1차, 그랑라크 에일린의 뜰 청약 접수 종료</p>
+<p>2026-09-17: 의정부우정 A2블록, 양주회천지구 A-26블록, 시흥 은계 에피트 청약 접수 종료</p></section>
+<section><h2>어제 스레드 후속</h2>
+<p>어제 던진 대구 전세 오픈런 질문은 오늘 데이터로 해소되지 않았다. 오늘 수집된 데이터에는 대구 전세 시장에 대한 구체적인 추가 지표가 없다. 오늘 눈여겨볼 것은 서울의 극심한 전세 품귀와 영끌 매수세의 인과관계다.</p></section>
+<section><h2>이슈</h2>
+<article><h3>서울 첫 집 장만 비중 54% 돌파와 전세 품귀</h3>
+<p>서울에서 거래된 집합건물 중 생애 첫 매수 비중이 54%로 역대 최대를 기록했다. 대출 규제 틈새인 정책금융을 활용한 30대의 영끌 매수세가 통계로 확인된 결과다. 배경에는 극심한 전세 품귀가 있다. 실제로 서울의 한 3830가구 대단지 아파트에 전세 매물이 단 8건만 남았을 정도로 전세 씨가 마르고 있다. [커뮤니티]에서는 &quot;전세금 올려주느니 대출받아 사는 게 속 편하다&quot;는 의견과 &quot;대출 규제 조이는데 지금 영끌하는 건 막차 타는 위험한 짓&quot;이라는 우려가 팽팽하게 맞서고 있다.</p></article>
+<article><h3>인천 분양가 평당 2000만 원 돌파와 서울 수요 유입</h3>
+<p>인천 아파트 분양가가 처음으로 3.3㎡당 2000만 원을 돌파했다. 분양가 상승에도 불구하고 서울 거주자의 인천 아파트 매입은 올해 상반기 1753건으로 전년 동기(1163건) 대비 50.73% 급증했다. 서울 집값 부담을 이기지 못한 수요가 인천으로 밀려드는 모양새다. 한편, 서울 성동구 트리마제 전용 152㎡는 두 차례 유찰 끝에 감정가보다 낮은 약 59억 원에 낙찰됐다. 지난해 9월 실거래가인 70억 5000만 원과 비교하면 11억 원 이상 낮은 금액이다.</p></article>
+<article><h3>3기 신도시 중도금 대출 지원 및 공급 대책 논란</h3>
+<p>금융위원회는 연내 중도금 납부를 앞둔 19개 LH 공공분양주택의 중도금 대출을 차질 없이 제공하겠다고 밝혔다. 주택공급 관련 주담대는 금융회사 총량 관리 목표에서 별도로 관리한다는 방침이다. 한편, 정부의 부동산 정책에 대한 비판 수위는 높아지고 있다. 친정부 성향으로 분류되던 한문도 교수마저 &quot;집값 잡을 생각이 없다&quot;며 한탄했고, 이광수 대표 역시 &quot;이대로면 집값이 크게 오를 것&quot;이라며 정책을 직격했다. [커뮤니티]에서는 &quot;정부가 공급 대책만 말로 하고 대출은 막아 서민만 죽어난다&quot;는 불만이 쏟아지고 있다.</p></article>
+<article><h3>장위 푸르지오 마크원 완판과 천안 아이파크 시티 분양</h3>
+<p>대우건설이 분양한 '장위 푸르지오 마크원' 1032가구가 무순위 계약을 거쳐 최종 완판됐다. 평균 경쟁률 11.7대 1, 최고 경쟁률 81.17대 1을 기록한 단지다. 한편 충남 천안에서는 '천안 아이파크 시티 3·4단지' 총 1714가구(일반분양 1628가구)가 견본주택을 열고 본격 분양에 나선다. 수도권 지하철 1호선 부성역 예정지 인근 단지다.</p></article></section>
+<section><h2>내일로 넘기는 질문</h2>
+<p>서울 전세 매물 실종이 부추긴 30대의 '울며 겨자 먹기 식' 영끌 매수는 대출 규제 속에서도 계속 이어질 수 있을까?</p></section>
+
+</main>
+<footer>생성 2026-09-11T00:51:12.630Z · 자동 생성된 요약이며 투자 권유가 아닙니다.</footer>
+</body>
+</html>
