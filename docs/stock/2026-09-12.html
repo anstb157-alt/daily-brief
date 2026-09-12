@@ -1,0 +1,153 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>2026-09-12 증시 브리핑</title>
+<style>:root { color-scheme: light dark;
+  --fg:#1a1a1a; --muted:#6b6b6b; --line:#e3e3e3; --card:#f6f6f7;
+  --up:#c0392b; --down:#1565c0; --flat:#6b6b6b; --warn:#b45309; }
+@media (prefers-color-scheme: dark) {
+  :root { --fg:#e8e8e8; --muted:#9a9a9a; --line:#333; --card:#1c1c1e;
+    --up:#ff6b5a; --down:#5aa9ff; --flat:#9a9a9a; --warn:#fbbf24; }
+}
+* { box-sizing:border-box; }
+body { margin:0 auto; padding:1rem .9rem 3rem; max-width:44rem;
+  font:16px/1.65 -apple-system,BlinkMacSystemFont,"Apple SD Gothic Neo","Noto Sans KR",sans-serif;
+  color:var(--fg); word-break:keep-all; overflow-wrap:anywhere; }
+header { display:flex; align-items:baseline; gap:.5rem; margin-bottom:.7rem; }
+h1 { font-size:1.1rem; margin:0; }
+.date { color:var(--muted); font-size:.85rem; }
+
+/* 모바일 2열 고정 */
+.grid { display:grid; grid-template-columns:repeat(2,1fr); gap:.4rem; }
+@media (min-width:34rem) { .grid { grid-template-columns:repeat(4,1fr); } }
+.cell { background:var(--card); border-radius:8px; padding:.5rem .6rem; }
+.cell .k { font-size:.72rem; color:var(--muted); letter-spacing:-.02em; }
+.cell .v { font-size:1.02rem; font-weight:700; font-variant-numeric:tabular-nums; }
+.cell .d { font-size:.8rem; font-variant-numeric:tabular-nums; color:var(--flat); }
+.cell.up .d, .cell.up .v { color:var(--up); }
+.cell.down .d, .cell.down .v { color:var(--down); }
+.sep { border:0; border-top:1px solid var(--line); margin:.5rem 0; }
+.dash { margin-bottom:.8rem; }
+.comment { font-size:.9rem; color:var(--muted); margin:0 0 1.6rem; }
+
+section { margin-bottom:1.6rem; }
+h2 { font-size:1rem; margin:0 0 .5rem; padding-bottom:.25rem; border-bottom:1px solid var(--line); }
+h3 { font-size:.95rem; margin:0 0 .3rem; }
+h4 { font-size:.88rem; margin:1rem 0 .35rem; color:var(--muted); }
+article { margin-bottom:1rem; }
+p { margin:.4rem 0; }
+ul { margin:.4rem 0; padding-left:1.15rem; }
+li { margin:.25rem 0; }
+a { color:inherit; text-decoration:underline; text-underline-offset:2px; }
+/* 넓은 표는 페이지가 아니라 표 자신이 가로 스크롤한다 */
+.tw { overflow-x:auto; -webkit-overflow-scrolling:touch; margin:.6rem 0; }
+table { border-collapse:collapse; font-size:.82rem; min-width:100%; }
+th, td { border-bottom:1px solid var(--line); padding:.4rem .55rem; text-align:left;
+  vertical-align:top; white-space:nowrap; }
+th { background:var(--card); font-weight:600; position:sticky; top:0; }
+/* 단지명처럼 긴 값은 줄바꿈을 허용해 표가 지나치게 넓어지지 않게 한다 */
+td:nth-child(3) { white-space:normal; min-width:9rem; }
+tbody tr:nth-child(even) td { background:rgba(127,127,127,.05); }
+pre { white-space:pre-wrap; background:var(--card); padding:1rem; border-radius:6px; font-size:.85rem; }
+.warn { color:var(--warn); font-weight:600; }
+.failures { border:1px solid var(--line); border-radius:6px; padding:.8rem; }
+.failures h2 { border:0; color:var(--warn); }
+.failures li { color:var(--muted); font-size:.85rem; }
+footer { color:var(--muted); font-size:.78rem; border-top:1px solid var(--line); padding-top:.8rem; }</style>
+</head>
+<body>
+<header>
+<h1>📈 증시</h1>
+<span class="date">2026-09-12 KST</span>
+</header>
+<section class="dash">
+<div class="grid">
+<div class="cell up">
+<div class="k">S&amp;P500</div>
+<div class="v">7,656.98</div>
+<div class="d">+0.86%</div>
+</div>
+<div class="cell up">
+<div class="k">나스닥</div>
+<div class="v">26,333.04</div>
+<div class="d">+0.96%</div>
+</div>
+<div class="cell up">
+<div class="k">다우</div>
+<div class="v">52,573.29</div>
+<div class="d">+0.98%</div>
+</div>
+</div>
+<hr class="sep">
+<div class="grid">
+<div class="cell up">
+<div class="k">미10년물</div>
+<div class="v">4.971</div>
+<div class="d">+0.55%</div>
+</div>
+<div class="cell up">
+<div class="k">달러인덱스</div>
+<div class="v">99.12</div>
+<div class="d">+0.07%</div>
+</div>
+<div class="cell down">
+<div class="k">원달러</div>
+<div class="v">1,343.30</div>
+<div class="d">−0.57%</div>
+</div>
+</div>
+<hr class="sep">
+<div class="grid">
+<div class="cell down">
+<div class="k">코스피</div>
+<div class="v">6,909.91</div>
+<div class="d">−1.76%</div>
+</div>
+<div class="cell down">
+<div class="k">코스닥</div>
+<div class="v">820.64</div>
+<div class="d">−1.95%</div>
+</div>
+<div class="cell down">
+<div class="k">외국인</div>
+<div class="v">−22984억</div>
+<div class="d">-</div>
+</div>
+<div class="cell down">
+<div class="k">기관</div>
+<div class="v">−12184억</div>
+<div class="d">-</div>
+</div>
+<div class="cell up">
+<div class="k">개인</div>
+<div class="v">+18675억</div>
+<div class="d">-</div>
+</div>
+</div>
+</section>
+<p class="comment">미국 증시는 안도하며 반등했으나, 전날 코스피는 외국인과 기관의 거센 매도세에 밀려 대조적인 모습을 보였다.</p>
+<main>
+<section><h2>오늘 일정</h2>
+<p>데이터 없음</p></section>
+<section><h2>예정 일정</h2>
+<p>9/14 GRFS 실적(컨센 $0.27), CHRN 실적(컨센 -$0.06), KMTS 실적(컨센 -$0.61), CSHR 실적 / 9/15 TCOM 실적(컨센 $0.84), FPS 실적(컨센 $0.22), AREC 실적(컨센 -$0.09), ESP 실적 / 9/16 LEN 실적(컨센 $1.30), LEN.B 실적, SA 실적, ANAB 실적(컨센 -$0.22) / 9/17 VFS 실적(컨센 -$0.26), HUBG 실적(컨센 $0.52), ABAT 실적, IPHA 실적 / 9/18 TRT 실적 / 9/21 KEP 실적(컨센 $0.33), ABVX 실적(컨센 -$1.08), VALU 실적, MSB 실적</p></section>
+<section><h2>어제 스레드 후속</h2>
+<p>어제 던진 미국 8월 CPI 우려, 답 나왔다. CPI가 시장 예상치를 크게 벗어나지 않고 부합하면서 고유가발 인플레이션 공포를 자극하기보다 시장에 안도감을 주며 뉴욕증시 반등을 이끌었다.</p></section>
+<section><h2>이슈</h2>
+<article><h3>코스피 7,000선 아래로, 외국인·기관 동반 매도</h3>
+<p>전날 코스피는 1.76% 하락한 6909.91로 마감하며 3거래일 만에 7,000선을 내줬다. 외국인이 2조 2,984억 원, 기관이 1조 2,184억 원어치를 순매도하며 지수를 끌어내렸다. 중동 불안에 따른 고유가, 고금리, 고환율 우려가 겹치며 삼성전자(-3.53%)와 SK하이닉스(-2.21%) 등 대형 반도체주가 약세를 보였다. [커뮤니티] '삼전닉스 이틀간 5조 넘게 판 외국인 진짜 너무하다', '추석 앞두고 예수금 확보하느라 다 던지는 듯'이라며 우려하는 목소리가 많다.</p></article>
+<article><h3>중국 CXMT 영업이익률 82%, 삼성·SK하이닉스 제쳤다</h3>
+<p>올해 2분기 실적 분석 결과 중국 CXMT의 영업이익률이 82%를 기록해 SK하이닉스(76%)와 삼성전자(70%)를 웃돌았다. HBM 가격 급등으로 AI 인프라 구축 비용이 치솟자, 미국의 수출 통제로 엔비디아 칩을 구하지 못하는 중국 업체들이 국산 반도체로 눈을 돌리며 CXMT가 반사이익을 얻은 결과로 풀이된다.</p></article>
+<article><h3>유가 하락·CPI 안도감에 미 증시 5일 만에 반등</h3>
+<p>뉴욕증시는 국제유가 하락과 8월 CPI의 예상치 부합에 힘입어 5거래일 만에 반등했다. 다우(+0.98%), S&amp;P500(+0.86%), 나스닥(+0.96%)이 일제히 올랐다. AI 관련주가 동반 상승한 가운데 델 테크놀로지스가 하루 만에 11.98% 올랐고, 엔비디아는 팔란티어와 손잡고 반도체 공급망 배분 업무에 AI를 투입하는 협업을 발표했다. [커뮤니티] '결국 CPI 무난하게 넘어가니 바로 반등하네', '델 급등하는 거 보니 AI 거품론은 아직 시기상조인 듯'이라는 반응이 나왔다.</p></article>
+<article><h3>샌디스크, S&amp;P 100 편입에도 주가는 3.76% 하락</h3>
+<p>나이키가 18년 만에 S&amp;P 100에서 제외되고 샌디스크, 델, 팔로알토 등이 새로 편입된다는 소식이 전해졌다. 샌디스크는 JP모간과 15억 달러 규모의 회전신용공여 한도 계약을 체결하기도 했다. 그러나 9월 11일 정규장에서 샌디스크 주가는 3.76% 하락 마감했다. 한편 국내에서는 SK하이닉스와 샌디스크를 각각 25%씩 담은 채권혼합형 ETF 등이 출시되며 낸드 시장 수혜를 노리는 움직임이 포착되고 있다.</p></article></section>
+<section><h2>내일로 넘기는 질문</h2>
+<p>미국 증시는 CPI 안도감으로 반등에 성공했는데, 월요일 개장할 코스피는 7,000선을 곧바로 회복할 수 있을까, 아니면 고유가·고금리 트리플 쇼크의 늪에 더 깊이 빠질까?</p></section>
+
+</main>
+<footer>생성 2026-09-12T01:29:21.342Z · 자동 생성된 요약이며 투자 권유가 아닙니다.</footer>
+</body>
+</html>
