@@ -1,0 +1,153 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>2026-09-13 증시 브리핑</title>
+<style>:root { color-scheme: light dark;
+  --fg:#1a1a1a; --muted:#6b6b6b; --line:#e3e3e3; --card:#f6f6f7;
+  --up:#c0392b; --down:#1565c0; --flat:#6b6b6b; --warn:#b45309; }
+@media (prefers-color-scheme: dark) {
+  :root { --fg:#e8e8e8; --muted:#9a9a9a; --line:#333; --card:#1c1c1e;
+    --up:#ff6b5a; --down:#5aa9ff; --flat:#9a9a9a; --warn:#fbbf24; }
+}
+* { box-sizing:border-box; }
+body { margin:0 auto; padding:1rem .9rem 3rem; max-width:44rem;
+  font:16px/1.65 -apple-system,BlinkMacSystemFont,"Apple SD Gothic Neo","Noto Sans KR",sans-serif;
+  color:var(--fg); word-break:keep-all; overflow-wrap:anywhere; }
+header { display:flex; align-items:baseline; gap:.5rem; margin-bottom:.7rem; }
+h1 { font-size:1.1rem; margin:0; }
+.date { color:var(--muted); font-size:.85rem; }
+
+/* 모바일 2열 고정 */
+.grid { display:grid; grid-template-columns:repeat(2,1fr); gap:.4rem; }
+@media (min-width:34rem) { .grid { grid-template-columns:repeat(4,1fr); } }
+.cell { background:var(--card); border-radius:8px; padding:.5rem .6rem; }
+.cell .k { font-size:.72rem; color:var(--muted); letter-spacing:-.02em; }
+.cell .v { font-size:1.02rem; font-weight:700; font-variant-numeric:tabular-nums; }
+.cell .d { font-size:.8rem; font-variant-numeric:tabular-nums; color:var(--flat); }
+.cell.up .d, .cell.up .v { color:var(--up); }
+.cell.down .d, .cell.down .v { color:var(--down); }
+.sep { border:0; border-top:1px solid var(--line); margin:.5rem 0; }
+.dash { margin-bottom:.8rem; }
+.comment { font-size:.9rem; color:var(--muted); margin:0 0 1.6rem; }
+
+section { margin-bottom:1.6rem; }
+h2 { font-size:1rem; margin:0 0 .5rem; padding-bottom:.25rem; border-bottom:1px solid var(--line); }
+h3 { font-size:.95rem; margin:0 0 .3rem; }
+h4 { font-size:.88rem; margin:1rem 0 .35rem; color:var(--muted); }
+article { margin-bottom:1rem; }
+p { margin:.4rem 0; }
+ul { margin:.4rem 0; padding-left:1.15rem; }
+li { margin:.25rem 0; }
+a { color:inherit; text-decoration:underline; text-underline-offset:2px; }
+/* 넓은 표는 페이지가 아니라 표 자신이 가로 스크롤한다 */
+.tw { overflow-x:auto; -webkit-overflow-scrolling:touch; margin:.6rem 0; }
+table { border-collapse:collapse; font-size:.82rem; min-width:100%; }
+th, td { border-bottom:1px solid var(--line); padding:.4rem .55rem; text-align:left;
+  vertical-align:top; white-space:nowrap; }
+th { background:var(--card); font-weight:600; position:sticky; top:0; }
+/* 단지명처럼 긴 값은 줄바꿈을 허용해 표가 지나치게 넓어지지 않게 한다 */
+td:nth-child(3) { white-space:normal; min-width:9rem; }
+tbody tr:nth-child(even) td { background:rgba(127,127,127,.05); }
+pre { white-space:pre-wrap; background:var(--card); padding:1rem; border-radius:6px; font-size:.85rem; }
+.warn { color:var(--warn); font-weight:600; }
+.failures { border:1px solid var(--line); border-radius:6px; padding:.8rem; }
+.failures h2 { border:0; color:var(--warn); }
+.failures li { color:var(--muted); font-size:.85rem; }
+footer { color:var(--muted); font-size:.78rem; border-top:1px solid var(--line); padding-top:.8rem; }</style>
+</head>
+<body>
+<header>
+<h1>📈 증시</h1>
+<span class="date">2026-09-13 KST</span>
+</header>
+<section class="dash">
+<div class="grid">
+<div class="cell up">
+<div class="k">S&amp;P500</div>
+<div class="v">7,656.98</div>
+<div class="d">+0.86%</div>
+</div>
+<div class="cell up">
+<div class="k">나스닥</div>
+<div class="v">26,333.04</div>
+<div class="d">+0.96%</div>
+</div>
+<div class="cell up">
+<div class="k">다우</div>
+<div class="v">52,573.29</div>
+<div class="d">+0.98%</div>
+</div>
+</div>
+<hr class="sep">
+<div class="grid">
+<div class="cell up">
+<div class="k">미10년물</div>
+<div class="v">4.971</div>
+<div class="d">+0.55%</div>
+</div>
+<div class="cell up">
+<div class="k">달러인덱스</div>
+<div class="v">99.12</div>
+<div class="d">+0.07%</div>
+</div>
+<div class="cell down">
+<div class="k">원달러</div>
+<div class="v">1,343.80</div>
+<div class="d">−0.53%</div>
+</div>
+</div>
+<hr class="sep">
+<div class="grid">
+<div class="cell down">
+<div class="k">코스피</div>
+<div class="v">6,909.91</div>
+<div class="d">−1.76%</div>
+</div>
+<div class="cell down">
+<div class="k">코스닥</div>
+<div class="v">820.64</div>
+<div class="d">−1.95%</div>
+</div>
+<div class="cell down">
+<div class="k">외국인</div>
+<div class="v">−22984억</div>
+<div class="d">-</div>
+</div>
+<div class="cell down">
+<div class="k">기관</div>
+<div class="v">−12184억</div>
+<div class="d">-</div>
+</div>
+<div class="cell up">
+<div class="k">개인</div>
+<div class="v">+18675억</div>
+<div class="d">-</div>
+</div>
+</div>
+</section>
+<p class="comment">미 10년물 국채금리가 4.971%까지 오르며 5% 선에 바짝 다가섰다.</p>
+<main>
+<section><h2>오늘 일정</h2>
+<p>데이터 없음</p></section>
+<section><h2>예정 일정</h2>
+<p>9/14 Grifols(GRFS) 실적 발표(컨센서스 $0.27) / 9/15 Trip.com(TCOM) 실적 발표(컨센서스 $0.84) / 9/16 Lennar(LEN) 실적 발표(컨센서스 $1.30) / 9/21 한국전력(KEP) 실적 발표(컨센서스 $0.33)</p></section>
+<section><h2>어제 스레드 후속</h2>
+<p>어제 던진 질문, 아직 반만 풀렸다. 미 증시는 CPI 발표 후 안도하며 반등에 성공했다. 하지만 코스피가 7,000선을 곧바로 회복할지는 오늘 개장해봐야 안다. 외국인이 2.2조 원 넘게 던진 매도세를 멈출지가 관건이다.</p></section>
+<section><h2>이슈</h2>
+<article><h3>국장 울고 미장 웃었다, CPI 안도감에 뉴욕증시 반등</h3>
+<p>지난 11일 코스피는 1.76% 내린 6,909.91로 마감하며 7,000선을 내줬다. 외국인이 코스피에서 2조 2,984억 원을 순매도하며 시장을 눌렀다. 하지만 국장 마감 후 발표된 미국 CPI가 예상을 크게 벗어나지 않으면서 뉴욕증시는 반등했다. 다우(0.98%), 나스닥(0.96%), S&amp;P500(0.86%) 모두 올랐다. 9월 FOMC를 앞두고 금리 인상 우려가 여전한 가운데, 이번 반등이 코스피의 7,000선 회복 동력이 될지 주목된다.</p></article>
+<article><h3>개미들의 변심, 삼성전자·SK하이닉스 13조 원 던졌다</h3>
+<p>개인투자자들이 9월 들어 11일까지 삼성전자와 SK하이닉스를 약 13조 원어치 순매도했다. 5개월 만의 '팔자' 전환이다. 3분기 들어 코스피 상승세가 둔화하고 단일종목 레버리지 ETF 규제가 도입된 영향이다. 원/달러 환율이 1,300원대 중반으로 내리면서 자금이 미국 기술주로 이동했다는 분석도 나온다. [커뮤니티]에서는 '반도체 고점 신호다, 탈출이 답'이라는 의견과 '남들이 던질 때가 진짜 저가 매수 기회'라는 의견이 팽팽하게 맞서고 있다.</p></article>
+<article><h3>현대차, 2028년 엔비디아 탑재하고 2029년 자체 AI 양산</h3>
+<p>현대차그룹이 자율주행 투트랙 전략을 공개했다. 2028년 상반기에는 엔비디아 플랫폼 기반의 자율주행 소프트웨어를 적용하고, 2029년 하반기에는 독자 개발한 자율주행 AI '아트리아 AI(Atria AI)'를 양산차에 처음 적용한다. 외부 기술로 양산 속도를 확보하면서 동시에 기술 내재화를 이루겠다는 계산이다. [커뮤니티]에서는 '자체 AI 개발로 엔비디아 의존도를 낮추는 건 영리한 선택'이라는 긍정론과 '엔비디아보다 1년 늦은 양산이 시장에서 통할지 의문'이라는 우려가 공존한다.</p></article>
+<article><h3>샌디스크, 한국 엔지니어 채용 확대하며 낸드 인재 확보전 가세</h3>
+<p>미국 메모리 반도체 기업 샌디스크가 링크드인을 통해 한국 근무 엔지니어 채용에 나섰다. 그동안 한국에서는 영업과 유통 위주로 활동했으나, 경력 5년 이상의 엔지니어를 뽑으며 기술 인력 확보에 나선 것이다. AI 데이터센터 수요로 고사양 낸드 중요성이 커지면서 글로벌 인재 쟁탈전이 낸드 분야로도 번지는 모양새다. 특이사항으로 'AI 천재'로 불리는 투자 주체가 SK하이닉스와 함께 샌디스크를 포트폴리오에 담은 사실이 알려지며 주목받고 있다.</p></article></section>
+<section><h2>내일로 넘기는 질문</h2>
+<p>미국 CPI 안도감으로 뉴욕증시는 살아났는데, 오늘 코스피는 외국인의 거센 매도세를 이겨내고 7,000선을 탈환할 수 있을까?</p></section>
+
+</main>
+<footer>생성 2026-09-13T01:22:35.786Z · 자동 생성된 요약이며 투자 권유가 아닙니다.</footer>
+</body>
+</html>
