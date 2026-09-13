@@ -1,0 +1,135 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>2026-09-13 부동산 브리핑</title>
+<style>:root { color-scheme: light dark;
+  --fg:#1a1a1a; --muted:#6b6b6b; --line:#e3e3e3; --card:#f6f6f7;
+  --up:#c0392b; --down:#1565c0; --flat:#6b6b6b; --warn:#b45309; }
+@media (prefers-color-scheme: dark) {
+  :root { --fg:#e8e8e8; --muted:#9a9a9a; --line:#333; --card:#1c1c1e;
+    --up:#ff6b5a; --down:#5aa9ff; --flat:#9a9a9a; --warn:#fbbf24; }
+}
+* { box-sizing:border-box; }
+body { margin:0 auto; padding:1rem .9rem 3rem; max-width:44rem;
+  font:16px/1.65 -apple-system,BlinkMacSystemFont,"Apple SD Gothic Neo","Noto Sans KR",sans-serif;
+  color:var(--fg); word-break:keep-all; overflow-wrap:anywhere; }
+header { display:flex; align-items:baseline; gap:.5rem; margin-bottom:.7rem; }
+h1 { font-size:1.1rem; margin:0; }
+.date { color:var(--muted); font-size:.85rem; }
+
+/* 모바일 2열 고정 */
+.grid { display:grid; grid-template-columns:repeat(2,1fr); gap:.4rem; }
+@media (min-width:34rem) { .grid { grid-template-columns:repeat(4,1fr); } }
+.cell { background:var(--card); border-radius:8px; padding:.5rem .6rem; }
+.cell .k { font-size:.72rem; color:var(--muted); letter-spacing:-.02em; }
+.cell .v { font-size:1.02rem; font-weight:700; font-variant-numeric:tabular-nums; }
+.cell .d { font-size:.8rem; font-variant-numeric:tabular-nums; color:var(--flat); }
+.cell.up .d, .cell.up .v { color:var(--up); }
+.cell.down .d, .cell.down .v { color:var(--down); }
+.sep { border:0; border-top:1px solid var(--line); margin:.5rem 0; }
+.dash { margin-bottom:.8rem; }
+.comment { font-size:.9rem; color:var(--muted); margin:0 0 1.6rem; }
+
+section { margin-bottom:1.6rem; }
+h2 { font-size:1rem; margin:0 0 .5rem; padding-bottom:.25rem; border-bottom:1px solid var(--line); }
+h3 { font-size:.95rem; margin:0 0 .3rem; }
+h4 { font-size:.88rem; margin:1rem 0 .35rem; color:var(--muted); }
+article { margin-bottom:1rem; }
+p { margin:.4rem 0; }
+ul { margin:.4rem 0; padding-left:1.15rem; }
+li { margin:.25rem 0; }
+a { color:inherit; text-decoration:underline; text-underline-offset:2px; }
+/* 넓은 표는 페이지가 아니라 표 자신이 가로 스크롤한다 */
+.tw { overflow-x:auto; -webkit-overflow-scrolling:touch; margin:.6rem 0; }
+table { border-collapse:collapse; font-size:.82rem; min-width:100%; }
+th, td { border-bottom:1px solid var(--line); padding:.4rem .55rem; text-align:left;
+  vertical-align:top; white-space:nowrap; }
+th { background:var(--card); font-weight:600; position:sticky; top:0; }
+/* 단지명처럼 긴 값은 줄바꿈을 허용해 표가 지나치게 넓어지지 않게 한다 */
+td:nth-child(3) { white-space:normal; min-width:9rem; }
+tbody tr:nth-child(even) td { background:rgba(127,127,127,.05); }
+pre { white-space:pre-wrap; background:var(--card); padding:1rem; border-radius:6px; font-size:.85rem; }
+.warn { color:var(--warn); font-weight:600; }
+.failures { border:1px solid var(--line); border-radius:6px; padding:.8rem; }
+.failures h2 { border:0; color:var(--warn); }
+.failures li { color:var(--muted); font-size:.85rem; }
+footer { color:var(--muted); font-size:.78rem; border-top:1px solid var(--line); padding-top:.8rem; }</style>
+</head>
+<body>
+<header>
+<h1>🏠 부동산</h1>
+<span class="date">2026-09-13 KST</span>
+</header>
+<section class="dash">
+<div class="grid">
+<div class="cell up">
+<div class="k">매매 서울</div>
+<div class="v">+0.20%</div>
+<div class="d">-</div>
+</div>
+<div class="cell up">
+<div class="k">매매 수도권</div>
+<div class="v">+0.16%</div>
+<div class="d">-</div>
+</div>
+<div class="cell up">
+<div class="k">매매 지방</div>
+<div class="v">+0.01%</div>
+<div class="d">-</div>
+</div>
+<div class="cell up">
+<div class="k">전세 서울</div>
+<div class="v">+0.19%</div>
+<div class="d">-</div>
+</div>
+</div>
+<hr class="sep">
+<div class="grid">
+<div class="cell flat">
+<div class="k">공급물량</div>
+<div class="v">12,008호</div>
+<div class="d">-</div>
+</div>
+<div class="cell flat">
+<div class="k">입주물량</div>
+<div class="v">31,778호</div>
+<div class="d">-</div>
+</div>
+<div class="cell flat">
+<div class="k">미분양</div>
+<div class="v">14,394호</div>
+<div class="d">-</div>
+</div>
+<div class="cell flat">
+<div class="k">경매 낙찰가율</div>
+<div class="v">-</div>
+<div class="d">-</div>
+</div>
+</div>
+</section>
+<p class="comment">한국부동산원 9월 7일(6일 전) 조사 기준 주간 통계입니다.</p>
+<main>
+<section><h2>오늘 일정</h2>
+<p>2026-09-14: 천안 아이파크 시티 4단지, 두정역 푸르지오 그랑피크, 천안 아이파크 시티 3단지, 남울산 노르웨이숲(조합원 취소분)(2회차), 더샵 여주역더퍼스트, 올 뉴 챔피언스시티 1차, 그랑라크 에일린의 뜰, 양주회천지구 A-26블록 공공분양주택 청약 접수 시작</p></section>
+<section><h2>예정 일정</h2>
+<p>2026-09-15: 시흥 은계 에피트(조합원 취소분) 청약 접수 시작 | 2026-09-16: 천안 아이파크 시티 4단지 등 7개 단지 청약 접수 종료 | 2026-09-17: 의정부우정 A2블록 등 3개 단지 청약 접수 종료</p></section>
+<section><h2>어제 스레드 후속</h2>
+<p>어제 던진 질문, 오늘 데이터로 일부 실마리가 나왔다. 9월 7일 기준 동탄이 속한 화성시의 올해 아파트 매매 누적 상승률은 17.50%, 전세는 11.73%에 달한다. 정부가 대출을 전방위로 조이는 와중에도 삼성전자의 무주택 임직원 대상 저금리 사내대출 제도가 동탄 매매와 전월세 시장을 떠받치는 독자적인 동력으로 작용할 수 있을지 시장이 주목하고 있다.</p></section>
+<section><h2>이슈</h2>
+<article><h3>대출 규제 비껴가는 '사내 대출'과 동탄의 독주</h3>
+<p>정부의 가계대출 총량 관리로 가계대출, 주담대, 전세대출이 8개월 만에 일제히 감소세로 돌아섰다. 하지만 경기도 화성시 동탄은 다른 흐름을 보인다. 9월 7일 기준 화성시의 올해 아파트 매매 누적 상승률은 17.50%, 전세는 11.73%를 기록 중이다. 대출 규제 압박 속에서도 삼성전자가 무주택 임직원에게 제공하는 저금리 사내대출 제도가 동탄 시장의 독자적인 동력으로 작용할지 눈길을 끈다. [커뮤니티]에서는 '일반인은 대출 막혀서 힘든데 대기업 복지 혜택으로 집값 방어하는 건 반칙 아니냐'는 불만과 '회사 복지인데 왜 시비냐, 부러우면 이직해라'라는 반응이 팽팽하게 맞서고 있다.</p></article>
+<article><h3>아파텔 규제 완화 움직임과 매입임대 편법 차단</h3>
+<p>금융위원회가 주거용 오피스텔(아파텔)의 집단대출을 가계대출 총량 관리 대상에서 제외하는 방안을 검토 중이다. 이는 주택 공급을 촉진하겠다는 8·13 부동산 대책의 연장선이다. 아파텔 분양 시장에 온기가 돌지 지켜볼 대목이다. 한편 LH는 매입임대 주택 청약 시 당첨 결과가 나오기 전에 동일한 유형에 중복 신청하는 '골라 담기' 편법을 막기 위해 재신청 금지 제도를 도입하기로 했다.</p></article>
+<article><h3>공급 대책의 그늘, 염창공원 설명회 무산과 인사청문회 의혹</h3>
+<p>서울시와 국토부의 주택 공급 계획은 곳곳에서 마찰을 빚고 있다. 염창공원에 공공주택 1,000가구를 공급하려던 설명회는 주민들의 거센 반발로 무산됐다. 이번 주 열리는 인사청문회에서도 부동산 의혹이 최대 쟁점이다. 이형일 부총리 후보자는 경기 과천 아파트를 17년간 보유하면서 실거주 기간은 4개월에 그쳐 '비거주 갭투자' 의혹을 받고 있으며, 강신철 후보자 등도 부동산 관련 검증대에 오른다.</p></article>
+<article><h3>분양가 오르는 인천과 이번 주 청약 일정</h3>
+<p>서울 집값을 피해 인천으로 향하던 수요자들의 셈법도 복잡해졌다. 인천의 아파트 분양가는 1년 새 1억 1,000만 원 올랐다. 다만 분양가 상승에도 불구하고 올해 상반기 인천 구축 아파트 매매 거래는 전년 동기 대비 6.4% 증가했다. 이번 주에는 충남 천안 아이파크 시티 3·4단지(각 851가구, 777가구), 두정역 푸르지오 그랑피크(1,438가구) 등 전국에서 대단지 청약 접수가 대거 시작된다.</p></article></section>
+<section><h2>내일로 넘기는 질문</h2>
+<p>주거용 오피스텔의 집단대출 규제가 실제로 풀린다면, 아파트 대출 규제로 막힌 실수요자들이 대안으로 아파텔 분양 시장에 대거 몰려들까?</p></section>
+
+</main>
+<footer>생성 2026-09-13T00:38:56.930Z · 자동 생성된 요약이며 투자 권유가 아닙니다.</footer>
+</body>
+</html>
