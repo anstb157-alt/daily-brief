@@ -1,0 +1,133 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>2026-09-14 부동산 브리핑</title>
+<style>:root { color-scheme: light dark;
+  --fg:#1a1a1a; --muted:#6b6b6b; --line:#e3e3e3; --card:#f6f6f7;
+  --up:#c0392b; --down:#1565c0; --flat:#6b6b6b; --warn:#b45309; }
+@media (prefers-color-scheme: dark) {
+  :root { --fg:#e8e8e8; --muted:#9a9a9a; --line:#333; --card:#1c1c1e;
+    --up:#ff6b5a; --down:#5aa9ff; --flat:#9a9a9a; --warn:#fbbf24; }
+}
+* { box-sizing:border-box; }
+body { margin:0 auto; padding:1rem .9rem 3rem; max-width:44rem;
+  font:16px/1.65 -apple-system,BlinkMacSystemFont,"Apple SD Gothic Neo","Noto Sans KR",sans-serif;
+  color:var(--fg); word-break:keep-all; overflow-wrap:anywhere; }
+header { display:flex; align-items:baseline; gap:.5rem; margin-bottom:.7rem; }
+h1 { font-size:1.1rem; margin:0; }
+.date { color:var(--muted); font-size:.85rem; }
+
+/* 모바일 2열 고정 */
+.grid { display:grid; grid-template-columns:repeat(2,1fr); gap:.4rem; }
+@media (min-width:34rem) { .grid { grid-template-columns:repeat(4,1fr); } }
+.cell { background:var(--card); border-radius:8px; padding:.5rem .6rem; }
+.cell .k { font-size:.72rem; color:var(--muted); letter-spacing:-.02em; }
+.cell .v { font-size:1.02rem; font-weight:700; font-variant-numeric:tabular-nums; }
+.cell .d { font-size:.8rem; font-variant-numeric:tabular-nums; color:var(--flat); }
+.cell.up .d, .cell.up .v { color:var(--up); }
+.cell.down .d, .cell.down .v { color:var(--down); }
+.sep { border:0; border-top:1px solid var(--line); margin:.5rem 0; }
+.dash { margin-bottom:.8rem; }
+.comment { font-size:.9rem; color:var(--muted); margin:0 0 1.6rem; }
+
+section { margin-bottom:1.6rem; }
+h2 { font-size:1rem; margin:0 0 .5rem; padding-bottom:.25rem; border-bottom:1px solid var(--line); }
+h3 { font-size:.95rem; margin:0 0 .3rem; }
+h4 { font-size:.88rem; margin:1rem 0 .35rem; color:var(--muted); }
+article { margin-bottom:1rem; }
+p { margin:.4rem 0; }
+ul { margin:.4rem 0; padding-left:1.15rem; }
+li { margin:.25rem 0; }
+a { color:inherit; text-decoration:underline; text-underline-offset:2px; }
+/* 넓은 표는 페이지가 아니라 표 자신이 가로 스크롤한다 */
+.tw { overflow-x:auto; -webkit-overflow-scrolling:touch; margin:.6rem 0; }
+table { border-collapse:collapse; font-size:.82rem; min-width:100%; }
+th, td { border-bottom:1px solid var(--line); padding:.4rem .55rem; text-align:left;
+  vertical-align:top; white-space:nowrap; }
+th { background:var(--card); font-weight:600; position:sticky; top:0; }
+/* 단지명처럼 긴 값은 줄바꿈을 허용해 표가 지나치게 넓어지지 않게 한다 */
+td:nth-child(3) { white-space:normal; min-width:9rem; }
+tbody tr:nth-child(even) td { background:rgba(127,127,127,.05); }
+pre { white-space:pre-wrap; background:var(--card); padding:1rem; border-radius:6px; font-size:.85rem; }
+.warn { color:var(--warn); font-weight:600; }
+.failures { border:1px solid var(--line); border-radius:6px; padding:.8rem; }
+.failures h2 { border:0; color:var(--warn); }
+.failures li { color:var(--muted); font-size:.85rem; }
+footer { color:var(--muted); font-size:.78rem; border-top:1px solid var(--line); padding-top:.8rem; }</style>
+</head>
+<body>
+<header>
+<h1>🏠 부동산</h1>
+<span class="date">2026-09-14 KST</span>
+</header>
+<section class="dash">
+<div class="grid">
+<div class="cell up">
+<div class="k">매매 서울</div>
+<div class="v">+0.20%</div>
+<div class="d">-</div>
+</div>
+<div class="cell up">
+<div class="k">매매 수도권</div>
+<div class="v">+0.16%</div>
+<div class="d">-</div>
+</div>
+<div class="cell up">
+<div class="k">매매 지방</div>
+<div class="v">+0.01%</div>
+<div class="d">-</div>
+</div>
+<div class="cell up">
+<div class="k">전세 서울</div>
+<div class="v">+0.19%</div>
+<div class="d">-</div>
+</div>
+</div>
+<hr class="sep">
+<div class="grid">
+<div class="cell flat">
+<div class="k">공급물량</div>
+<div class="v">12,008호</div>
+<div class="d">-</div>
+</div>
+<div class="cell flat">
+<div class="k">입주물량</div>
+<div class="v">31,778호</div>
+<div class="d">-</div>
+</div>
+<div class="cell flat">
+<div class="k">미분양</div>
+<div class="v">14,394호</div>
+<div class="d">-</div>
+</div>
+<div class="cell flat">
+<div class="k">경매 낙찰가율</div>
+<div class="v">-</div>
+<div class="d">-</div>
+</div>
+</div>
+</section>
+<p class="comment">7일 전인 9월 7일 기준 한국부동산원 주간 통계 결과입니다.</p>
+<main>
+<section><h2>오늘 일정</h2>
+<p>2026-09-14: 천안 아이파크 시티 4단지, 두정역 푸르지오 그랑피크, 천안 아이파크 시티 3단지, 남울산 노르웨이숲(조합원 취소분)(2회차), 더샵 여주역더퍼스트, 올 뉴 챔피언스시티 1차, 그랑라크 에일린의 뜰, 양주회천지구 A-26블록 공공분양주택 청약 접수 시작.</p></section>
+<section><h2>예정 일정</h2>
+<p>2026-09-15: 시흥 은계 에피트(조합원 취소분) 청약 접수 시작. 2026-09-16: 천안 아이파크 시티 4단지, 두정역 푸르지오 그랑피크, 천안 아이파크 시티 3단지, 남울산 노르웨이숲, 더샵 여주역더퍼스트, 올 뉴 챔피언스시티 1차, 그랑라크 에일린의 뜰 청약 접수 종료. 2026-09-17: 의정부우정 A2블록, 양주회천지구 A-26블록, 시흥 은계 에피트 청약 접수 종료.</p></section>
+<section><h2>어제 스레드 후속</h2>
+<p>지난 2026-09-13에 던진 질문인 주거용 오피스텔 집단대출 규제 완화 시 아파텔 분양 시장 쏠림 여부는 아직 데이터로 확인되지 않아 미해소 상태다. 다만 오피스텔은 아파트보다 매매 수요층이 얇고 환금성이 떨어져 신축 프리미엄이 사라지면 매수자를 찾기 어려울 수 있다는 우려가 시장에 존재한다.</p></section>
+<section><h2>이슈</h2>
+<article><h3>서울 아파트값 83주째 상승과 외곽 지역 키 맞추기 현상</h3>
+<p>서울 아파트값이 83주째 상승세를 이어가며 문재인 정부 시절 기록한 85주 연속 상승 기록 경신을 눈앞에 두고 있다. 직방 분석에 따르면 서울 아파트 거래의 54%가 9억 이하 거래인 가운데, 경기 광명 아파트 중위 실거래가가 서울의 102%, 서울 성북구가 서울 중위 가격의 99% 수준까지 올라서며 지역 간 가격 차이를 좁히는 키 맞추기 현상이 나타나고 있다. [커뮤니티] 반응은 갈린다. 일부는 서울 중심지가 너무 오르니 주변부로 온기가 번지는 자연스러운 현상이라고 보지만, 대출 규제 때문에 억지로 외곽이나 저가 아파트로 밀려나서 생기는 왜곡 현상일 뿐이라는 우려도 팽팽하다.</p></article>
+<article><h3>전월세 안심신탁 도입과 전세 시장 동향</h3>
+<p>임차인의 보증금 미반환 우려를 덜어주기 위한 전월세 안심신탁 제도가 이달 말 첫선을 보일 예정이다. 한편 서울 아파트 전월세 시장에서는 8월 재계약 건수가 신규 계약 건수를 앞지른 것으로 나타났다. 김성수 대법관 후보자 인사청문회에서는 강남 3.5억 전전세 및 탈세 의혹이 쟁점으로 떠올랐다. [커뮤니티]에서는 안심신탁이 활성화되면 전세사기 걱정 없이 계약할 수 있겠다며 환영하는 목소리가 있는 반면, 집주인들이 신탁 수수료나 복잡한 절차 때문에 참여하지 않으면 결국 유명무실해질 것이라는 회의론도 존재한다.</p></article>
+<article><h3>부동산 세법 문의 폭증과 정책 재검토 요구</h3>
+<p>올해 1~7월 양도세 등 부동산 세법해석 질의가 2262건에 달해 7달 만에 작년 한 해 수준을 돌파했다. 잦은 세법 개정으로 납세자들의 불확실성이 커진 결과다. 이에 오세훈 서울시장은 실거주·세금 만능주의를 버려야 한다며 정부의 부동산 정책 전면 재검토를 촉구했다. [커뮤니티]에서는 세무사들도 포기할 정도로 세법이 복잡한 게 말이 되느냐는 불만이 쏟아지는 가운데, 다주택자 규제를 유지하려면 촘촘한 세법이 불가피하다는 옹호 의견도 대립하고 있다.</p></article></section>
+<section><h2>내일로 넘기는 질문</h2>
+<p>이달 말 도입되는 전월세 안심신탁은 집주인들의 참여를 이끌어내며 전세 시장의 실질적인 안전판 역할을 할 수 있을까?</p></section>
+
+</main>
+<footer>생성 2026-09-14T00:47:09.118Z · 자동 생성된 요약이며 투자 권유가 아닙니다.</footer>
+</body>
+</html>
