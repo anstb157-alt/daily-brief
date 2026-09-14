@@ -1,0 +1,153 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>2026-09-14 증시 브리핑</title>
+<style>:root { color-scheme: light dark;
+  --fg:#1a1a1a; --muted:#6b6b6b; --line:#e3e3e3; --card:#f6f6f7;
+  --up:#c0392b; --down:#1565c0; --flat:#6b6b6b; --warn:#b45309; }
+@media (prefers-color-scheme: dark) {
+  :root { --fg:#e8e8e8; --muted:#9a9a9a; --line:#333; --card:#1c1c1e;
+    --up:#ff6b5a; --down:#5aa9ff; --flat:#9a9a9a; --warn:#fbbf24; }
+}
+* { box-sizing:border-box; }
+body { margin:0 auto; padding:1rem .9rem 3rem; max-width:44rem;
+  font:16px/1.65 -apple-system,BlinkMacSystemFont,"Apple SD Gothic Neo","Noto Sans KR",sans-serif;
+  color:var(--fg); word-break:keep-all; overflow-wrap:anywhere; }
+header { display:flex; align-items:baseline; gap:.5rem; margin-bottom:.7rem; }
+h1 { font-size:1.1rem; margin:0; }
+.date { color:var(--muted); font-size:.85rem; }
+
+/* 모바일 2열 고정 */
+.grid { display:grid; grid-template-columns:repeat(2,1fr); gap:.4rem; }
+@media (min-width:34rem) { .grid { grid-template-columns:repeat(4,1fr); } }
+.cell { background:var(--card); border-radius:8px; padding:.5rem .6rem; }
+.cell .k { font-size:.72rem; color:var(--muted); letter-spacing:-.02em; }
+.cell .v { font-size:1.02rem; font-weight:700; font-variant-numeric:tabular-nums; }
+.cell .d { font-size:.8rem; font-variant-numeric:tabular-nums; color:var(--flat); }
+.cell.up .d, .cell.up .v { color:var(--up); }
+.cell.down .d, .cell.down .v { color:var(--down); }
+.sep { border:0; border-top:1px solid var(--line); margin:.5rem 0; }
+.dash { margin-bottom:.8rem; }
+.comment { font-size:.9rem; color:var(--muted); margin:0 0 1.6rem; }
+
+section { margin-bottom:1.6rem; }
+h2 { font-size:1rem; margin:0 0 .5rem; padding-bottom:.25rem; border-bottom:1px solid var(--line); }
+h3 { font-size:.95rem; margin:0 0 .3rem; }
+h4 { font-size:.88rem; margin:1rem 0 .35rem; color:var(--muted); }
+article { margin-bottom:1rem; }
+p { margin:.4rem 0; }
+ul { margin:.4rem 0; padding-left:1.15rem; }
+li { margin:.25rem 0; }
+a { color:inherit; text-decoration:underline; text-underline-offset:2px; }
+/* 넓은 표는 페이지가 아니라 표 자신이 가로 스크롤한다 */
+.tw { overflow-x:auto; -webkit-overflow-scrolling:touch; margin:.6rem 0; }
+table { border-collapse:collapse; font-size:.82rem; min-width:100%; }
+th, td { border-bottom:1px solid var(--line); padding:.4rem .55rem; text-align:left;
+  vertical-align:top; white-space:nowrap; }
+th { background:var(--card); font-weight:600; position:sticky; top:0; }
+/* 단지명처럼 긴 값은 줄바꿈을 허용해 표가 지나치게 넓어지지 않게 한다 */
+td:nth-child(3) { white-space:normal; min-width:9rem; }
+tbody tr:nth-child(even) td { background:rgba(127,127,127,.05); }
+pre { white-space:pre-wrap; background:var(--card); padding:1rem; border-radius:6px; font-size:.85rem; }
+.warn { color:var(--warn); font-weight:600; }
+.failures { border:1px solid var(--line); border-radius:6px; padding:.8rem; }
+.failures h2 { border:0; color:var(--warn); }
+.failures li { color:var(--muted); font-size:.85rem; }
+footer { color:var(--muted); font-size:.78rem; border-top:1px solid var(--line); padding-top:.8rem; }</style>
+</head>
+<body>
+<header>
+<h1>📈 증시</h1>
+<span class="date">2026-09-14 KST</span>
+</header>
+<section class="dash">
+<div class="grid">
+<div class="cell up">
+<div class="k">S&amp;P500</div>
+<div class="v">7,656.98</div>
+<div class="d">+0.86%</div>
+</div>
+<div class="cell up">
+<div class="k">나스닥</div>
+<div class="v">26,333.04</div>
+<div class="d">+0.96%</div>
+</div>
+<div class="cell up">
+<div class="k">다우</div>
+<div class="v">52,573.29</div>
+<div class="d">+0.98%</div>
+</div>
+</div>
+<hr class="sep">
+<div class="grid">
+<div class="cell down">
+<div class="k">미10년물</div>
+<div class="v">4.967</div>
+<div class="d">−0.16%</div>
+</div>
+<div class="cell up">
+<div class="k">달러인덱스</div>
+<div class="v">99.20</div>
+<div class="d">+0.08%</div>
+</div>
+<div class="cell up">
+<div class="k">원달러</div>
+<div class="v">1,344.60</div>
+<div class="d">+0.06%</div>
+</div>
+</div>
+<hr class="sep">
+<div class="grid">
+<div class="cell down">
+<div class="k">코스피</div>
+<div class="v">6,685.53</div>
+<div class="d">−3.25%</div>
+</div>
+<div class="cell down">
+<div class="k">코스닥</div>
+<div class="v">806.28</div>
+<div class="d">−1.75%</div>
+</div>
+<div class="cell down">
+<div class="k">외국인</div>
+<div class="v">−22984억</div>
+<div class="d">-</div>
+</div>
+<div class="cell down">
+<div class="k">기관</div>
+<div class="v">−12184억</div>
+<div class="d">-</div>
+</div>
+<div class="cell up">
+<div class="k">개인</div>
+<div class="v">+18675억</div>
+<div class="d">-</div>
+</div>
+</div>
+</section>
+<p class="comment">원/달러 환율이 1344.6원까지 오르며 외국인 수급에 부담을 더하고 있다.</p>
+<main>
+<section><h2>오늘 일정</h2>
+<p>특이 경제지표 발표 없음 / 실적 발표: Grifols(GRFS), ChronoScale(CHRN), Kestra Medical(KMTS), CoinShares(CSHR)</p></section>
+<section><h2>예정 일정</h2>
+<p>9/15 Trip.com(TCOM) 실적 / 9/16 Lennar(LEN) 실적 / 9/17 미국 기준금리 결정(FOMC) / 9/21 한국전력(KEP) 실적</p></section>
+<section><h2>어제 스레드 후속</h2>
+<p>어제 던진 코스피 7,000선 탈환 질문, 답은 '실패'다. 외국인의 거센 매도세와 중동 악재가 겹치며 코스피는 6,600선까지 밀려났다.</p></section>
+<section><h2>이슈</h2>
+<article><h3>미국은 웃었는데 한국은 울었다, 코스피 3%대 급락</h3>
+<p>지난 주말 뉴욕증시는 CPI 안도감에 5거래일 만에 반등했다. S&amp;P500은 0.86%, 나스닥은 0.96% 올랐다. 하지만 오늘 코스피는 장 초반 3% 넘게 내리며 6,600선으로 밀렸다. 주말 사이 중동 긴장이 고조되며 브렌트유 선물이 배럴당 107달러대로 급등했고, 미국 10년물 국채 금리가 4.967%를 기록하며 투자심리를 짓눌렀다. 외국인은 장중 1조 원 넘게 순매도하며 하락세를 주도하고 있다. [커뮤니티] '미국장 오르면 뭐 하냐 국장은 맨날 소외다'라며 분통을 터뜨리는 의견과 '중동 지정학적 위기에 유가까지 뛰는데 빠지는 게 당연하다'는 의견이 맞서고 있다.</p></article>
+<article><h3>반도체 덮친 'AI 속도조절론'과 메모리 약세</h3>
+<p>필라델피아 반도체 지수는 1.81% 올랐지만 메모리 업계는 찬바람이 불었다. 마이크론(-0.22%), 샌디스크(-3.50%), 웨스턴디지털(-2.98%) 등 메모리·스토리지 기업들이 일제히 약세를 보였다. 여기에 샘 올트먼 오픈AI CEO의 IPO 관련 발언 등으로 'AI 속도조절론'이 부각됐다. 이 여파로 삼성전자는 장중 3%대, SK하이닉스는 5%대 내리며 국내 반도체 대형주가 지수 하락을 이끌고 있다. 한편, 샌디스크가 한국에서 5년 이상 경력의 낸드 엔지니어 채용에 나서며 국내 기업들과의 인재 확보전이 치열해지는 양상이다.</p></article>
+<article><h3>젠슨 황 '다음은 보안' 발언에 사이버 보안주 급등</h3>
+<p>반도체 전반이 약세를 보이는 와중에 사이버 보안주는 홀로 강세다. 젠슨 황 엔비디아 CEO가 인공지능(AI)의 차세대 응용처로 사이버 보안을 지목한 영향이다. 샌즈랩, 라온시큐어, 에스투더블유 등 관련 종목들이 이틀째 강세를 이어가고 있다. [커뮤니티] '결국 엔비디아 묻은 주식만 가는구나', '보안주 지금이라도 타야 하나'라며 추격 매수를 고민하는 반응이 많다.</p></article>
+<article><h3>오늘부터 밤 8시까지 주식 거래, 애프터마켓 개막</h3>
+<p>한국거래소(KRX)가 오늘부터 저녁 8시까지 문을 여는 '애프터마켓'을 개설한다. 코스피·코스닥 약 2,700개 종목을 퇴근길에도 거래할 수 있게 된다. 정규장 종료 후 나오는 공시나 해외 증시 움직임을 빠르게 반영할 수 있을 것으로 기대된다. 다만 투자경고·관리종목, ETF, ETN 등은 당분간 거래 대상에서 제외된다.</p></article></section>
+<section><h2>내일로 넘기는 질문</h2>
+<p>미국 금리 결정을 앞두고 유가 급등과 AI 회의론이 동시에 터진 지금, 외국인의 매도세는 언제쯤 멈출까?</p></section>
+
+</main>
+<footer>생성 2026-09-14T01:33:24.406Z · 자동 생성된 요약이며 투자 권유가 아닙니다.</footer>
+</body>
+</html>
