@@ -1,0 +1,135 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>2026-09-16 부동산 브리핑</title>
+<style>:root { color-scheme: light dark;
+  --fg:#1a1a1a; --muted:#6b6b6b; --line:#e3e3e3; --card:#f6f6f7;
+  --up:#c0392b; --down:#1565c0; --flat:#6b6b6b; --warn:#b45309; }
+@media (prefers-color-scheme: dark) {
+  :root { --fg:#e8e8e8; --muted:#9a9a9a; --line:#333; --card:#1c1c1e;
+    --up:#ff6b5a; --down:#5aa9ff; --flat:#9a9a9a; --warn:#fbbf24; }
+}
+* { box-sizing:border-box; }
+body { margin:0 auto; padding:1rem .9rem 3rem; max-width:44rem;
+  font:16px/1.65 -apple-system,BlinkMacSystemFont,"Apple SD Gothic Neo","Noto Sans KR",sans-serif;
+  color:var(--fg); word-break:keep-all; overflow-wrap:anywhere; }
+header { display:flex; align-items:baseline; gap:.5rem; margin-bottom:.7rem; }
+h1 { font-size:1.1rem; margin:0; }
+.date { color:var(--muted); font-size:.85rem; }
+
+/* 모바일 2열 고정 */
+.grid { display:grid; grid-template-columns:repeat(2,1fr); gap:.4rem; }
+@media (min-width:34rem) { .grid { grid-template-columns:repeat(4,1fr); } }
+.cell { background:var(--card); border-radius:8px; padding:.5rem .6rem; }
+.cell .k { font-size:.72rem; color:var(--muted); letter-spacing:-.02em; }
+.cell .v { font-size:1.02rem; font-weight:700; font-variant-numeric:tabular-nums; }
+.cell .d { font-size:.8rem; font-variant-numeric:tabular-nums; color:var(--flat); }
+.cell.up .d, .cell.up .v { color:var(--up); }
+.cell.down .d, .cell.down .v { color:var(--down); }
+.sep { border:0; border-top:1px solid var(--line); margin:.5rem 0; }
+.dash { margin-bottom:.8rem; }
+.comment { font-size:.9rem; color:var(--muted); margin:0 0 1.6rem; }
+
+section { margin-bottom:1.6rem; }
+h2 { font-size:1rem; margin:0 0 .5rem; padding-bottom:.25rem; border-bottom:1px solid var(--line); }
+h3 { font-size:.95rem; margin:0 0 .3rem; }
+h4 { font-size:.88rem; margin:1rem 0 .35rem; color:var(--muted); }
+article { margin-bottom:1rem; }
+p { margin:.4rem 0; }
+ul { margin:.4rem 0; padding-left:1.15rem; }
+li { margin:.25rem 0; }
+a { color:inherit; text-decoration:underline; text-underline-offset:2px; }
+/* 넓은 표는 페이지가 아니라 표 자신이 가로 스크롤한다 */
+.tw { overflow-x:auto; -webkit-overflow-scrolling:touch; margin:.6rem 0; }
+table { border-collapse:collapse; font-size:.82rem; min-width:100%; }
+th, td { border-bottom:1px solid var(--line); padding:.4rem .55rem; text-align:left;
+  vertical-align:top; white-space:nowrap; }
+th { background:var(--card); font-weight:600; position:sticky; top:0; }
+/* 단지명처럼 긴 값은 줄바꿈을 허용해 표가 지나치게 넓어지지 않게 한다 */
+td:nth-child(3) { white-space:normal; min-width:9rem; }
+tbody tr:nth-child(even) td { background:rgba(127,127,127,.05); }
+pre { white-space:pre-wrap; background:var(--card); padding:1rem; border-radius:6px; font-size:.85rem; }
+.warn { color:var(--warn); font-weight:600; }
+.failures { border:1px solid var(--line); border-radius:6px; padding:.8rem; }
+.failures h2 { border:0; color:var(--warn); }
+.failures li { color:var(--muted); font-size:.85rem; }
+footer { color:var(--muted); font-size:.78rem; border-top:1px solid var(--line); padding-top:.8rem; }</style>
+</head>
+<body>
+<header>
+<h1>🏠 부동산</h1>
+<span class="date">2026-09-16 KST</span>
+</header>
+<section class="dash">
+<div class="grid">
+<div class="cell up">
+<div class="k">매매 서울</div>
+<div class="v">+0.20%</div>
+<div class="d">-</div>
+</div>
+<div class="cell up">
+<div class="k">매매 수도권</div>
+<div class="v">+0.16%</div>
+<div class="d">-</div>
+</div>
+<div class="cell up">
+<div class="k">매매 지방</div>
+<div class="v">+0.01%</div>
+<div class="d">-</div>
+</div>
+<div class="cell up">
+<div class="k">전세 서울</div>
+<div class="v">+0.19%</div>
+<div class="d">-</div>
+</div>
+</div>
+<hr class="sep">
+<div class="grid">
+<div class="cell flat">
+<div class="k">공급물량</div>
+<div class="v">12,008호</div>
+<div class="d">-</div>
+</div>
+<div class="cell flat">
+<div class="k">입주물량</div>
+<div class="v">31,778호</div>
+<div class="d">-</div>
+</div>
+<div class="cell flat">
+<div class="k">미분양</div>
+<div class="v">14,394호</div>
+<div class="d">-</div>
+</div>
+<div class="cell flat">
+<div class="k">경매 낙찰가율</div>
+<div class="v">-</div>
+<div class="d">-</div>
+</div>
+</div>
+</section>
+<p class="comment">9일 전(9월 7일) 기준 한국부동산원 주간 통계입니다.</p>
+<main>
+<section><h2>오늘 일정</h2>
+<p>2026-09-16: 국토교통부 장관 후보자(홍지선) 및 국방부 장관 후보자(강신철) 인사청문회. 천안 아이파크 시티 4단지, 두정역 푸르지오 그랑피크, 천안 아이파크 시티 3단지, 남울산 노르웨이숲, 더샵 여주역더퍼스트, 올 뉴 챔피언스시티 1차, 그랑라크 에일린의 뜰 청약 접수.</p></section>
+<section><h2>예정 일정</h2>
+<p>2026-09-17: 의정부우정 A2블록 공공분양주택(본청약), 양주회천지구 A-26블록 공공분양주택, 시흥 은계 에피트 청약 접수 종료.</p></section>
+<section><h2>어제 스레드 후속</h2>
+<p>어제 던진 질문인 3기 신도시 분양가 상승 우려는 오늘 수집된 데이터만으로는 해소되지 않았음. 오늘 열리는 홍지선 국토교통부 장관 후보자 청문회에서 분양가 및 공급 대책에 대한 실마리가 나올지 지켜봐야 함.</p></section>
+<section><h2>이슈</h2>
+<article><h3>한남3·미아11 등 서울 정비사업 4곳 1만 가구 공급 본격화</h3>
+<p>서울 용산구 한남3구역(5,970가구)과 강북구 미아11구역(656가구) 등 서울 정비사업 4개 구역에서 총 1만 809가구 규모의 주택 공급이 추진된다. 한남3구역은 연내 착공을 목표로 하고 있으며, 미아11구역은 15년 만에 통합심의를 통과했다. 서울시는 인허가 절차를 밀착 관리해 신속한 공급을 지원하겠다는 방침이다. [커뮤니티] '서울 핵심지에 대규모 공급이 들어온다니 반갑다'는 기대감과 '실제 입주까지는 갈 길이 멀어 당장 집값 잡기엔 역부족'이라는 회의론이 공존한다.</p></article>
+<article><h3>홍지선 국토장관 후보자 청문회, 청약 이력과 공급 대책 검증</h3>
+<p>9월 16일 홍지선 국토교통부 장관 후보자의 인사청문회가 열린다. 과거 경기도 도시주택실장 시절 '기본주택' 정책을 주도했으나 본인은 서울 강남권 등 6개 단지에 청약을 신청한 이력이 밝혀져 정책 신뢰성 논란이 일고 있다. 또한 용산공원 부수 공간을 활용해 최대 2.8만 호의 주택을 공급하는 방안을 검토하겠다고 밝혀 이에 대한 집중 검증이 예상된다. [커뮤니티] '서민용 기본주택 외치면서 본인은 강남 청약 노린 건 이중적이다'라는 비판과 '청약 신청 자체는 개인의 자유이자 합법적 권리'라는 옹호 의견이 맞선다.</p></article>
+<article><h3>HUG 전세보증 미회수액 4559억 원, 재정 부담 가중</h3>
+<p>전세보증금을 돌려받지 못한 임차인을 대신해 HUG가 지급한 대위변제금 중 미회수액이 4,559억 원에 달하는 것으로 나타났다. 전세보증사고 부담이 커지면서 정부는 최근 5년간 HUG에 총 6.4조 원을 출자했다. [커뮤니티] '결국 갭투자자들의 빚을 국민 세금으로 대신 갚아주는 꼴 아니냐'는 분노 섞인 반응과 '임차인 보호를 위한 공적 보증 제도의 유지를 위해 출자는 어쩔 수 없다'는 의견이 대립하고 있다.</p></article>
+<article><h3>청약 시장 양극화와 30대 청약 이탈</h3>
+<p>최근 청약 경쟁률을 보면 일부 주택형에서 공급 세대수 대비 신청자가 미달하는 저조한 실적이 확인된다. 분양가 상승 부담으로 인해 '1순위 자격이 있어도 돈이 없어 청약을 포기한다'며 30대마저 청약통장을 해지하는 추세다. 반면 동대문구 '이문아이파크자이' 전용 84㎡ 분양권이 20억 원대에 거래되는 등 서울 외곽 선호 단지는 강세를 보이며 양극화가 심화되고 있다. [커뮤니티] '분양가가 너무 올라 서민은 청약 꿈도 못 꾼다'는 한탄과 '입지 좋은 곳은 결국 우상향하니 무리해서라도 잡아야 한다'는 의견이 나뉜다.</p></article></section>
+<section><h2>내일로 넘기는 질문</h2>
+<p>용산공원 부수 공간에 최대 2.8만 가구를 공급하겠다는 홍지선 후보자의 구상은 청문회를 무사히 통과해 실제 공급 대책으로 이어질 수 있을까?</p></section>
+
+</main>
+<footer>생성 2026-09-16T01:08:18.178Z · 자동 생성된 요약이며 투자 권유가 아닙니다.</footer>
+</body>
+</html>
