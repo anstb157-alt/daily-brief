@@ -1,0 +1,151 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>2026-09-16 증시 브리핑</title>
+<style>:root { color-scheme: light dark;
+  --fg:#1a1a1a; --muted:#6b6b6b; --line:#e3e3e3; --card:#f6f6f7;
+  --up:#c0392b; --down:#1565c0; --flat:#6b6b6b; --warn:#b45309; }
+@media (prefers-color-scheme: dark) {
+  :root { --fg:#e8e8e8; --muted:#9a9a9a; --line:#333; --card:#1c1c1e;
+    --up:#ff6b5a; --down:#5aa9ff; --flat:#9a9a9a; --warn:#fbbf24; }
+}
+* { box-sizing:border-box; }
+body { margin:0 auto; padding:1rem .9rem 3rem; max-width:44rem;
+  font:16px/1.65 -apple-system,BlinkMacSystemFont,"Apple SD Gothic Neo","Noto Sans KR",sans-serif;
+  color:var(--fg); word-break:keep-all; overflow-wrap:anywhere; }
+header { display:flex; align-items:baseline; gap:.5rem; margin-bottom:.7rem; }
+h1 { font-size:1.1rem; margin:0; }
+.date { color:var(--muted); font-size:.85rem; }
+
+/* 모바일 2열 고정 */
+.grid { display:grid; grid-template-columns:repeat(2,1fr); gap:.4rem; }
+@media (min-width:34rem) { .grid { grid-template-columns:repeat(4,1fr); } }
+.cell { background:var(--card); border-radius:8px; padding:.5rem .6rem; }
+.cell .k { font-size:.72rem; color:var(--muted); letter-spacing:-.02em; }
+.cell .v { font-size:1.02rem; font-weight:700; font-variant-numeric:tabular-nums; }
+.cell .d { font-size:.8rem; font-variant-numeric:tabular-nums; color:var(--flat); }
+.cell.up .d, .cell.up .v { color:var(--up); }
+.cell.down .d, .cell.down .v { color:var(--down); }
+.sep { border:0; border-top:1px solid var(--line); margin:.5rem 0; }
+.dash { margin-bottom:.8rem; }
+.comment { font-size:.9rem; color:var(--muted); margin:0 0 1.6rem; }
+
+section { margin-bottom:1.6rem; }
+h2 { font-size:1rem; margin:0 0 .5rem; padding-bottom:.25rem; border-bottom:1px solid var(--line); }
+h3 { font-size:.95rem; margin:0 0 .3rem; }
+h4 { font-size:.88rem; margin:1rem 0 .35rem; color:var(--muted); }
+article { margin-bottom:1rem; }
+p { margin:.4rem 0; }
+ul { margin:.4rem 0; padding-left:1.15rem; }
+li { margin:.25rem 0; }
+a { color:inherit; text-decoration:underline; text-underline-offset:2px; }
+/* 넓은 표는 페이지가 아니라 표 자신이 가로 스크롤한다 */
+.tw { overflow-x:auto; -webkit-overflow-scrolling:touch; margin:.6rem 0; }
+table { border-collapse:collapse; font-size:.82rem; min-width:100%; }
+th, td { border-bottom:1px solid var(--line); padding:.4rem .55rem; text-align:left;
+  vertical-align:top; white-space:nowrap; }
+th { background:var(--card); font-weight:600; position:sticky; top:0; }
+/* 단지명처럼 긴 값은 줄바꿈을 허용해 표가 지나치게 넓어지지 않게 한다 */
+td:nth-child(3) { white-space:normal; min-width:9rem; }
+tbody tr:nth-child(even) td { background:rgba(127,127,127,.05); }
+pre { white-space:pre-wrap; background:var(--card); padding:1rem; border-radius:6px; font-size:.85rem; }
+.warn { color:var(--warn); font-weight:600; }
+.failures { border:1px solid var(--line); border-radius:6px; padding:.8rem; }
+.failures h2 { border:0; color:var(--warn); }
+.failures li { color:var(--muted); font-size:.85rem; }
+footer { color:var(--muted); font-size:.78rem; border-top:1px solid var(--line); padding-top:.8rem; }</style>
+</head>
+<body>
+<header>
+<h1>📈 증시</h1>
+<span class="date">2026-09-16 KST</span>
+</header>
+<section class="dash">
+<div class="grid">
+<div class="cell down">
+<div class="k">S&amp;P500</div>
+<div class="v">7,585.73</div>
+<div class="d">−0.45%</div>
+</div>
+<div class="cell down">
+<div class="k">나스닥</div>
+<div class="v">25,981.57</div>
+<div class="d">−0.78%</div>
+</div>
+<div class="cell down">
+<div class="k">다우</div>
+<div class="v">52,093.11</div>
+<div class="d">−0.63%</div>
+</div>
+</div>
+<hr class="sep">
+<div class="grid">
+<div class="cell up">
+<div class="k">미10년물</div>
+<div class="v">4.998</div>
+<div class="d">+0.04%</div>
+</div>
+<div class="cell up">
+<div class="k">달러인덱스</div>
+<div class="v">99.71</div>
+<div class="d">+0.09%</div>
+</div>
+<div class="cell up">
+<div class="k">원달러</div>
+<div class="v">1,371.50</div>
+<div class="d">+0.57%</div>
+</div>
+</div>
+<hr class="sep">
+<div class="grid">
+<div class="cell up">
+<div class="k">코스피</div>
+<div class="v">6,653.44</div>
+<div class="d">+0.40%</div>
+</div>
+<div class="cell down">
+<div class="k">코스닥</div>
+<div class="v">805.33</div>
+<div class="d">−0.87%</div>
+</div>
+<div class="cell down">
+<div class="k">외국인</div>
+<div class="v">−15458억</div>
+<div class="d">-</div>
+</div>
+<div class="cell down">
+<div class="k">기관</div>
+<div class="v">−9585억</div>
+<div class="d">-</div>
+</div>
+<div class="cell up">
+<div class="k">개인</div>
+<div class="v">+8596억</div>
+<div class="d">-</div>
+</div>
+</div>
+</section>
+<p class="comment">미 10년물 국채금리가 4.998%까지 오르며 5% 돌파를 눈앞에 뒀다.</p>
+<main>
+<section><h2>오늘 일정</h2>
+<p>21:30 미국 핵심 소매판매 m/m (예상 0.6%) / 21:30 미국 소매판매 m/m (예상 0.8%)</p></section>
+<section><h2>예정 일정</h2>
+<p>2026-09-16 Lennar(LEN) 실적발표(장마감 후, 컨센 $1.29) / 2026-09-17 03:00 미국 기준금리 결정(예상 4.00%) / 2026-09-17 03:30 FOMC 기자회견 / 2026-09-21 한국전력(KEP) 실적발표(컨센 $0.33) / 2026-09-24 코스트코(COST) 실적발표(장마감 후, 컨센 $6.48)</p></section>
+<section><h2>어제 스레드 후속</h2>
+<p>어제 던진 질문의 답은 아직 안 나왔다. 국채금리가 4.998%까지 치솟은 상황에서 연준이 어떤 카드를 꺼낼지는 한국시간 17일 새벽 FOMC 금리 결정에서 확인해야 한다.</p></section>
+<section><h2>이슈</h2>
+<article><h3>클래리티법 부결에 가상자산 관련주 대거 하락</h3>
+<p>미국 상원에서 클래리티법이 부결되면서 가상자산 관련주가 크게 밀렸다. 스테이블코인 발행사 서클이 11.41% 하락했고, 코인베이스도 10.10% 떨어졌다. 마이크로스트래티지(-5.36%)와 로빈후드(-3%)도 하락세를 피하지 못했다. [커뮤니티]에서는 '법안 하나 부결로 이만큼 밀리는 건 과하다'는 의견과 '규제 불확실성이 다시 커졌다'는 우려가 대립하고 있다.</p></article>
+<article><h3>앤트로픽 vs 엔비디아, AI 규제 두고 정면충돌</h3>
+<p>앤트로픽 CEO 아모데이가 위험 방지를 위해 AI 개발 속도를 늦춰야 한다고 주장한 반면, 젠슨 황 엔비디아 CEO는 새로운 규제는 필요 없으며 공학적 해결이 가능하다고 맞섰다. 이 논쟁은 최근 국내 반도체주를 흔들었던 'AI 속도 조절론' 우려를 다시 자극했다. [커뮤니티]에서는 '규제는 혁신을 막을 뿐'이라는 옹호론과 '안전장치 없는 질주는 위험하다'는 신중론이 맞서고 있다.</p></article>
+<article><h3>국채금리 5% 육박에 뉴욕증시 이틀째 하락</h3>
+<p>미 10년물 국채금리가 4.998%까지 상승하고 유가 부담이 지속되면서 S&amp;P500(-0.45%)과 나스닥(-0.78%) 등 3대 지수가 모두 하락했다. 반면 퀄컴은 4.25% 상승한 187.80달러로 마감했고, 다우 지수 퇴출 소식이 전해진 나이키의 빈자리를 채우게 된 샌디스크는 1.36% 하락한 1530.90달러를 기록했다. [커뮤니티]에서는 '금리 5% 시대가 현실화되는 것 같다'며 FOMC 전까지 관망하겠다는 반응이 많다.</p></article></section>
+<section><h2>내일로 넘기는 질문</h2>
+<p>앤트로픽과 엔비디아의 AI 규제 설전 속에서, 오늘 밤 발표될 미국 소매판매 지표는 고금리 압박을 이겨내고 증시의 버팀목이 되어줄 수 있을까?</p></section>
+
+</main>
+<footer>생성 2026-09-16T01:36:39.470Z · 자동 생성된 요약이며 투자 권유가 아닙니다.</footer>
+</body>
+</html>
