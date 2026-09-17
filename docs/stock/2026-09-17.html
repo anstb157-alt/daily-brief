@@ -1,0 +1,153 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>2026-09-17 증시 브리핑</title>
+<style>:root { color-scheme: light dark;
+  --fg:#1a1a1a; --muted:#6b6b6b; --line:#e3e3e3; --card:#f6f6f7;
+  --up:#c0392b; --down:#1565c0; --flat:#6b6b6b; --warn:#b45309; }
+@media (prefers-color-scheme: dark) {
+  :root { --fg:#e8e8e8; --muted:#9a9a9a; --line:#333; --card:#1c1c1e;
+    --up:#ff6b5a; --down:#5aa9ff; --flat:#9a9a9a; --warn:#fbbf24; }
+}
+* { box-sizing:border-box; }
+body { margin:0 auto; padding:1rem .9rem 3rem; max-width:44rem;
+  font:16px/1.65 -apple-system,BlinkMacSystemFont,"Apple SD Gothic Neo","Noto Sans KR",sans-serif;
+  color:var(--fg); word-break:keep-all; overflow-wrap:anywhere; }
+header { display:flex; align-items:baseline; gap:.5rem; margin-bottom:.7rem; }
+h1 { font-size:1.1rem; margin:0; }
+.date { color:var(--muted); font-size:.85rem; }
+
+/* 모바일 2열 고정 */
+.grid { display:grid; grid-template-columns:repeat(2,1fr); gap:.4rem; }
+@media (min-width:34rem) { .grid { grid-template-columns:repeat(4,1fr); } }
+.cell { background:var(--card); border-radius:8px; padding:.5rem .6rem; }
+.cell .k { font-size:.72rem; color:var(--muted); letter-spacing:-.02em; }
+.cell .v { font-size:1.02rem; font-weight:700; font-variant-numeric:tabular-nums; }
+.cell .d { font-size:.8rem; font-variant-numeric:tabular-nums; color:var(--flat); }
+.cell.up .d, .cell.up .v { color:var(--up); }
+.cell.down .d, .cell.down .v { color:var(--down); }
+.sep { border:0; border-top:1px solid var(--line); margin:.5rem 0; }
+.dash { margin-bottom:.8rem; }
+.comment { font-size:.9rem; color:var(--muted); margin:0 0 1.6rem; }
+
+section { margin-bottom:1.6rem; }
+h2 { font-size:1rem; margin:0 0 .5rem; padding-bottom:.25rem; border-bottom:1px solid var(--line); }
+h3 { font-size:.95rem; margin:0 0 .3rem; }
+h4 { font-size:.88rem; margin:1rem 0 .35rem; color:var(--muted); }
+article { margin-bottom:1rem; }
+p { margin:.4rem 0; }
+ul { margin:.4rem 0; padding-left:1.15rem; }
+li { margin:.25rem 0; }
+a { color:inherit; text-decoration:underline; text-underline-offset:2px; }
+/* 넓은 표는 페이지가 아니라 표 자신이 가로 스크롤한다 */
+.tw { overflow-x:auto; -webkit-overflow-scrolling:touch; margin:.6rem 0; }
+table { border-collapse:collapse; font-size:.82rem; min-width:100%; }
+th, td { border-bottom:1px solid var(--line); padding:.4rem .55rem; text-align:left;
+  vertical-align:top; white-space:nowrap; }
+th { background:var(--card); font-weight:600; position:sticky; top:0; }
+/* 단지명처럼 긴 값은 줄바꿈을 허용해 표가 지나치게 넓어지지 않게 한다 */
+td:nth-child(3) { white-space:normal; min-width:9rem; }
+tbody tr:nth-child(even) td { background:rgba(127,127,127,.05); }
+pre { white-space:pre-wrap; background:var(--card); padding:1rem; border-radius:6px; font-size:.85rem; }
+.warn { color:var(--warn); font-weight:600; }
+.failures { border:1px solid var(--line); border-radius:6px; padding:.8rem; }
+.failures h2 { border:0; color:var(--warn); }
+.failures li { color:var(--muted); font-size:.85rem; }
+footer { color:var(--muted); font-size:.78rem; border-top:1px solid var(--line); padding-top:.8rem; }</style>
+</head>
+<body>
+<header>
+<h1>📈 증시</h1>
+<span class="date">2026-09-17 KST</span>
+</header>
+<section class="dash">
+<div class="grid">
+<div class="cell down">
+<div class="k">S&amp;P500</div>
+<div class="v">7,551.81</div>
+<div class="d">−0.45%</div>
+</div>
+<div class="cell down">
+<div class="k">나스닥</div>
+<div class="v">25,978.43</div>
+<div class="d">−0.01%</div>
+</div>
+<div class="cell down">
+<div class="k">다우</div>
+<div class="v">51,461.90</div>
+<div class="d">−1.21%</div>
+</div>
+</div>
+<hr class="sep">
+<div class="grid">
+<div class="cell down">
+<div class="k">미10년물</div>
+<div class="v">4.992</div>
+<div class="d">−0.25%</div>
+</div>
+<div class="cell up">
+<div class="k">달러인덱스</div>
+<div class="v">100.31</div>
+<div class="d">+0.06%</div>
+</div>
+<div class="cell up">
+<div class="k">원달러</div>
+<div class="v">1,379.40</div>
+<div class="d">+0.14%</div>
+</div>
+</div>
+<hr class="sep">
+<div class="grid">
+<div class="cell up">
+<div class="k">코스피</div>
+<div class="v">6,771.16</div>
+<div class="d">+0.79%</div>
+</div>
+<div class="cell up">
+<div class="k">코스닥</div>
+<div class="v">822.80</div>
+<div class="d">+0.84%</div>
+</div>
+<div class="cell down">
+<div class="k">외국인</div>
+<div class="v">−16726억</div>
+<div class="d">-</div>
+</div>
+<div class="cell up">
+<div class="k">기관</div>
+<div class="v">+12251억</div>
+<div class="d">-</div>
+</div>
+<div class="cell down">
+<div class="k">개인</div>
+<div class="v">−12061억</div>
+<div class="d">-</div>
+</div>
+</div>
+</section>
+<p class="comment">미국 다우 지수는 금리 인상 여파로 1.21% 밀렸으나 코스피는 기관의 1조 2천억 원대 매수세에 힘입어 상승세다.</p>
+<main>
+<section><h2>오늘 일정</h2>
+<p>03:00 미국 기준금리 발표 / 03:30 FOMC 기자회견 / 21:30 미국 필라델피아 연은 제조업지수 / 21:30 미국 신규 실업수당 청구건수</p></section>
+<section><h2>예정 일정</h2>
+<p>09/17 VinFast Auto(VFS) 실적 발표 / 09/21 한국전력(KEP) 실적 발표(컨센서스 $0.33) / 09/22 AutoZone(AZO) 실적 발표(컨센서스 $54.97) / 09/24 Costco(COST) 실적 발표(컨센서스 $6.48)</p></section>
+<section><h2>어제 스레드 후속</h2>
+<p>어제 던진 미국 소매판매 지표 질문은 미해소 상태다. 소매판매보다 미 연준의 3년 2개월 만의 기준금리 인상과 케빈 워시 의장의 매파적 발언이 시장을 지배했다. 고금리 압박 강도는 오늘 밤 발표될 필라델피아 연은 제조업지수와 신규 실업수당 청구건수로 다시 가늠해야 한다.</p></section>
+<section><h2>이슈</h2>
+<article><h3>미 연준 3년 2개월 만에 금리 인상, 다우 1.21% 하락</h3>
+<p>연준이 기준금리를 인상했다. 케빈 워시 연준 의장의 매파적 발언과 연내 추가 긴축 가능성 시사에 다우 지수는 1.21% 하락했고 S&amp;P500도 0.45% 밀렸다. 반면 나스닥은 기술주 선방으로 0.01% 하락하며 약보합으로 버텼다. [커뮤니티] '금리 올릴 줄 알았지만 매파 발언은 뼈아프다'는 의견과 '이미 선반영이라 나스닥은 버틴 것'이라는 의견이 대립하고 있다.</p></article>
+<article><h3>매파 연준에도 코스피 0.79% 상승하며 선방</h3>
+<p>미국 증시 하락에도 코스피는 0.79%, 코스닥은 0.84% 상승세다. 원/달러 환율은 1379.4원으로 1380원선을 위협하고 있으며 외국인이 코스피에서 1조 6726억 원을 순매도 중이다. 그러나 기관이 1조 2251억 원을 순매수하며 지수를 지탱하고 있다. 대신증권 이경민 연구원은 '기준금리 인상에도 채권금리와 증시는 안정세를 보였다'며 코스피 6600선은 매수 기회라고 분석했다.</p></article>
+<article><h3>스페이스X 스타십 기대감에 우주항공주 강세</h3>
+<p>미국 증시에서 스페이스X 주가가 5.15% 상승 마감했다. 스타십을 지구 상공 약 275km 궤도에 올려 6차례 선회하는 첫 궤도 시험비행 계획이 전해진 영향이다. 이에 국내 증시에서도 센서뷰가 21%대, 켄코아에어로스페이스가 14%대 급등하며 우주항공 및 방산 관련주가 강세를 보이고 있다.</p></article>
+<article><h3>엔비디아 0.8% 상승 속 빅테크 협력 및 견제 움직임 활발</h3>
+<p>간밤 엔비디아는 0.8% 상승했으나 마이크론(-0.11%)과 샌디스크(-0.71%)는 약보합을 기록했다. 삼성전자는 엔비디아 GPU와 다른 구조를 가진 네덜란드 AI 반도체 스타트업 '유클리드'에 투자를 단행했다. 한편 애플은 M8 울트라 반도체 연결에 엔비디아의 NV링크 기술 도입을 검토하며 서버 시장 재진입을 노리고 있다.</p></article></section>
+<section><h2>내일로 넘기는 질문</h2>
+<p>외국인의 1조 6천억 원대 매도 폭탄 속에서 기관의 방어선이 언제까지 유지될 수 있을까?</p></section>
+
+</main>
+<footer>생성 2026-09-17T01:41:27.842Z · 자동 생성된 요약이며 투자 권유가 아닙니다.</footer>
+</body>
+</html>
