@@ -1,0 +1,135 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>2026-09-19 부동산 브리핑</title>
+<style>:root { color-scheme: light dark;
+  --fg:#1a1a1a; --muted:#6b6b6b; --line:#e3e3e3; --card:#f6f6f7;
+  --up:#c0392b; --down:#1565c0; --flat:#6b6b6b; --warn:#b45309; }
+@media (prefers-color-scheme: dark) {
+  :root { --fg:#e8e8e8; --muted:#9a9a9a; --line:#333; --card:#1c1c1e;
+    --up:#ff6b5a; --down:#5aa9ff; --flat:#9a9a9a; --warn:#fbbf24; }
+}
+* { box-sizing:border-box; }
+body { margin:0 auto; padding:1rem .9rem 3rem; max-width:44rem;
+  font:16px/1.65 -apple-system,BlinkMacSystemFont,"Apple SD Gothic Neo","Noto Sans KR",sans-serif;
+  color:var(--fg); word-break:keep-all; overflow-wrap:anywhere; }
+header { display:flex; align-items:baseline; gap:.5rem; margin-bottom:.7rem; }
+h1 { font-size:1.1rem; margin:0; }
+.date { color:var(--muted); font-size:.85rem; }
+
+/* 모바일 2열 고정 */
+.grid { display:grid; grid-template-columns:repeat(2,1fr); gap:.4rem; }
+@media (min-width:34rem) { .grid { grid-template-columns:repeat(4,1fr); } }
+.cell { background:var(--card); border-radius:8px; padding:.5rem .6rem; }
+.cell .k { font-size:.72rem; color:var(--muted); letter-spacing:-.02em; }
+.cell .v { font-size:1.02rem; font-weight:700; font-variant-numeric:tabular-nums; }
+.cell .d { font-size:.8rem; font-variant-numeric:tabular-nums; color:var(--flat); }
+.cell.up .d, .cell.up .v { color:var(--up); }
+.cell.down .d, .cell.down .v { color:var(--down); }
+.sep { border:0; border-top:1px solid var(--line); margin:.5rem 0; }
+.dash { margin-bottom:.8rem; }
+.comment { font-size:.9rem; color:var(--muted); margin:0 0 1.6rem; }
+
+section { margin-bottom:1.6rem; }
+h2 { font-size:1rem; margin:0 0 .5rem; padding-bottom:.25rem; border-bottom:1px solid var(--line); }
+h3 { font-size:.95rem; margin:0 0 .3rem; }
+h4 { font-size:.88rem; margin:1rem 0 .35rem; color:var(--muted); }
+article { margin-bottom:1rem; }
+p { margin:.4rem 0; }
+ul { margin:.4rem 0; padding-left:1.15rem; }
+li { margin:.25rem 0; }
+a { color:inherit; text-decoration:underline; text-underline-offset:2px; }
+/* 넓은 표는 페이지가 아니라 표 자신이 가로 스크롤한다 */
+.tw { overflow-x:auto; -webkit-overflow-scrolling:touch; margin:.6rem 0; }
+table { border-collapse:collapse; font-size:.82rem; min-width:100%; }
+th, td { border-bottom:1px solid var(--line); padding:.4rem .55rem; text-align:left;
+  vertical-align:top; white-space:nowrap; }
+th { background:var(--card); font-weight:600; position:sticky; top:0; }
+/* 단지명처럼 긴 값은 줄바꿈을 허용해 표가 지나치게 넓어지지 않게 한다 */
+td:nth-child(3) { white-space:normal; min-width:9rem; }
+tbody tr:nth-child(even) td { background:rgba(127,127,127,.05); }
+pre { white-space:pre-wrap; background:var(--card); padding:1rem; border-radius:6px; font-size:.85rem; }
+.warn { color:var(--warn); font-weight:600; }
+.failures { border:1px solid var(--line); border-radius:6px; padding:.8rem; }
+.failures h2 { border:0; color:var(--warn); }
+.failures li { color:var(--muted); font-size:.85rem; }
+footer { color:var(--muted); font-size:.78rem; border-top:1px solid var(--line); padding-top:.8rem; }</style>
+</head>
+<body>
+<header>
+<h1>🏠 부동산</h1>
+<span class="date">2026-09-19 KST</span>
+</header>
+<section class="dash">
+<div class="grid">
+<div class="cell up">
+<div class="k">매매 서울</div>
+<div class="v">+0.16%</div>
+<div class="d">-</div>
+</div>
+<div class="cell up">
+<div class="k">매매 수도권</div>
+<div class="v">+0.15%</div>
+<div class="d">-</div>
+</div>
+<div class="cell flat">
+<div class="k">매매 지방</div>
+<div class="v">0.00%</div>
+<div class="d">-</div>
+</div>
+<div class="cell up">
+<div class="k">전세 서울</div>
+<div class="v">+0.17%</div>
+<div class="d">-</div>
+</div>
+</div>
+<hr class="sep">
+<div class="grid">
+<div class="cell flat">
+<div class="k">공급물량</div>
+<div class="v">10,924호</div>
+<div class="d">-</div>
+</div>
+<div class="cell flat">
+<div class="k">입주물량</div>
+<div class="v">31,778호</div>
+<div class="d">-</div>
+</div>
+<div class="cell flat">
+<div class="k">미분양</div>
+<div class="v">14,394호</div>
+<div class="d">-</div>
+</div>
+<div class="cell flat">
+<div class="k">경매 낙찰가율</div>
+<div class="v">-</div>
+<div class="d">-</div>
+</div>
+</div>
+</section>
+<p class="comment">9월 14일(5일 전) 기준 한국부동산원 조사 결과로, 강남3구 하락에도 외곽 지역 강세로 서울 매매가는 전주 대비 0.16% 올랐습니다.</p>
+<main>
+<section><h2>오늘 일정</h2>
+<p>2026-09-21: 화서역 호수공원 아너스빌, 문수로 비스타 더파크, 힐스테이트 고덕엘리스트 A65BL·A12BL, 더샵 분당하이스트, 중동역 다채로움 더원, 오남역 서희스타힐스 여의재 3단지 청약 접수 시작</p></section>
+<section><h2>예정 일정</h2>
+<p>2026-09-21: 화서역 호수공원 아너스빌 등 6개 단지 청약 접수 시작 / 2026-09-28: 시흥하중지구 A-4블록, 숭의역 노르웨이숲 더 스카이 청약 접수 시작 / 2026-10-02: 인천계양지구 A6블록 청약 접수 종료</p></section>
+<section><h2>어제 스레드 후속</h2>
+<p>어제 던진 질문의 답이 어느 정도 나왔다. 대통령은 기자회견에서 기존 부동산 정책 기조를 유지하며 공급 확대를 강조했고, 시장에서는 정책 전환이 없다는 점에서 관망세가 이어질 가능성이 높다는 분석이 나온다. 강남3구 거래가 줄고 외곽으로 매수세가 옮겨가는 등 시장 온도차는 여전하다.</p></section>
+<section><h2>이슈</h2>
+<article><h3>대통령 기자회견과 부동산 정책 기조 유지</h3>
+<p>대통령은 기자회견에서 최근 수도권 집값 상승을 평탄화 과정이라 진단하며 기존 공급 확대와 세제 정책 기조를 유지하겠다고 밝혔다. 레버리지 정책의 불완전성은 일부 인정했으나 근본적 기조 전환은 없다는 입장이다. 이에 대해 야당과 오세훈 서울시장 등은 현실과 동떨어진 인식, 남 탓이라며 강하게 비판했다. [커뮤니티] 반응은 공급 대책이 제대로 작동할지 의문이다라는 우려와 규제 완화와 공급 신속 추진은 맞다라는 옹호론이 팽팽히 맞선다.</p></article>
+<article><h3>서울 아파트 시장의 온도차, 강남3구 하락 vs 외곽 강세</h3>
+<p>9월 14일(5일 전) 기준 서울 아파트값은 전주 대비 0.16% 오르며 84주째 상승세를 이어갔다. 하지만 내부를 들여다보면 온도차가 크다. 강남구(-0.36%)와 서초구(-0.26%) 등 강남3구는 하락세로 돌아섰지만, 외곽 지역이 강세를 보이며 전체 지수를 끌어올렸다. 높은 집값 부담에 올해 상반기 서울을 떠나 경기·인천으로 이동한 인구는 23만 명에 달한다.</p></article>
+<article><h3>전세 시장의 눌러앉기와 월세화 흐름</h3>
+<p>서울 아파트 전월세 시장에서 이사 대신 기존 계약을 갱신하는 비중이 60%에 육박한다. 전세 매물 부족과 주거비 부담이 겹치면서 세입자들이 이동을 꺼리는 분위기다. 한편, 비아파트를 중심으로 전세에서 월세로의 전환 속도가 빠라지면서 서민 주거 안정을 위한 정책 논쟁도 이어지고 있다.</p></article>
+<article><h3>청약 시장 동향, 아파텔 부상과 아파트 미달의 온도차</h3>
+<p>수도권 청약 시장은 분양가 상승과 공급 감소 우려로 가격 경쟁력이 있는 단지에 관심이 쏠리고 있다. 힐스테이트 송파더그리드 오피스텔 중대형 평형이 11.7대 1의 경쟁률을 기록했고, 30억대 하이엔드 오피스텔도 청약이 몰리는 등 대체재인 아파텔이 부상하는 모습이다. 반면 이번 주 분양 아파트 중 순위 내 청약을 마감한 단지는 없는 것으로 나타나 온도차가 뚜렷하다.</p></article></section>
+<section><h2>내일로 넘기는 질문</h2>
+<p>대통령의 공급 확대 기조 유지와 강남3구의 하락세가 맞물린 지금, 서울 외곽 지역의 상승세는 언제까지 버텨줄 수 있을까?</p></section>
+
+</main>
+<footer>생성 2026-09-19T01:00:15.482Z · 자동 생성된 요약이며 투자 권유가 아닙니다.</footer>
+</body>
+</html>
