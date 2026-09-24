@@ -1,0 +1,133 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>2026-09-24 부동산 브리핑</title>
+<style>:root { color-scheme: light dark;
+  --fg:#1a1a1a; --muted:#6b6b6b; --line:#e3e3e3; --card:#f6f6f7;
+  --up:#c0392b; --down:#1565c0; --flat:#6b6b6b; --warn:#b45309; }
+@media (prefers-color-scheme: dark) {
+  :root { --fg:#e8e8e8; --muted:#9a9a9a; --line:#333; --card:#1c1c1e;
+    --up:#ff6b5a; --down:#5aa9ff; --flat:#9a9a9a; --warn:#fbbf24; }
+}
+* { box-sizing:border-box; }
+body { margin:0 auto; padding:1rem .9rem 3rem; max-width:44rem;
+  font:16px/1.65 -apple-system,BlinkMacSystemFont,"Apple SD Gothic Neo","Noto Sans KR",sans-serif;
+  color:var(--fg); word-break:keep-all; overflow-wrap:anywhere; }
+header { display:flex; align-items:baseline; gap:.5rem; margin-bottom:.7rem; }
+h1 { font-size:1.1rem; margin:0; }
+.date { color:var(--muted); font-size:.85rem; }
+
+/* 모바일 2열 고정 */
+.grid { display:grid; grid-template-columns:repeat(2,1fr); gap:.4rem; }
+@media (min-width:34rem) { .grid { grid-template-columns:repeat(4,1fr); } }
+.cell { background:var(--card); border-radius:8px; padding:.5rem .6rem; }
+.cell .k { font-size:.72rem; color:var(--muted); letter-spacing:-.02em; }
+.cell .v { font-size:1.02rem; font-weight:700; font-variant-numeric:tabular-nums; }
+.cell .d { font-size:.8rem; font-variant-numeric:tabular-nums; color:var(--flat); }
+.cell.up .d, .cell.up .v { color:var(--up); }
+.cell.down .d, .cell.down .v { color:var(--down); }
+.sep { border:0; border-top:1px solid var(--line); margin:.5rem 0; }
+.dash { margin-bottom:.8rem; }
+.comment { font-size:.9rem; color:var(--muted); margin:0 0 1.6rem; }
+
+section { margin-bottom:1.6rem; }
+h2 { font-size:1rem; margin:0 0 .5rem; padding-bottom:.25rem; border-bottom:1px solid var(--line); }
+h3 { font-size:.95rem; margin:0 0 .3rem; }
+h4 { font-size:.88rem; margin:1rem 0 .35rem; color:var(--muted); }
+article { margin-bottom:1rem; }
+p { margin:.4rem 0; }
+ul { margin:.4rem 0; padding-left:1.15rem; }
+li { margin:.25rem 0; }
+a { color:inherit; text-decoration:underline; text-underline-offset:2px; }
+/* 넓은 표는 페이지가 아니라 표 자신이 가로 스크롤한다 */
+.tw { overflow-x:auto; -webkit-overflow-scrolling:touch; margin:.6rem 0; }
+table { border-collapse:collapse; font-size:.82rem; min-width:100%; }
+th, td { border-bottom:1px solid var(--line); padding:.4rem .55rem; text-align:left;
+  vertical-align:top; white-space:nowrap; }
+th { background:var(--card); font-weight:600; position:sticky; top:0; }
+/* 단지명처럼 긴 값은 줄바꿈을 허용해 표가 지나치게 넓어지지 않게 한다 */
+td:nth-child(3) { white-space:normal; min-width:9rem; }
+tbody tr:nth-child(even) td { background:rgba(127,127,127,.05); }
+pre { white-space:pre-wrap; background:var(--card); padding:1rem; border-radius:6px; font-size:.85rem; }
+.warn { color:var(--warn); font-weight:600; }
+.failures { border:1px solid var(--line); border-radius:6px; padding:.8rem; }
+.failures h2 { border:0; color:var(--warn); }
+.failures li { color:var(--muted); font-size:.85rem; }
+footer { color:var(--muted); font-size:.78rem; border-top:1px solid var(--line); padding-top:.8rem; }</style>
+</head>
+<body>
+<header>
+<h1>🏠 부동산</h1>
+<span class="date">2026-09-24 KST</span>
+</header>
+<section class="dash">
+<div class="grid">
+<div class="cell up">
+<div class="k">매매 서울</div>
+<div class="v">+0.16%</div>
+<div class="d">-</div>
+</div>
+<div class="cell up">
+<div class="k">매매 수도권</div>
+<div class="v">+0.15%</div>
+<div class="d">-</div>
+</div>
+<div class="cell flat">
+<div class="k">매매 지방</div>
+<div class="v">0.00%</div>
+<div class="d">-</div>
+</div>
+<div class="cell up">
+<div class="k">전세 서울</div>
+<div class="v">+0.17%</div>
+<div class="d">-</div>
+</div>
+</div>
+<hr class="sep">
+<div class="grid">
+<div class="cell flat">
+<div class="k">공급물량</div>
+<div class="v">10,924호</div>
+<div class="d">-</div>
+</div>
+<div class="cell flat">
+<div class="k">입주물량</div>
+<div class="v">31,778호</div>
+<div class="d">-</div>
+</div>
+<div class="cell flat">
+<div class="k">미분양</div>
+<div class="v">14,394호</div>
+<div class="d">-</div>
+</div>
+<div class="cell flat">
+<div class="k">경매 낙찰가율</div>
+<div class="v">-</div>
+<div class="d">-</div>
+</div>
+</div>
+</section>
+<p class="comment">9월 14일(10일 전) 기준 한국부동산원 주간 통계입니다.</p>
+<main>
+<section><h2>오늘 일정</h2>
+<p>2026-09-24: 인천계양지구 A6블록 공공분양주택(본청약) 청약 접수 중, 더샵 분당하이스트 청약 접수 중.</p></section>
+<section><h2>예정 일정</h2>
+<p>2026-09-28: 시흥하중지구 A-4블록·숭의역 노르웨이숲 더 스카이·진주 판문지구 레이크써밋 웰가·삼천 하늘채 라비엘·에코델타시티 금강펜테리움 에코리버·더샵 시에르네·쌍용 더 플래티넘 센텀·천안 용곡 두산위브 청약 접수 시작. 2026-09-29: LH 수도권 공동주택 용지 매입 접수 시작. 2026-10-02: 인천계양지구 A6블록 청약 접수 마감.</p></section>
+<section><h2>어제 스레드 후속</h2>
+<p>어제 던진 질문의 답은 아직 미해소 상태야. 신임 홍지선 장관이 취임 첫날 공급 현장을 찾고 인허가 패스트트랙을 예고했지만, 서울 빌라 전셋값은 4년 7개월 만에 최고치를 뚫었고 HUG 든든전세 서울 경쟁률은 306대 1을 기록했거든. 오늘 지켜볼 건 실제 공급 대책이 시장의 불안을 언제쯤 잠재울 수 있을지야.</p></section>
+<section><h2>이슈</h2>
+<article><h3>아파트 막히자 아파텔로 이동, 서울 빌라 전셋값은 최고치 경신</h3>
+<p>서울 빌라(연립·다세대) 전셋값이 8월 조사 기준 4년 7개월 만에 고점을 뚫었어. 아파트 전세 매물 부족과 대출 규제가 겹치면서 빌라 전세로 밀려나는 모양새야. HUG가 공급하는 '든든전세'는 서울에서 무려 306대 1의 경쟁률을 기록했어. 아파트값 급등과 대출 규제 벽에 막힌 수요자들은 중대형 오피스텔인 '아파텔'로도 눈을 돌리고 있어. 올해 상반기 전국 오피스텔 매매 거래량은 전년 동기 대비 8.2% 늘었고, 전용 60㎡ 초과 거래가 증가세야. 서울 아파트 월세 비중은 52%를 기록하며 평균 월세가 164만 1,000원에 달해. [커뮤니티] '아파트 대출 막아놓으니 결국 빌라 전세랑 오피스텔만 불타오르네', '월세 164만 원 내고 나면 저축은 언제 하나'라며 한탄하는 분위기야. 반면 '빌라 전세는 전세사기 위험 때문에 여전히 무섭다'는 이견도 팽팽해.</p></article>
+<article><h3>신임 국토부 장관의 공급 드라이브와 냉담한 여론</h3>
+<p>홍지선 신임 국토교통부 장관이 취임 첫 일정으로 주택 공급 현장을 방문했어. '공급 계획이 숫자에만 머물러선 안 된다'며 현장 실행력을 강조하고 인허가 패스트트랙을 추진하겠다고 밝혔지. LH도 수도권 주택 공급을 늘리기 위해 3,300㎡ 이상 우량 토지를 5,000억 원 규모로 무제한 매입하겠다고 나섰어. 하지만 정부 정책에 대한 시장의 신뢰는 낮아. 최근 여론조사에서 '정부 부동산 정책이 효과 없다'는 응답이 69%, '앞으로 집값이 안 잡힐 것'이라는 응답이 66%에 달했거든. [커뮤니티] '맨날 공급 계획만 발표하고 실제 입주는 언제 하냐', '인허가 패스트트랙이라도 제대로 굴러가면 다행'이라며 반신반의하는 반응이 대다수야.</p></article>
+<article><h3>은마아파트 재건축 분담금 4.3억 원 공지와 청약 부적격자 속출</h3>
+<p>강남 재건축의 상징인 은마아파트에서 기존 전용 76㎡ 소유주가 재건축 후 전용 84㎡를 받으려면 분담금을 약 4.3억 원 내야 한다는 공지가 나와 조합원들이 술렁이고 있어. 한편, 청약 시장에서는 당첨되고도 '입력 착오'로 취소된 부적격자가 최근 3년간 1만 3,000명에 달하는 것으로 나타났어. 이 중 27%는 사전 확인이 가능했던 사례라 주의가 필요해. 청약통장 종합저축 전환 기한은 내년 9월까지 1년 더 연장되었으니 기존 예·부금 가입자들은 참고해봐. [커뮤니티] '은마 분담금 4억 넘으면 은퇴한 노인들은 집 팔고 나가라는 소리냐', '청약 부적격으로 날리면 1년 동안 청약도 못 하는데 입력할 때 제발 확인 좀 잘하자'는 반응이 올라왔어.</p></article></section>
+<section><h2>내일로 넘기는 질문</h2>
+<p>대출 규제로 아파트 진입 장벽이 높아진 상황에서, 아파텔과 빌라 전세로 몰린 수요가 매매 시장의 불씨를 다시 지피는 도화선이 될까?</p></section>
+
+</main>
+<footer>생성 2026-09-24T01:08:50.281Z · 자동 생성된 요약이며 투자 권유가 아닙니다.</footer>
+</body>
+</html>
