@@ -1,0 +1,135 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>2026-09-25 부동산 브리핑</title>
+<style>:root { color-scheme: light dark;
+  --fg:#1a1a1a; --muted:#6b6b6b; --line:#e3e3e3; --card:#f6f6f7;
+  --up:#c0392b; --down:#1565c0; --flat:#6b6b6b; --warn:#b45309; }
+@media (prefers-color-scheme: dark) {
+  :root { --fg:#e8e8e8; --muted:#9a9a9a; --line:#333; --card:#1c1c1e;
+    --up:#ff6b5a; --down:#5aa9ff; --flat:#9a9a9a; --warn:#fbbf24; }
+}
+* { box-sizing:border-box; }
+body { margin:0 auto; padding:1rem .9rem 3rem; max-width:44rem;
+  font:16px/1.65 -apple-system,BlinkMacSystemFont,"Apple SD Gothic Neo","Noto Sans KR",sans-serif;
+  color:var(--fg); word-break:keep-all; overflow-wrap:anywhere; }
+header { display:flex; align-items:baseline; gap:.5rem; margin-bottom:.7rem; }
+h1 { font-size:1.1rem; margin:0; }
+.date { color:var(--muted); font-size:.85rem; }
+
+/* 모바일 2열 고정 */
+.grid { display:grid; grid-template-columns:repeat(2,1fr); gap:.4rem; }
+@media (min-width:34rem) { .grid { grid-template-columns:repeat(4,1fr); } }
+.cell { background:var(--card); border-radius:8px; padding:.5rem .6rem; }
+.cell .k { font-size:.72rem; color:var(--muted); letter-spacing:-.02em; }
+.cell .v { font-size:1.02rem; font-weight:700; font-variant-numeric:tabular-nums; }
+.cell .d { font-size:.8rem; font-variant-numeric:tabular-nums; color:var(--flat); }
+.cell.up .d, .cell.up .v { color:var(--up); }
+.cell.down .d, .cell.down .v { color:var(--down); }
+.sep { border:0; border-top:1px solid var(--line); margin:.5rem 0; }
+.dash { margin-bottom:.8rem; }
+.comment { font-size:.9rem; color:var(--muted); margin:0 0 1.6rem; }
+
+section { margin-bottom:1.6rem; }
+h2 { font-size:1rem; margin:0 0 .5rem; padding-bottom:.25rem; border-bottom:1px solid var(--line); }
+h3 { font-size:.95rem; margin:0 0 .3rem; }
+h4 { font-size:.88rem; margin:1rem 0 .35rem; color:var(--muted); }
+article { margin-bottom:1rem; }
+p { margin:.4rem 0; }
+ul { margin:.4rem 0; padding-left:1.15rem; }
+li { margin:.25rem 0; }
+a { color:inherit; text-decoration:underline; text-underline-offset:2px; }
+/* 넓은 표는 페이지가 아니라 표 자신이 가로 스크롤한다 */
+.tw { overflow-x:auto; -webkit-overflow-scrolling:touch; margin:.6rem 0; }
+table { border-collapse:collapse; font-size:.82rem; min-width:100%; }
+th, td { border-bottom:1px solid var(--line); padding:.4rem .55rem; text-align:left;
+  vertical-align:top; white-space:nowrap; }
+th { background:var(--card); font-weight:600; position:sticky; top:0; }
+/* 단지명처럼 긴 값은 줄바꿈을 허용해 표가 지나치게 넓어지지 않게 한다 */
+td:nth-child(3) { white-space:normal; min-width:9rem; }
+tbody tr:nth-child(even) td { background:rgba(127,127,127,.05); }
+pre { white-space:pre-wrap; background:var(--card); padding:1rem; border-radius:6px; font-size:.85rem; }
+.warn { color:var(--warn); font-weight:600; }
+.failures { border:1px solid var(--line); border-radius:6px; padding:.8rem; }
+.failures h2 { border:0; color:var(--warn); }
+.failures li { color:var(--muted); font-size:.85rem; }
+footer { color:var(--muted); font-size:.78rem; border-top:1px solid var(--line); padding-top:.8rem; }</style>
+</head>
+<body>
+<header>
+<h1>🏠 부동산</h1>
+<span class="date">2026-09-25 KST</span>
+</header>
+<section class="dash">
+<div class="grid">
+<div class="cell up">
+<div class="k">매매 서울</div>
+<div class="v">+0.13%</div>
+<div class="d">-</div>
+</div>
+<div class="cell up">
+<div class="k">매매 수도권</div>
+<div class="v">+0.17%</div>
+<div class="d">-</div>
+</div>
+<div class="cell flat">
+<div class="k">매매 지방</div>
+<div class="v">0.00%</div>
+<div class="d">-</div>
+</div>
+<div class="cell up">
+<div class="k">전세 서울</div>
+<div class="v">+0.19%</div>
+<div class="d">-</div>
+</div>
+</div>
+<hr class="sep">
+<div class="grid">
+<div class="cell flat">
+<div class="k">공급물량</div>
+<div class="v">10,924호</div>
+<div class="d">-</div>
+</div>
+<div class="cell flat">
+<div class="k">입주물량</div>
+<div class="v">31,778호</div>
+<div class="d">-</div>
+</div>
+<div class="cell flat">
+<div class="k">미분양</div>
+<div class="v">14,394호</div>
+<div class="d">-</div>
+</div>
+<div class="cell flat">
+<div class="k">경매 낙찰가율</div>
+<div class="v">-</div>
+<div class="d">-</div>
+</div>
+</div>
+</section>
+<p class="comment">9월 21일(4일 전) 조사 기준, 서울 매매는 전주 대비 0.13%, 전세는 0.19% 올랐다.</p>
+<main>
+<section><h2>오늘 일정</h2>
+<p>2026-09-25: 청약 일정 없음</p></section>
+<section><h2>예정 일정</h2>
+<p>2026-09-28: 더샵 분당하이스트 청약 마감, 시흥하중지구 A-4블록·숭의역 노르웨이숲·진주 판문지구 레이크써밋·삼천 하늘채·에코델타시티 금강펜테리움·더샵 시에르네·쌍용 더 플래티넘·천안 용곡 두산위브 청약 시작 / 2026-09-29: 시흥하중지구 A-4블록·천안 용곡 두산위브 청약 마감 / 2026-09-30: 숭의역 노르웨이숲·진주 판문지구·삼천 하늘채·에코델타시티 금강펜테리움·더샵 시에르네·쌍용 더 플래티넘 청약 마감 / 2026-10-02: 인천계양지구 A6블록 청약 마감</p></section>
+<section><h2>어제 스레드 후속</h2>
+<p>미해소. 아파트 매매·전세 상승으로 중대형 오피스텔 실거주 수요 이동과 전세의 월세 전환 부담 증가가 나타났으나, 이것이 빌라·아파텔 수요를 거쳐 매매 시장 전체의 불씨로 이어질지는 아직 데이터로 확인하기 어렵다. 오늘 지켜볼 것은 전세대출 대위변제액 급증과 DSR 100% 이상 차주 증가가 매수 심리에 미칠 영향이다.</p></section>
+<section><h2>이슈</h2>
+<article><h3>당첨 마냥 좋아했는데... 가점 실수로 취소되는 청약 연 1만 명</h3>
+<p>최근 6년간 청약에 당첨되고도 가점 계산 실수나 자격 미달로 당첨이 취소된 부적격자가 5만 4,000여 명에 달하는 것으로 집계됐다. 연평균 1만 명에 육박하는 수준이다. 청약 경쟁이 치열한 수도권에 부적격자가 집중됐다. [커뮤니티]에서는 '청약 홈 가점 계산기 돌려도 헷갈린다', '단순 실수인데 당첨 취소에 재청약 제한까지 거는 건 너무 가혹하다'는 불만이 나오는 반면, '규정을 제대로 숙지하지 않은 본인 책임이 크다'며 옹호하는 의견도 팽팽히 맞선다.</p></article>
+<article><h3>신축 비싸서 눈 돌렸나... 서울 20년 초과 구축 상승률이 신축 추월</h3>
+<p>한국부동산원 자료에 따르면 지난달 서울의 20년 초과 노후 아파트 매매가격지수 상승률이 1.21%를 기록하며 5년 이하 신축 아파트(1.01% 상승)를 앞질렀다. 서울 아파트 매매가격은 85주 연속 상승하며 최장 상승 기간 동률을 기록 중이다. 전세 매물 부족으로 외곽 지역의 '생존 매수'가 유입된 영향으로 풀이된다. [커뮤니티]에서는 '신축은 너무 올라서 구축 갭투자가 대안이 될 수밖에 없다'는 반응과 '재건축 규제 완화 기대감 때문이지 실거주 가치는 여전히 신축이 압도적'이라는 반론이 엇갈린다.</p></article>
+<article><h3>소득 다 부어도 빚 못 갚는다... 전세대출 대위변제 3년 새 2배 급증</h3>
+<p>고물가 속에서 전세자금 대출을 제때 갚지 못해 한국주택금융공사가 대신 갚아준 대위변제액이 3년 새 2배 넘게 급증했다. 특히 청년층의 상환 능력 한계가 두드러진다. DSR(총부채원리금상환비율)이 100% 이상인 차주 비율도 3년 반 만에 다시 상승세로 돌아섰다. 전세 6억 원 아파트를 월세로 전환할 경우 연간 최대 300만 원의 추가 부담이 발생하는 등 세입자들의 주거비 부담이 가중되는 양상이다.</p></article>
+<article><h3>시세보다 1억 비싸고 소각장 인접... 에코델타시티 금강펜테리움 청약 대기</h3>
+<p>오는 28일 청약 접수를 시작하는 부산 '에코델타시티 금강펜테리움 에코리버'(358가구)를 두고 논란이 일고 있다. 주변 시세보다 분양가가 1억 원가량 비싸게 책정된 데다 인근에 소각장 예정 부지가 있어 청약 미달 우려가 제기된다. [커뮤니티]에서는 '소각장 뷰에 고분양가라니 미달은 따놓은 당상'이라는 비판과 '에코델타시티 입지 자체는 장기적으로 우수하므로 실거주 목적이라면 고려해 볼 만하다'는 의견이 대립한다.</p></article></section>
+<section><h2>내일로 넘기는 질문</h2>
+<p>서울 아파트값이 85주 연속 상승하며 최장 기록을 세운 가운데, DSR 100% 초과 차주 증가와 전세대출 대위변제 급증이라는 가계 빚 경고등이 매수세를 꺾는 제동 장치가 될 수 있을까?</p></section>
+
+</main>
+<footer>생성 2026-09-25T01:10:28.848Z · 자동 생성된 요약이며 투자 권유가 아닙니다.</footer>
+</body>
+</html>
