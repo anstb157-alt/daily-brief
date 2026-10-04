@@ -1,0 +1,135 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>2026-10-04 부동산 브리핑</title>
+<style>:root { color-scheme: light dark;
+  --fg:#1a1a1a; --muted:#6b6b6b; --line:#e3e3e3; --card:#f6f6f7;
+  --up:#c0392b; --down:#1565c0; --flat:#6b6b6b; --warn:#b45309; }
+@media (prefers-color-scheme: dark) {
+  :root { --fg:#e8e8e8; --muted:#9a9a9a; --line:#333; --card:#1c1c1e;
+    --up:#ff6b5a; --down:#5aa9ff; --flat:#9a9a9a; --warn:#fbbf24; }
+}
+* { box-sizing:border-box; }
+body { margin:0 auto; padding:1rem .9rem 3rem; max-width:44rem;
+  font:16px/1.65 -apple-system,BlinkMacSystemFont,"Apple SD Gothic Neo","Noto Sans KR",sans-serif;
+  color:var(--fg); word-break:keep-all; overflow-wrap:anywhere; }
+header { display:flex; align-items:baseline; gap:.5rem; margin-bottom:.7rem; }
+h1 { font-size:1.1rem; margin:0; }
+.date { color:var(--muted); font-size:.85rem; }
+
+/* 모바일 2열 고정 */
+.grid { display:grid; grid-template-columns:repeat(2,1fr); gap:.4rem; }
+@media (min-width:34rem) { .grid { grid-template-columns:repeat(4,1fr); } }
+.cell { background:var(--card); border-radius:8px; padding:.5rem .6rem; }
+.cell .k { font-size:.72rem; color:var(--muted); letter-spacing:-.02em; }
+.cell .v { font-size:1.02rem; font-weight:700; font-variant-numeric:tabular-nums; }
+.cell .d { font-size:.8rem; font-variant-numeric:tabular-nums; color:var(--flat); }
+.cell.up .d, .cell.up .v { color:var(--up); }
+.cell.down .d, .cell.down .v { color:var(--down); }
+.sep { border:0; border-top:1px solid var(--line); margin:.5rem 0; }
+.dash { margin-bottom:.8rem; }
+.comment { font-size:.9rem; color:var(--muted); margin:0 0 1.6rem; }
+
+section { margin-bottom:1.6rem; }
+h2 { font-size:1rem; margin:0 0 .5rem; padding-bottom:.25rem; border-bottom:1px solid var(--line); }
+h3 { font-size:.95rem; margin:0 0 .3rem; }
+h4 { font-size:.88rem; margin:1rem 0 .35rem; color:var(--muted); }
+article { margin-bottom:1rem; }
+p { margin:.4rem 0; }
+ul { margin:.4rem 0; padding-left:1.15rem; }
+li { margin:.25rem 0; }
+a { color:inherit; text-decoration:underline; text-underline-offset:2px; }
+/* 넓은 표는 페이지가 아니라 표 자신이 가로 스크롤한다 */
+.tw { overflow-x:auto; -webkit-overflow-scrolling:touch; margin:.6rem 0; }
+table { border-collapse:collapse; font-size:.82rem; min-width:100%; }
+th, td { border-bottom:1px solid var(--line); padding:.4rem .55rem; text-align:left;
+  vertical-align:top; white-space:nowrap; }
+th { background:var(--card); font-weight:600; position:sticky; top:0; }
+/* 단지명처럼 긴 값은 줄바꿈을 허용해 표가 지나치게 넓어지지 않게 한다 */
+td:nth-child(3) { white-space:normal; min-width:9rem; }
+tbody tr:nth-child(even) td { background:rgba(127,127,127,.05); }
+pre { white-space:pre-wrap; background:var(--card); padding:1rem; border-radius:6px; font-size:.85rem; }
+.warn { color:var(--warn); font-weight:600; }
+.failures { border:1px solid var(--line); border-radius:6px; padding:.8rem; }
+.failures h2 { border:0; color:var(--warn); }
+.failures li { color:var(--muted); font-size:.85rem; }
+footer { color:var(--muted); font-size:.78rem; border-top:1px solid var(--line); padding-top:.8rem; }</style>
+</head>
+<body>
+<header>
+<h1>🏠 부동산</h1>
+<span class="date">2026-10-04 KST</span>
+</header>
+<section class="dash">
+<div class="grid">
+<div class="cell up">
+<div class="k">매매 서울</div>
+<div class="v">+0.09%</div>
+<div class="d">-</div>
+</div>
+<div class="cell up">
+<div class="k">매매 수도권</div>
+<div class="v">+0.12%</div>
+<div class="d">-</div>
+</div>
+<div class="cell flat">
+<div class="k">매매 지방</div>
+<div class="v">0.00%</div>
+<div class="d">-</div>
+</div>
+<div class="cell up">
+<div class="k">전세 서울</div>
+<div class="v">+0.16%</div>
+<div class="d">-</div>
+</div>
+</div>
+<hr class="sep">
+<div class="grid">
+<div class="cell flat">
+<div class="k">공급물량</div>
+<div class="v">10,924호</div>
+<div class="d">-</div>
+</div>
+<div class="cell flat">
+<div class="k">입주물량</div>
+<div class="v">31,778호</div>
+<div class="d">-</div>
+</div>
+<div class="cell flat">
+<div class="k">미분양</div>
+<div class="v">14,394호</div>
+<div class="d">-</div>
+</div>
+<div class="cell flat">
+<div class="k">경매 낙찰가율</div>
+<div class="v">-</div>
+<div class="d">-</div>
+</div>
+</div>
+</section>
+<p class="comment">위 통계는 2026년 9월 28일(6일 전) 기준 한국부동산원 주간 조사 결과입니다.</p>
+<main>
+<section><h2>오늘 일정</h2>
+<p>오늘 예정된 청약 접수 및 당첨자 발표 일정 없음.</p></section>
+<section><h2>예정 일정</h2>
+<p>10월 12일: 천안 아이파크 시티 2단지(2회차), 더샵 동인센트리체, 쌍용 더 플래티넘 한강, 향남역 그로브 스위첸, 제주시 이도이동 아이린8차, 용인 양지 서희스타힐스 하이뷰 청약 접수 시작 / 10월 19일: 인천계양 A17블록 신혼희망타운 청약 접수 시작</p></section>
+<section><h2>어제 스레드 후속</h2>
+<p>2026-10-03에 던진 질문: 서울 아파트 매수 심리가 5주 연속 꺾이는 와중에, 다음 주 국정감사에서 전세대출 규제 추가 대책이 나오면 관망세가 하락세로 돌아설까? 답변: 국정감사는 10월 6일 시작 예정이라 규제 대책 여부는 아직 모름. 다만 9월 28일 기준 서울 전셋값은 전주 대비 0.16% 오르며 상승세를 이어가고 있어 전세 불안이 매수 심리에 미칠 영향이 주목됨.</p></section>
+<section><h2>이슈</h2>
+<article><h3>가짜 이혼에 위장전입까지, 5년간 부정 청약 1,699건</h3>
+<p>최근 5년간 민간 아파트 분양에서 적발된 부정 청약이 1,699건에 달하는 것으로 나타났어. 이 중 무려 83%가 청약 가점을 높이려고 주소만 옮겨 놓은 '위장전입'이었지. 청약통장 매매가 240건, 위장결혼·이혼이 47건으로 뒤를 이었어. [커뮤니티]에서는 '이러니 진짜 무주택자만 바보 된다', '당첨 취소 처벌을 더 강화해야 한다'며 분통을 터뜨리는 반응이 많아. 실제로 적발 건수 중 당첨 취소로 이어진 건 10건 중 4건에 불과하다는 지적도 나왔어.</p></article>
+<article><h3>불안한 전월세 시장, 서울시가 내놓을 해법은?</h3>
+<p>서울 전셋값이 9월 28일 기준 전주 대비 0.16% 오르며 상승세를 지속하자, 서울시가 오는 10월 7일 '서울주거포럼'을 열고 해법 마련에 나서기로 했어. 민간임대주택 공급체계와 장기전세주택의 역할을 두고 전문가들과 머리를 맞댄대. [커뮤니티]에서는 '장기전세 물량 좀 획기적으로 늘려라'라는 기대 섞인 목소리와 '포럼 백날 해봐야 당장 들어갈 집이 없다'는 회의적인 반응이 엇갈리고 있어.</p></article>
+<article><h3>LH 안 팔린 땅만 21.9조 원, 공급 대책 실효성 도마 위</h3>
+<p>LH가 확보한 토지 중 미매각 자산이 21조 9,000억 원 규모에 달하는 것으로 드러났어. 심지어 19년 동안 팔리지 않은 땅도 있다고 해. 주택 공급 확대를 위해 땅을 미리 사두는 취지라지만, 장기 미매각 토지에 대한 관리와 공급 과정 전반을 점검해야 한다는 지적이 나와. 한편 LH는 수도권 주택 공급 속도를 높이기 위해 보상 인력 250명을 대규모 채용하기로 했어.</p></article>
+<article><h3>노도강은 대출 30%대 의존, 대구는 공급 규제 완화</h3>
+<p>서울 내에서도 집을 살 때 대출에 의존하는 비중이 갈렸어. 강남 3구와 용산구는 대출 비중이 작았지만, 노원·도봉·강북(노도강) 지역은 대출 의존도가 30%대 수준으로 나타났지. 한편 지방에서는 대구가 건설경기 회복을 위해 주택 공급 규제를 풀었어. 경기도에서는 추미애 지사가 국토부 장관을 만나 일자리와 주거를 연계한 '경기도형 주택 공급 전략'을 제안하기도 했어.</p></article></section>
+<section><h2>내일로 넘기는 질문</h2>
+<p>부정 청약 적발 건수 중 실제 당첨 취소는 40% 수준에 그친다는데, 국정감사에서 불법 청약 방지를 위한 강력한 제도 개선안이 나올 수 있을까?</p></section>
+
+</main>
+<footer>생성 2026-10-04T02:25:54.874Z · 자동 생성된 요약이며 투자 권유가 아닙니다.</footer>
+</body>
+</html>
