@@ -1,0 +1,135 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>2026-10-07 부동산 브리핑</title>
+<style>:root { color-scheme: light dark;
+  --fg:#1a1a1a; --muted:#6b6b6b; --line:#e3e3e3; --card:#f6f6f7;
+  --up:#c0392b; --down:#1565c0; --flat:#6b6b6b; --warn:#b45309; }
+@media (prefers-color-scheme: dark) {
+  :root { --fg:#e8e8e8; --muted:#9a9a9a; --line:#333; --card:#1c1c1e;
+    --up:#ff6b5a; --down:#5aa9ff; --flat:#9a9a9a; --warn:#fbbf24; }
+}
+* { box-sizing:border-box; }
+body { margin:0 auto; padding:1rem .9rem 3rem; max-width:44rem;
+  font:16px/1.65 -apple-system,BlinkMacSystemFont,"Apple SD Gothic Neo","Noto Sans KR",sans-serif;
+  color:var(--fg); word-break:keep-all; overflow-wrap:anywhere; }
+header { display:flex; align-items:baseline; gap:.5rem; margin-bottom:.7rem; }
+h1 { font-size:1.1rem; margin:0; }
+.date { color:var(--muted); font-size:.85rem; }
+
+/* 모바일 2열 고정 */
+.grid { display:grid; grid-template-columns:repeat(2,1fr); gap:.4rem; }
+@media (min-width:34rem) { .grid { grid-template-columns:repeat(4,1fr); } }
+.cell { background:var(--card); border-radius:8px; padding:.5rem .6rem; }
+.cell .k { font-size:.72rem; color:var(--muted); letter-spacing:-.02em; }
+.cell .v { font-size:1.02rem; font-weight:700; font-variant-numeric:tabular-nums; }
+.cell .d { font-size:.8rem; font-variant-numeric:tabular-nums; color:var(--flat); }
+.cell.up .d, .cell.up .v { color:var(--up); }
+.cell.down .d, .cell.down .v { color:var(--down); }
+.sep { border:0; border-top:1px solid var(--line); margin:.5rem 0; }
+.dash { margin-bottom:.8rem; }
+.comment { font-size:.9rem; color:var(--muted); margin:0 0 1.6rem; }
+
+section { margin-bottom:1.6rem; }
+h2 { font-size:1rem; margin:0 0 .5rem; padding-bottom:.25rem; border-bottom:1px solid var(--line); }
+h3 { font-size:.95rem; margin:0 0 .3rem; }
+h4 { font-size:.88rem; margin:1rem 0 .35rem; color:var(--muted); }
+article { margin-bottom:1rem; }
+p { margin:.4rem 0; }
+ul { margin:.4rem 0; padding-left:1.15rem; }
+li { margin:.25rem 0; }
+a { color:inherit; text-decoration:underline; text-underline-offset:2px; }
+/* 넓은 표는 페이지가 아니라 표 자신이 가로 스크롤한다 */
+.tw { overflow-x:auto; -webkit-overflow-scrolling:touch; margin:.6rem 0; }
+table { border-collapse:collapse; font-size:.82rem; min-width:100%; }
+th, td { border-bottom:1px solid var(--line); padding:.4rem .55rem; text-align:left;
+  vertical-align:top; white-space:nowrap; }
+th { background:var(--card); font-weight:600; position:sticky; top:0; }
+/* 단지명처럼 긴 값은 줄바꿈을 허용해 표가 지나치게 넓어지지 않게 한다 */
+td:nth-child(3) { white-space:normal; min-width:9rem; }
+tbody tr:nth-child(even) td { background:rgba(127,127,127,.05); }
+pre { white-space:pre-wrap; background:var(--card); padding:1rem; border-radius:6px; font-size:.85rem; }
+.warn { color:var(--warn); font-weight:600; }
+.failures { border:1px solid var(--line); border-radius:6px; padding:.8rem; }
+.failures h2 { border:0; color:var(--warn); }
+.failures li { color:var(--muted); font-size:.85rem; }
+footer { color:var(--muted); font-size:.78rem; border-top:1px solid var(--line); padding-top:.8rem; }</style>
+</head>
+<body>
+<header>
+<h1>🏠 부동산</h1>
+<span class="date">2026-10-07 KST</span>
+</header>
+<section class="dash">
+<div class="grid">
+<div class="cell up">
+<div class="k">매매 서울</div>
+<div class="v">+0.09%</div>
+<div class="d">-</div>
+</div>
+<div class="cell up">
+<div class="k">매매 수도권</div>
+<div class="v">+0.12%</div>
+<div class="d">-</div>
+</div>
+<div class="cell flat">
+<div class="k">매매 지방</div>
+<div class="v">0.00%</div>
+<div class="d">-</div>
+</div>
+<div class="cell up">
+<div class="k">전세 서울</div>
+<div class="v">+0.16%</div>
+<div class="d">-</div>
+</div>
+</div>
+<hr class="sep">
+<div class="grid">
+<div class="cell flat">
+<div class="k">공급물량</div>
+<div class="v">10,924호</div>
+<div class="d">-</div>
+</div>
+<div class="cell flat">
+<div class="k">입주물량</div>
+<div class="v">31,778호</div>
+<div class="d">-</div>
+</div>
+<div class="cell flat">
+<div class="k">미분양</div>
+<div class="v">14,509호</div>
+<div class="d">-</div>
+</div>
+<div class="cell flat">
+<div class="k">경매 낙찰가율</div>
+<div class="v">-</div>
+<div class="d">-</div>
+</div>
+</div>
+</section>
+<p class="comment">9일 전(9월 28일) 기준 한국부동산원 주간 통계에 따르면 서울 매매는 전주 대비 0.09%, 전세는 0.16% 올랐어.</p>
+<main>
+<section><h2>오늘 일정</h2>
+<p>2026-10-08 익산 부송에코르 청약 접수 시작</p></section>
+<section><h2>예정 일정</h2>
+<p>2026-10-12 천안 아이파크 시티 2단지(2회차), 더샵 동인센트리체, 쌍용 더 플래티넘 한강, 향남역 그로브 스위첸, 제주시 이도이동 아이린8차, 용인 양지 서희스타힐스 하이뷰 청약 접수 시작 / 2026-10-19 인천계양 A17블록 신혼희망타운 청약 접수 시작</p></section>
+<section><h2>어제 스레드 후속</h2>
+<p>어제 던진 질문은 아직 해소되지 않았어. 강남 초고가 거래가 서울 전체를 자극할지 여부는 더 지켜봐야 해. 다만 오늘 데이터를 보면 대출 규제 여파로 서울 아파트 거래 4건 중 1건이 6억 이하 중저가에 쏠리고 59㎡ 소형이 국평보다 비싸게 팔리는 등 시장이 아래서부터 재편되는 조짐이 보여. 규제가 지속된다면 강남은 그들만의 섬으로 남을 가능성이 높아 보여.</p></section>
+<section><h2>이슈</h2>
+<article><h3>대출 규제가 만든 기현상, 6억 이하 쏠림과 소형의 역습</h3>
+<p>대출 규제가 옥죄어오자 서울 아파트 시장 판도가 바뀌고 있어. 올해 서울에서 6억 이하 아파트 매매 거래가 1년 전보다 15% 늘어나며 전체 거래 4건 중 1건을 차지했어. 정책대출이 가능한 중저가로 수요가 몰린 탓이야. 심지어 대출 한도에 맞춰 집 크기를 줄이면서 전용 59㎡가 국민평형(84㎡)보다 비싸게 팔리는 기현상까지 나타나고 있어. [커뮤니티]에서는 '대출 막아놓으니 결국 서민들만 좁은 집으로 밀려난다'는 한탄과 '거품 낀 국평 대신 실속 있는 소형으로 갈아타는 게 합리적'이라는 의견이 대립하고 있어.</p></article>
+<article><h3>강변역 줍줍 6만 명 폭발 vs 일부 청약은 무더기 미달 양극화</h3>
+<p>청약 시장의 온도 차가 극명해. 서울 광진구 '강변역 센트럴 아이파크' 무순위 청약 1가구 모집에는 무려 6만 명이 넘게 몰렸어. 반면 최근 청약 접수를 진행한 일부 단지들의 전용 084.9890A, 084.9740B 등 세부 타입에서는 공급 가구 수보다 신청자가 적거나 아예 0명을 기록하는 등 무더기 미달이 발생했어. 입지와 규제 여부에 따라 청약 통장이 철저히 갈리는 모양새야.</p></article>
+<article><h3>11월 13일부터 전세사기 보증금 3분의 1 국가 보장</h3>
+<p>전세사기 피해자들을 위한 실질적인 대책이 곧 시행돼. 오는 11월 13일부터 전세사기 피해자의 임차보증금을 최대 3분의 1까지 국가가 보장해 주기로 했어. 한편 법원에서는 집주인이 전세보증금을 제때 돌려주지 않아 세입자가 새로 계약한 집의 계약금을 날렸다면, 집주인이 그 손해인 1500만 원을 배상해야 한다는 판결이 나왔어. 보증금 미반환에 대한 집주인의 책임이 한층 무거워진 셈이야.</p></article>
+<article><h3>오세훈 서울시장, 정부 부동산 정책 정조준 비판</h3>
+<p>오세훈 서울시장이 국정 지지율 하락의 원인으로 부동산 문제를 꼽으며 정부 정책을 강하게 비판했어. 집값과 전월세가 동시에 오르는 '트리플 강세'가 지속되는 것은 정부의 정책 실패라는 지적이야. 오 시장은 서울시의 정비사업 활성화로 올해 1~8월 주택 누적 인허가 수가 급증했다고 강조하며, 2031년까지 31만 가구 착공 목표를 달성하기 위해 정부 규제 개선이 필요하다고 촉구했어.</p></article></section>
+<section><h2>내일로 넘기는 질문</h2>
+<p>대출 규제가 불러온 소형 아파트 선호와 중저가 쏠림 현상이 서울 외곽 지역의 집값까지 밀어 올리는 불씨가 될까, 아니면 전체적인 거래 절벽으로 이어질까?</p></section>
+
+</main>
+<footer>생성 2026-10-07T02:08:49.120Z · 자동 생성된 요약이며 투자 권유가 아닙니다.</footer>
+</body>
+</html>
