@@ -1,0 +1,135 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>2026-10-09 부동산 브리핑</title>
+<style>:root { color-scheme: light dark;
+  --fg:#1a1a1a; --muted:#6b6b6b; --line:#e3e3e3; --card:#f6f6f7;
+  --up:#c0392b; --down:#1565c0; --flat:#6b6b6b; --warn:#b45309; }
+@media (prefers-color-scheme: dark) {
+  :root { --fg:#e8e8e8; --muted:#9a9a9a; --line:#333; --card:#1c1c1e;
+    --up:#ff6b5a; --down:#5aa9ff; --flat:#9a9a9a; --warn:#fbbf24; }
+}
+* { box-sizing:border-box; }
+body { margin:0 auto; padding:1rem .9rem 3rem; max-width:44rem;
+  font:16px/1.65 -apple-system,BlinkMacSystemFont,"Apple SD Gothic Neo","Noto Sans KR",sans-serif;
+  color:var(--fg); word-break:keep-all; overflow-wrap:anywhere; }
+header { display:flex; align-items:baseline; gap:.5rem; margin-bottom:.7rem; }
+h1 { font-size:1.1rem; margin:0; }
+.date { color:var(--muted); font-size:.85rem; }
+
+/* 모바일 2열 고정 */
+.grid { display:grid; grid-template-columns:repeat(2,1fr); gap:.4rem; }
+@media (min-width:34rem) { .grid { grid-template-columns:repeat(4,1fr); } }
+.cell { background:var(--card); border-radius:8px; padding:.5rem .6rem; }
+.cell .k { font-size:.72rem; color:var(--muted); letter-spacing:-.02em; }
+.cell .v { font-size:1.02rem; font-weight:700; font-variant-numeric:tabular-nums; }
+.cell .d { font-size:.8rem; font-variant-numeric:tabular-nums; color:var(--flat); }
+.cell.up .d, .cell.up .v { color:var(--up); }
+.cell.down .d, .cell.down .v { color:var(--down); }
+.sep { border:0; border-top:1px solid var(--line); margin:.5rem 0; }
+.dash { margin-bottom:.8rem; }
+.comment { font-size:.9rem; color:var(--muted); margin:0 0 1.6rem; }
+
+section { margin-bottom:1.6rem; }
+h2 { font-size:1rem; margin:0 0 .5rem; padding-bottom:.25rem; border-bottom:1px solid var(--line); }
+h3 { font-size:.95rem; margin:0 0 .3rem; }
+h4 { font-size:.88rem; margin:1rem 0 .35rem; color:var(--muted); }
+article { margin-bottom:1rem; }
+p { margin:.4rem 0; }
+ul { margin:.4rem 0; padding-left:1.15rem; }
+li { margin:.25rem 0; }
+a { color:inherit; text-decoration:underline; text-underline-offset:2px; }
+/* 넓은 표는 페이지가 아니라 표 자신이 가로 스크롤한다 */
+.tw { overflow-x:auto; -webkit-overflow-scrolling:touch; margin:.6rem 0; }
+table { border-collapse:collapse; font-size:.82rem; min-width:100%; }
+th, td { border-bottom:1px solid var(--line); padding:.4rem .55rem; text-align:left;
+  vertical-align:top; white-space:nowrap; }
+th { background:var(--card); font-weight:600; position:sticky; top:0; }
+/* 단지명처럼 긴 값은 줄바꿈을 허용해 표가 지나치게 넓어지지 않게 한다 */
+td:nth-child(3) { white-space:normal; min-width:9rem; }
+tbody tr:nth-child(even) td { background:rgba(127,127,127,.05); }
+pre { white-space:pre-wrap; background:var(--card); padding:1rem; border-radius:6px; font-size:.85rem; }
+.warn { color:var(--warn); font-weight:600; }
+.failures { border:1px solid var(--line); border-radius:6px; padding:.8rem; }
+.failures h2 { border:0; color:var(--warn); }
+.failures li { color:var(--muted); font-size:.85rem; }
+footer { color:var(--muted); font-size:.78rem; border-top:1px solid var(--line); padding-top:.8rem; }</style>
+</head>
+<body>
+<header>
+<h1>🏠 부동산</h1>
+<span class="date">2026-10-09 KST</span>
+</header>
+<section class="dash">
+<div class="grid">
+<div class="cell up">
+<div class="k">매매 서울</div>
+<div class="v">+0.12%</div>
+<div class="d">-</div>
+</div>
+<div class="cell up">
+<div class="k">매매 수도권</div>
+<div class="v">+0.14%</div>
+<div class="d">-</div>
+</div>
+<div class="cell flat">
+<div class="k">매매 지방</div>
+<div class="v">0.00%</div>
+<div class="d">-</div>
+</div>
+<div class="cell up">
+<div class="k">전세 서울</div>
+<div class="v">+0.16%</div>
+<div class="d">-</div>
+</div>
+</div>
+<hr class="sep">
+<div class="grid">
+<div class="cell flat">
+<div class="k">공급물량</div>
+<div class="v">10,924호</div>
+<div class="d">-</div>
+</div>
+<div class="cell flat">
+<div class="k">입주물량</div>
+<div class="v">15,151호</div>
+<div class="d">-</div>
+</div>
+<div class="cell flat">
+<div class="k">미분양</div>
+<div class="v">14,509호</div>
+<div class="d">-</div>
+</div>
+<div class="cell flat">
+<div class="k">경매 낙찰가율</div>
+<div class="v">-</div>
+<div class="d">-</div>
+</div>
+</div>
+</section>
+<p class="comment">10월 5일(4일 전) 기준 조사 결과이며, 서울과 수도권은 상승폭이 확대된 반면 지방은 보합세를 보였습니다.</p>
+<main>
+<section><h2>오늘 일정</h2>
+<p>2026-10-09: 오늘 예정된 청약 일정 없음</p></section>
+<section><h2>예정 일정</h2>
+<p>2026-10-12: 천안 아이파크 시티 2단지(2회차)·더샵 동인센트리체·쌍용 더 플래티넘 한강·향남역 그로브 스위첸·제주시 이도이동 아이린8차 아파트·용인 양지 서희스타힐스 하이뷰 청약 접수 시작 | 2026-10-13: 진도 승원팰리체 더 테라스 청약 접수 시작 | 2026-10-19: 청주 가경 아이파크 7·8단지, 한양립스 에듀포레 청약 접수 시작</p></section>
+<section><h2>어제 스레드 후속</h2>
+<p>어제 던진 질문은 아직 미해소 상태야. 4일 전 기준 통계를 보면 서울 아파트값은 87주 연속 상승세를 이어갔지만, 강남 3구와 용산은 하락세로 돌아섰고 서울 외곽과 경기 남부가 상승세를 주도하는 혼조세가 나타나고 있어. 고분양가 부담 속에서 매수세가 외곽으로 분산되는지 더 지켜봐야 해.</p></section>
+<section><h2>이슈</h2>
+<article><h3>LH의 미분양 매입확약 카드와 엇갈리는 시선</h3>
+<p>LH가 수도권 미분양 아파트 최대 1만 8,000가구를 대상으로 '매입확약' 접수를 연말까지 진행해. 분양가의 최고 92% 선에서 매입해 주겠다는 약속이야. 건설사들이 미분양 걱정 없이 조기 착공에 나서도록 유도하겠다는 취지인데, 실제 착공 촉진으로 이어질지가 관건이야. [커뮤니티] &quot;건설사 똥 치워주는 꼴 아니냐&quot;라는 비판과 &quot;공급 절벽 막으려면 어쩔 수 없는 고육지책&quot;이라는 옹호론이 팽팽하게 맞서고 있어.</p></article>
+<article><h3>서울 87주 연속 상승 속 강남 3구·용산의 하락 전환</h3>
+<p>한국부동산원 10월 5일(4일 전) 기준 조사에서 서울 아파트값은 0.12% 오르며 87주 연속 상승세를 기록했어. 재미있는 건 강남 3구와 용산은 오히려 내렸다는 점이야. 대신 금천·도봉 등 서울 외곽과 수원 영통(한 주 만에 0.62% 상승) 등 경기 남부가 상승세를 이끌었어. 대출 규제 여파가 고가 지역에 먼저 미친 것 아니냐는 분석이 나와. [커뮤니티] &quot;강남이 꺾였으니 이제 전국적으로 조정 온다&quot;는 하락론과 &quot;외곽 갭메우기 끝나면 결국 강남이 다시 치고 나간다&quot;는 상승론이 대립 중이야.</p></article>
+<article><h3>청년 전세보증 확대와 임대인 책임 강화 판결</h3>
+<p>주택금융공사가 청년 특례전세보증 대상을 만 39세까지로 넓히고, 신혼·자녀가구는 최대 3억 원까지 보증하기로 했어. 한편 법원에서는 집주인이 전세보증금을 제때 돌려주지 않아 세입자가 새로 이사할 집의 계약금을 날렸다면, 집주인이 그 손해를 배상해야 한다는 판결이 나왔어. 세입자 보호 장치는 강화되는 추세야. [커뮤니티] &quot;보증금 안 돌려주는 악질 집주인들 정신 번쩍 들게 해야 한다&quot;며 법원 판결을 환영하는 분위기가 지배적이야.</p></article>
+<article><h3>서울시 모아타운 1,735가구 공급 확정</h3>
+<p>서울시가 강서구 화곡동, 용산구 서계동, 중랑구 망우동·면목동 일대 모아타운·모아주택 사업을 확정하며 총 1,735세대를 공급하기로 했어. 용도지역 상향과 높이 완화 혜택이 적용돼 노후 저층 주거지 정비에 속도가 붙을 전망이야.</p></article></section>
+<section><h2>내일로 넘기는 질문</h2>
+<p>강남 3구와 용산의 하락세가 서울 외곽으로 번질까, 아니면 외곽의 갭메우기 상승세가 강남을 다시 밀어 올릴까?</p></section>
+
+</main>
+<footer>생성 2026-10-09T02:48:55.302Z · 자동 생성된 요약이며 투자 권유가 아닙니다.</footer>
+</body>
+</html>
