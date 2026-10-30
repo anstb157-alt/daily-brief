@@ -1,0 +1,135 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>2026-10-30 부동산 브리핑</title>
+<style>:root { color-scheme: light dark;
+  --fg:#1a1a1a; --muted:#6b6b6b; --line:#e3e3e3; --card:#f6f6f7;
+  --up:#c0392b; --down:#1565c0; --flat:#6b6b6b; --warn:#b45309; }
+@media (prefers-color-scheme: dark) {
+  :root { --fg:#e8e8e8; --muted:#9a9a9a; --line:#333; --card:#1c1c1e;
+    --up:#ff6b5a; --down:#5aa9ff; --flat:#9a9a9a; --warn:#fbbf24; }
+}
+* { box-sizing:border-box; }
+body { margin:0 auto; padding:1rem .9rem 3rem; max-width:44rem;
+  font:16px/1.65 -apple-system,BlinkMacSystemFont,"Apple SD Gothic Neo","Noto Sans KR",sans-serif;
+  color:var(--fg); word-break:keep-all; overflow-wrap:anywhere; }
+header { display:flex; align-items:baseline; gap:.5rem; margin-bottom:.7rem; }
+h1 { font-size:1.1rem; margin:0; }
+.date { color:var(--muted); font-size:.85rem; }
+
+/* 모바일 2열 고정 */
+.grid { display:grid; grid-template-columns:repeat(2,1fr); gap:.4rem; }
+@media (min-width:34rem) { .grid { grid-template-columns:repeat(4,1fr); } }
+.cell { background:var(--card); border-radius:8px; padding:.5rem .6rem; }
+.cell .k { font-size:.72rem; color:var(--muted); letter-spacing:-.02em; }
+.cell .v { font-size:1.02rem; font-weight:700; font-variant-numeric:tabular-nums; }
+.cell .d { font-size:.8rem; font-variant-numeric:tabular-nums; color:var(--flat); }
+.cell.up .d, .cell.up .v { color:var(--up); }
+.cell.down .d, .cell.down .v { color:var(--down); }
+.sep { border:0; border-top:1px solid var(--line); margin:.5rem 0; }
+.dash { margin-bottom:.8rem; }
+.comment { font-size:.9rem; color:var(--muted); margin:0 0 1.6rem; }
+
+section { margin-bottom:1.6rem; }
+h2 { font-size:1rem; margin:0 0 .5rem; padding-bottom:.25rem; border-bottom:1px solid var(--line); }
+h3 { font-size:.95rem; margin:0 0 .3rem; }
+h4 { font-size:.88rem; margin:1rem 0 .35rem; color:var(--muted); }
+article { margin-bottom:1rem; }
+p { margin:.4rem 0; }
+ul { margin:.4rem 0; padding-left:1.15rem; }
+li { margin:.25rem 0; }
+a { color:inherit; text-decoration:underline; text-underline-offset:2px; }
+/* 넓은 표는 페이지가 아니라 표 자신이 가로 스크롤한다 */
+.tw { overflow-x:auto; -webkit-overflow-scrolling:touch; margin:.6rem 0; }
+table { border-collapse:collapse; font-size:.82rem; min-width:100%; }
+th, td { border-bottom:1px solid var(--line); padding:.4rem .55rem; text-align:left;
+  vertical-align:top; white-space:nowrap; }
+th { background:var(--card); font-weight:600; position:sticky; top:0; }
+/* 단지명처럼 긴 값은 줄바꿈을 허용해 표가 지나치게 넓어지지 않게 한다 */
+td:nth-child(3) { white-space:normal; min-width:9rem; }
+tbody tr:nth-child(even) td { background:rgba(127,127,127,.05); }
+pre { white-space:pre-wrap; background:var(--card); padding:1rem; border-radius:6px; font-size:.85rem; }
+.warn { color:var(--warn); font-weight:600; }
+.failures { border:1px solid var(--line); border-radius:6px; padding:.8rem; }
+.failures h2 { border:0; color:var(--warn); }
+.failures li { color:var(--muted); font-size:.85rem; }
+footer { color:var(--muted); font-size:.78rem; border-top:1px solid var(--line); padding-top:.8rem; }</style>
+</head>
+<body>
+<header>
+<h1>🏠 부동산</h1>
+<span class="date">2026-10-30 KST</span>
+</header>
+<section class="dash">
+<div class="grid">
+<div class="cell up">
+<div class="k">매매 서울</div>
+<div class="v">+0.09%</div>
+<div class="d">-</div>
+</div>
+<div class="cell up">
+<div class="k">매매 수도권</div>
+<div class="v">+0.14%</div>
+<div class="d">-</div>
+</div>
+<div class="cell up">
+<div class="k">매매 지방</div>
+<div class="v">+0.01%</div>
+<div class="d">-</div>
+</div>
+<div class="cell up">
+<div class="k">전세 서울</div>
+<div class="v">+0.17%</div>
+<div class="d">-</div>
+</div>
+</div>
+<hr class="sep">
+<div class="grid">
+<div class="cell flat">
+<div class="k">공급물량</div>
+<div class="v">9,657호</div>
+<div class="d">-</div>
+</div>
+<div class="cell flat">
+<div class="k">입주물량</div>
+<div class="v">15,151호</div>
+<div class="d">-</div>
+</div>
+<div class="cell flat">
+<div class="k">미분양</div>
+<div class="v">14,509호</div>
+<div class="d">-</div>
+</div>
+<div class="cell flat">
+<div class="k">경매 낙찰가율</div>
+<div class="v">-</div>
+<div class="d">-</div>
+</div>
+</div>
+</section>
+<p class="comment">10월 26일 조사(4일 전 기준) 주간 통계이며, 서울 매매 변동률은 전주 대비 0.09% 상승 기록.</p>
+<main>
+<section><h2>오늘 일정</h2>
+<p>2026-10-30: 데이터 없음</p></section>
+<section><h2>예정 일정</h2>
+<p>2026-11-02: 시흥하중 A1, 계양신도시 AC3/AC4, GTX운정중앙역 3/4단지, 청라 아크원, 화성 향남 롯데캐슬, 고덕강일 3단지, 시흥거모 S-1 청약 접수 시작 / 2026-11-09: 수원 광교 A17 지분적립형, 중앙하이츠 구성 플랫폼시티 청약 접수 시작</p></section>
+<section><h2>어제 스레드 후속</h2>
+<p>어제 던진 서울 5km 이내 신규택지 발표 영향은 아직 모름. 거래량은 줄고 매물은 느는데 전세 수요가 매매로 돌아설지 전세에 남을지가 관건.</p></section>
+<section><h2>이슈</h2>
+<article><h3>9월 공급 지표 일제히 급감…서울 매매 거래도 둔화</h3>
+<p>국토교통부 9월 주택통계에 따르면 전국 주택 인허가(2만5938가구)와 착공이 전월 대비 각각 45%, 46% 줄었다. 서울 아파트 매매 거래량도 3915건으로 전월보다 14.7% 감소했다. 거래가 줄어드는 가운데 서울 전역에서 매물 물량이 늘어나는 흐름이 나타나고 있다.</p></article>
+<article><h3>신규 택지 발표 후 지자체 반발…여야 '3+3 협의체' 제안</h3>
+<p>정부의 서울 경계 5km 이내 신규 택지 공급 발표 이후 하남시와 김포시 등 지자체 및 시의회에서 교통 대책 부족을 이유로 반발이 이어지고 있다. 국토부는 서울 정비사업 3.1만가구 연내 착공 지원 방침을 밝혔다. 국민의힘은 공급과 전월세 안정 대책 논의를 위한 여야 '3+3 부동산 협의체' 구성을 더불어민주당에 제안했다.</p></article>
+<article><h3>수원 광교 첫 '지분적립형' 분양주택 등 청약 일정 확정</h3>
+<p>경기도와 GH가 수원 광교 A17블록에 전국 최초 지분적립형 분양주택 240호를 공급하며 11월 9일부터 청약을 받는다. 한편 서울 아파트 청약 시장에서는 하이엔드 브랜드 평균 경쟁률이 119대 1로 일반 브랜드 대비 3.8배 높은 수준을 기록했다.</p></article>
+<article><h3>지방 및 수도권 외곽 온도차…인천·대구 매매 하락 전환</h3>
+<p>한국부동산원 주간 조사에서 인천 아파트값이 25주 만에, 대구 아파트값이 5주 만에 하락 전환했다. [커뮤니티] '수도권 공급 위주 정책으로 지방 시장만 침체된다'는 반발과 '수도권 핵심지 공급이 늘어야 집값이 잡힌다'는 상반된 의견이 나란히 나온다. 단, 신규 택지 발표가 당장 매매가를 하락시킨다는 주장은 착공까지 시차가 있어 사실과 다르다.</p></article></section>
+<section><h2>내일로 넘기는 질문</h2>
+<p>인허가·착공 급감과 신규 택지 발표가 맞물린 상황에서 대기 수요가 전세 시장에 계속 머물며 전셋값을 더 자극할까?</p></section>
+
+</main>
+<footer>생성 2026-10-30T02:25:21.053Z · 자동 생성된 요약이며 투자 권유가 아닙니다.</footer>
+</body>
+</html>
