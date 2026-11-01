@@ -1,0 +1,121 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>2026-11-01 청약 브리핑</title>
+<style>:root { color-scheme: light dark;
+  --fg:#1a1a1a; --muted:#6b6b6b; --line:#e3e3e3; --card:#f6f6f7;
+  --up:#c0392b; --down:#1565c0; --flat:#6b6b6b; --warn:#b45309; }
+@media (prefers-color-scheme: dark) {
+  :root { --fg:#e8e8e8; --muted:#9a9a9a; --line:#333; --card:#1c1c1e;
+    --up:#ff6b5a; --down:#5aa9ff; --flat:#9a9a9a; --warn:#fbbf24; }
+}
+* { box-sizing:border-box; }
+body { margin:0 auto; padding:1rem .9rem 3rem; max-width:44rem;
+  font:16px/1.65 -apple-system,BlinkMacSystemFont,"Apple SD Gothic Neo","Noto Sans KR",sans-serif;
+  color:var(--fg); word-break:keep-all; overflow-wrap:anywhere; }
+header { display:flex; align-items:baseline; gap:.5rem; margin-bottom:.7rem; }
+h1 { font-size:1.1rem; margin:0; }
+.date { color:var(--muted); font-size:.85rem; }
+
+/* 모바일 2열 고정 */
+.grid { display:grid; grid-template-columns:repeat(2,1fr); gap:.4rem; }
+@media (min-width:34rem) { .grid { grid-template-columns:repeat(4,1fr); } }
+.cell { background:var(--card); border-radius:8px; padding:.5rem .6rem; }
+.cell .k { font-size:.72rem; color:var(--muted); letter-spacing:-.02em; }
+.cell .v { font-size:1.02rem; font-weight:700; font-variant-numeric:tabular-nums; }
+.cell .d { font-size:.8rem; font-variant-numeric:tabular-nums; color:var(--flat); }
+.cell.up .d, .cell.up .v { color:var(--up); }
+.cell.down .d, .cell.down .v { color:var(--down); }
+.sep { border:0; border-top:1px solid var(--line); margin:.5rem 0; }
+.dash { margin-bottom:.8rem; }
+.comment { font-size:.9rem; color:var(--muted); margin:0 0 1.6rem; }
+
+section { margin-bottom:1.6rem; }
+h2 { font-size:1rem; margin:0 0 .5rem; padding-bottom:.25rem; border-bottom:1px solid var(--line); }
+h3 { font-size:.95rem; margin:0 0 .3rem; }
+h4 { font-size:.88rem; margin:1rem 0 .35rem; color:var(--muted); }
+article { margin-bottom:1rem; }
+p { margin:.4rem 0; }
+ul { margin:.4rem 0; padding-left:1.15rem; }
+li { margin:.25rem 0; }
+a { color:inherit; text-decoration:underline; text-underline-offset:2px; }
+/* 넓은 표는 페이지가 아니라 표 자신이 가로 스크롤한다 */
+.tw { overflow-x:auto; -webkit-overflow-scrolling:touch; margin:.6rem 0; }
+table { border-collapse:collapse; font-size:.82rem; min-width:100%; }
+th, td { border-bottom:1px solid var(--line); padding:.4rem .55rem; text-align:left;
+  vertical-align:top; white-space:nowrap; }
+th { background:var(--card); font-weight:600; position:sticky; top:0; }
+/* 단지명처럼 긴 값은 줄바꿈을 허용해 표가 지나치게 넓어지지 않게 한다 */
+td:nth-child(3) { white-space:normal; min-width:9rem; }
+tbody tr:nth-child(even) td { background:rgba(127,127,127,.05); }
+pre { white-space:pre-wrap; background:var(--card); padding:1rem; border-radius:6px; font-size:.85rem; }
+.warn { color:var(--warn); font-weight:600; }
+.failures { border:1px solid var(--line); border-radius:6px; padding:.8rem; }
+.failures h2 { border:0; color:var(--warn); }
+.failures li { color:var(--muted); font-size:.85rem; }
+footer { color:var(--muted); font-size:.78rem; border-top:1px solid var(--line); padding-top:.8rem; }</style>
+</head>
+<body>
+<header>
+<h1>📒 청약</h1>
+<span class="date">2026-11-01 KST</span>
+</header>
+<section class="dash">
+<div class="grid">
+<div class="cell flat">
+<div class="k">진행·예정</div>
+<div class="v">30건</div>
+<div class="d">-</div>
+</div>
+<div class="cell flat">
+<div class="k">서울</div>
+<div class="v">2건</div>
+<div class="d">-</div>
+</div>
+<div class="cell flat">
+<div class="k">마감임박</div>
+<div class="v">12건</div>
+<div class="d">-</div>
+</div>
+<div class="cell flat">
+<div class="k">무순위</div>
+<div class="v">7건</div>
+<div class="d">-</div>
+</div>
+</div>
+<hr class="sep">
+<div class="grid">
+<div class="cell flat">
+<div class="k">최고 경쟁률</div>
+<div class="v">14,094.33:1</div>
+<div class="d">-</div>
+</div>
+</div>
+</section>
+<p class="comment">서울 신규 공고는 없으나, 청약통장이 불필요한 수도권 무순위 잔여세대 접수가 내일 일제히 시작됩니다.</p>
+<main>
+<section><h2>오늘 일정</h2>
+<p>[접수 마감 D-1] 과천 디에트르 퍼스티지 S2BL(무순위), 더샵 분당하이스트(무순위), 숭의역 노르웨이숲 더 스카이(무순위), 파주 운정신도시 우미 린 더 센텀(무순위), 화서역 호수공원 아너스빌(무순위) / [접수 마감 D-2] 대방역 여의도 더로드캐슬(오피스텔) / [접수 마감 D-5] 서울 고덕강일지구 3단지 토지임대부</p></section>
+<section><h2>예정 일정</h2>
+<p>2026-11-02: 더샵 분당하이스트·과천 디에트르 퍼스티지 등 무순위 접수 시작</p>
+<p>2026-11-03: 대방역 여의도 더로드캐슬 오피스텔 접수 마감</p>
+<p>2026-11-06: 서울 고덕강일지구 3단지 본청약 접수 마감</p>
+<p>2026-11-09: 광교 자연앤 센트레빌(A17BL) 공공분양 접수 시작</p></section>
+<section><h2>어제 스레드 후속</h2>
+<p>2026-10-31 질문 관련: 청약통장이 불필요한 11월 2일 접수 <a href="https://www.applyhome.co.kr/ai/aia/selectAPTRemndrLttotPblancDetailView.do?houseManageNo=2026910275&amp;pblancNo=2026910275" target="_blank" rel="noopener">더샵 분당하이스트</a> 무순위 공고 원문과 자격 요건을 확인하시기 바랍니다.</p></section>
+<section><h2>이슈</h2>
+<article><h3>1. 서울 지역 진행 공고 분석 (신규 공고 없음)</h3>
+<p>오늘 자 서울 신규 모집공고는 없습니다. 서울 거주 8년 차 조건에서 진행 중인 기존 공고 2건을 검토합니다. | 신청일~마감일 | 지역 | 단지 | 주택유형 | 공급구분 | 공급세대 | 통장 필요 | 신청 가능 | 맞는 트랙 | 경쟁률 | 신청 | |---|---|---|---|---|---|---|---|---|---|---| | 2026-10-26~11-06 | 서울 | 고덕강일지구 3단지 토지임대부(본청약) | 아파트 | 국민 | 1305 | 필요 | 불가 (통장순위 미달) | 일반공급 후순위 | 공고 확인 필요 | <a href="https://www.applyhome.co.kr/ap/apa/selectAPTLttotPblancDetailView.do?houseManageNo=2026000373&amp;pblancNo=2026000373" target="_blank" rel="noopener">신청</a> | | 2026-10-28~11-03 | 서울 | 대방역 여의도 더로드캐슬 | 오피스텔 | 오피스텔 | 4 | 불필요 | 가능 | 일반 | 공고 확인 필요 | <a href="https://www.applyhome.co.kr/ap/apo/selectUrbtyOfctlPblancDetailView.do?houseManageNo=2026950094&amp;pblancNo=2026950094" target="_blank" rel="noopener">신청</a> |  [고덕강일지구 3단지 조건 및 판정] | 항목 | 내용 | |---|---| | 분양가 / 대출 / 제약 | 분양가 공고 확인 필요 / 토지임대부 / 전매·실거주 제한 공고 확인 필요 / 서울 우선 | | 구분 | 판정 | 근거 | |---|---|---| | 당첨 가능성 | 불가 | 통장 가입 1개월차로 1순위 납입횟수/기간 미달 (가능 시점: 2027-09 이후) | | 당첨 전략 | 산정 보류 (신청 자격 미달) | 공공분양 일반공급 순위 요건 미충족 | | 자금계획 | 산정 보류 (신청 자격 미달) | 자격 미달로 산정 보류 | | 예상수익 | 산정 보류 (신청 자격 미달) | 실거래 비교 데이터 없음 | | 리스크 | 자격미달 | 통장 순위 미달 및 공공분양 자산/소득 검증 필요 |  | 항목 | 배점 | 점수 | |---|---|---| | 가격·안전마진 | 2 | 1.0 | | 입지·미래가치 | 2 | 1.5 | | 사용자 기준 당첨 가능성 | 2 | 0.0 | | 자금조달 용이성 | 2 | 1.0 | | 규제·시장 리스크 | 2 | 0.5 | | <strong>총점</strong> | <strong>10</strong> | <strong>4.0</strong> | (통장 순위 미달로 총점 4.0점 제한, 예상투자금 및 신청전략 표 생략)  [대방역 여의도 더로드캐슬 조건 및 판정] | 항목 | 내용 | |---|---| | 분양가 / 대출 / 제약 | 대표 평형 분양가 공고 확인 필요 / 대출 공고 확인 필요 / 청약통장 무관, 주택수 미산정 | | 구분 | 판정 | 근거 | |---|---|---| | 당첨 가능성 | 가능 | 청약통장 불필요, 100% 추첨제 | | 당첨 전략 | 청약통장 온전 보전 | 통장 사용 없이 거주 목적 접근 | | 자금계획 | 보유 현금 활용 | 보유 주식 현금화 6억 원 이내 조달 검토 | | 예상수익 | 공고 확인 필요 | 오피스텔 인근 실거래 비교 데이터 없음 | | 리스크 | 시세하락/유동성 | 오피스텔 환금성 제약 및 주식 현금화 시 손실 risk |  | 항목 | 배점 | 점수 | |---|---|---| | 가격·안전마진 | 2 | 0.5 | | 입지·미래가치 | 2 | 1.0 | | 사용자 기준 당첨 가능성 | 2 | 2.0 | | 자금조달 용이성 | 2 | 1.5 | | 규제·시장 리스크 | 2 | 0.5 | | <strong>총점</strong> | <strong>10</strong> | <strong>5.5</strong> |  | 구분 | 금액 | 시점 | |---|---|---| | 분양가 (대표 평형) | 공고 확인 필요 | 계약 시 | | 예상 총투자금 (자기자본) | 공고 확인 필요 | 입주 시 |  | 항목 | 내용 | |---|---| | 인기 평형 | 공고 확인 필요 | | 비인기 평형 | 공고 확인 필요 | | 추천 타입 | 청약통장 미사용 타입 | | 예비당첨 전망 | 공고 확인 필요 | | 신청 트랙 | 오피스텔 일반 청약 | | 부적격 방지 | 신청 시 오타 주의 및 청약신청금 확인 |</p></article>
+<article><h3>2. D-1 임박 주요 무순위 및 잔여세대 분석</h3>
+<p>청약통장 가입 1개월차 사용자 프로필상 통장 없이 신청 가능한 무순위/불법행위 재공급 물량이 최우선 타겟입니다. | 신청일~마감일 | 지역 | 단지 | 주택유형 | 공급구분 | 공급세대 | 통장 필요 | 신청 가능 | 맞는 트랙 | 경쟁률 | 신청 | |---|---|---|---|---|---|---|---|---|---|---| | 2026-11-02~11-02 | 경기 | 더샵 분당하이스트 | 아파트 | 무순위 | 58 | 불필요 | 가능 | 무순위 추첨 | 공고 확인 필요 | <a href="https://www.applyhome.co.kr/ap/apa/selectRemndrLttotPblancDetailView.do?houseManageNo=2026910275&amp;pblancNo=2026910275" target="_blank" rel="noopener">신청</a> | | 2026-11-02~11-02 | 경기 | 과천 디에트르 퍼스티지(S2BL) | 아파트 | 불법행위 재공급 | 2 | 불필요 | 조건부 (과천거주) | 무순위 추첨 | 공고 확인 필요 | <a href="https://www.applyhome.co.kr/ap/apa/selectRemndrLttotPblancDetailView.do?houseManageNo=2026930043&amp;pblancNo=2026930043" target="_blank" rel="noopener">신청</a> |  [더샵 분당하이스트 조건 및 판정] | 항목 | 내용 | |---|---| | 분양가 / 대출 / 제약 | 분양가 공고 확인 필요 / 성남시 분당구 / 무순위 자격: 무주택세대구성원 | | 구분 | 판정 | 근거 | |---|---|---| | 당첨 가능성 | 가능 | 통장 불필요, 미혼 무주택자 신청 가능, 100% 추첨 | | 당첨 전략 | 잔여 58세대 추첨 노림 | 통장 사용 없이 분당 입지 확보 전략 | | 자금계획 | 자기자본 6억 활용 | 계약금 및 잔금 조달을 위한 주식 현금화 일정 수립 | | 예상수익 | 공고 확인 필요 | 인근 실거래가 대조 필요 (공고 공식 분양가 확인 후 산정) | | 리스크 | 자금조달 | 단기 계약금 납부 시 주식 매도 타이밍 및 양도세 리스크 |  | 항목 | 배점 | 점수 | |---|---|---| | 가격·안전마진 | 2 | 1.5 | | 입지·미래가치 | 2 | 2.0 | | 사용자 기준 당첨 가능성 | 2 | 1.5 | | 자금조달 용이성 | 2 | 1.5 | | 규제·시장 리스크 | 2 | 1.5 | | <strong>총점</strong> | <strong>10</strong> | <strong>8.0</strong> |  | 구분 | 금액 | 시점 | |---|---|---| | 분양가 (대표 평형) | 공고 확인 필요 | 계약 시 | | 계약금 | 공고 확인 필요 | 계약 시 | | 잔금 | 공고 확인 필요 | 입주 시 (2027-12) | | <strong>예상 총투자금 (자기자본)</strong> | 공고 확인 필요 | 잔금 납부 시 |  | 항목 | 내용 | |---|---| | 인기 평형 | 공고 확인 필요 | | 비인기 평형 | 공고 확인 필요 | | 추천 타입 | 공급 세대수가 가장 많은 평형 | | 예비당첨 전망 | 공고 확인 필요 | | 신청 트랙 | 무순위/잔여세대 트랙 | | 부적격 방지 | 무주택 세대주/세대원 자격 유지 확인 |</p></article>
+<article><h3>3. 기타 민간 및 공공분양 신규 청약건 자격 판정</h3>
+<p>| 신청일~마감일 | 지역 | 단지 | 주택유형 | 공급구분 | 공급세대 | 통장 필요 | 신청 가능 | 맞는 트랙 | 경쟁률 | 신청 | |---|---|---|---|---|---|---|---|---|---|---| | 2026-11-02~11-03 | 경기 | 시흥하중지구 A1블록 신혼희망타운 | 아파트(신혼희망타운) | 국민 | 175 | 필요 | 불가 (미혼) | 자격미달 | 공고 확인 필요 | <a href="https://www.applyhome.co.kr/ap/apa/selectAPTLttotPblancDetailView.do?houseManageNo=2026820012&amp;pblancNo=2026820012" target="_blank" rel="noopener">신청</a> | | 2026-11-02~11-04 | 인천 | 계양신도시 카이브 유보라(AC4BL) | 아파트 | 민영 | 496 | 필요 | 불가 (통장1개월) | 일반공급 (2027-09 가능) | 공고 확인 필요 | <a href="https://www.applyhome.co.kr/ap/apa/selectAPTLttotPblancDetailView.do?houseManageNo=2026000532&amp;pblancNo=2026000532" target="_blank" rel="noopener">신청</a> |  [판정 요약] 1. 시흥하중 A1 신혼희망타운: 미혼 조건으로 신청 불가. 2. 계양신도시 카이브 유보라 등 수도권 민영분양: 통장 가입 1개월차로 수도권 1순위 자격(12개월) 미달. 현 시점 2순위 신청만 가능하나 가점 및 순위 열세로 당첨 가능성 매우 낮음. 본 분석은 정보 제공이며 수익이나 대출 승인을 보장하지 않습니다.</p></article></section>
+<section><h2>내일로 넘기는 질문</h2>
+<p>통장 가입 1개월차 조건에서 가장 유리한 '11월 2일 더샵 분당하이스트 무순위' 청약 신청 서류와 주식 현금화 자금 계획을 점검하시겠습니까?</p></section>
+
+</main>
+<footer>생성 2026-11-01T07:02:39.654Z · 자동 생성된 요약이며 투자 권유가 아닙니다.</footer>
+</body>
+</html>
