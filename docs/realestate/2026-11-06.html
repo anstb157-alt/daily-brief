@@ -1,0 +1,139 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>2026-11-06 부동산 브리핑</title>
+<style>:root { color-scheme: light dark;
+  --fg:#1a1a1a; --muted:#6b6b6b; --line:#e3e3e3; --card:#f6f6f7;
+  --up:#c0392b; --down:#1565c0; --flat:#6b6b6b; --warn:#b45309; }
+@media (prefers-color-scheme: dark) {
+  :root { --fg:#e8e8e8; --muted:#9a9a9a; --line:#333; --card:#1c1c1e;
+    --up:#ff6b5a; --down:#5aa9ff; --flat:#9a9a9a; --warn:#fbbf24; }
+}
+* { box-sizing:border-box; }
+body { margin:0 auto; padding:1rem .9rem 3rem; max-width:44rem;
+  font:16px/1.65 -apple-system,BlinkMacSystemFont,"Apple SD Gothic Neo","Noto Sans KR",sans-serif;
+  color:var(--fg); word-break:keep-all; overflow-wrap:anywhere; }
+header { display:flex; align-items:baseline; gap:.5rem; margin-bottom:.7rem; }
+h1 { font-size:1.1rem; margin:0; }
+.date { color:var(--muted); font-size:.85rem; }
+
+/* 모바일 2열 고정 */
+.grid { display:grid; grid-template-columns:repeat(2,1fr); gap:.4rem; }
+@media (min-width:34rem) { .grid { grid-template-columns:repeat(4,1fr); } }
+.cell { background:var(--card); border-radius:8px; padding:.5rem .6rem; }
+.cell .k { font-size:.72rem; color:var(--muted); letter-spacing:-.02em; }
+.cell .v { font-size:1.02rem; font-weight:700; font-variant-numeric:tabular-nums; }
+.cell .d { font-size:.8rem; font-variant-numeric:tabular-nums; color:var(--flat); }
+.cell.up .d, .cell.up .v { color:var(--up); }
+.cell.down .d, .cell.down .v { color:var(--down); }
+.sep { border:0; border-top:1px solid var(--line); margin:.5rem 0; }
+.dash { margin-bottom:.8rem; }
+.comment { font-size:.9rem; color:var(--muted); margin:0 0 1.6rem; }
+
+section { margin-bottom:1.6rem; }
+h2 { font-size:1rem; margin:0 0 .5rem; padding-bottom:.25rem; border-bottom:1px solid var(--line); }
+h3 { font-size:.95rem; margin:0 0 .3rem; }
+h4 { font-size:.88rem; margin:1rem 0 .35rem; color:var(--muted); }
+article { margin-bottom:1rem; }
+p { margin:.4rem 0; }
+ul { margin:.4rem 0; padding-left:1.15rem; }
+li { margin:.25rem 0; }
+a { color:inherit; text-decoration:underline; text-underline-offset:2px; }
+/* 넓은 표는 페이지가 아니라 표 자신이 가로 스크롤한다 */
+.tw { overflow-x:auto; -webkit-overflow-scrolling:touch; margin:.6rem 0; }
+table { border-collapse:collapse; font-size:.82rem; min-width:100%; }
+th, td { border-bottom:1px solid var(--line); padding:.4rem .55rem; text-align:left;
+  vertical-align:top; white-space:nowrap; }
+th { background:var(--card); font-weight:600; position:sticky; top:0; }
+/* 단지명처럼 긴 값은 줄바꿈을 허용해 표가 지나치게 넓어지지 않게 한다 */
+td:nth-child(3) { white-space:normal; min-width:9rem; }
+tbody tr:nth-child(even) td { background:rgba(127,127,127,.05); }
+pre { white-space:pre-wrap; background:var(--card); padding:1rem; border-radius:6px; font-size:.85rem; }
+.warn { color:var(--warn); font-weight:600; }
+.failures { border:1px solid var(--line); border-radius:6px; padding:.8rem; }
+.failures h2 { border:0; color:var(--warn); }
+.failures li { color:var(--muted); font-size:.85rem; }
+footer { color:var(--muted); font-size:.78rem; border-top:1px solid var(--line); padding-top:.8rem; }</style>
+</head>
+<body>
+<header>
+<h1>🏠 부동산</h1>
+<span class="date">2026-11-06 KST</span>
+</header>
+<section class="dash">
+<div class="grid">
+<div class="cell up">
+<div class="k">매매 서울</div>
+<div class="v">+0.07%</div>
+<div class="d">-</div>
+</div>
+<div class="cell up">
+<div class="k">매매 수도권</div>
+<div class="v">+0.13%</div>
+<div class="d">-</div>
+</div>
+<div class="cell flat">
+<div class="k">매매 지방</div>
+<div class="v">0.00%</div>
+<div class="d">-</div>
+</div>
+<div class="cell up">
+<div class="k">전세 서울</div>
+<div class="v">+0.17%</div>
+<div class="d">-</div>
+</div>
+</div>
+<hr class="sep">
+<div class="grid">
+<div class="cell flat">
+<div class="k">공급물량</div>
+<div class="v">9,657호</div>
+<div class="d">-</div>
+</div>
+<div class="cell flat">
+<div class="k">입주물량</div>
+<div class="v">18,449호</div>
+<div class="d">-</div>
+</div>
+<div class="cell flat">
+<div class="k">미분양</div>
+<div class="v">13,802호</div>
+<div class="d">-</div>
+</div>
+<div class="cell flat">
+<div class="k">경매 낙찰가율</div>
+<div class="v">-</div>
+<div class="d">-</div>
+</div>
+</div>
+</section>
+<p class="comment">11월 2일(4일 전) 조사 기준 주간 통계로, 서울 매매는 0.07% 상승에 그쳤으나 전세는 0.17% 오름세를 유지했다.</p>
+<main>
+<section><h2>오늘 일정</h2>
+<p>2026-11-06: 고덕강일지구 3단지 토지임대부 접수, 시흥거모지구 S-1블록 공공분양 접수</p></section>
+<section><h2>예정 일정</h2>
+<p>2026-11-09: 광교 자연앤 센트레빌(A17BL) 공공분양 및 지분적립형 접수 개시</p>
+<p>2026-11-09: 남춘천 센트레빌 접수 개시</p>
+<p>2026-11-09: 안산신길2지구 B-1블록 공공분양주택 접수 개시</p>
+<p>2026-11-09: 평택 고덕 우미 린 더 프리미어 접수 개시</p>
+<p>2026-11-09: 구리갈매역세권 B-1블록 신안인스빌 디센트 접수 개시</p>
+<p>2026-11-09: 형곡 센트럴 아테라 접수 개시</p>
+<p>2026-11-09: 중앙하이츠 구성 플랫폼시티 접수 개시</p></section>
+<section><h2>어제 스레드 후속</h2>
+<p>2026-11-03에 던진 질문은 아직 미해소 상태다. 분양가상한제 단지와 광교 지분적립형 주택 등으로 청약 관심은 이어지고 있으나, 강남권 하락거래와 외곽 소형 아파트 상승세가 엇갈리면서 매매 시장 전체 관망세를 깨뜨릴지는 추가 청약 결과와 매매 거래량을 더 지켜봐야 한다.</p></section>
+<section><h2>이슈</h2>
+<article><h3>'25억 초과 주담대 금지' 찌라시 파동과 정부 수사의뢰</h3>
+<p>11월 중순 정부가 25억 원 초과 주담대 금지, 생애최초 LTV 40% 축소, 수도권 전세대출 보증비율 축소 등을 포함한 추가 대책을 발표할 것이라는 유포글이 시장에 돈다. 국토교통부와 금융위원회는 해당 내용이 전혀 사실이 아니며 수사 의뢰를 통해 엄정 대응하겠다고 밝혔다. [커뮤니티]에서는 &quot;정부가 부인하는 것을 보니 조만간 진짜 규제가 나오는 것 아니냐&quot;는 불안감과 &quot;말도 안 되는 가짜뉴스에 흔들릴 필요 없다&quot;는 의견이 팽배하게 맞선다.</p></article>
+<article><h3>강남3구 하락거래 속출 vs 서울 외곽 소형 아파트 상승</h3>
+<p>서울 아파트 매매시장에서 강남3구(강남·서초·송파)를 중심으로 직전 실거래가 대비 5% 이상 낮아진 하락거래가 잇따르고 있다. 반면 자금 부담이 상대적으로 적은 서울 외곽 중소형 아파트는 전셋값 상승 여파로 매수세가 유입되며 10억 원대에 진입하는 등 강세를 보인다. [커뮤니티]에서는 &quot;강남 거품이 먼저 꺼지기 시작했다&quot;는 주장과 &quot;대출 규제 여파로 상급지 거래가 일시 숨고르기에 들어간 것일 뿐&quot;이라는 해석이 엇갈린다.</p></article>
+<article><h3>국토부 '주택공급 통합지원센터' 신설 및 재초환 폐지 요구</h3>
+<p>국토교통부가 민간 주택 건설 사업의 인허가 지연과 PF 금융 애로를 해소하기 위해 국장급 전담 조직인 '주택공급 통합지원센터' 신설을 추진한다. 한편 서초구와 은마아파트 조합(추정 부담금 2조44억 원 통지) 등 재건축 현장에서는 재건축초과이익환수제(재초환)가 주택 공급을 위축시킨다며 제도 폐지를 정부에 요구하고 있다.</p></article></section>
+<section><h2>내일로 넘기는 질문</h2>
+<p>정부의 가짜뉴스 수사 의뢰와 주택공급 전담조직 신설이 관망세에 들어간 시장 심리를 다시 세울 수 있을까?</p></section>
+
+</main>
+<footer>생성 2026-11-06T03:14:10.694Z · 자동 생성된 요약이며 투자 권유가 아닙니다.</footer>
+</body>
+</html>
