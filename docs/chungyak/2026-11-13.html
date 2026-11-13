@@ -1,0 +1,364 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>2026-11-13 청약 브리핑</title>
+<style>:root { color-scheme: light dark;
+  --fg:#1a1a1a; --muted:#6b6b6b; --line:#e3e3e3; --card:#f6f6f7;
+  --up:#c0392b; --down:#1565c0; --flat:#6b6b6b; --warn:#b45309; }
+@media (prefers-color-scheme: dark) {
+  :root { --fg:#e8e8e8; --muted:#9a9a9a; --line:#333; --card:#1c1c1e;
+    --up:#ff6b5a; --down:#5aa9ff; --flat:#9a9a9a; --warn:#fbbf24; }
+}
+* { box-sizing:border-box; }
+body { margin:0 auto; padding:1rem .9rem 3rem; max-width:44rem;
+  font:16px/1.65 -apple-system,BlinkMacSystemFont,"Apple SD Gothic Neo","Noto Sans KR",sans-serif;
+  color:var(--fg); word-break:keep-all; overflow-wrap:anywhere; }
+header { display:flex; align-items:baseline; gap:.5rem; margin-bottom:.7rem; }
+h1 { font-size:1.1rem; margin:0; }
+.date { color:var(--muted); font-size:.85rem; }
+
+/* 모바일 2열 고정 */
+.grid { display:grid; grid-template-columns:repeat(2,1fr); gap:.4rem; }
+@media (min-width:34rem) { .grid { grid-template-columns:repeat(4,1fr); } }
+.cell { background:var(--card); border-radius:8px; padding:.5rem .6rem; }
+.cell .k { font-size:.72rem; color:var(--muted); letter-spacing:-.02em; }
+.cell .v { font-size:1.02rem; font-weight:700; font-variant-numeric:tabular-nums; }
+.cell .d { font-size:.8rem; font-variant-numeric:tabular-nums; color:var(--flat); }
+.cell.up .d, .cell.up .v { color:var(--up); }
+.cell.down .d, .cell.down .v { color:var(--down); }
+.sep { border:0; border-top:1px solid var(--line); margin:.5rem 0; }
+.dash { margin-bottom:.8rem; }
+.comment { font-size:.9rem; color:var(--muted); margin:0 0 1.6rem; }
+
+section { margin-bottom:1.6rem; }
+h2 { font-size:1rem; margin:0 0 .5rem; padding-bottom:.25rem; border-bottom:1px solid var(--line); }
+h3 { font-size:.95rem; margin:0 0 .3rem; }
+h4 { font-size:.88rem; margin:1rem 0 .35rem; color:var(--muted); }
+article { margin-bottom:1rem; }
+p { margin:.4rem 0; }
+ul { margin:.4rem 0; padding-left:1.15rem; }
+li { margin:.25rem 0; }
+a { color:inherit; text-decoration:underline; text-underline-offset:2px; }
+/* 넓은 표는 페이지가 아니라 표 자신이 가로 스크롤한다 */
+.tw { overflow-x:auto; -webkit-overflow-scrolling:touch; margin:.6rem 0; }
+table { border-collapse:collapse; font-size:.82rem; min-width:100%; }
+th, td { border-bottom:1px solid var(--line); padding:.4rem .55rem; text-align:left;
+  vertical-align:top; white-space:nowrap; }
+th { background:var(--card); font-weight:600; position:sticky; top:0; }
+/* 단지명처럼 긴 값은 줄바꿈을 허용해 표가 지나치게 넓어지지 않게 한다 */
+td:nth-child(3) { white-space:normal; min-width:9rem; }
+tbody tr:nth-child(even) td { background:rgba(127,127,127,.05); }
+pre { white-space:pre-wrap; background:var(--card); padding:1rem; border-radius:6px; font-size:.85rem; }
+.warn { color:var(--warn); font-weight:600; }
+.failures { border:1px solid var(--line); border-radius:6px; padding:.8rem; }
+.failures h2 { border:0; color:var(--warn); }
+.failures li { color:var(--muted); font-size:.85rem; }
+footer { color:var(--muted); font-size:.78rem; border-top:1px solid var(--line); padding-top:.8rem; }</style>
+</head>
+<body>
+<header>
+<h1>📒 청약</h1>
+<span class="date">2026-11-13 KST</span>
+</header>
+<section class="dash">
+<div class="grid">
+<div class="cell flat">
+<div class="k">진행·예정</div>
+<div class="v">21건</div>
+<div class="d">-</div>
+</div>
+<div class="cell flat">
+<div class="k">서울</div>
+<div class="v">4건</div>
+<div class="d">-</div>
+</div>
+<div class="cell flat">
+<div class="k">마감임박</div>
+<div class="v">5건</div>
+<div class="d">-</div>
+</div>
+<div class="cell flat">
+<div class="k">무순위</div>
+<div class="v">7건</div>
+<div class="d">-</div>
+</div>
+</div>
+<hr class="sep">
+<div class="grid">
+<div class="cell flat">
+<div class="k">최고 경쟁률</div>
+<div class="v">14,094.33:1</div>
+<div class="d">-</div>
+</div>
+</div>
+</section>
+<p class="comment">현재 청약통장 가입 1개월차로 일반 1순위 민영분양은 자격 미달 상태이므로, 통장이 필요 없는 서울 지역 무순위 및 오피스텔·도시형 트랙을 우선 공략해야 합니다.</p>
+<main>
+<section><h2>오늘 일정</h2>
+<p>2026-11-13 (금) 오늘 일정:</p>
+<ul>
+<li>[마감 D-3] 평택 고덕 국제신도시 A-55 대광로제비앙 모아엘가(4차) 무순위 (11/16 접수 예정)</li>
+<li>[마감 D-3] 이천자이 더 리체 무순위 (11/16 접수 예정)</li>
+<li>[마감 D-3] 송도자이 더 스타(3차) 무순위 (11/16 접수 예정)</li>
+<li>[마감 D-3] 안양자이 더 포레스트 무순위 (11/16 접수 예정)</li>
+<li>[마감 D-3] 중동역 다채로움 더원 무순위 (11/16 접수 예정)</li>
+<li>[마감 D-4] 청계 노르웨이숲(14차) 무순위 (11/16 접수 예정)</li>
+</ul></section>
+<section><h2>예정 일정</h2>
+<p>2026-11-16: 서울 청계 노르웨이숲(14차) 무순위 접수 시작</p>
+<p>2026-11-16: 서울 중화역 라온프라이빗 센트로 아파트 1순위/특별공급 접수 시작 (통장 미달로 신청 불가)</p>
+<p>2026-11-16: 서울 신대방역 더하이브퍼스트 도시형 청약 접수 시작</p>
+<p>2026-11-16: 경기/인천 무순위 5개 단지(평택고덕, 이천자이, 송도자이, 안양자이, 중동역) 접수</p>
+<p>2026-11-17: 서울 청계 노르웨이숲(14차) 무순위 접수 마감</p>
+<p>2026-11-19: 경기/인천 무순위 5개 단지 당첨자 발표</p>
+<p>2026-11-20: 서울 청계 노르웨이숲(14차) 무순위 당첨자 발표</p>
+<p>2026-11-25: 서울 중화역 라온프라이빗 센트로 오피스텔 청약 접수 시작</p></section>
+<section><h2>어제 스레드 후속</h2>
+<p>전일 스레드: 2026-11-12에 던진 질문: 현재 청약통장 1개월차이므로 11월 16일 접수인 서울 '청계 노르웨이숲 14차 무순위' 트랙 신청이 가장 유리합니다. 공식 모집공고에서 세부 거주요건 및 분양가를 확인하시겠습니까?</p>
+<p>본 분석은 정보 제공이며 수익이나 대출 승인을 보장하지 않습니다.</p></section>
+<section><h2>이슈</h2>
+<article><h3>[서울 아파트 무순위] 청계 노르웨이숲(14차) 무순위/잔여</h3>
+<h4>① 공고 개요 표</h4>
+<div class="tw"><table>
+<thead><tr><th>신청일~마감일</th><th>지역</th><th>단지</th><th>주택유형</th><th>공급구분</th><th>공급세대</th><th>통장 필요</th><th>신청 가능</th><th>맞는 트랙</th><th>경쟁률</th><th>신청</th></tr></thead>
+<tbody>
+<tr><td>2026-11-16~11-17</td><td>서울</td><td>청계 노르웨이숲(14차)</td><td>아파트</td><td>무순위</td><td>6</td><td>불필요</td><td>가능</td><td>무순위</td><td>미공개</td><td><a href="https://www.applyhome.co.kr/ap/apa/selectRemndrLttotPblancDetailView.do?houseManageNo=2026910290&amp;pblancNo=2026910290" target="_blank" rel="noopener">신청</a></td></tr>
+</tbody>
+</table></div>
+<p><a href="https://www.applyhome.co.kr/ai/aia/selectAPTRemndrLttotPblancDetailView.do?houseManageNo=2026910290&amp;pblancNo=2026910290" target="_blank" rel="noopener">모집공고 원문 보기</a></p>
+<h4>② 조건 표</h4>
+<div class="tw"><table>
+<thead><tr><th>항목</th><th>내용</th></tr></thead>
+<tbody>
+<tr><td>대표 평형 분양가</td><td>공고 확인 필요</td></tr>
+<tr><td>계약금 / 중도금 / 잔금</td><td>공고 확인 필요</td></tr>
+<tr><td>대출·이자후불제</td><td>공고 확인 필요</td></tr>
+<tr><td>입주일</td><td>2028년 07월</td></tr>
+<tr><td>전매·실거주·재당첨 제한</td><td>공고 확인 필요</td></tr>
+<tr><td>지역우선</td><td>서울특별시 거주자 우선 여부 공고 확인 필요</td></tr>
+<tr><td>가점·추첨 비율</td><td>추첨 100% (무순위)</td></tr>
+<tr><td>무순위 자격</td><td>무주택세대구성원 등 세부 요건 공고 확인 필요</td></tr>
+</tbody>
+</table></div>
+<h4>③ 판정 표</h4>
+<div class="tw"><table>
+<thead><tr><th>구분</th><th>판정</th><th>근거</th></tr></thead>
+<tbody>
+<tr><td>당첨 가능성</td><td>가능</td><td>통장 가입기간과 무관하게 신청 가능한 무순위 공급이며 서울 8년 거주 조건 보유</td></tr>
+<tr><td>당첨 전략</td><td>추첨제 공략</td><td>통장 순위 및 가점 미반영 100% 추첨이므로 무주택 자격 유지 후 접수</td></tr>
+<tr><td>자금계획</td><td>조달 가능</td><td>6억원 금융자산 보유로 초기 계약금 및 잔금 조달 용이 (세부 분양가 확인 필요)</td></tr>
+<tr><td>예상수익</td><td>실거래 비교 데이터 없음</td><td>분양가 미공개로 시세 차익 계산 불가</td></tr>
+<tr><td>리스크</td><td>주식 현금화 시점</td><td>필요 자금 마련을 위한 주식 매도시 세금 및 가격 변동 리스크 존재</td></tr>
+</tbody>
+</table></div>
+<h4>④ 매력도 표</h4>
+<div class="tw"><table>
+<thead><tr><th>항목</th><th>배점</th><th>점수</th></tr></thead>
+<tbody>
+<tr><td>가격·안전마진</td><td>2</td><td>1.0</td></tr>
+<tr><td>입지·미래가치</td><td>2</td><td>1.5</td></tr>
+<tr><td>사용자 기준 당첨 가능성</td><td>2</td><td>2.0</td></tr>
+<tr><td>자금조달 용이성</td><td>2</td><td>1.5</td></tr>
+<tr><td>규제·시장 리스크</td><td>2</td><td>1.0</td></tr>
+<tr><td><strong>총점</strong></td><td><strong>10</strong></td><td><strong>7.0</strong></td></tr>
+</tbody>
+</table></div>
+<h4>⑤ 예상투자금 표</h4>
+<p>분양가 미공개 — 모집공고 확인 후 산정</p>
+<h4>⑥ 신청 전략 표</h4>
+<div class="tw"><table>
+<thead><tr><th>항목</th><th>내용</th></tr></thead>
+<tbody>
+<tr><td>인기 평형</td><td>경쟁률 미공개 — 타입별 비교 불가</td></tr>
+<tr><td>비인기 평형</td><td>공고 확인 필요</td></tr>
+<tr><td>추천 타입</td><td>공급 세대수가 가장 많은 타입을 모집공고 확인 후 선택</td></tr>
+<tr><td>예비당첨 전망</td><td>공고 확인 필요</td></tr>
+<tr><td>신청 트랙</td><td>무순위/잔여세대 공급 트랙</td></tr>
+<tr><td>부적격 방지</td><td>서울 거주 요건 및 무주택 세대주/세대원 기준 재확인 필요</td></tr>
+</tbody>
+</table></div></article>
+<article><h3>[서울 아파트 민영] 중화역 라온프라이빗 센트로</h3>
+<h4>① 공고 개요 표</h4>
+<div class="tw"><table>
+<thead><tr><th>신청일~마감일</th><th>지역</th><th>단지</th><th>주택유형</th><th>공급구분</th><th>공급세대</th><th>통장 필요</th><th>신청 가능</th><th>맞는 트랙</th><th>경쟁률</th><th>신청</th></tr></thead>
+<tbody>
+<tr><td>2026-11-16~11-19</td><td>서울</td><td>중화역 라온프라이빗 센트로</td><td>아파트</td><td>민영</td><td>113</td><td>필요</td><td>불가</td><td>1순위 (순위미달)</td><td>미공개</td><td><a href="https://www.applyhome.co.kr/ap/apa/selectAPTLttotPblancDetailView.do?houseManageNo=2026000497&amp;pblancNo=2026000497" target="_blank" rel="noopener">신청</a></td></tr>
+</tbody>
+</table></div>
+<p><a href="https://www.applyhome.co.kr/ai/aia/selectAPTLttotPblancDetail.do?houseManageNo=2026000497&amp;pblancNo=2026000497" target="_blank" rel="noopener">모집공고 원문 보기</a></p>
+<h4>② 조건 표</h4>
+<div class="tw"><table>
+<thead><tr><th>항목</th><th>내용</th></tr></thead>
+<tbody>
+<tr><td>대표 평형 분양가</td><td>공고 확인 필요</td></tr>
+<tr><td>계약금 / 중도금 / 잔금</td><td>공고 확인 필요</td></tr>
+<tr><td>대출·이자후불제</td><td>공고 확인 필요</td></tr>
+<tr><td>입주일</td><td>2029년 02월</td></tr>
+<tr><td>전매·실거주·재당첨 제한</td><td>조정대상지역(Y) 규제 적용, 세부사항 공고 확인 필요</td></tr>
+<tr><td>지역우선</td><td>서울특별시 2년 이상 계속 거주자 우선</td></tr>
+<tr><td>가점·추첨 비율</td><td>공고 확인 필요</td></tr>
+<tr><td>무순위 자격</td><td>해당 없음</td></tr>
+</tbody>
+</table></div>
+<h4>③ 판정 표</h4>
+<div class="tw"><table>
+<thead><tr><th>구분</th><th>판정</th><th>근거</th></tr></thead>
+<tbody>
+<tr><td>당첨 가능성</td><td>불가</td><td>통장 가입 1개월차로 서울 1순위 청약 요건(12개월 이상) 미달. 가능 시점: 2027-10</td></tr>
+<tr><td>당첨 전략</td><td>산정 보류 (신청 자격 미달)</td><td>청약 자격 미달로 현 시점 신청 불가</td></tr>
+<tr><td>자금계획</td><td>산정 보류 (신청 자격 미달)</td><td>신청 자격 미달</td></tr>
+<tr><td>예상수익</td><td>산정 보류 (신청 자격 미달)</td><td>신청 자격 미달</td></tr>
+<tr><td>리스크</td><td>순위 미달 부적격</td><td>1순위 접수 시 가입 기간 미달로 무조건 부적격 처리됨</td></tr>
+</tbody>
+</table></div>
+<h4>④ 매력도 표</h4>
+<div class="tw"><table>
+<thead><tr><th>항목</th><th>배점</th><th>점수</th></tr></thead>
+<tbody>
+<tr><td>가격·안전마진</td><td>2</td><td>1.0</td></tr>
+<tr><td>입지·미래가치</td><td>2</td><td>1.0</td></tr>
+<tr><td>사용자 기준 당첨 가능성</td><td>2</td><td>0.0</td></tr>
+<tr><td>자금조달 용이성</td><td>2</td><td>1.0</td></tr>
+<tr><td>규제·시장 리스크</td><td>2</td><td>1.0</td></tr>
+<tr><td><strong>총점</strong></td><td><strong>10</strong></td><td><strong>4.0</strong></td></tr>
+</tbody>
+</table></div></article>
+<article><h3>[서울 오피스텔/도시형] 신대방역 더하이브퍼스트 &amp; 중화역 라온프라이빗 센트로</h3>
+<h4>① 공고 개요 표</h4>
+<div class="tw"><table>
+<thead><tr><th>신청일~마감일</th><th>지역</th><th>단지</th><th>주택유형</th><th>공급구분</th><th>공급세대</th><th>통장 필요</th><th>신청 가능</th><th>맞는 트랙</th><th>경쟁률</th><th>신청</th></tr></thead>
+<tbody>
+<tr><td>2026-11-16~11-18</td><td>서울</td><td>신대방역 더하이브퍼스트</td><td>도시형생활주택</td><td>도시형</td><td>12</td><td>불필요</td><td>가능</td><td>일반</td><td>미공개</td><td><a href="https://www.applyhome.co.kr/ap/apo/selectUrbtyOfctlPblancDetailView.do?houseManageNo=2026950095&amp;pblancNo=2026950095" target="_blank" rel="noopener">신청</a></td></tr>
+<tr><td>2026-11-25~11-26</td><td>서울</td><td>중화역 라온프라이빗 센트로</td><td>오피스텔</td><td>오피스텔</td><td>74</td><td>불필요</td><td>가능</td><td>일반</td><td>미공개</td><td><a href="https://www.applyhome.co.kr/ap/apo/selectUrbtyOfctlPblancDetailView.do?houseManageNo=2026950090&amp;pblancNo=2026950090" target="_blank" rel="noopener">신청</a></td></tr>
+</tbody>
+</table></div>
+<p>*오피스텔 및 도시형생활주택은 청약통장 보유 여부 및 주택수와 무관하게 신청 가능합니다.*</p>
+<h4>② 조건 표 (신대방역 더하이브퍼스트)</h4>
+<div class="tw"><table>
+<thead><tr><th>항목</th><th>내용</th></tr></thead>
+<tbody>
+<tr><td>대표 평형 분양가 / 계약금 / 중도금</td><td>공고 확인 필요</td></tr>
+<tr><td>입주일</td><td>2028년 05월</td></tr>
+<tr><td>전매·실거주 제한</td><td>공고 확인 필요</td></tr>
+</tbody>
+</table></div>
+<h4>③ 판정 표 (신대방역 더하이브퍼스트)</h4>
+<div class="tw"><table>
+<thead><tr><th>구분</th><th>판정</th><th>근거</th></tr></thead>
+<tbody>
+<tr><td>당첨 가능성</td><td>가능</td><td>청약통장 미요구 상품으로 즉시 신청 가능</td></tr>
+<tr><td>당첨 전략</td><td>추첨 대응</td><td>100% 추첨으로 당첨자 선발</td></tr>
+<tr><td>자금계획</td><td>조달 가능</td><td>6억원 자산 활용 가능 (분양가 확인 필요)</td></tr>
+<tr><td>예상수익</td><td>실거래 비교 데이터 없음</td><td>시세 비교 데이터 없음</td></tr>
+<tr><td>리스크</td><td>아파트 대비 상품성</td><td>도시형생활주택 특성상 아파트 대비 환금성 및 시세상승 제한적</td></tr>
+</tbody>
+</table></div>
+<h4>④ 매력도 표</h4>
+<div class="tw"><table>
+<thead><tr><th>항목</th><th>배점</th><th>점수</th></tr></thead>
+<tbody>
+<tr><td>가격·안전마진</td><td>2</td><td>1.0</td></tr>
+<tr><td>입지·미래가치</td><td>2</td><td>1.0</td></tr>
+<tr><td>사용자 기준 당첨 가능성</td><td>2</td><td>2.0</td></tr>
+<tr><td>자금조달 용이성</td><td>2</td><td>1.0</td></tr>
+<tr><td>규제·시장 리스크</td><td>2</td><td>1.0</td></tr>
+<tr><td><strong>총점</strong></td><td><strong>10</strong></td><td><strong>6.0</strong></td></tr>
+</tbody>
+</table></div>
+<h4>⑤ 예상투자금 표</h4>
+<p>분양가 미공개 — 모집공고 확인 후 산정</p>
+<h4>⑥ 신청 전략 표</h4>
+<div class="tw"><table>
+<thead><tr><th>항목</th><th>내용</th></tr></thead>
+<tbody>
+<tr><td>인기 평형</td><td>경쟁률 미공개 — 타입별 비교 불가</td></tr>
+<tr><td>비인기 평형</td><td>공고 확인 필요</td></tr>
+<tr><td>추천 타입</td><td>거주 및 임대 수요 검토 후 지정</td></tr>
+<tr><td>예비당첨 전망</td><td>공고 확인 필요</td></tr>
+<tr><td>신청 트랙</td><td>일반 청약 트랙</td></tr>
+<tr><td>부적격 방지</td><td>환불 계좌 및 본인 인증 정보 재확인</td></tr>
+</tbody>
+</table></div></article>
+<article><h3>[경기/인천 무순위] 수도권 주요 아파트 잔여세대 청약</h3>
+<h4>① 공고 개요 표</h4>
+<div class="tw"><table>
+<thead><tr><th>신청일~마감일</th><th>지역</th><th>단지</th><th>주택유형</th><th>공급구분</th><th>공급세대</th><th>통장 필요</th><th>신청 가능</th><th>맞는 트랙</th><th>경쟁률</th><th>신청</th></tr></thead>
+<tbody>
+<tr><td>2026-11-16~11-16</td><td>경기</td><td>평택 고덕 국제신도시 A-55 대광로제비앙 모아엘가(4차)</td><td>아파트</td><td>무순위</td><td>3</td><td>불필요</td><td>조건부</td><td>거주지 요건 확인</td><td>미공개</td><td><a href="https://www.applyhome.co.kr/ap/apa/selectRemndrLttotPblancDetailView.do?houseManageNo=2026910297&amp;pblancNo=2026910297" target="_blank" rel="noopener">신청</a></td></tr>
+<tr><td>2026-11-16~11-16</td><td>경기</td><td>이천자이 더 리체</td><td>아파트</td><td>무순위</td><td>3</td><td>불필요</td><td>조건부</td><td>거주지 요건 확인</td><td>미공개</td><td><a href="https://www.applyhome.co.kr/ap/apa/selectRemndrLttotPblancDetailView.do?houseManageNo=2026910293&amp;pblancNo=2026910293" target="_blank" rel="noopener">신청</a></td></tr>
+<tr><td>2026-11-16~11-16</td><td>인천</td><td>송도자이 더 스타(3차)</td><td>아파트</td><td>무순위</td><td>1</td><td>불필요</td><td>조건부</td><td>거주지 요건 확인</td><td>미공개</td><td><a href="https://www.applyhome.co.kr/ap/apa/selectRemndrLttotPblancDetailView.do?houseManageNo=2026910291&amp;pblancNo=2026910291" target="_blank" rel="noopener">신청</a></td></tr>
+<tr><td>2026-11-16~11-16</td><td>경기</td><td>안양자이 더 포레스트</td><td>아파트</td><td>무순위</td><td>1</td><td>불필요</td><td>조건부</td><td>거주지 요건 확인</td><td>미공개</td><td><a href="https://www.applyhome.co.kr/ap/apa/selectRemndrLttotPblancDetailView.do?houseManageNo=2026910288&amp;pblancNo=2026910288" target="_blank" rel="noopener">신청</a></td></tr>
+<tr><td>2026-11-16~11-16</td><td>경기</td><td>중동역 다채로움 더원</td><td>아파트</td><td>무순위</td><td>23</td><td>불필요</td><td>조건부</td><td>거주지 요건 확인</td><td>미공개</td><td><a href="https://www.applyhome.co.kr/ap/apa/selectRemndrLttotPblancDetailView.do?houseManageNo=2026910284&amp;pblancNo=2026910284" target="_blank" rel="noopener">신청</a></td></tr>
+</tbody>
+</table></div>
+<h4>② 조건 표</h4>
+<div class="tw"><table>
+<thead><tr><th>항목</th><th>내용</th></tr></thead>
+<tbody>
+<tr><td>대표 평형 분양가</td><td>공고 확인 필요</td></tr>
+<tr><td>무순위 자격 요건</td><td>무순위별 전국 청약 가능 여부 또는 해당 시·군 거주자 제한 여부 공고 원문 확인 필요</td></tr>
+</tbody>
+</table></div>
+<h4>③ 판정 표</h4>
+<div class="tw"><table>
+<thead><tr><th>구분</th><th>판정</th><th>근거</th></tr></thead>
+<tbody>
+<tr><td>당첨 가능성</td><td>조건부</td><td>거주지 제한(해당 지역 거주자 한정 등)에 따라 신청 자격 유무가 달라짐</td></tr>
+<tr><td>당첨 전략</td><td>전국 무순위 공략</td><td>전국 거주자 대상 무순위 단지 확인 후 접수</td></tr>
+<tr><td>자금계획</td><td>조달 가능</td><td>6억원 현금성 자산 활용 가능</td></tr>
+<tr><td>예상수익</td><td>실거래 비교 데이터 없음</td><td>시세 비교 데이터 없음</td></tr>
+<tr><td>리스크</td><td>실거주 의무 및 거주지 조건</td><td>실거주 의무 및 무순위 신청 거주지 요건 미확인 리스크</td></tr>
+</tbody>
+</table></div>
+<h4>④ 매력도 표</h4>
+<div class="tw"><table>
+<thead><tr><th>항목</th><th>배점</th><th>점수</th></tr></thead>
+<tbody>
+<tr><td>가격·안전마진</td><td>2</td><td>1.0</td></tr>
+<tr><td>입지·미래가치</td><td>2</td><td>1.0</td></tr>
+<tr><td>사용자 기준 당첨 가능성</td><td>2</td><td>1.0</td></tr>
+<tr><td>자금조달 용이성</td><td>2</td><td>1.5</td></tr>
+<tr><td>규제·시장 리스크</td><td>2</td><td>1.0</td></tr>
+<tr><td><strong>총점</strong></td><td><strong>10</strong></td><td><strong>5.5</strong></td></tr>
+</tbody>
+</table></div>
+<h4>⑤ 예상투자금 표</h4>
+<p>분양가 미공개 — 모집공고 확인 후 산정</p>
+<h4>⑥ 신청 전략 표</h4>
+<div class="tw"><table>
+<thead><tr><th>항목</th><th>내용</th></tr></thead>
+<tbody>
+<tr><td>인기 평형</td><td>경쟁률 미공개 — 타입별 비교 불가</td></tr>
+<tr><td>비인기 평형</td><td>공고 확인 필요</td></tr>
+<tr><td>추천 타입</td><td>공급 세대수가 상대적으로 많은 타입 선택</td></tr>
+<tr><td>예비당첨 전망</td><td>공고 확인 필요</td></tr>
+<tr><td>신청 트랙</td><td>무순위 사후접수 트랙</td></tr>
+<tr><td>부적격 방지</td><td>무순위 당첨 후 계약 포기 시 재당첨 제한 여부 공고 확인 필요</td></tr>
+</tbody>
+</table></div></article>
+<article><h3>[경쟁률 인기순위] 최근 접수 무순위/잔여 경쟁률 현황</h3>
+<h4>경쟁률 인기순위 표</h4>
+<div class="tw"><table>
+<thead><tr><th>순위</th><th>단지</th><th>지역</th><th>타입</th><th>공급</th><th>접수</th><th>경쟁률</th></tr></thead>
+<tbody>
+<tr><td>1</td><td>철산자이 더 헤리티지</td><td>경기</td><td>059.9626</td><td>3</td><td>42,283</td><td>14,094.33:1</td></tr>
+<tr><td>2</td><td>철산자이 더 헤리티지</td><td>경기</td><td>059.9353</td><td>1</td><td>12,343</td><td>12,343.00:1</td></tr>
+<tr><td>3</td><td>캐슬앤파밀리에 디아트(M1블록)</td><td>세종</td><td>096.7880</td><td>1</td><td>11,292</td><td>11,292.00:1</td></tr>
+<tr><td>4</td><td>캐슬앤파밀리에 디아트(L2블록)</td><td>세종</td><td>059.2240</td><td>1</td><td>5,667</td><td>5,667.00:1</td></tr>
+<tr><td>5</td><td>동탄신도시 금강펜테리움 6차</td><td>경기</td><td>100.8334A</td><td>3</td><td>5,999</td><td>1,999.67:1</td></tr>
+<tr><td>6</td><td>인천 검단신도시 AB20-2블록 중흥S-클래스</td><td>인천</td><td>084.8058B</td><td>1</td><td>2,870</td><td>2,870.00:1</td></tr>
+<tr><td>7</td><td>파주 운정신도시 우미 린 더 센텀</td><td>경기</td><td>084.9891A</td><td>1</td><td>2,564</td><td>2,564.00:1</td></tr>
+<tr><td>8</td><td>파주 운정신도시 우미 린 더 센텀</td><td>경기</td><td>084.9867B</td><td>1</td><td>2,417</td><td>2,417.00:1</td></tr>
+<tr><td>9</td><td>창원 롯데캐슬 하버팰리스</td><td>경남</td><td>084.9976A</td><td>2</td><td>3,946</td><td>1,973.00:1</td></tr>
+<tr><td>10</td><td>e편한세상 동탄 파크아너스 A56블럭</td><td>경기</td><td>099.9869B</td><td>1</td><td>1,172</td><td>1,172.00:1</td></tr>
+</tbody>
+</table></div></article></section>
+<section><h2>내일로 넘기는 질문</h2>
+<p>11월 16일 접수하는 서울 중구 '청계 노르웨이숲 14차' 무순위 모집공고에서 세부 분양가와 서울 거주자 신청 자격을 확인하시겠습니까?</p></section>
+
+</main>
+<footer>생성 2026-11-13T07:32:45.475Z · 자동 생성된 요약이며 투자 권유가 아닙니다.</footer>
+</body>
+</html>
