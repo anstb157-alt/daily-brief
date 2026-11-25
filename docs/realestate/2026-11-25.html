@@ -1,0 +1,144 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>2026-11-25 부동산 브리핑</title>
+<style>:root { color-scheme: light dark;
+  --fg:#1a1a1a; --muted:#6b6b6b; --line:#e3e3e3; --card:#f6f6f7;
+  --up:#c0392b; --down:#1565c0; --flat:#6b6b6b; --warn:#b45309; }
+@media (prefers-color-scheme: dark) {
+  :root { --fg:#e8e8e8; --muted:#9a9a9a; --line:#333; --card:#1c1c1e;
+    --up:#ff6b5a; --down:#5aa9ff; --flat:#9a9a9a; --warn:#fbbf24; }
+}
+* { box-sizing:border-box; }
+body { margin:0 auto; padding:1rem .9rem 3rem; max-width:44rem;
+  font:16px/1.65 -apple-system,BlinkMacSystemFont,"Apple SD Gothic Neo","Noto Sans KR",sans-serif;
+  color:var(--fg); word-break:keep-all; overflow-wrap:anywhere; }
+header { display:flex; align-items:baseline; gap:.5rem; margin-bottom:.7rem; }
+h1 { font-size:1.1rem; margin:0; }
+.date { color:var(--muted); font-size:.85rem; }
+
+/* 모바일 2열 고정 */
+.grid { display:grid; grid-template-columns:repeat(2,1fr); gap:.4rem; }
+@media (min-width:34rem) { .grid { grid-template-columns:repeat(4,1fr); } }
+.cell { background:var(--card); border-radius:8px; padding:.5rem .6rem; }
+.cell .k { font-size:.72rem; color:var(--muted); letter-spacing:-.02em; }
+.cell .v { font-size:1.02rem; font-weight:700; font-variant-numeric:tabular-nums; }
+.cell .d { font-size:.8rem; font-variant-numeric:tabular-nums; color:var(--flat); }
+.cell.up .d, .cell.up .v { color:var(--up); }
+.cell.down .d, .cell.down .v { color:var(--down); }
+.sep { border:0; border-top:1px solid var(--line); margin:.5rem 0; }
+.dash { margin-bottom:.8rem; }
+.comment { font-size:.9rem; color:var(--muted); margin:0 0 1.6rem; }
+
+section { margin-bottom:1.6rem; }
+h2 { font-size:1rem; margin:0 0 .5rem; padding-bottom:.25rem; border-bottom:1px solid var(--line); }
+h3 { font-size:.95rem; margin:0 0 .3rem; }
+h4 { font-size:.88rem; margin:1rem 0 .35rem; color:var(--muted); }
+article { margin-bottom:1rem; }
+p { margin:.4rem 0; }
+ul { margin:.4rem 0; padding-left:1.15rem; }
+li { margin:.25rem 0; }
+a { color:inherit; text-decoration:underline; text-underline-offset:2px; }
+/* 넓은 표는 페이지가 아니라 표 자신이 가로 스크롤한다 */
+.tw { overflow-x:auto; -webkit-overflow-scrolling:touch; margin:.6rem 0; }
+table { border-collapse:collapse; font-size:.82rem; min-width:100%; }
+th, td { border-bottom:1px solid var(--line); padding:.4rem .55rem; text-align:left;
+  vertical-align:top; white-space:nowrap; }
+th { background:var(--card); font-weight:600; position:sticky; top:0; }
+/* 단지명처럼 긴 값은 줄바꿈을 허용해 표가 지나치게 넓어지지 않게 한다 */
+td:nth-child(3) { white-space:normal; min-width:9rem; }
+tbody tr:nth-child(even) td { background:rgba(127,127,127,.05); }
+pre { white-space:pre-wrap; background:var(--card); padding:1rem; border-radius:6px; font-size:.85rem; }
+.warn { color:var(--warn); font-weight:600; }
+.failures { border:1px solid var(--line); border-radius:6px; padding:.8rem; }
+.failures h2 { border:0; color:var(--warn); }
+.failures li { color:var(--muted); font-size:.85rem; }
+footer { color:var(--muted); font-size:.78rem; border-top:1px solid var(--line); padding-top:.8rem; }</style>
+</head>
+<body>
+<header>
+<h1>🏠 부동산</h1>
+<span class="date">2026-11-25 KST</span>
+</header>
+<section class="dash">
+<div class="grid">
+<div class="cell up">
+<div class="k">매매 서울</div>
+<div class="v">+0.03%</div>
+<div class="d">-</div>
+</div>
+<div class="cell up">
+<div class="k">매매 수도권</div>
+<div class="v">+0.12%</div>
+<div class="d">-</div>
+</div>
+<div class="cell flat">
+<div class="k">매매 지방</div>
+<div class="v">0.00%</div>
+<div class="d">-</div>
+</div>
+<div class="cell up">
+<div class="k">전세 서울</div>
+<div class="v">+0.14%</div>
+<div class="d">-</div>
+</div>
+</div>
+<hr class="sep">
+<div class="grid">
+<div class="cell flat">
+<div class="k">공급물량</div>
+<div class="v">12,021호</div>
+<div class="d">-</div>
+</div>
+<div class="cell flat">
+<div class="k">입주물량</div>
+<div class="v">18,449호</div>
+<div class="d">-</div>
+</div>
+<div class="cell flat">
+<div class="k">미분양</div>
+<div class="v">13,802호</div>
+<div class="d">-</div>
+</div>
+<div class="cell flat">
+<div class="k">경매 낙찰가율</div>
+<div class="v">-</div>
+<div class="d">-</div>
+</div>
+</div>
+</section>
+<p class="comment">2026년 11월 16일 조사 기준(9일 전 발표치) 주간 변동률 데이터입니다.</p>
+<main>
+<section><h2>오늘 일정</h2>
+<p>2026-11-25: 두산위브 트레지움 익산, 구미 파크원 데시앙, 호반써밋 초량, 더샵 트리센트, 화정1지구 아르엘, 엘리프 논산 디에디션, 아르뮤제자이, 부천대장 하우스토리 디센트 청약 접수 마감</p>
+<p>2026-11-26: 해링턴 플레이스 문래 청약 접수 마감</p>
+<p>2026-11-27: 시흥 거모 아테라 청약 접수 마감</p></section>
+<section><h2>예정 일정</h2>
+<p>2026-11-25 두산위브 트레지움 익산 청약 마감</p>
+<p>2026-11-25 구미 파크원 데시앙 청약 마감</p>
+<p>2026-11-25 호반써밋 초량 청약 마감</p>
+<p>2026-11-25 더샵 트리센트 청약 마감</p>
+<p>2026-11-25 화정1지구 아르엘 청약 마감</p>
+<p>2026-11-25 엘리프 논산 디에디션 청약 마감</p>
+<p>2026-11-25 아르뮤제자이 청약 마감</p>
+<p>2026-11-25 부천대장 하우스토리 디센트 청약 마감</p>
+<p>2026-11-26 해링턴 플레이스 문래 청약 마감</p>
+<p>2026-11-27 시흥 거모 아테라 청약 마감</p></section>
+<section><h2>어제 스레드 후속</h2>
+<p>분상제 단지 쏠림이 비분상제 분양가 하향 압력으로 이어질지는 오늘 데이터만으로 직접 확인하기 어려워 아직 모름. 오늘 볼 것은 고분양가 여파로 나타난 소형 평형 쏠림 현상의 지속 여부임.</p></section>
+<section><h2>이슈</h2>
+<article><h3>서울 청약 소형 쏠림과 매매 거래 감소</h3>
+<p>서울 1순위 청약 신청자의 80.8%가 전용 60㎡ 이하 소형에 몰렸다. 높은 분양가 부담이 주요 원인으로 꼽힌다. 서울 아파트 매매 거래량은 5월 8,988건에서 9월 3,455건으로 60% 이상 급격히 줄며 매물이 쌓이는 추세다. [커뮤니티] &quot;자금이 부족하니 소형이라도 서울 새 아파트를 받는 게 맞다&quot;는 입장과 &quot;높은 분양가 때문에 주거 면적을 포기하는 것은 문제&quot;라는 의견이 대립하고 있다.</p></article>
+<article><h3>대출 금리 상승과 전세의 월세화 전환</h3>
+<p>10월 전세자금대출 금리가 4.63%로 상승하며 가계 금융 부담이 커졌다. 이 영향으로 전세 대신 월세를 선택하는 비중이 늘면서 수도권 아파트 임대차 시장에서 월세 비중이 절반을 넘어섰다. [커뮤니티] &quot;높은 전세 대출 이자를 내느니 월세가 낫다&quot;는 반응과 &quot;월세 지출 증가로 자산 형성 기회가 줄어든다&quot;는 우려가 동시에 나온다.</p></article>
+<article><h3>경기주택도시공사(GH) 전세임대 사기 발생</h3>
+<p>경기도 주택 정책을 담당하는 GH의 기존주택 전세임대 사업에서 1억 6천만 원 규모의 전세사기 피해가 확인됐다. 경기도는 긴급 조사와 피해 구제 대책 마련을 지시했다. [커뮤니티] 공공기관이 추진하는 임대 사업마저 전세사기에 노출되었다는 사실에 신뢰도 저하를 지적하는 이견 없는 불안 반응이 이어졌다.</p></article></section>
+<section><h2>내일로 넘기는 질문</h2>
+<p>대출 금리 인상과 월세화가 가속하는 상황에서 수도권 아파트의 매매 거래 절벽 흐름이 당분간 이어질까?</p></section>
+
+</main>
+<footer>생성 2026-11-25T05:15:34.106Z · 자동 생성된 요약이며 투자 권유가 아닙니다.</footer>
+</body>
+</html>
